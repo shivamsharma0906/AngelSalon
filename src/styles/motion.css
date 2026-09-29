@@ -1,0 +1,174 @@
+/* ==========================================================================
+   Angels Salon & Academy - Lightweight Motion System
+   Speed-first: Transform & Opacity only. Progressive enhancement.
+   ========================================================================== */
+
+:root {
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 200ms;
+  --dur: 500ms;
+  --dur-slow: 700ms;
+  --stagger: 80ms;
+  --rise: 20px;
+}
+
+/* ==========================================================================
+   Progressive Enhancement:
+   If JS fails or is disabled, .js is never added to <html>, so all elements
+   remain 100% visible and un-shifted by default.
+   ========================================================================== */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--rise));
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  will-change: opacity, transform;
+}
+
+.js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Horizontal slide variants */
+.js [data-reveal="left"] {
+  transform: translateX(calc(var(--rise) * -1));
+}
+
+.js [data-reveal="right"] {
+  transform: translateX(var(--rise));
+}
+
+.js [data-reveal="left"].is-revealed,
+.js [data-reveal="right"].is-revealed {
+  transform: translateX(0);
+}
+
+/* Soft image reveal variant using clip-path + scale (preserves CLS < 0.05) */
+.js [data-reveal="image"] {
+  opacity: 0;
+  transform: scale(1.06);
+  clip-path: inset(0 0 8% 0);
+  transition: opacity var(--dur-slow) var(--ease),
+              transform var(--dur-slow) var(--ease),
+              clip-path var(--dur-slow) var(--ease);
+  will-change: opacity, transform, clip-path;
+}
+
+.js [data-reveal="image"].is-revealed {
+  opacity: 1;
+  transform: scale(1);
+  clip-path: inset(0 0 0 0);
+}
+
+/* Auto-staggering up to 6 children */
+.js [data-reveal-stagger] > *:nth-child(1) { transition-delay: calc(var(--stagger) * 0); }
+.js [data-reveal-stagger] > *:nth-child(2) { transition-delay: calc(var(--stagger) * 1); }
+.js [data-reveal-stagger] > *:nth-child(3) { transition-delay: calc(var(--stagger) * 2); }
+.js [data-reveal-stagger] > *:nth-child(4) { transition-delay: calc(var(--stagger) * 3); }
+.js [data-reveal-stagger] > *:nth-child(5) { transition-delay: calc(var(--stagger) * 4); }
+.js [data-reveal-stagger] > *:nth-child(6) { transition-delay: calc(var(--stagger) * 5); }
+
+/* ==========================================================================
+   Phase 3: Hover & Interaction Effects
+   Strictly scoped to fine pointers with true hover capability (no sticky mobile states)
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+  /* Premium card lift with subtle gold ambient halo */
+  [data-card-hover] {
+    transition: transform var(--dur-fast) var(--ease-out),
+                box-shadow var(--dur-fast) var(--ease-out),
+                border-color var(--dur-fast) var(--ease-out);
+    position: relative;
+  }
+
+  [data-card-hover]:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.7),
+                0 0 20px 2px rgba(201, 162, 39, 0.18);
+    border-color: rgba(201, 162, 39, 0.5) !important;
+  }
+
+  /* Luxurious gold shimmer sweep for primary buttons */
+  [data-btn-sweep] {
+    position: relative;
+    overflow: hidden;
+  }
+
+  [data-btn-sweep]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: transform 650ms var(--ease);
+    pointer-events: none;
+  }
+
+  [data-btn-sweep]:hover::after {
+    transform: translateX(350%) skewX(-20deg);
+  }
+
+  /* Animated underline drawing from left to right */
+  [data-link-draw] {
+    position: relative;
+    display: inline-block;
+  }
+
+  [data-link-draw]::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--color-gold, #C9A227);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  [data-link-draw]:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* ==========================================================================
+   Accessibility: Strict Reduced Motion Override
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal],
+  .js [data-reveal="left"],
+  .js [data-reveal="right"],
+  .js [data-reveal="image"] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .js [data-reveal-stagger] > * {
+    transition-delay: 0ms !important;
+  }
+
+  [data-card-hover],
+  [data-btn-sweep],
+  [data-link-draw] {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  [data-btn-sweep]::after,
+  [data-link-draw]::after {
+    display: none !important;
+  }
+}

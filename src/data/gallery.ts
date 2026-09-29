@@ -1,0 +1,346 @@
+export type GalleryCategory = 'all' | 'hair' | 'colour' | 'nails' | 'offers' | 'bridal' | 'academy' | 'salon';
+
+export interface GalleryFilter {
+  id: GalleryCategory;
+  label: string;
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  category: GalleryCategory;
+  categoryLabel: string;
+  description: string;
+  image: string;
+  alt: string;
+  width: number;
+  height: number;
+  aspectRatio: string;
+  clientStory?: string;
+  serviceRendered?: string;
+}
+
+export interface VideoItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  duration: string;
+  thumbnail: string;
+  youtubeId: string;
+  uploadDate: string;
+}
+
+export const galleryFilters: GalleryFilter[] = [
+  { id: 'all', label: 'All Works' },
+  { id: 'hair', label: 'Hair & Styling' },
+  { id: 'colour', label: 'Colour & Balayage' },
+  { id: 'nails', label: 'Nails & Hands' },
+  { id: 'offers', label: 'Special Offers' },
+  { id: 'bridal', label: 'Bridal Couture' },
+  { id: 'academy', label: 'Academy & Students' },
+  { id: 'salon', label: 'Salon Ambiance' },
+];
+
+export const galleryItems: GalleryItem[] = [
+  // REAL CLIENT TRANSFORMATIONS (FEATURED IN RECENT WORK)
+  {
+    id: 'client-bob-cut',
+    title: 'Textured French Bob & Face-Framing Lob',
+    category: 'hair',
+    categoryLabel: 'Hair & Styling',
+    description: 'Chic salon haircut transformation with internal weight removal, soft textured ends, and dimensional chocolate brown shine.',
+    image: '/images/real/client_bob_cut.jpg',
+    alt: 'Real client chic textured chocolate bob haircut at Angels Salon Ghatkopar',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Client requested a modern, lightweight bob that accentuates the jawline with minimal morning styling. We sculpted internal layers and blow-dried with argan oil.',
+    serviceRendered: 'Advance Haircut with Hairwash & Styling',
+  },
+  {
+    id: 'client-ruby-layers',
+    title: 'Ruby Red & Burgundy Velvet Dimensional Tones',
+    category: 'colour',
+    categoryLabel: 'Colour & Balayage',
+    description: 'Deep velvet burgundy and wine ribbons hand-painted seamlessly over dark Indian hair, finished with cascading bouncy blowout layers.',
+    image: '/images/real/client_ruby_layers.jpg',
+    alt: 'Real client ruby wine layered blowout highlights at Angels Salon Mumbai',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Client wanted rich fashion colour without bleach damage. We utilized bond-protecting plex and tone-on-tone acidic gloss for deep radiance.',
+    serviceRendered: 'Balayage / Highlights with Plex Bonding',
+  },
+  {
+    id: 'client-straight-glass',
+    title: 'Waist-Length Ultra Glass Mirror Smoothening',
+    category: 'hair',
+    categoryLabel: 'Hair & Styling',
+    description: 'Pin-straight liquid glass hair nanoplastia and protein infusion restoring silky lightness and zero frizz to coarse, unruly lengths.',
+    image: '/images/real/client_straight_glass.jpg',
+    alt: 'Real client waist-length pin-straight glass hair transformation at Angels Salon',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Tired of intense monsoon frizz and curl rebellion, client opted for complete smoothing. Result: 100% straight mirror finish lasting 6+ months.',
+    serviceRendered: 'Protein Hair Treatment / Nanoplastia',
+  },
+  {
+    id: 'client-almond-nails',
+    title: 'Glazed Milky Almond Russian Gel Extensions',
+    category: 'nails',
+    categoryLabel: 'Nails & Hands',
+    description: 'Sculpted almond shape hard gel extensions with dry Russian cuticle perfection and delicate glazed chrome finish.',
+    image: '/images/real/client_almond_nails.jpg',
+    alt: 'Real client glazed almond gel nail extensions at Angels Salon Ghatkopar',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: '4-week chip-free hard gel overlay crafted with medical-grade sterile e-file cuticle detailing and high-gloss topcoat.',
+    serviceRendered: 'Gel Extension Overlay & Nail Art',
+  },
+  {
+    id: 'client-feather-blowout',
+    title: 'Feather Layered Cut & Bouncy Salon Blowout',
+    category: 'hair',
+    categoryLabel: 'Hair & Styling',
+    description: 'Multi-tier feather layering designed to unlock cascading volume, soft curtain cheekbone framing, and weightless bounce.',
+    image: '/images/real/client_feather_blowout.jpg',
+    alt: 'Real client post-haircut feather layered blowout at Angels Salon',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Client desired bouncy movement without sacrificing hair length. Cut with texturizing shears and styled with round-brush thermal lift.',
+    serviceRendered: 'Advance Feather Layered Cut & Blowout',
+  },
+  {
+    id: 'client-vcut-straight',
+    title: 'Sleek V-Cut Architecture & Deep Conditioning',
+    category: 'hair',
+    categoryLabel: 'Hair & Styling',
+    description: 'Geometric V-shaped perimeter cutting creating clean elongation down the back, sealed with thermal smoothing shield.',
+    image: '/images/real/client_vcut_straight.jpg',
+    alt: 'Real client sleek V-cut waist-length straight hair at Angels Salon',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Preserved full waist length while shearing away split ends and creating an elegant tapered silhouette.',
+    serviceRendered: "Women's V-Shape Haircut & Thermal Ironing",
+  },
+
+  // OFFICIAL SPECIAL OFFERS POSTERS
+  {
+    id: 'gallery-offer-hair-40',
+    title: 'Raksha Bandhan Flat 40% Off Hair Services',
+    category: 'offers',
+    categoryLabel: 'Special Offers',
+    description: 'Official salon celebration offer granting 40% off on haircuts, smoothening, botox, and styling in Ghatkopar East.',
+    image: '/images/real/offer_hair_40.jpg',
+    alt: 'Flat 40% Off Hair Services offer banner with Angels Salon logo and contact details',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Claimable directly through WhatsApp concierge for festive haircut, smoothening, and color appointments.',
+    serviceRendered: 'Festive Celebration Package',
+  },
+  {
+    id: 'gallery-offer-skin-30',
+    title: 'Flat 30% Off on All Skin Services',
+    category: 'offers',
+    categoryLabel: 'Special Offers',
+    description: 'Official skin privilege giving 30% discount on luxury facials, hydra-infusion, de-tan rituals, and clinical aesthetics.',
+    image: '/images/real/offer_skin_30.jpg',
+    alt: 'Flat 30% Off All Skin Services official poster at Angels Salon',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Save 30% on Korean glass skin rituals and Skeyndor intensive skincare.',
+    serviceRendered: 'Skin Care & Aesthetics Privilege',
+  },
+  {
+    id: 'gallery-offer-nails-50',
+    title: 'Flat 50% Off on Deluxe Manicure & Pedicure',
+    category: 'offers',
+    categoryLabel: 'Special Offers',
+    description: 'Half-price luxury pampering for your hands and feet with Himalayan bath soak and diamond callus buffing.',
+    image: '/images/real/offer_nails_50.jpg',
+    alt: 'Flat 50% Off Manicure and Pedicure offer poster at Angels Salon',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Indulge in head-to-toe relaxation with 50% off professional nail and foot treatments.',
+    serviceRendered: 'Spa Manicure & Pedicure Package',
+  },
+  {
+    id: 'gallery-offer-balayage-2999',
+    title: 'Balayage, Highlights & Global Starting from ₹2,999/-',
+    category: 'offers',
+    categoryLabel: 'Special Offers',
+    description: 'Official salon special for French balayage, multidimensional foil highlights, and full global color.',
+    image: '/images/real/offer_balayage_2999.jpg',
+    alt: 'Balayage, Highlights and Global starting from Rs 2999 poster at Angels Salon',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Entry luxury rate for couture hair colour transformations with certified colour directors.',
+    serviceRendered: 'French Balayage & Highlights Special',
+  },
+  {
+    id: 'gallery-offer-rica-wax-1199',
+    title: 'Rica Waxing Members Package — ₹1,199/-',
+    category: 'offers',
+    categoryLabel: 'Special Offers',
+    description: 'Exclusive members package: Italian Rica Waxing for Full Hand + Full Leg + Underarms at just ₹1,199/-.',
+    image: '/images/real/offer_rica_wax_1199.jpg',
+    alt: 'Rica Waxing Full Hand, Leg, Underarms at Rs 1199 Members Package',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Premium Italian liposoluble wax providing pain-minimized, smooth results for Angels salon members.',
+    serviceRendered: 'Rica Waxing VIP Members Package',
+  },
+
+  // CURATED PORTFOLIO STYLES
+  {
+    id: 'gallery-bridal-1',
+    title: 'Royal Indian Couture Bridal Artistry',
+    category: 'bridal',
+    categoryLabel: 'Bridal Couture',
+    description: 'Flawless water-resistant HD bridal makeup with traditional rose hair adornment and custom veil draping.',
+    image: '/images/gallery_bridal.jpg',
+    alt: 'Ghatkopar bride styled with exquisite gold couture makeup and traditional jewelry',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Bridal look crafted for a Vedic wedding ceremony with heavy gold zardozi lehenga and double-veil pinning.',
+    serviceRendered: 'Royal Couture Bridal Package',
+  },
+  {
+    id: 'gallery-academy-1',
+    title: 'Practical Hands-on Academy Session',
+    category: 'academy',
+    categoryLabel: 'Academy & Students',
+    description: 'Students mastering precision scissor cutting angles under the direct mentorship of Angels Academy directors.',
+    image: '/images/academy_training.jpg',
+    alt: 'Academy students actively learning advanced hairdressing techniques in Mumbai studio',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Batch 2025 completing their 50th supervised live model haircut in our studio lab.',
+    serviceRendered: 'Comprehensive Hairdressing Diploma',
+  },
+  {
+    id: 'gallery-colour-1',
+    title: 'Caramel & Honey Multi-Tonal Balayage',
+    category: 'colour',
+    categoryLabel: 'Colour & Balayage',
+    description: 'Seamless French freehand balayage seamlessly blending dark natural roots into sun-kissed honey reflections.',
+    image: '/images/hero_bg.jpg',
+    alt: 'Radiant model showing luxury caramel blonde balayage hair color',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Virgin dark hair transformed into low-maintenance sun-kissed honey tones with zero bleach brassiness.',
+    serviceRendered: 'French Freehand Balayage & Gloss',
+  },
+  {
+    id: 'gallery-makeup-1',
+    title: 'High-Definition Glamour Cocktail Makeup',
+    category: 'bridal',
+    categoryLabel: 'Bridal Couture',
+    description: 'Smokey bronze eyeshadow with satin nude lips and luminous dewy skin highlights for evening celebrations.',
+    image: '/images/gallery_makeup.jpg',
+    alt: 'Glamour cocktail evening makeup with subtle gold eye shimmer and defined contours',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Evening reception glam styled with textured waves and waterproof eye pigment.',
+    serviceRendered: 'Sangeet & Cocktail Evening Glam',
+  },
+  {
+    id: 'gallery-salon-storefront',
+    title: 'Angels Salon & Academy Ghatkopar Flagship Storefront',
+    category: 'salon',
+    categoryLabel: 'Salon Ambiance',
+    description: 'Our authentic flagship salon entrance in Pant Nagar, Ghatkopar East, featuring our registered academy and client lounge.',
+    image: '/images/salon_outside.jpg',
+    alt: 'Angels Salon and Academy storefront entrance in Ghatkopar East Mumbai',
+    width: 1200,
+    height: 800,
+    aspectRatio: '16/9',
+    clientStory: 'Conveniently located in Shival Nagar beside Kirti Computer Institute in Ghatkopar East, Mumbai.',
+    serviceRendered: 'Flagship Entrance & Reception',
+  },
+  {
+    id: 'gallery-salon-1',
+    title: 'Angels Sanctuary Luxury Interior',
+    category: 'salon',
+    categoryLabel: 'Salon Ambiance',
+    description: 'Bespoke golden archways, private wash lounges, and sterilized styling stations crafted for absolute relaxation.',
+    image: '/images/gallery_interior.jpg',
+    alt: 'Luxurious black and gold salon styling stations at Angels Salon Ghatkopar East',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Our flagship sanctuary in Ghatkopar East designed with medical-grade hygiene and acoustic comfort.',
+    serviceRendered: 'Salon Atmosphere & Architecture',
+  },
+  {
+    id: 'gallery-skincare-1',
+    title: 'Hydra-Infusion Clinical Skincare',
+    category: 'salon',
+    categoryLabel: 'Salon Ambiance',
+    description: 'Advanced peptide vortex serum infusion for immediate glass skin clarity and radiance.',
+    image: '/images/gallery_skincare.jpg',
+    alt: 'Client receiving deep relaxing facial skincare therapy at Angels Salon',
+    width: 800,
+    height: 800,
+    aspectRatio: '1/1',
+    clientStory: 'Painless vortex pore extraction and LED phototherapy for pre-wedding radiance.',
+    serviceRendered: 'Korean Hydra-Glow Facial',
+  },
+];
+
+export const videosData: VideoItem[] = [
+  {
+    id: 'video-1',
+    title: 'French Freehand Balayage Transformation',
+    category: 'Colour Artistry',
+    description: 'Watch our master colourist paint dimensional caramel ribbons and tone with acidic gloss for mirror-like shine.',
+    duration: '03:45',
+    thumbnail: '/images/real/client_ruby_layers.jpg',
+    youtubeId: 'dQw4w9WgXcQ',
+    uploadDate: '2026-02-15',
+  },
+  {
+    id: 'video-2',
+    title: 'Royal Indian Couture Bridal Makeup & Saree Draping',
+    category: 'Bridal Couture',
+    description: 'A complete step-by-step transformation: skin priming, HD airbrush base, double dupatta pinning, and floral jewelry setting.',
+    duration: '05:12',
+    thumbnail: '/images/gallery_bridal.jpg',
+    youtubeId: 'dQw4w9WgXcQ',
+    uploadDate: '2026-01-28',
+  },
+  {
+    id: 'video-3',
+    title: 'Inside Angels Academy: Live Student Practical Day',
+    category: 'Academy Life',
+    description: 'Go behind the scenes as diploma students perform structural haircuts and hair smoothening on live client models.',
+    duration: '04:20',
+    thumbnail: '/images/academy_training.jpg',
+    youtubeId: 'dQw4w9WgXcQ',
+    uploadDate: '2026-03-05',
+  },
+  {
+    id: 'video-4',
+    title: 'Keratin Infusion vs. Hair Botox — Which Is Right For You?',
+    category: 'Hair Science',
+    description: 'Our technical director breaks down the molecular difference between anti-frizz smoothing and deep collagen hydration.',
+    duration: '06:10',
+    thumbnail: '/images/real/client_straight_glass.jpg',
+    youtubeId: 'dQw4w9WgXcQ',
+    uploadDate: '2026-02-20',
+  },
+];
