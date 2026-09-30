@@ -119,7 +119,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                 </div>
 
                 {/* Action Buttons: Call | WhatsApp | Directions */}
-                <div className="space-y-3 pt-6 border-t border-line">
+                <div className="space-y-3 pt-6 border-t border-gold/25">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <Button
                       as="a"
@@ -127,7 +127,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                       variant="outline"
                       size="md"
                       fullWidth
-                      className="min-h-[48px] border-line text-text hover:border-gold hover:text-gold text-xs uppercase tracking-wider font-semibold rounded-[4px]"
+                      className="min-h-[48px] border-gold/40 text-gold hover:border-gold hover:text-gold-soft text-xs uppercase tracking-wider font-semibold rounded-[4px]"
                       leftIcon={<PhoneIcon size={16} />}
                     >
                       Call
@@ -189,7 +189,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                     className={`flex-1 min-h-[44px] px-4 py-2 rounded-[4px] text-xs uppercase tracking-wider font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold ${
                       activeView === 'storefront'
                         ? 'bg-gold text-ink shadow-sm'
-                        : 'bg-ink border border-line text-muted hover:text-text'
+                        : 'bg-ink border border-gold/30 text-muted hover:text-text hover:border-gold'
                     }`}
                   >
                     Storefront Entrance
@@ -205,7 +205,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                     className={`flex-1 min-h-[44px] px-4 py-2 rounded-[4px] text-xs uppercase tracking-wider font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold ${
                       activeView === 'map'
                         ? 'bg-gold text-ink shadow-sm'
-                        : 'bg-ink border border-line text-muted hover:text-text'
+                        : 'bg-ink border border-gold/30 text-muted hover:text-text hover:border-gold'
                     }`}
                   >
                     Interactive Map
@@ -213,7 +213,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                 </div>
 
                 {/* View Container */}
-                <div className="relative w-full h-[320px] sm:h-[400px] lg:h-full min-h-[320px] lg:min-h-[400px] rounded-[4px] overflow-hidden border border-line bg-surface flex flex-col">
+                <div className="relative w-full h-[320px] sm:h-[400px] lg:h-full min-h-[320px] lg:min-h-[400px] rounded-[4px] overflow-hidden border border-gold/40 hover:border-gold/60 transition-colors bg-surface flex flex-col">
                   {activeView === 'storefront' ? (
                     <div className="relative w-full h-full">
                       <img
@@ -223,7 +223,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-[4px] bg-ink/90 backdrop-blur-md border border-line text-xs text-text flex items-center justify-between">
+                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-[4px] bg-ink/90 backdrop-blur-md border border-gold/30 text-xs text-text flex items-center justify-between">
                         <span className="font-medium text-gold">Pant Nagar Storefront Entrance</span>
                         <a
                           href={branch.googleMapsUrl}

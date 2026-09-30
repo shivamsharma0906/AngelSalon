@@ -35,7 +35,7 @@ export const PathCards: React.FC = () => {
                 className="p-6 sm:p-8 flex flex-col justify-between h-full group"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-[4px] bg-ink border border-line flex items-center justify-center mb-5 group-hover:border-gold-line transition-colors">
+                  <div className="w-12 h-12 rounded-[4px] bg-ink border border-gold/30 flex items-center justify-center mb-5 group-hover:border-gold transition-colors">
                     {renderIcon(card.icon)}
                   </div>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-text mb-2 group-hover:text-gold transition-colors">
@@ -45,7 +45,7 @@ export const PathCards: React.FC = () => {
                     {card.description}
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-line flex items-center justify-between text-sm font-semibold text-gold uppercase tracking-wider">
+                <div className="mt-6 pt-4 border-t border-gold/25 flex items-center justify-between text-sm font-semibold text-gold uppercase tracking-wider">
                   <span>Explore</span>
                   <span className="transition-transform group-hover:translate-x-1">
                     <ArrowRightIcon size={16} />

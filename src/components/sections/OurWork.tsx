@@ -26,7 +26,7 @@ export const OurWork: React.FC = () => {
 
   return (
     <>
-      <Section tone="surface" className="py-16 sm:py-24 border-y border-line" aria-label="Our Real Salon Work">
+      <Section tone="surface" className="py-16 sm:py-24 border-y border-gold/25" aria-label="Our Real Salon Work">
         <Container size="lg">
           
           {/* Section Header */}
@@ -56,7 +56,7 @@ export const OurWork: React.FC = () => {
               >
                 <div
                   onClick={() => handleOpenLightbox(item)}
-                  className="group relative aspect-square w-full rounded-[4px] overflow-hidden bg-raised border border-line hover:border-gold-line transition-all duration-300 cursor-pointer shadow-md"
+                  className="group relative aspect-square w-full rounded-[4px] overflow-hidden bg-raised border border-gold/30 hover:border-gold transition-all duration-300 cursor-pointer shadow-md"
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {

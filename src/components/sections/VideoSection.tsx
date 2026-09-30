@@ -25,7 +25,7 @@ export const VideoSection: React.FC = () => {
           <div className="w-12 h-0.5 bg-gold mx-auto" />
         </div>
 
-        <div className="max-w-4xl mx-auto aspect-video rounded-[4px] overflow-hidden border border-line bg-raised shadow-2xl relative">
+        <div className="max-w-4xl mx-auto aspect-video rounded-[4px] overflow-hidden border border-gold/40 hover:border-gold/60 transition-colors bg-raised shadow-2xl relative">
           {isPlaying ? (
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0`}

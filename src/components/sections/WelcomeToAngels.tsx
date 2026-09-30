@@ -19,7 +19,7 @@ export const WelcomeToAngels: React.FC = () => {
           
           {/* Image Frame */}
           <div data-reveal="image" className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/3] sm:aspect-[4/3] rounded-[4px] overflow-hidden border border-line bg-raised shadow-xl">
+            <div className="relative aspect-[4/3] sm:aspect-[4/3] rounded-[4px] overflow-hidden border border-gold/40 hover:border-gold/60 transition-colors duration-300 bg-raised shadow-xl">
               <img
                 src={welcome.image}
                 alt={welcome.imageAlt}

@@ -18,8 +18,8 @@ export const Section: React.FC<SectionProps> = ({
   ...props
 }) => {
   const toneClasses = tone === 'surface' ? 'bg-surface' : 'bg-ink';
-  const topBorderClass = hasTopBorder ? 'border-t border-line' : '';
-  const bottomBorderClass = hasBottomBorder ? 'border-b border-line' : '';
+  const topBorderClass = hasTopBorder ? 'border-t border-gold/25' : '';
+  const bottomBorderClass = hasBottomBorder ? 'border-b border-gold/25' : '';
 
   return (
     <section

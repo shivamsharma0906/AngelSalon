@@ -21,7 +21,7 @@ export const OurServicesTiles: React.FC = () => {
   };
 
   return (
-    <Section tone="surface" className="py-16 sm:py-24 border-y border-line" aria-label="Our Salon Services Directory">
+    <Section tone="surface" className="py-16 sm:py-24 border-y border-gold/25" aria-label="Our Salon Services Directory">
       <Container size="lg">
         
         {/* Centered Heading with Expanding Gold Accent Line */}

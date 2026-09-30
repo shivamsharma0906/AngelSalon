@@ -13,13 +13,13 @@ export const AcademyTeaser: React.FC = () => {
   }
 
   return (
-    <Section tone="surface" className="py-16 sm:py-24 border-y border-line" aria-label="Angels Academy Teaser">
+    <Section tone="surface" className="py-16 sm:py-24 border-y border-gold/25" aria-label="Angels Academy Teaser">
       <Container size="lg">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Photo Column */}
           <div data-reveal="image" className="lg:col-span-5 order-2 lg:order-1">
-            <div className="relative aspect-[4/3] rounded-[4px] overflow-hidden border border-line bg-raised shadow-xl">
+            <div className="relative aspect-[4/3] rounded-[4px] overflow-hidden border border-gold/40 hover:border-gold/60 transition-colors duration-300 bg-raised shadow-xl">
               <img
                 src={academyTeaser.image}
                 alt={academyTeaser.imageAlt}

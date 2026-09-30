@@ -106,7 +106,7 @@ export const Hero: React.FC = () => {
 
               {/* Verified Stats Row (Only verified stats render) */}
               {verifiedStats.length > 0 && (
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-8 w-full max-w-lg border-t border-line pt-4 sm:pt-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-8 w-full max-w-lg border-t border-gold/25 pt-4 sm:pt-6">
                   {verifiedStats.map((stat) => (
                     <div key={stat.id} className="flex flex-col">
                       <span className="font-serif text-2xl sm:text-3xl font-bold text-gold leading-none mb-1">
@@ -127,22 +127,26 @@ export const Hero: React.FC = () => {
 
             </div>
 
-            {/* Right Column: Visual Frame with Real Client Work + Google Review Note */}
+            {/* Right Column: Visual Frame with Real Client Work + Smooth Hover Zoom */}
             <div className="lg:col-span-5 xl:col-span-5 w-full flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-[4px] overflow-hidden border border-line bg-raised shadow-2xl group">
+              <div
+                className="hero-showcase-frame relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-[4px] overflow-hidden border border-gold/40 hover:border-gold/60 bg-raised shadow-2xl transition-all duration-300 group"
+              >
                 <img
-                  src="/images/real/client_feather_blowout.jpg"
+                  src="/images/real/client_feather_blowout.jpg?v=2"
                   alt="Real client styling at Angels Salon & Academy Mumbai"
                   width={500}
                   height={625}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
                   loading="eager"
                   decoding="async"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent pointer-events-none" />
 
                 {/* Floating Verified Review Pill */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 rounded-[4px] bg-raised/95 border border-line backdrop-blur-md shadow-xl">
+                <div
+                  className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 rounded-[4px] bg-raised/95 border border-gold/30 hover:border-gold/50 backdrop-blur-md shadow-xl transition-colors z-10"
+                >
                   <div className="flex items-center justify-between mb-1.5">
                     <div className="flex items-center gap-1 text-gold text-xs">
                       <StarIcon size={12} className="fill-gold text-gold" />
@@ -155,7 +159,7 @@ export const Hero: React.FC = () => {
                   <p className="text-[12px] text-muted leading-snug line-clamp-2 italic mb-2">
                     "{googleReviews[0]?.text}"
                   </p>
-                  <div className="flex items-center justify-between pt-1.5 border-t border-line text-[12px]">
+                  <div className="flex items-center justify-between pt-1.5 border-t border-gold/25 text-[12px]">
                     <span className="font-semibold text-text truncate max-w-[150px]">
                       {googleReviews[0]?.name}
                     </span>

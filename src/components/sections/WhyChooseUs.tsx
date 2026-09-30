@@ -58,7 +58,7 @@ export const WhyChooseUs: React.FC = () => {
               className="p-6 flex flex-col justify-between h-full group"
             >
               <div>
-                <div className="w-12 h-12 rounded-[4px] bg-ink border border-line flex items-center justify-center mb-5 group-hover:border-gold-line transition-colors">
+                <div className="w-12 h-12 rounded-[4px] bg-ink border border-gold/30 flex items-center justify-center mb-5 group-hover:border-gold transition-colors">
                   {renderIcon(item.id)}
                 </div>
                 <h3 className="font-serif text-xl font-bold text-text mb-2 group-hover:text-gold transition-colors">
@@ -69,7 +69,7 @@ export const WhyChooseUs: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-line">
+              <div className="pt-4 border-t border-gold/25">
                 <a
                   href="#reviews"
                   onClick={scrollToReviews}

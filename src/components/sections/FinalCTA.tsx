@@ -52,7 +52,7 @@ export const FinalCTA: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'surfa
             href={finalCta.secondaryLink}
             variant="outline"
             size="lg"
-            className="w-full sm:w-auto min-h-[48px] border-line hover:border-gold-line text-text hover:text-gold px-8 py-3.5 text-sm uppercase tracking-wider font-semibold rounded-[4px]"
+            className="w-full sm:w-auto min-h-[48px] border-gold/50 hover:border-gold text-gold hover:text-gold-soft px-8 py-3.5 text-sm uppercase tracking-wider font-semibold rounded-[4px]"
             rightIcon={<ArrowRightIcon size={16} />}
           >
             {finalCta.secondaryText}

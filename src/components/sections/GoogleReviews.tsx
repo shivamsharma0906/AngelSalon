@@ -23,7 +23,7 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 
   return (
     <article
-      className="bg-raised border border-line hover:border-gold-line rounded-[4px] p-6 sm:p-7 flex flex-col justify-between shadow-md transition-all duration-300 h-full group"
+      className="bg-raised border border-gold/30 hover:border-gold rounded-[4px] p-6 sm:p-7 flex flex-col justify-between shadow-md transition-all duration-300 h-full group"
       aria-label={`Review by ${review.name}`}
     >
       <div>
@@ -63,7 +63,7 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 
       {/* Conditional Read on Google link for possiblyTruncated reviews (min 44px tap target) */}
       {review.possiblyTruncated && hasReviewsUrl && (
-        <div className="pt-3 mt-4 border-t border-line">
+        <div className="pt-3 mt-4 border-t border-gold/25">
           <a
             href={googleSummary.reviewsUrl}
             target="_blank"
@@ -198,7 +198,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
     <Section
       id="reviews"
       tone={tone}
-      className={`py-16 sm:py-24 border-y border-line relative overflow-hidden ${className}`}
+      className={`py-16 sm:py-24 border-y border-gold/25 relative overflow-hidden ${className}`}
       aria-label="Client Reviews and Testimonials"
     >
       <Container size="lg">
@@ -261,7 +261,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
                   type="button"
                   onClick={prevSlide}
                   aria-label="Previous review"
-                  className="w-11 h-11 rounded-full border border-line bg-raised hover:border-gold-line text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="w-11 h-11 rounded-full border border-gold/30 bg-raised hover:border-gold text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="15 18 9 12 15 6" />
@@ -281,7 +281,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
                     >
                       <span
                         className={`h-1.5 rounded-full transition-all duration-300 block ${
-                          currentIndex === idx ? 'w-6 bg-gold' : 'w-2 bg-line hover:bg-gold-line'
+                          currentIndex === idx ? 'w-6 bg-gold' : 'w-2 bg-gold/25 hover:bg-gold-line'
                         }`}
                       />
                     </button>
@@ -292,7 +292,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
                   type="button"
                   onClick={nextSlide}
                   aria-label="Next review"
-                  className="w-11 h-11 rounded-full border border-line bg-raised hover:border-gold-line text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="w-11 h-11 rounded-full border border-gold/30 bg-raised hover:border-gold text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="9 18 15 12 9 6" />

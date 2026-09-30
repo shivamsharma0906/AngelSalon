@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
 
       {/* Pre-Footer Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-8 sm:pb-14">
-        <div data-reveal className="relative overflow-hidden rounded-[4px] bg-raised border border-line shadow-2xl p-6 sm:p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
+        <div data-reveal className="relative overflow-hidden rounded-[4px] bg-raised border border-gold/40 hover:border-gold/60 transition-colors shadow-2xl p-6 sm:p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
           
           <div className="flex items-center gap-4 sm:gap-5 w-full lg:w-auto">
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-ink border border-gold-line flex items-center justify-center shrink-0 text-gold shadow-sm">
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
             </a>
             <a
               href={`tel:${siteConfig.contact.phoneRaw}`}
-              className="min-h-[48px] flex-1 sm:flex-none sm:w-auto px-5 py-3 rounded-[4px] bg-ink border border-line text-text hover:text-gold hover:border-gold-line transition-colors flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="min-h-[48px] flex-1 sm:flex-none sm:w-auto px-5 py-3 rounded-[4px] bg-ink border border-gold/30 text-text hover:text-gold hover:border-gold transition-colors flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               aria-label={`Call ${siteConfig.name}`}
             >
               <PhoneIcon size={16} className="text-gold shrink-0" />
@@ -120,7 +120,7 @@ export const Footer: React.FC = () => {
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[4px] bg-raised border border-line hover:border-gold-line transition-all text-xs w-fit group shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold min-h-[44px]"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[4px] bg-raised border border-gold/30 hover:border-gold transition-all text-xs w-fit group shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold min-h-[44px]"
             >
               <div className="flex items-center text-gold text-xs">
                 <StarIcon size={14} className="fill-gold text-gold" />
@@ -141,7 +141,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.ariaLabel}
-                  className="w-11 h-11 rounded-full bg-raised border border-line flex items-center justify-center text-text hover:text-gold hover:border-gold-line transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold shrink-0"
+                  className="w-11 h-11 rounded-full bg-raised border border-gold/30 flex items-center justify-center text-text hover:text-gold hover:border-gold transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold shrink-0"
                 >
                   {social.platform === 'instagram' && <InstagramIcon size={18} />}
                   {social.platform === 'facebook' && <FacebookIcon size={18} />}
@@ -158,7 +158,7 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col">
               <div className="mb-3">
                 <span className="text-[12px] font-bold uppercase tracking-wider text-gold block">Directory</span>
-                <span className="font-serif text-base font-bold text-text border-b border-line pb-1 block">Salon Services</span>
+                <span className="font-serif text-base font-bold text-text border-b border-gold/25 pb-1 block">Salon Services</span>
               </div>
               <ul className="space-y-1 text-sm text-muted">
                 {[
@@ -178,7 +178,7 @@ export const Footer: React.FC = () => {
                     </Link>
                   </li>
                 ))}
-                <li className="pt-2 border-t border-line mt-1">
+                <li className="pt-2 border-t border-gold/25 mt-1">
                   <Link
                     to="/services"
                     className="min-h-[44px] flex items-center gap-1 text-gold font-bold hover:text-gold-soft transition-colors py-1 text-xs uppercase tracking-wider focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
@@ -193,7 +193,7 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col">
               <div className="mb-3">
                 <span className="text-[12px] font-bold uppercase tracking-wider text-gold block">Masterclasses</span>
-                <span className="font-serif text-base font-bold text-text border-b border-line pb-1 block">Academy</span>
+                <span className="font-serif text-base font-bold text-text border-b border-gold/25 pb-1 block">Academy</span>
               </div>
               <ul className="space-y-1 text-sm text-muted">
                 {[
@@ -213,7 +213,7 @@ export const Footer: React.FC = () => {
                     </Link>
                   </li>
                 ))}
-                <li className="pt-2 border-t border-line mt-1">
+                <li className="pt-2 border-t border-gold/25 mt-1">
                   <Link
                     to="/academy"
                     className="min-h-[44px] flex items-center gap-1 text-gold font-bold hover:text-gold-soft transition-colors py-1 text-xs uppercase tracking-wider focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
@@ -233,8 +233,8 @@ export const Footer: React.FC = () => {
               <span className="font-serif text-base font-bold text-text">Visit Angels</span>
             </div>
 
-            <div className="rounded-[4px] bg-raised border border-line p-4 space-y-3 hover:border-gold-line transition-colors">
-              <div className="flex items-center justify-between pb-2 border-b border-line">
+            <div className="rounded-[4px] bg-raised border border-gold/30 p-4 space-y-3 hover:border-gold transition-colors">
+              <div className="flex items-center justify-between pb-2 border-b border-gold/25">
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                   <span className="text-[12px] font-bold text-text uppercase tracking-wider">Open Daily</span>
@@ -269,17 +269,17 @@ export const Footer: React.FC = () => {
               </a>
 
               {/* Phone & Email 48px rows on mobile */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-line">
+              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-gold/25">
                 <a
                   href={`tel:${siteConfig.contact.phoneRaw}`}
-                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-ink border border-line text-gold hover:border-gold-line transition-colors text-xs font-semibold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-ink border border-gold/30 text-gold hover:border-gold transition-colors text-xs font-semibold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <PhoneIcon size={14} />
                   <span>Call</span>
                 </a>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-ink border border-line text-muted hover:text-gold hover:border-gold-line transition-colors text-xs font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-ink border border-gold/30 text-muted hover:text-gold hover:border-gold transition-colors text-xs font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <MailIcon size={14} />
                   <span>Email</span>
@@ -291,7 +291,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Footer-bar Strip for Copyright */}
-        <div className="mt-10 sm:mt-14 pt-4 sm:pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between text-xs text-muted gap-3 text-center sm:text-left">
+        <div className="mt-10 sm:mt-14 pt-4 sm:pt-6 border-t border-gold/25 flex flex-col sm:flex-row items-center justify-between text-xs text-muted gap-3 text-center sm:text-left">
           <p className="font-normal text-[12px]">
             &copy; {currentYear} <strong className="text-text font-medium">{siteConfig.name}</strong>. All Rights Reserved.
           </p>
@@ -302,21 +302,21 @@ export const Footer: React.FC = () => {
             >
               Privacy
             </Link>
-            <span className="text-line">•</span>
+            <span className="text-gold/40">•</span>
             <Link
               to="/contact"
               className="min-h-[44px] inline-flex items-center px-2 hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
             >
               Terms
             </Link>
-            <span className="text-line">•</span>
+            <span className="text-gold/40">•</span>
             <Link
               to="/academy"
               className="min-h-[44px] inline-flex items-center px-2 hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
             >
               Academy
             </Link>
-            <span className="text-line">•</span>
+            <span className="text-gold/40">•</span>
             <button
               type="button"
               onClick={scrollToTop}
