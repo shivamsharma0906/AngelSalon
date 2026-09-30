@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { googleReviews, googleSummary, GoogleReview } from '../../data/reviews';
 import { Container } from '../ui/Container';
+import { Section } from '../ui/Section';
+import { StarIcon } from '../ui/icons';
 
 interface GoogleReviewsProps {
   mode?: 'carousel' | 'grid';
   limit?: number;
+  tone?: 'ink' | 'surface';
   className?: string;
 }
 
@@ -14,24 +17,13 @@ function getInitials(name: string): string {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
-function formatCapturedDate(dateStr: string): string {
-  const [year, month, day] = dateStr.split('-');
-  if (!year || !month || !day) return dateStr;
-  const date = new Date(Number(year), Number(month) - 1, Number(day));
-  const dayNum = date.getDate();
-  const monthName = date.toLocaleString('en-US', { month: 'short' });
-  const fullYear = date.getFullYear();
-  return `${dayNum} ${monthName} ${fullYear}`;
-}
-
 export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review }) => {
   const initials = getInitials(review.name);
   const hasReviewsUrl = Boolean(googleSummary.reviewsUrl && googleSummary.reviewsUrl.trim().length > 0);
 
   return (
     <article
-      data-card-hover
-      className="bg-surface/90 border border-border hover:border-gold/50 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-lg transition-all duration-300 h-full group"
+      className="bg-raised border border-line hover:border-gold-line rounded-[4px] p-6 sm:p-7 flex flex-col justify-between shadow-md transition-all duration-300 h-full group"
       aria-label={`Review by ${review.name}`}
     >
       <div>
@@ -39,7 +31,7 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
         <div className="flex items-center justify-between gap-3 mb-5">
           <div className="flex items-center gap-3">
             <div
-              className="w-10 h-10 rounded-full bg-ink border border-gold/40 text-gold flex items-center justify-center font-bold text-xs uppercase tracking-wider shadow-sm select-none"
+              className="w-10 h-10 rounded-full bg-ink border border-gold-line text-gold flex items-center justify-center font-bold text-xs uppercase tracking-wider shadow-sm select-none"
               aria-hidden="true"
             >
               {initials}
@@ -48,37 +40,21 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
               <h3 className="font-serif text-base font-bold text-text group-hover:text-gold transition-colors leading-tight">
                 {review.name}
               </h3>
-              <span className="text-[11px] text-text-subtle font-medium uppercase tracking-wider">
+              <span className="text-[12px] text-muted font-medium uppercase tracking-wider">
                 Google review
               </span>
             </div>
           </div>
 
-          {/* Google Icon */}
-          <div className="w-6 h-6 rounded-full bg-ink/80 border border-border flex items-center justify-center shrink-0" aria-hidden="true">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                fill="#EA4335"
-                d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"
-              />
-              <path
-                fill="#4285F4"
-                d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5.1 3.7-8.9z"
-              />
-              <path
-                fill="#FBBC05"
-                d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.3 0 12s.7 3.3 1.9 5.7l3.7-2.9z"
-              />
-              <path
-                fill="#34A853"
-                d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 16C3.7 19.7 7.5 23 12 23z"
-              />
-            </svg>
+          {/* Star Rating Badge */}
+          <div className="flex items-center gap-1 text-gold" aria-label="5 out of 5 stars">
+            <StarIcon size={14} className="fill-gold text-gold" />
+            <span className="text-xs font-bold text-text">5.0</span>
           </div>
         </div>
 
-        {/* Verbatim Review Text with UI quotation marks */}
-        <blockquote className="text-base text-text-muted leading-relaxed font-light">
+        {/* Verbatim Review Text */}
+        <blockquote className="text-base text-muted leading-relaxed font-normal">
           <span className="text-gold font-serif text-lg leading-none select-none">“</span>
           {review.text}
           <span className="text-gold font-serif text-lg leading-none select-none">”</span>
@@ -87,12 +63,12 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 
       {/* Conditional Read on Google link for possiblyTruncated reviews (min 44px tap target) */}
       {review.possiblyTruncated && hasReviewsUrl && (
-        <div className="pt-3 mt-3 border-t border-border/60">
+        <div className="pt-3 mt-4 border-t border-line">
           <a
             href={googleSummary.reviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="min-h-[44px] text-xs text-gold hover:text-gold-soft font-semibold inline-flex items-center gap-1.5 transition-colors py-2"
+            className="min-h-[44px] text-xs text-gold hover:text-gold-soft font-semibold inline-flex items-center gap-1.5 transition-colors py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
           >
             <span>Read on Google</span>
             <span aria-hidden="true">&rarr;</span>
@@ -104,50 +80,24 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 };
 
 export const GoogleReviewSummaryHeader: React.FC = () => {
-  // Calculate percentage for partly filled star icon
-  const rating = googleSummary.rating;
-  const fillPercent = Math.round((rating % 1) * 100) || 70;
-  const capturedDateText = `Rating and count as of ${formatCapturedDate(googleSummary.capturedOn)}`;
   const summaryLineText = `${googleSummary.rating} on Google · ${googleSummary.count} reviews`;
 
   return (
     <div className="flex flex-col items-center justify-center text-center mb-10 sm:mb-12">
-      {/* 4.7 Rating with Partly Filled Star */}
-      <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-surface/90 border border-gold/40 shadow-gold-sm mb-3">
+      {/* 4.7 Rating with Gold Star */}
+      <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-raised border border-gold-line shadow-sm mb-3">
         <span className="font-serif text-2xl sm:text-3xl font-bold text-gold tracking-tight">
           {googleSummary.rating}
         </span>
-
-        {/* Partly filled star icon */}
-        <svg
-          className="w-6 h-6 shrink-0"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="google-partly-filled-star" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset={`${fillPercent}%`} stopColor="#C5A880" />
-              <stop offset={`${fillPercent}%`} stopColor="rgba(197, 168, 128, 0.2)" />
-            </linearGradient>
-          </defs>
-          <polygon
-            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-            fill="url(#google-partly-filled-star)"
-            stroke="#C5A880"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
+        <StarIcon size={20} className="fill-gold text-gold shrink-0" />
         <span className="text-xs sm:text-sm font-semibold text-text">
           {summaryLineText}
         </span>
       </div>
 
-      {/* Date caption */}
-      <p className="text-xs text-text-subtle font-light">
-        {capturedDateText}
+      {/* Note: Showing selected reviews */}
+      <p className="text-xs text-muted font-normal">
+        Showing selected reviews
       </p>
     </div>
   );
@@ -155,7 +105,8 @@ export const GoogleReviewSummaryHeader: React.FC = () => {
 
 export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
   mode = 'carousel',
-  limit,
+  limit = 4,
+  tone = 'surface',
   className = '',
 }) => {
   const items = limit ? googleReviews.slice(0, limit) : googleReviews;
@@ -196,7 +147,6 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
   useEffect(() => {
     if (mode !== 'carousel') return;
 
-    // Check if user prefers reduced motion
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -244,21 +194,18 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
     return null;
   }
 
-  const bottomButtonText = `Showing ${items.length} selected reviews. Read all ${googleSummary.count} reviews on Google`;
-
   return (
-    <section
-      className={`py-16 sm:py-24 bg-ink relative overflow-hidden ${className}`}
-      aria-label="What Our Clients Say"
+    <Section
+      id="reviews"
+      tone={tone}
+      className={`py-16 sm:py-24 border-y border-line relative overflow-hidden ${className}`}
+      aria-label="Client Reviews and Testimonials"
     >
-      {/* Golden backdrop accent (Hidden on mobile) */}
-      <div className="hidden md:block absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gold/5 rounded-full blur-[140px] pointer-events-none" />
-
       <Container size="lg">
-        {/* Section Heading & Subline */}
+        {/* Section Heading */}
         <div data-reveal className="text-center mb-6">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block mb-2">
-            Selected reviews from our Google Business Profile
+          <span className="text-[12px] uppercase tracking-wider text-gold font-semibold block mb-2">
+            Selected Reviews
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-text">
             What Our Clients Say
@@ -269,7 +216,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
         <GoogleReviewSummaryHeader />
 
         {mode === 'carousel' ? (
-          /* Carousel Presentation (Home / Carousel Mode) */
+          /* Carousel Presentation */
           <div
             data-reveal
             className="relative"
@@ -307,21 +254,21 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
               </div>
             </div>
 
-            {/* Carousel Controls */}
+            {/* Carousel Controls with 44px min tap targets */}
             {items.length > visibleCount && (
               <div className="flex items-center justify-center gap-4 mt-8">
                 <button
                   type="button"
                   onClick={prevSlide}
                   aria-label="Previous review"
-                  className="w-11 h-11 rounded-full border border-border bg-surface hover:border-gold hover:text-gold text-text flex items-center justify-center transition-colors shadow-sm focus:outline-none focus:ring-1 focus:ring-gold"
+                  className="w-11 h-11 rounded-full border border-line bg-raised hover:border-gold-line text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="15 18 9 12 15 6" />
                   </svg>
                 </button>
 
-                {/* Dots indicator */}
+                {/* Dots indicator with 44px hit bounds */}
                 <div className="flex items-center gap-1.5" aria-hidden="true">
                   {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
                     <button
@@ -330,10 +277,14 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
                       onClick={() => setCurrentIndex(idx)}
                       tabIndex={-1}
                       aria-label={`Go to slide ${idx + 1}`}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        currentIndex === idx ? 'w-6 bg-gold' : 'w-2 bg-border hover:bg-gold/40'
-                      }`}
-                    />
+                      className="p-3 flex items-center justify-center"
+                    >
+                      <span
+                        className={`h-1.5 rounded-full transition-all duration-300 block ${
+                          currentIndex === idx ? 'w-6 bg-gold' : 'w-2 bg-line hover:bg-gold-line'
+                        }`}
+                      />
+                    </button>
                   ))}
                 </div>
 
@@ -341,7 +292,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
                   type="button"
                   onClick={nextSlide}
                   aria-label="Next review"
-                  className="w-11 h-11 rounded-full border border-border bg-surface hover:border-gold hover:text-gold text-text flex items-center justify-center transition-colors shadow-sm focus:outline-none focus:ring-1 focus:ring-gold"
+                  className="w-11 h-11 rounded-full border border-line bg-raised hover:border-gold-line text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="9 18 15 12 9 6" />
@@ -351,32 +302,32 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
             )}
           </div>
         ) : (
-          /* Masonry Grid Presentation (Testimonials Page) */
-          <div data-reveal data-reveal-stagger className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          /* Grid Presentation (Testimonials Page) */
+          <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((review) => (
-              <div key={review.id} className="break-inside-avoid">
+              <div key={review.id}>
                 <GoogleReviewCard review={review} />
               </div>
             ))}
           </div>
         )}
 
-        {/* Below the cards: Google reviews CTA button */}
+        {/* Read all reviews on Google CTA */}
         {hasReviewsUrl && (
-          <div data-reveal className="mt-12 text-center">
+          <div data-reveal className="mt-10 sm:mt-12 text-center">
             <a
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-surface border border-gold/40 text-gold hover:bg-gold hover:text-ink font-semibold text-xs uppercase tracking-luxury transition-all duration-300 shadow-gold-sm group"
+              className="inline-flex items-center gap-2.5 min-h-[48px] px-8 py-3.5 rounded-[4px] bg-raised border border-gold-line text-gold hover:bg-gold hover:text-ink font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold group"
             >
-              <span>{bottomButtonText}</span>
+              <span>Read all reviews on Google</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
             </a>
           </div>
         )}
       </Container>
-    </section>
+    </Section>
   );
 };
 

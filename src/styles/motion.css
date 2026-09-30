@@ -4,13 +4,21 @@
    ========================================================================== */
 
 :root {
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --dur-fast: 200ms;
-  --dur: 500ms;
-  --dur-slow: 700ms;
-  --stagger: 80ms;
-  --rise: 20px;
+  --dur-fast: 150ms;
+  --dur: 250ms;
+  --dur-slow: 350ms;
+  --stagger: 40ms;
+  --rise: 10px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --rise: 6px;
+    --dur: 180ms;
+    --stagger: 25ms;
+  }
 }
 
 /* ==========================================================================
@@ -22,7 +30,6 @@
   opacity: 0;
   transform: translateY(var(--rise));
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-  will-change: opacity, transform;
 }
 
 .js [data-reveal].is-revealed {
@@ -30,18 +37,51 @@
   transform: translateY(0);
 }
 
-/* Horizontal slide variants */
-.js [data-reveal="left"] {
-  transform: translateX(calc(var(--rise) * -1));
+/* Horizontal slide variants (desktop only, falls back to fade-up under 768px) */
+@media (min-width: 768px) {
+  .js [data-reveal="left"] {
+    opacity: 0;
+    transform: translateX(calc(var(--rise) * -1.5));
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+
+  .js [data-reveal="right"] {
+    opacity: 0;
+    transform: translateX(calc(var(--rise) * 1.5));
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+
+  .js [data-reveal="left"].is-revealed,
+  .js [data-reveal="right"].is-revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.js [data-reveal="right"] {
-  transform: translateX(var(--rise));
+@media (max-width: 767px) {
+  .js [data-reveal="left"],
+  .js [data-reveal="right"] {
+    opacity: 0;
+    transform: translateY(var(--rise));
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .js [data-reveal="left"].is-revealed,
+  .js [data-reveal="right"].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.js [data-reveal="left"].is-revealed,
-.js [data-reveal="right"].is-revealed {
-  transform: translateX(0);
+/* Zoom reveal variant */
+.js [data-reveal="zoom"] {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.js [data-reveal="zoom"].is-revealed {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Soft image reveal variant using clip-path + scale (preserves CLS < 0.05) */
@@ -52,7 +92,6 @@
   transition: opacity var(--dur-slow) var(--ease),
               transform var(--dur-slow) var(--ease),
               clip-path var(--dur-slow) var(--ease);
-  will-change: opacity, transform, clip-path;
 }
 
 .js [data-reveal="image"].is-revealed {

@@ -21,15 +21,27 @@ export default {
           lighter: '#121212',
         },
         surface: {
-          DEFAULT: '#141414',
-          elevated: '#1C1C1C',
-          muted: '#181818',
-          card: '#161616',
+          DEFAULT: '#121212',
+          elevated: '#1A1A1A',
+          muted: '#121212',
+          card: '#1A1A1A',
         },
+        raised: {
+          DEFAULT: '#1A1A1A',
+          hover: '#222222',
+        },
+        footer: {
+          DEFAULT: '#0F0F0F',
+          bar: '#050505',
+        },
+        'footer-bar': '#050505',
+        line: 'rgba(255, 255, 255, 0.08)',
+        'gold-line': 'rgba(201, 162, 39, 0.4)',
         border: {
-          DEFAULT: '#262626',
-          subtle: '#1F1F1F',
-          gold: 'rgba(201, 162, 39, 0.25)',
+          DEFAULT: 'rgba(255, 255, 255, 0.08)',
+          subtle: 'rgba(255, 255, 255, 0.05)',
+          line: 'rgba(255, 255, 255, 0.08)',
+          gold: 'rgba(201, 162, 39, 0.4)',
           'gold-light': 'rgba(201, 162, 39, 0.45)',
         },
         gold: {
@@ -38,12 +50,16 @@ export default {
           dark: '#9E7E1B',    // Active / pressed
           muted: 'rgba(201, 162, 39, 0.12)', // Subtle highlight pill
           glow: 'rgba(201, 162, 39, 0.28)',
+          line: 'rgba(201, 162, 39, 0.4)',
         },
         text: {
           DEFAULT: '#FFFFFF',
           pure: '#FFFFFF',
           muted: '#A3A3A3',
-          subtle: '#737373',
+          subtle: '#A3A3A3',
+        },
+        muted: {
+          DEFAULT: '#A3A3A3',
         },
         whatsapp: {
           DEFAULT: '#25D366',

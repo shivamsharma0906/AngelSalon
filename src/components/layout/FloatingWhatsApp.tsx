@@ -14,11 +14,11 @@ export const FloatingWhatsApp: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Angels Salon & Academy on WhatsApp"
-        className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
+        className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-whatsapp/40"
       >
         {/* Pulsing halo */}
         <span
-          className="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping opacity-75 pointer-events-none"
+          className="absolute -inset-1 rounded-full bg-whatsapp/40 animate-ping opacity-75 pointer-events-none"
           aria-hidden="true"
         ></span>
 

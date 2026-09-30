@@ -15,14 +15,17 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className={`relative bg-surface rounded-sm border border-border transition-all duration-300 ${
+      data-card-hover={hoverEffect ? '' : undefined}
+      className={`relative bg-raised border border-line rounded-[4px] transition-all duration-300 ${
         hoverEffect
-          ? 'hover:border-gold/50 hover:bg-surface-elevated hover:shadow-gold-sm hover:-translate-y-1'
+          ? 'hover:border-gold-line hover:-translate-y-1.5 focus-within:border-gold-line'
           : ''
-      } ${glow ? 'shadow-gold-sm border-gold/30' : ''} ${className}`}
+      } ${glow ? 'border-gold-line' : ''} ${className}`}
       {...props}
     >
       {children}
     </div>
   );
 };
+
+export default Card;

@@ -10,21 +10,20 @@ export const RedirectHandler: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 1. Redirect legacy /gallery to /style-gallery
-    if (pathname === '/gallery' || pathname.startsWith('/gallery/')) {
-      const rest = pathname.replace('/gallery', '/style-gallery');
-      navigate(rest, { replace: true });
+    // 1. Redirect legacy /gallery or sub-paths (/style-gallery/recent-work, /style-gallery/pictures, /style-gallery/videos) to /style-gallery
+    if (
+      pathname === '/gallery' ||
+      pathname.startsWith('/gallery/') ||
+      pathname.startsWith('/style-gallery/')
+    ) {
+      navigate('/style-gallery', { replace: true });
       return;
     }
 
-    // 2. Query param migration: /style-gallery?tab=videos -> /style-gallery/videos
+    // 2. Query param migration: /style-gallery?tab=... -> /style-gallery
     if (pathname === '/style-gallery' && search) {
-      const params = new URLSearchParams(search);
-      const tab = params.get('tab');
-      if (tab === 'videos' || tab === 'pictures' || tab === 'recent-work') {
-        navigate(`/style-gallery/${tab}`, { replace: true });
-        return;
-      }
+      navigate('/style-gallery', { replace: true });
+      return;
     }
 
     // 3. Hash migrations: /services#womens-hair-colour -> /services/womens-hair-colour

@@ -46,7 +46,6 @@ export const Header: React.FC = () => {
           <Link
             to="/"
             className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-1 focus:ring-gold rounded-sm shrink-0"
-            aria-label={`${siteConfig.name} - Back to Home`}
           >
             <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-gold/60 p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-gold-sm bg-ink shrink-0">
               <img

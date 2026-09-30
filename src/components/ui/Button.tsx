@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -67,8 +68,21 @@ export const Button: React.FC<ButtonProps> = ({
   );
 
   if (as === 'a' && href) {
+    const isInternal = href.startsWith('/') && !href.startsWith('//') && target !== '_blank';
+    if (isInternal) {
+      return (
+        <Link
+          to={href}
+          className={combinedClasses}
+        >
+          {content}
+        </Link>
+      );
+    }
+
     return (
       <a
+        data-btn-sweep={variant === 'gold' ? '' : undefined}
         href={href}
         target={target}
         rel={target === '_blank' ? (rel || 'noopener noreferrer') : rel}
@@ -81,6 +95,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      data-btn-sweep={variant === 'gold' ? '' : undefined}
       type={props.type || 'button'}
       className={combinedClasses}
       disabled={disabled || isLoading}

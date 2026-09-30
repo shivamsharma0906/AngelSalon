@@ -1536,3 +1536,63 @@ export const serviceCategories = serviceCategoriesData.map((c) => ({
 }));
 
 export const servicesData = serviceCategoriesData.flatMap((c) => c.services);
+
+export interface HomeServiceTile {
+  id: string;
+  slug: string;
+  label: string;
+  photo: string;
+  objectPosition?: string;
+  verified: boolean;
+}
+
+export const homeServiceTiles: HomeServiceTile[] = [
+  {
+    id: 'haircut',
+    slug: 'womens-haircut-and-style',
+    label: 'Haircut & Styling',
+    photo: '/images/real/client_butterfly_cut.jpg',
+    objectPosition: 'center top',
+    verified: true,
+  },
+  {
+    id: 'colour',
+    slug: 'womens-hair-colour',
+    label: 'Hair Colour',
+    photo: '/images/real/client_magenta_balayage.jpg',
+    objectPosition: 'center',
+    verified: true,
+  },
+  {
+    id: 'treatments',
+    slug: 'hair-treatments',
+    label: 'Hair Treatments',
+    photo: '/images/real/client_straight_glass.jpg',
+    objectPosition: 'center top',
+    verified: true,
+  },
+  {
+    id: 'skin',
+    slug: 'skin-care',
+    label: 'Facials & Skin',
+    photo: '/images/real/offer_skin_30.jpg',
+    objectPosition: 'center top',
+    verified: true,
+  },
+  {
+    id: 'nails',
+    slug: 'nails',
+    label: 'Nails & Hands',
+    photo: '/images/real/client_lavender_nails.jpg',
+    objectPosition: 'center',
+    verified: true,
+  },
+  {
+    id: 'bridal',
+    slug: 'bridal-makeup',
+    label: 'Bridal Couture',
+    photo: '/images/real/client_bridal_paithani.jpg',
+    objectPosition: 'center top',
+    verified: true,
+  },
+];

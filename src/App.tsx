@@ -22,16 +22,15 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Code-split shared templates for child routes
 const ServiceCategoryPage = lazy(() => import('./pages/templates/ServiceCategoryPage'));
-const GalleryPage = lazy(() => import('./pages/templates/GalleryPage'));
 const CourseCategoryPage = lazy(() => import('./pages/templates/CourseCategoryPage'));
 
 /**
  * Luxury page loading fallback
  */
 const PageLoader: React.FC = () => (
-  <div className="min-h-screen bg-ink flex flex-col items-center justify-center">
-    <div className="w-12 h-12 rounded-full border-2 border-border border-t-gold animate-spin mb-4"></div>
-    <span className="font-serif text-sm tracking-luxury uppercase text-gold">
+  <div className="min-h-[50vh] flex flex-col items-center justify-center py-16" aria-live="polite" aria-busy="true">
+    <div className="w-9 h-9 rounded-full border-2 border-border border-t-gold animate-spin mb-3"></div>
+    <span className="font-serif text-xs tracking-luxury uppercase text-gold">
       Angels Salon & Academy
     </span>
   </div>
@@ -48,7 +47,7 @@ const ScrollRevealInit: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <HelmetProvider>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         {/* Handles legacy redirects, query migrations, scroll-to-top, and H1 focus */}
         <RedirectHandler />
         <ScrollRevealInit />
@@ -73,10 +72,7 @@ export const App: React.FC = () => {
                 {/* 2. Services Child Pages (6 Dedicated Routes via Template) */}
                 <Route path="/services/:slug" element={<ServiceCategoryPage />} />
 
-                {/* 3. Style Gallery Child Pages (3 Dedicated Routes via Template) */}
-                <Route path="/style-gallery/:variant" element={<GalleryPage />} />
-
-                {/* 4. Academy Child Pages (2 Dedicated Routes via Template) */}
+                {/* 3. Academy Child Pages (2 Dedicated Routes via Template) */}
                 <Route path="/academy/:slug" element={<CourseCategoryPage />} />
 
                 {/* 5. Custom 404 Not Found */}

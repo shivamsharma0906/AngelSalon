@@ -9,10 +9,10 @@ import { Button } from "../components/ui/Button";
 import { WhatsAppIcon } from "../components/ui/WhatsAppIcon";
 
 const BRAND_COLOURS: Record<string, string> = {
-  "Wella Professionals": "text-[#8ecae6] border-[#8ecae6]/30 bg-[#8ecae6]/5",
-  "Scalp Sense": "text-[#95d5b2] border-[#95d5b2]/30 bg-[#95d5b2]/5",
-  "Nashi Argan": "text-gold border-gold/30 bg-gold/5",
-  "Skeyndor": "text-[#c77dff] border-[#c77dff]/30 bg-[#c77dff]/5",
+  "Wella Professionals": "text-gold-soft border-gold-line bg-raised",
+  "Scalp Sense": "text-text border-line bg-raised",
+  "Nashi Argan": "text-gold border-gold-line bg-raised",
+  "Skeyndor": "text-gold border-gold-line bg-raised",
 };
 const getBrandCls = (brand: string) =>
   BRAND_COLOURS[brand] ?? "text-text-subtle border-border bg-surface";

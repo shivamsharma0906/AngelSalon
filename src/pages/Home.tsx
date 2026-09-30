@@ -1,70 +1,70 @@
 import React from 'react';
 import { SEO, generateLocalBusinessSchema } from '../lib/seo';
+import { homeData } from '../data/home';
 import { Hero } from '../components/sections/Hero';
-import { BrandTicker } from '../components/sections/BrandTicker';
-import { TrustBar } from '../components/sections/TrustBar';
-import { BeautyQuiz } from '../components/sections/BeautyQuiz';
-import { ServicesPreview } from '../components/sections/ServicesPreview';
-import { TransformationShowcase } from '../components/sections/TransformationShowcase';
-import { SpecialOffers } from '../components/sections/SpecialOffers';
-import { GalleryPreview } from '../components/sections/GalleryPreview';
-import { AboutFounder } from '../components/sections/AboutFounder';
+import { PathCards } from '../components/sections/PathCards';
+import { OurWork } from '../components/sections/OurWork';
+import { WelcomeToAngels } from '../components/sections/WelcomeToAngels';
+import { OurServicesTiles } from '../components/sections/OurServicesTiles';
+import { WhyChooseUs } from '../components/sections/WhyChooseUs';
 import { AcademyTeaser } from '../components/sections/AcademyTeaser';
-import { Testimonials } from '../components/sections/Testimonials';
-import { BranchCards } from '../components/sections/BranchCards';
-import { CTABanner } from '../components/sections/CTABanner';
+import { VideoSection } from '../components/sections/VideoSection';
+import { GoogleReviews } from '../components/sections/GoogleReviews';
+import { VisitAngels } from '../components/sections/VisitAngels';
+import { FinalCTA } from '../components/sections/FinalCTA';
 
 export const Home: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
 
+  // If video is unverified or has no genuine URL, it renders null
+  const isVideoVisible = Boolean(homeData.video.verified && homeData.video.youtubeId);
+
   return (
     <>
       <SEO
-        title="Luxury Hair Salon & Academy Mumbai | Haute Coiffure Ghatkopar"
-        description="Experience luxury hair styling, French balayage, Skeyndor clinical skincare, couture bridal makeup, and certified academy courses at Angels Salon & Academy, Ghatkopar East, Mumbai."
+        title="Angels Salon & Academy | Hair Salon in Ghatkopar East"
+        description="Premier hair salon & beauty academy in Ghatkopar East, Mumbai. Expert hair styling, balayage, smoothening & facials. Rated 4.7 on Google. Book on WhatsApp."
         canonicalPath="/"
         schemaData={localBusinessSchema}
       />
 
       <main id="main-content">
-        {/* 1. Grand Editorial Hero with Integrated VIP Booking Console */}
+        {/* 1. Hero + booking bar (photo overlay) */}
         <Hero />
 
-        {/* 2. Luxury Product Partner Marquee */}
-        <BrandTicker />
+        {/* 2. Path cards (ink) */}
+        <PathCards />
 
-        {/* 3. Verified Metrics & Global Brand Credentials */}
-        <TrustBar />
+        {/* 3. Our Work (surface) */}
+        <OurWork />
 
-        {/* 4. Bespoke Beauty Treatment Explorer */}
-        <BeautyQuiz />
+        {/* 4. Welcome to Angels (ink) */}
+        <WelcomeToAngels />
 
-        {/* 6. Curated Signature Disciplines Explorer */}
-        <ServicesPreview />
+        {/* 5. Our Services (surface) */}
+        <OurServicesTiles />
 
-        {/* 7. Real Client Transformations & Formulations Showcase */}
-        <TransformationShowcase />
+        {/* 6. Why clients choose Angels (ink) */}
+        <WhyChooseUs />
 
-        {/* 8. Limited Festive Privileges & Real Posters */}
-        <SpecialOffers />
-
-        {/* 9. Real Salon Works & Style Lookbook */}
-        <GalleryPreview />
-
-        {/* 10. Vidal Sassoon Trained Philosophy & Legacy */}
-        <AboutFounder />
-
-        {/* 11. Academy of Hair & Beauty Masterclass Teaser */}
+        {/* 7. Academy teaser (surface) */}
         <AcademyTeaser />
 
-        {/* 13. Verified 5-Star Google Reviews & Social Proof */}
-        <Testimonials />
+        {/* 8. Video (ink) - click-to-load facade, hides when unverified */}
+        {isVideoVisible && <VideoSection />}
 
-        {/* 14. Salon Sanctuaries & Live Maps */}
-        <BranchCards />
+        {/* 9. Reviews (alternating tone: ink when video is hidden so adjacent sections never share a tone) */}
+        <GoogleReviews
+          mode="carousel"
+          limit={4}
+          tone={isVideoVisible ? 'surface' : 'ink'}
+        />
 
-        {/* 15. Final VIP Appointment Concierge Banner */}
-        <CTABanner />
+        {/* 10. Visit Angels (alternating tone: surface when video is hidden) */}
+        <VisitAngels tone={isVideoVisible ? 'ink' : 'surface'} />
+
+        {/* 11. Final CTA (1px gold-line top border, alternating tone) */}
+        <FinalCTA tone={isVideoVisible ? 'surface' : 'ink'} />
       </main>
     </>
   );

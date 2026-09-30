@@ -105,7 +105,7 @@ export const BottomActionBar: React.FC = () => {
           href={whatsAppBookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-[1.5] min-h-[42px] px-3 py-1 rounded-full bg-gold text-ink font-bold flex items-center justify-center gap-1.5 shadow-gold-sm hover:bg-gold-soft transition-all active:scale-95"
+          className="flex-[1.5] min-h-[44px] px-3 py-1 rounded-full bg-gold text-ink font-bold flex items-center justify-center gap-1.5 shadow-gold-sm hover:bg-gold-soft transition-all active:scale-95"
           aria-label="Book on WhatsApp"
         >
           <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />

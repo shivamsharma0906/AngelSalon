@@ -94,8 +94,8 @@ export const HeroBookingConsole: React.FC = () => {
       <div className="flex items-center justify-between pb-3.5 border-b border-border/70 mb-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
-            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-luxury text-[#25D366]">
+            <span className="w-2 h-2 rounded-full bg-whatsapp animate-pulse"></span>
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-luxury text-whatsapp">
               Live Slots Available Today
             </span>
           </div>

@@ -18,10 +18,7 @@ export const CountUp: React.FC<CountUpProps> = ({
   useEffect(() => {
     // Parse the value string: e.g. "15,000+", "4.7★", "10+"
     const rawNumberMatch = value.match(/([\d,.]+)/);
-    if (!rawNumberMatch) {
-      setDisplayValue(value);
-      return;
-    }
+    if (!rawNumberMatch) return;
 
     const matchedStr = rawNumberMatch[0];
     const prefix = value.slice(0, rawNumberMatch.index);
@@ -31,20 +28,15 @@ export const CountUp: React.FC<CountUpProps> = ({
     const decimalPlaces = isDecimal ? (matchedStr.split('.')[1]?.length || 1) : 0;
     const hasComma = matchedStr.includes(',');
 
-    if (isNaN(cleanNum)) {
-      setDisplayValue(value);
-      return;
-    }
+    if (isNaN(cleanNum)) return;
 
     // Check for prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
-      setDisplayValue(value);
       return;
     }
 
-    // Start with 0
-    setDisplayValue(`${prefix}0${suffix}`);
+    let rAFId: number;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -54,7 +46,6 @@ export const CountUp: React.FC<CountUpProps> = ({
           observer.disconnect();
 
           let startTime: number | null = null;
-          let rAFId: number;
 
           const animate = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
@@ -83,7 +74,6 @@ export const CountUp: React.FC<CountUpProps> = ({
           };
 
           rAFId = requestAnimationFrame(animate);
-          return () => cancelAnimationFrame(rAFId);
         }
       },
       { threshold: 0.2 }
@@ -95,6 +85,7 @@ export const CountUp: React.FC<CountUpProps> = ({
     }
 
     return () => {
+      cancelAnimationFrame(rAFId);
       if (currentEl) observer.unobserve(currentEl);
       observer.disconnect();
     };

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "verify-reviews": "node scripts/verify-reviews.ts",
-    "build": "node scripts/verify-reviews.ts && tsc && vite build",
+    "check-colors": "node scripts/check-colors.ts",
+    "build": "node scripts/verify-reviews.ts && node scripts/check-colors.ts && tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

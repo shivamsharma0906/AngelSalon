@@ -25,7 +25,7 @@ export const TrustBar: React.FC = () => {
                 index > 0 ? 'pt-4 sm:pt-0' : ''
               }`}
             >
-              <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gold via-[#dfb743] to-gold-soft bg-clip-text text-transparent tracking-tight mb-1.5">
+              <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gold via-gold-soft to-gold-soft bg-clip-text text-transparent tracking-tight mb-1.5">
                 <CountUp value={stat.value} />
               </span>
               <span className="text-xs sm:text-sm uppercase tracking-luxury text-text font-bold mb-1">

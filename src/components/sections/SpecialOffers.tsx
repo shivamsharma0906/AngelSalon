@@ -73,6 +73,17 @@ export const specialOffersData: SpecialOfferItem[] = [
     terms: 'Exclusive for registered salon members.',
     whatsappMessage: 'Hi Angels Salon! I would like to book the *Rica Waxing Members Package (Full Hand + Leg + Underarms) for ₹1,199*.',
   },
+  {
+    id: 'offer-global-highlights-2999',
+    title: 'Any One Service: Global, Highlights or Balayage',
+    badge: 'Limited Color Special',
+    discount: 'Only ₹2,999/-',
+    description: 'Special official privilege on full Global hair color, dimensional Highlights, or French Balayage at our Ghatkopar East salon.',
+    image: '/images/real/offer_global_highlights_2999.jpg',
+    alt: 'Special Offer Any One Service Only 2999 Global Highlights Balayage official poster Angels Salon',
+    terms: 'T&C Apply. Prior appointment recommended.',
+    whatsappMessage: 'Hi Angels Salon! I would like to claim the *Any One Service (Global, Highlights or Balayage) for ₹2,999* offer. Please share available slots!',
+  },
 ];
 
 export const SpecialOffers: React.FC<{ className?: string }> = ({ className = '' }) => {

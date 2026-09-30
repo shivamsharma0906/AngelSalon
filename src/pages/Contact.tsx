@@ -6,6 +6,7 @@ import { Container } from '../components/ui/Container';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { LaurelDivider } from '../components/ui/LaurelDivider';
+import { MapPinIcon } from '../components/ui/icons';
 
 interface FormState {
   name: string;
@@ -38,6 +39,7 @@ export const Contact: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isMapActive, setIsMapActive] = useState(false);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   // Minimum date is today
   const minDate = new Date().toISOString().split('T')[0];
@@ -193,9 +195,23 @@ export const Contact: React.FC = () => {
 
                   {/* Google Maps Embed with Touch-Friendly Directions CTA and Mobile Scroll Protection */}
                   <div
-                    className="relative w-full h-56 rounded-xl overflow-hidden border border-border group"
+                    className="relative w-full h-56 rounded-xl overflow-hidden border border-border bg-surface group"
                     onClick={() => setIsMapActive(true)}
                   >
+                    {!isMapLoaded && (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-surface z-10">
+                        <div className="relative mb-2 flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-full bg-gold/20 animate-ping absolute" />
+                          <div className="w-8 h-8 rounded-full bg-surface-elevated border border-gold flex items-center justify-center text-gold relative z-10">
+                            <MapPinIcon size={16} className="text-gold" />
+                          </div>
+                        </div>
+                        <span className="text-xs text-gold font-semibold uppercase tracking-wider">
+                          Loading Live Map...
+                        </span>
+                      </div>
+                    )}
+
                     <iframe
                       src={branch.googleMapsEmbedUrl}
                       width="100%"
@@ -203,15 +219,18 @@ export const Contact: React.FC = () => {
                       style={{ border: 0 }}
                       allowFullScreen={false}
                       loading="lazy"
+                      onLoad={() => setIsMapLoaded(true)}
                       referrerPolicy="strict-origin-when-cross-origin"
                       title={`${branch.name} Map`}
-                      className={`w-full h-full grayscale-[20%] contrast-[105%] ${
+                      className={`w-full h-full grayscale-[20%] contrast-[105%] transition-opacity duration-500 ${
+                        isMapLoaded ? 'opacity-100' : 'opacity-0'
+                      } ${
                         isMapActive ? 'pointer-events-auto' : 'pointer-events-none md:pointer-events-auto'
                       }`}
                     ></iframe>
 
                     {/* Mobile Tap-To-Interact Protection Overlay */}
-                    {!isMapActive && (
+                    {!isMapActive && isMapLoaded && (
                       <div className="md:hidden absolute inset-0 bg-ink/30 flex items-center justify-center cursor-pointer">
                         <span className="bg-surface/95 text-gold text-xs font-semibold px-3.5 py-1.5 rounded-full border border-gold/40 shadow-md">
                           Tap to interact with map

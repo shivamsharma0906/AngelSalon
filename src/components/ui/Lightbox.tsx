@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { GalleryItem } from '../../data/gallery';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export interface LightboxProps {
   item: GalleryItem | null;
@@ -200,12 +201,41 @@ export const Lightbox: React.FC<LightboxProps> = ({
           )}
         </div>
 
-        {/* Caption & Counter */}
-        <div className="w-full flex items-center justify-between pt-3 mt-3 border-t border-border text-xs sm:text-sm text-text-muted">
-          <p className="line-clamp-2 max-w-md">{item.description}</p>
-          <span className="shrink-0 ml-4 font-mono text-gold">
-            {currentIndex + 1} / {items.length}
-          </span>
+        {/* Caption, Story, & Action Controls */}
+        <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 mt-3 border-t border-border text-xs sm:text-sm text-text-muted">
+          <div className="flex-1 pr-2">
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
+              {item.serviceRendered && (
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-gold bg-gold/10 border border-gold/25 px-2 py-0.5 rounded-sm">
+                  {item.serviceRendered}
+                </span>
+              )}
+            </div>
+            <p className="text-text-muted leading-relaxed line-clamp-2">{item.description}</p>
+            {item.clientStory && (
+              <p className="text-[11px] text-text-muted/80 italic mt-1 line-clamp-2">
+                &ldquo;{item.clientStory}&rdquo;
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+            <span className="font-mono text-xs text-gold/80 px-2 py-1 bg-ink/60 rounded border border-border/60">
+              {currentIndex + 1} / {items.length}
+            </span>
+
+            <a
+              href={`https://wa.me/919167187140?text=${encodeURIComponent(
+                `Hi Angels Salon! I am inquiring about this look from your Style Gallery: "${item.title}" (${item.serviceRendered || item.categoryLabel}). Can you share pricing and available slots?`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-gold text-ink font-semibold text-xs hover:bg-gold-light transition-colors min-h-[36px] shadow-gold-sm"
+            >
+              <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+              <span>Book on WhatsApp</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -213,3 +243,4 @@ export const Lightbox: React.FC<LightboxProps> = ({
 };
 
 export default Lightbox;
+

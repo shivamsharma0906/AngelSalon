@@ -80,25 +80,6 @@ export const navigationData: NavItem[] = [
   {
     label: "Style Gallery",
     path: "/style-gallery",
-    hasDropdown: true,
-    ariaLabel: "Style Gallery submenu",
-    children: [
-      {
-        label: "Recent Work",
-        path: "/style-gallery/recent-work",
-        description: "Fresh transformations and signature before & afters",
-      },
-      {
-        label: "Pictures",
-        path: "/style-gallery/pictures",
-        description: "High-resolution curated portfolio across all styles",
-      },
-      {
-        label: "Videos",
-        path: "/style-gallery/videos",
-        description: "Styling reels, tutorials, and salon walkthroughs",
-      },
-    ],
   },
   {
     label: "Academy",
