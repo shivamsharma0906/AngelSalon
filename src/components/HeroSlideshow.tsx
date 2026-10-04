@@ -447,6 +447,20 @@ const EditorialSlideView: React.FC<{
             </div>
           )}
 
+          {slideIndex === 3 && (
+            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
+              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+                Hands-on Studio Work
+              </span>
+              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+                Master Stylist Mentors
+              </span>
+              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
+                Small Student Batches
+              </span>
+            </div>
+          )}
+
           {/* Luxury CTA Button */}
           <div>
             <Button
