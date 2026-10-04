@@ -4,7 +4,6 @@ import { homeServiceTiles, HomeServiceTile } from '../../data/services';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
 import { ScissorsIcon, SparklesIcon } from '../ui/icons';
-import { Carousel } from '../Carousel';
 
 export const OurServicesTiles: React.FC = () => {
   // Render ONLY verified service tiles
@@ -16,19 +15,19 @@ export const OurServicesTiles: React.FC = () => {
 
   const renderFallbackIcon = (tile: HomeServiceTile) => {
     if (tile.id === 'haircut' || tile.id === 'colour' || tile.id === 'treatments') {
-      return <ScissorsIcon size={36} className="text-gold" />;
+      return <ScissorsIcon size={32} className="text-gold" />;
     }
-    return <SparklesIcon size={36} className="text-gold" />;
+    return <SparklesIcon size={32} className="text-gold" />;
   };
 
   const renderTileContent = (tile: HomeServiceTile) => (
     <Link
       to={`/services/${tile.slug}`}
-      className="group flex flex-col items-center text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-[4px] p-1.5 transition-transform duration-300 w-full"
+      className="group flex flex-col items-center text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-[4px] p-1 xs:p-1.5 sm:p-2 transition-transform duration-300 w-full active:scale-95"
     >
       {/* Circular Photo with Gold Ring Offset */}
-      <div className="p-2 sm:p-2.5 rounded-full border border-gold-line group-hover:border-gold group-hover:scale-105 transition-all duration-300 mb-3 sm:mb-4 bg-ink">
-        <div className="w-[88px] h-[88px] xs:w-[100px] xs:h-[100px] sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-raised flex items-center justify-center">
+      <div className="p-1.5 xs:p-2 sm:p-2.5 rounded-full border border-gold-line group-hover:border-gold group-hover:scale-105 transition-all duration-300 mb-2 xs:mb-2.5 sm:mb-4 bg-ink shadow-md">
+        <div className="w-[72px] h-[72px] xs:w-[84px] xs:h-[84px] sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-raised flex items-center justify-center">
           {tile.photo ? (
             <img
               src={tile.photo}
@@ -47,12 +46,12 @@ export const OurServicesTiles: React.FC = () => {
       </div>
 
       {/* Label */}
-      <h3 className="font-serif text-base sm:text-lg font-bold text-text group-hover:text-gold transition-colors leading-tight mb-1">
+      <h3 className="font-serif text-xs xs:text-sm sm:text-base lg:text-lg font-bold text-text group-hover:text-gold transition-colors leading-tight mb-1 text-center line-clamp-2">
         {tile.label}
       </h3>
 
-      {/* Verified Tag */}
-      <span className="text-[11px] text-muted uppercase tracking-wider font-medium">
+      {/* Explore Link */}
+      <span className="text-[10px] xs:text-[11px] sm:text-xs text-muted group-hover:text-gold uppercase tracking-wider font-medium transition-colors">
         Explore &rarr;
       </span>
     </Link>
@@ -73,34 +72,17 @@ export const OurServicesTiles: React.FC = () => {
           <div className="w-16 h-0.5 bg-gold mx-auto transition-transform duration-700 ease-out origin-center" />
         </div>
 
-        {/* Mobile & Tablet (<lg): Accessible Carousel avoids squishing 3-per-row */}
-        <div data-reveal className="lg:hidden">
-          <Carousel
-            label="Salon service disciplines"
-            slideClassName="w-[44vw] xs:w-[40vw] sm:w-[170px] md:w-[190px] shrink-0 snap-start flex flex-col items-center"
-          >
-            {verifiedTiles.map((tile) => (
-              <div key={tile.id} className="w-full">
-                {renderTileContent(tile)}
-              </div>
-            ))}
-          </Carousel>
-        </div>
-
-        {/* Desktop (lg+): Clean 6-column grid where all disciplines fit symmetrically in one row */}
+        {/* Symmetrical Grid: 3 columns on mobile (2 balanced rows of 3) & 6 columns on desktop */}
         <div
           data-reveal
           data-reveal-stagger
-          className="hidden lg:grid lg:grid-cols-6 gap-x-6 items-start justify-items-center"
+          className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-x-2 xs:gap-x-3 sm:gap-x-6 lg:gap-x-6 gap-y-7 sm:gap-y-10 items-start justify-items-center max-w-6xl mx-auto"
         >
-          {verifiedTiles.map((tile, idx) => {
-            const revealVariant = idx < 3 ? 'left' : 'right';
-            return (
-              <div key={tile.id} data-reveal={revealVariant} className="w-full">
-                {renderTileContent(tile)}
-              </div>
-            );
-          })}
+          {verifiedTiles.map((tile) => (
+            <div key={tile.id} className="w-full">
+              {renderTileContent(tile)}
+            </div>
+          ))}
         </div>
 
       </Container>
