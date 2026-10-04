@@ -4,7 +4,7 @@ import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
 import { Button } from '../ui/Button';
 import { Lightbox } from '../ui/Lightbox';
-import { ArrowRightIcon } from '../ui/icons';
+import { Carousel } from '../Carousel';
 
 export const OurWork: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
@@ -30,7 +30,7 @@ export const OurWork: React.FC = () => {
         <Container size="lg">
           
           {/* Section Header */}
-          <div data-reveal className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <div data-reveal className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             <span className="text-[12px] uppercase tracking-wider text-gold font-semibold block mb-2">
               Client Transformations
             </span>
@@ -43,22 +43,20 @@ export const OurWork: React.FC = () => {
             </p>
           </div>
 
-          {/* Photos: Mobile swipe row with scroll-snap & next-card peek; Desktop grid */}
-          <div
-            data-reveal
-            data-reveal-stagger
-            className="scroll-snap-x gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 pb-4 md:pb-0 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0"
-          >
-            {realPhotos.map((item) => (
-              <div
-                key={item.id}
-                className="w-[82vw] xs:w-[78vw] sm:w-[320px] md:w-auto scroll-snap-align-start shrink-0 flex flex-col"
-              >
+          {/* Carousel Presentation */}
+          <div data-reveal>
+            <Carousel
+              label="Real client salon transformations"
+              slideClassName="w-[82vw] xs:w-[78vw] sm:w-[320px] md:w-[340px] lg:w-[360px] shrink-0 snap-start"
+            >
+              {realPhotos.map((item) => (
                 <div
+                  key={item.id}
                   onClick={() => handleOpenLightbox(item)}
                   className="group relative aspect-square w-full rounded-[4px] overflow-hidden bg-raised border border-gold/30 hover:border-gold transition-all duration-300 cursor-pointer shadow-md"
                   role="button"
                   tabIndex={0}
+                  aria-label={`View photo: ${item.title}`}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
@@ -86,40 +84,35 @@ export const OurWork: React.FC = () => {
                     </h3>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Swipe Hint (Mobile) */}
-          <div className="md:hidden flex items-center justify-center gap-1 text-[12px] text-muted mt-3">
-            <span>← Swipe for more transformations →</span>
+              ))}
+            </Carousel>
           </div>
 
           {/* Action Link */}
-          <div className="mt-10 sm:mt-14 flex justify-center">
+          <div className="mt-8 sm:mt-12 flex justify-center">
             <Button
               as="a"
               href="/style-gallery"
               variant="outline"
-              size="md"
-              className="min-h-[48px] border-gold-line text-gold hover:border-gold px-8 py-3 text-sm uppercase tracking-wider font-semibold rounded-[4px]"
-              rightIcon={<ArrowRightIcon size={16} />}
+              size="lg"
+              className="min-h-[48px] px-8 text-xs sm:text-sm font-semibold uppercase tracking-wider"
             >
-              View All Styles
+              <span>Explore Full Style Gallery</span>
+              <span aria-hidden="true">&rarr;</span>
             </Button>
           </div>
 
         </Container>
       </Section>
 
-      {/* Lightbox Modal */}
+      {/* Accessible Lightbox Modal */}
       {selectedItem && (
         <Lightbox
           isOpen={isLightboxOpen}
           onClose={() => setIsLightboxOpen(false)}
           item={selectedItem}
           items={realPhotos}
-          onNavigate={(item) => setSelectedItem(item)}
+          onNavigate={(newItem) => setSelectedItem(newItem)}
         />
       )}
     </>

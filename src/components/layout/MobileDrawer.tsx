@@ -111,7 +111,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
-      className="fixed inset-0 z-50 flex justify-end bg-ink/80 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-[60] flex justify-end bg-ink/80 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
     >
       {/* Drawer Panel */}

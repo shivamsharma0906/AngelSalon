@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { googleReviews, googleSummary, GoogleReview } from '../../data/reviews';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
 import { StarIcon } from '../ui/icons';
+import { Carousel } from '../Carousel';
 
 interface GoogleReviewsProps {
   mode?: 'carousel' | 'grid';
@@ -110,86 +111,8 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
   className = '',
 }) => {
   const items = limit ? googleReviews.slice(0, limit) : googleReviews;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(3);
-  const [isPaused, setIsPaused] = useState(false);
-  const touchStartX = useRef<number | null>(null);
-
-  // Responsive cards per view calculation
-  useEffect(() => {
-    const updateVisibleCount = () => {
-      const width = window.innerWidth;
-      if (width < 768) {
-        setVisibleCount(1);
-      } else if (width < 1024) {
-        setVisibleCount(2);
-      } else {
-        setVisibleCount(3);
-      }
-    };
-
-    updateVisibleCount();
-    window.addEventListener('resize', updateVisibleCount);
-    return () => window.removeEventListener('resize', updateVisibleCount);
-  }, []);
-
-  const maxIndex = Math.max(0, items.length - visibleCount);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
-  }, [maxIndex]);
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
-  }, [maxIndex]);
-
-  // Auto-advance with reduced-motion check and pause-on-hover/focus
-  useEffect(() => {
-    if (mode !== 'carousel') return;
-
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReducedMotion || isPaused || maxIndex === 0) {
-      return;
-    }
-
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [mode, isPaused, maxIndex, nextSlide]);
-
-  // Keyboard navigation
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      prevSlide();
-    } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      nextSlide();
-    }
-  };
-
-  // Touch swipe handling
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (diff > 50) {
-      nextSlide();
-    } else if (diff < -50) {
-      prevSlide();
-    }
-    touchStartX.current = null;
-  };
-
   const hasReviewsUrl = Boolean(googleSummary.reviewsUrl && googleSummary.reviewsUrl.trim().length > 0);
+
   if (!items || items.length === 0) {
     return null;
   }
@@ -216,90 +139,18 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
         <GoogleReviewSummaryHeader />
 
         {mode === 'carousel' ? (
-          /* Carousel Presentation */
-          <div
-            data-reveal
-            className="relative"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onFocus={() => setIsPaused(true)}
-            onBlur={() => setIsPaused(false)}
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
-            role="region"
-            aria-roledescription="carousel"
-            aria-label="Google Customer Reviews Carousel"
-          >
-            {/* Viewport Frame */}
-            <div
-              className="overflow-hidden"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
+          /* Accessible, dependency-free Carousel presentation */
+          <div data-reveal>
+            <Carousel
+              label="Selected Google customer reviews"
+              slideClassName="w-[85vw] sm:w-[46%] lg:w-[31%] shrink-0 snap-start"
             >
-              <div
-                className="flex transition-transform duration-500 ease-out"
-                style={{
-                  transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
-                }}
-              >
-                {items.map((review) => (
-                  <div
-                    key={review.id}
-                    className="shrink-0 p-3"
-                    style={{ width: `${100 / visibleCount}%` }}
-                  >
-                    <GoogleReviewCard review={review} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Carousel Controls with 44px min tap targets */}
-            {items.length > visibleCount && (
-              <div className="flex items-center justify-center gap-4 mt-8">
-                <button
-                  type="button"
-                  onClick={prevSlide}
-                  aria-label="Previous review"
-                  className="w-11 h-11 rounded-full border border-gold/30 bg-raised hover:border-gold text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
-                >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="15 18 9 12 15 6" />
-                  </svg>
-                </button>
-
-                {/* Dots indicator with 44px hit bounds */}
-                <div className="flex items-center gap-1.5" aria-hidden="true">
-                  {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setCurrentIndex(idx)}
-                      tabIndex={-1}
-                      aria-label={`Go to slide ${idx + 1}`}
-                      className="p-3 flex items-center justify-center"
-                    >
-                      <span
-                        className={`h-1.5 rounded-full transition-all duration-300 block ${
-                          currentIndex === idx ? 'w-6 bg-gold' : 'w-2 bg-gold/25 hover:bg-gold-line'
-                        }`}
-                      />
-                    </button>
-                  ))}
+              {items.map((review) => (
+                <div key={review.id} className="h-full">
+                  <GoogleReviewCard review={review} />
                 </div>
-
-                <button
-                  type="button"
-                  onClick={nextSlide}
-                  aria-label="Next review"
-                  className="w-11 h-11 rounded-full border border-gold/30 bg-raised hover:border-gold text-text hover:text-gold flex items-center justify-center transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
-                >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </button>
-              </div>
-            )}
+              ))}
+            </Carousel>
           </div>
         ) : (
           /* Grid Presentation (Testimonials Page) */

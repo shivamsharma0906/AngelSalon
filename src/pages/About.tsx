@@ -9,28 +9,29 @@ import { LaurelDivider } from '../components/ui/LaurelDivider';
 import { CountUp } from '../components/ui/CountUp';
 import { AboutAndFacilities } from '../components/sections/AboutAndFacilities';
 import { SpecialOffers } from '../components/sections/SpecialOffers';
+import { ShieldCheckIcon, ScissorsIcon, DiamondIcon, HeartIcon } from '../components/ui/icons';
 
 export const About: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
 
   const corePillars = [
     {
-      icon: "🛡️",
+      icon: <ShieldCheckIcon size={22} className="text-gold" />,
       title: "Surgical-Grade Hygiene",
       description: "We enforce strict medical-grade autoclaving of styling instruments, single-use disposable gowns, and thorough sanitization of styling stations between every client appointment.",
     },
     {
-      icon: "✂️",
+      icon: <ScissorsIcon size={22} className="text-gold" />,
       title: "Elite Certified Artistry",
       description: "Our styling team has been educated at premier academies including Toni&Guy, L'Oréal Professionnel Paris, and Vidal Sassoon, undergoing regular masterclasses to lead seasonal trends.",
     },
     {
-      icon: "💎",
+      icon: <DiamondIcon size={22} className="text-gold" />,
       title: "World-Class Product Partners",
       description: "We never compromise on chemical formulations. We exclusively partner with authentic global brands including L'Oréal Professionnel, Skeyndor, Olaplex, Nashi Argan, and Kérastase.",
     },
     {
-      icon: "🤍",
+      icon: <HeartIcon size={22} className="text-gold" />,
       title: "Empowering & Inclusive Space",
       description: "Proudly unisex and dedicated to creating an intimate, comfortable sanctuary where every client is received with utmost warmth, confidentiality, and respect.",
     },
@@ -168,7 +169,7 @@ export const About: React.FC = () => {
               {corePillars.map((pillar, idx) => (
                 <Card key={idx} data-card-hover className="p-6 sm:p-7 flex flex-col justify-between">
                   <div>
-                    <div className="text-3xl mb-4" aria-hidden="true">
+                    <div className="w-12 h-12 rounded-full bg-raised border border-gold-line text-gold flex items-center justify-center mb-5 shadow-sm select-none" aria-hidden="true">
                       {pillar.icon}
                     </div>
                     <h3 className="font-serif text-xl font-bold text-text mb-2.5">

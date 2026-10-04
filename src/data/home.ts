@@ -9,6 +9,50 @@ export interface HomeStat {
   verified: boolean;
 }
 
+export interface HeroSlide {
+  id: string;
+  src: string;
+  srcSet: string;
+  sizes: string;
+  alt: string;
+  objectPosition: string;
+}
+
+export const heroSlidesData: HeroSlide[] = [
+  {
+    id: 'salon-interior',
+    src: '/images/hero/salon_interior_desktop.webp',
+    srcSet: '/images/hero/salon_interior_mobile.webp 800w, /images/hero/salon_interior_desktop.webp 1672w',
+    sizes: '(max-width: 640px) 100vw, 100vw',
+    alt: 'Angels Salon & Academy luxury interior and styling stations in Ghatkopar East',
+    objectPosition: 'center center',
+  },
+  {
+    id: 'client-glass-hair',
+    src: '/images/hero/client_glass_hair_desktop.webp',
+    srcSet: '/images/hero/client_glass_hair_mobile.webp 800w, /images/hero/client_glass_hair_desktop.webp 1080w',
+    sizes: '(max-width: 640px) 100vw, 100vw',
+    alt: 'Client mirror-glass hair smoothening and Nanoplastia treatment result',
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 'client-styling',
+    src: '/images/hero/client_styling_desktop.webp',
+    srcSet: '/images/hero/client_styling_mobile.webp 800w, /images/hero/client_styling_desktop.webp 911w',
+    sizes: '(max-width: 640px) 100vw, 100vw',
+    alt: 'Client precision haircut, dimensional blow-dry, and face-framing style',
+    objectPosition: 'center 25%',
+  },
+  {
+    id: 'client-nails',
+    src: '/images/hero/client_nails_desktop.webp',
+    srcSet: '/images/hero/client_nails_mobile.webp 800w, /images/hero/client_nails_desktop.webp 1080w',
+    sizes: '(max-width: 640px) 100vw, 100vw',
+    alt: 'Russian gel nail extensions and bespoke nail art at Angels Salon',
+    objectPosition: 'center center',
+  },
+];
+
 export interface PathCardItem {
   id: string;
   title: string;

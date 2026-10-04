@@ -2,6 +2,8 @@ import React from 'react';
 import { SEO, generateLocalBusinessSchema } from '../lib/seo';
 import { homeData } from '../data/home';
 import { Hero } from '../components/sections/Hero';
+import { HorizontalBookingBar } from '../components/sections/HorizontalBookingBar';
+import { Container } from '../components/ui/Container';
 import { PathCards } from '../components/sections/PathCards';
 import { OurWork } from '../components/sections/OurWork';
 import { WelcomeToAngels } from '../components/sections/WelcomeToAngels';
@@ -29,41 +31,48 @@ export const Home: React.FC = () => {
       />
 
       <main id="main-content">
-        {/* 1. Hero + booking bar (photo overlay) */}
+        {/* 1. Hero with crossfade slideshow */}
         <Hero />
 
-        {/* 2. Path cards (ink) */}
+        {/* 2. Dedicated Appointment Reservation Console */}
+        <section id="reserve" className="py-8 sm:py-10 bg-ink border-b border-border/60" aria-label="Reserve an Appointment">
+          <Container size="lg">
+            <HorizontalBookingBar />
+          </Container>
+        </section>
+
+        {/* 3. Path cards (ink) */}
         <PathCards />
 
-        {/* 3. Our Work (surface) */}
+        {/* 4. Our Work (surface) */}
         <OurWork />
 
-        {/* 4. Welcome to Angels (ink) */}
+        {/* 5. Welcome to Angels (ink) */}
         <WelcomeToAngels />
 
-        {/* 5. Our Services (surface) */}
+        {/* 6. Our Services (surface) */}
         <OurServicesTiles />
 
-        {/* 6. Why clients choose Angels (ink) */}
+        {/* 7. Why clients choose Angels (ink) */}
         <WhyChooseUs />
 
-        {/* 7. Academy teaser (surface) */}
+        {/* 8. Academy teaser (surface) */}
         <AcademyTeaser />
 
-        {/* 8. Video (ink) - click-to-load facade, hides when unverified */}
+        {/* 9. Video (ink) - click-to-load facade, hides when unverified */}
         {isVideoVisible && <VideoSection />}
 
-        {/* 9. Reviews (alternating tone: ink when video is hidden so adjacent sections never share a tone) */}
+        {/* 10. Reviews (alternating tone: ink when video is hidden so adjacent sections never share a tone) */}
         <GoogleReviews
           mode="carousel"
           limit={4}
           tone={isVideoVisible ? 'surface' : 'ink'}
         />
 
-        {/* 10. Visit Angels (alternating tone: surface when video is hidden) */}
+        {/* 11. Visit Angels (alternating tone: surface when video is hidden) */}
         <VisitAngels tone={isVideoVisible ? 'ink' : 'surface'} />
 
-        {/* 11. Final CTA (1px gold-line top border, alternating tone) */}
+        {/* 12. Final CTA (1px gold-line top border, alternating tone) */}
         <FinalCTA tone={isVideoVisible ? 'surface' : 'ink'} />
       </main>
     </>
