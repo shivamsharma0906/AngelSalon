@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { SEO, generateLocalBusinessSchema } from '../lib/seo';
 import { siteConfig } from '../data/site';
 import { buildFormInquiryLink } from '../lib/whatsapp';
@@ -8,7 +9,7 @@ import { Button } from '../components/ui/Button';
 import { LaurelDivider } from '../components/ui/LaurelDivider';
 import { MapPinIcon } from '../components/ui/icons';
 
-interface FormState {
+interface ContactFormValues {
   name: string;
   phone: string;
   branch: string;
@@ -16,6 +17,7 @@ interface FormState {
   preferredDate: string;
   preferredTime: string;
   notes: string;
+  website_bot_check: string; // Honeypot field to block automated spambots
 }
 
 interface FormErrors {
@@ -25,15 +27,85 @@ interface FormErrors {
   serviceOrCourse?: string;
 }
 
+/**
+ * Normalizes Indian phone numbers into international +91 representation
+ */
+function normalizeIndianPhone(rawPhone: string): { display: string; cleanDigits: string; isValid: boolean } {
+  const digits = rawPhone.replace(/\D/g, '');
+  let standard10 = '';
+
+  if (digits.length === 10 && /^[6-9]\d{9}$/.test(digits)) {
+    standard10 = digits;
+  } else if (digits.length === 11 && digits.startsWith('0') && /^[6-9]\d{9}$/.test(digits.slice(1))) {
+    standard10 = digits.slice(1);
+  } else if (digits.length === 12 && digits.startsWith('91') && /^[6-9]\d{9}$/.test(digits.slice(2))) {
+    standard10 = digits.slice(2);
+  }
+
+  if (standard10) {
+    return {
+      display: `+91 ${standard10.slice(0, 5)} ${standard10.slice(5)}`,
+      cleanDigits: `+91${standard10}`,
+      isValid: true,
+    };
+  }
+
+  return {
+    display: rawPhone,
+    cleanDigits: digits,
+    isValid: false,
+  };
+}
+
+/**
+ * Lightweight schema-based validation rule definition
+ */
+interface SchemaFieldRule {
+  validate: (val: string, all: ContactFormValues) => boolean;
+  message: string;
+}
+
+const contactFormSchema: Record<keyof FormErrors, SchemaFieldRule[]> = {
+  name: [
+    {
+      validate: (v) => v.trim().length >= 2,
+      message: 'Please provide your full name (minimum 2 characters).',
+    },
+    {
+      validate: (v) => v.trim().length <= 80,
+      message: 'Name cannot exceed 80 characters.',
+    },
+  ],
+  phone: [
+    {
+      validate: (v) => normalizeIndianPhone(v).isValid,
+      message: 'Please enter a valid 10-digit Indian mobile number (e.g. 98200 12345).',
+    },
+  ],
+  branch: [
+    {
+      validate: (v) => v.trim().length > 0,
+      message: 'Please choose a salon branch.',
+    },
+  ],
+  serviceOrCourse: [
+    {
+      validate: (v) => v.trim().length > 0,
+      message: 'Please select a service or course interest.',
+    },
+  ],
+};
+
 export const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormState>({
+  const [formData, setFormData] = useState<ContactFormValues>({
     name: '',
     phone: '',
-    branch: 'Ghatkopar East (Flagship)',
+    branch: 'Ghatkopar East (Flagship Salon & Academy)',
     serviceOrCourse: 'Hair Styling & Balayage',
     preferredDate: '',
     preferredTime: 'Morning (10:00 AM - 1:00 PM)',
     notes: '',
+    website_bot_check: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -49,31 +121,38 @@ export const Contact: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error as user types
+    // Clear error as user modifies input
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
-  const validate = (): boolean => {
+  const handlePhoneBlur = () => {
+    if (formData.phone.trim()) {
+      const normalized = normalizeIndianPhone(formData.phone);
+      if (normalized.isValid) {
+        setFormData((prev) => ({ ...prev, phone: normalized.display }));
+      }
+    }
+  };
+
+  const validateForm = (): boolean => {
+    // 1. Check honeypot field
+    if (formData.website_bot_check.trim().length > 0) {
+      // Bot detected: silent reject without error indication
+      return false;
+    }
+
     const newErrors: FormErrors = {};
 
-    if (!formData.name.trim() || formData.name.trim().length < 2) {
-      newErrors.name = 'Please provide your full name (at least 2 characters).';
-    }
-
-    // Phone validation: Indian 10-digit number
-    const cleanPhone = formData.phone.replace(/\D/g, '');
-    if (!cleanPhone || (cleanPhone.length !== 10 && cleanPhone.length !== 11 && cleanPhone.length !== 12)) {
-      newErrors.phone = 'Please provide a valid 10-digit mobile number.';
-    }
-
-    if (!formData.branch) {
-      newErrors.branch = 'Please choose a salon branch.';
-    }
-
-    if (!formData.serviceOrCourse) {
-      newErrors.serviceOrCourse = 'Please select a service or course interest.';
+    for (const [key, rules] of Object.entries(contactFormSchema) as [keyof FormErrors, SchemaFieldRule[]][]) {
+      const val = formData[key] || '';
+      for (const rule of rules) {
+        if (!rule.validate(val, formData)) {
+          newErrors[key] = rule.message;
+          break; // Show first failing rule message
+        }
+      }
     }
 
     setErrors(newErrors);
@@ -83,16 +162,18 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validate()) {
+    if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
 
-    // Build WhatsApp URL with validated form payload
+    const normalizedPhone = normalizeIndianPhone(formData.phone);
+
+    // Build WhatsApp URL with validated & normalized payload
     const whatsappUrl = buildFormInquiryLink({
       name: formData.name,
-      phone: formData.phone,
+      phone: normalizedPhone.cleanDigits,
       branch: formData.branch,
       serviceOrCourse: formData.serviceOrCourse,
       preferredDate: formData.preferredDate || undefined,
@@ -100,11 +181,10 @@ export const Contact: React.FC = () => {
       notes: formData.notes || undefined,
     });
 
-    // Short timeout for seamless UX feedback before opening WhatsApp
     setTimeout(() => {
       setIsSubmitting(false);
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    }, 400);
+    }, 300);
   };
 
   const localBusinessSchema = generateLocalBusinessSchema();
@@ -118,11 +198,17 @@ export const Contact: React.FC = () => {
         schemaData={localBusinessSchema}
       />
 
-      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-ink">
+      {/* Scoped Google Maps preconnects only for Contact page */}
+      <Helmet>
+        <link rel="preconnect" href="https://maps.googleapis.com" />
+        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
+      </Helmet>
+
+      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
         {/* Page Header */}
         <section data-reveal className="text-center mb-12 sm:mb-16">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
               We Welcome You
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
@@ -130,7 +216,7 @@ export const Contact: React.FC = () => {
             </h1>
             <LaurelDivider size="md" />
             <p className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto leading-relaxed font-light mt-3">
-              Visit our flagship salon & academy in Ghatkopar East, reach out directly by phone, or submit an instant WhatsApp appointment request.
+              Visit our flagship salon &amp; academy in Ghatkopar East, reach out directly by phone, or submit an instant WhatsApp appointment request.
             </p>
           </Container>
         </section>
@@ -144,16 +230,16 @@ export const Contact: React.FC = () => {
               </h2>
 
               {siteConfig.branches.map((branch) => (
-                <Card data-card-hover key={branch.id} className="p-6">
+                <Card data-card-hover key={branch.id} className="p-6 bg-surface border border-border shadow-card-light">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs uppercase tracking-luxury text-gold font-semibold">
-                      Main Flagship & Academy
+                    <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold">
+                      Main Flagship &amp; Academy
                     </span>
                     <a
                       href={branch.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-gold hover:text-gold-soft uppercase tracking-wider font-semibold inline-flex items-center gap-1"
+                      className="text-xs text-gold-text hover:text-gold uppercase tracking-wider font-semibold inline-flex items-center gap-1"
                     >
                       <span>Directions</span>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -167,13 +253,16 @@ export const Contact: React.FC = () => {
                     {branch.name}
                   </h3>
 
-                  {/* Real Storefront Exterior Photo */}
-                  <div data-reveal="image" className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-border mb-4 bg-ink shadow-sm">
+                  {/* Storefront Exterior Photo */}
+                  <div data-reveal="image" className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-border mb-4 bg-surface-subtle shadow-sm">
                     <img
                       src="/images/salon_outside.jpg"
                       alt="Angels Salon & Academy storefront exterior in Ghatkopar East Mumbai"
+                      width={800}
+                      height={450}
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
 
@@ -187,7 +276,7 @@ export const Contact: React.FC = () => {
                     </p>
                     <p>
                       <strong className="text-text">Phone:</strong>{' '}
-                      <a href={`tel:${branch.phoneRaw}`} className="text-gold hover:underline">
+                      <a href={`tel:${branch.phoneRaw}`} className="text-gold-text font-medium hover:underline">
                         {branch.phone}
                       </a>
                     </p>
@@ -199,14 +288,14 @@ export const Contact: React.FC = () => {
                     onClick={() => setIsMapActive(true)}
                   >
                     {!isMapLoaded && (
-                      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-surface z-10">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-surface-subtle z-10">
                         <div className="relative mb-2 flex items-center justify-center">
                           <div className="w-8 h-8 rounded-full bg-gold/20 animate-ping absolute" />
-                          <div className="w-8 h-8 rounded-full bg-surface-elevated border border-gold flex items-center justify-center text-gold relative z-10">
+                          <div className="w-8 h-8 rounded-full bg-surface border border-gold flex items-center justify-center text-gold relative z-10">
                             <MapPinIcon size={16} className="text-gold" />
                           </div>
                         </div>
-                        <span className="text-xs text-gold font-semibold uppercase tracking-wider">
+                        <span className="text-xs text-gold-text font-semibold uppercase tracking-wider">
                           Loading Live Map...
                         </span>
                       </div>
@@ -231,8 +320,8 @@ export const Contact: React.FC = () => {
 
                     {/* Mobile Tap-To-Interact Protection Overlay */}
                     {!isMapActive && isMapLoaded && (
-                      <div className="md:hidden absolute inset-0 bg-ink/30 flex items-center justify-center cursor-pointer">
-                        <span className="bg-surface/95 text-gold text-xs font-semibold px-3.5 py-1.5 rounded-full border border-gold/40 shadow-md">
+                      <div className="md:hidden absolute inset-0 bg-dark/30 flex items-center justify-center cursor-pointer">
+                        <span className="bg-surface/95 text-gold-text text-xs font-semibold px-3.5 py-1.5 rounded-full border border-gold/40 shadow-md">
                           Tap to interact with map
                         </span>
                       </div>
@@ -244,7 +333,7 @@ export const Contact: React.FC = () => {
                       href={branch.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm bg-surface border border-gold/40 text-gold hover:bg-gold hover:text-ink text-xs uppercase font-bold tracking-luxury transition-all"
+                      className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm bg-surface border border-gold/60 text-gold-text hover:bg-gold hover:text-dark text-xs uppercase font-bold tracking-luxury transition-all"
                     >
                       <span>Get Directions on Google Maps</span>
                       <span aria-hidden="true">&rarr;</span>
@@ -256,22 +345,36 @@ export const Contact: React.FC = () => {
 
             {/* Right Column: Send Enquiry Form */}
             <div data-reveal className="lg:col-span-6">
-              <div className="bg-surface border border-border rounded-sm p-5 sm:p-8 lg:p-10 shadow-card-dark lg:sticky lg:top-28">
-                <span className="text-xs uppercase tracking-luxury text-gold font-semibold mb-2 block">
+              <div className="bg-surface border border-border rounded-sm p-5 sm:p-8 lg:p-10 shadow-card-light lg:sticky lg:top-28">
+                <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold mb-2 block">
                   Priority Scheduling
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3">
                   Send Appointment Enquiry
                 </h2>
                 <p className="text-xs sm:text-sm text-text-muted mb-6 sm:mb-8 leading-relaxed">
-                  Fill in your details below. Clicking "Send on WhatsApp" will open your pre-formatted booking inquiry directly on WhatsApp with our concierge team.
+                  Fill in your details below. Clicking &ldquo;Send Booking Enquiry on WhatsApp&rdquo; will open your pre-formatted booking inquiry directly on WhatsApp with our concierge team.
                 </p>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-4 sm:space-y-5">
+                  {/* Honeypot field (hidden from assistive technologies and CSS display) */}
+                  <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+                    <label htmlFor="website_bot_check">Do not fill this field</label>
+                    <input
+                      type="text"
+                      id="website_bot_check"
+                      name="website_bot_check"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.website_bot_check}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
                   {/* Name Input */}
                   <div>
                     <label htmlFor="name" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
-                      Your Name <span className="text-gold">*</span>
+                      Your Name <span className="text-gold-text">*</span>
                     </label>
                     <input
                       type="text"
@@ -284,12 +387,12 @@ export const Contact: React.FC = () => {
                       aria-required="true"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
-                      className={`w-full min-h-[48px] bg-ink border rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-subtle focus:outline-none scroll-mt-24 transition-colors ${
-                        errors.name ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-gold'
+                      className={`w-full min-h-[48px] bg-surface border rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
+                        errors.name ? 'border-red-600 focus:border-red-600' : 'border-input focus:border-gold'
                       }`}
                     />
                     {errors.name && (
-                      <p id="name-error" className="text-xs text-red-400 mt-1.5" role="alert">
+                      <p id="name-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
                         {errors.name}
                       </p>
                     )}
@@ -298,7 +401,7 @@ export const Contact: React.FC = () => {
                   {/* Phone Input */}
                   <div>
                     <label htmlFor="phone" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
-                      Phone Number (WhatsApp) <span className="text-gold">*</span>
+                      Phone Number (WhatsApp) <span className="text-gold-text">*</span>
                     </label>
                     <input
                       type="tel"
@@ -308,16 +411,17 @@ export const Contact: React.FC = () => {
                       autoComplete="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="e.g. 073033 12054"
+                      onBlur={handlePhoneBlur}
+                      placeholder="e.g. 98200 12345"
                       aria-required="true"
                       aria-invalid={!!errors.phone}
                       aria-describedby={errors.phone ? 'phone-error' : undefined}
-                      className={`w-full min-h-[48px] bg-ink border rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-subtle focus:outline-none scroll-mt-24 transition-colors ${
-                        errors.phone ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-gold'
+                      className={`w-full min-h-[48px] bg-surface border rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
+                        errors.phone ? 'border-red-600 focus:border-red-600' : 'border-input focus:border-gold'
                       }`}
                     />
                     {errors.phone && (
-                      <p id="phone-error" className="text-xs text-red-400 mt-1.5" role="alert">
+                      <p id="phone-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
                         {errors.phone}
                       </p>
                     )}
@@ -326,43 +430,59 @@ export const Contact: React.FC = () => {
                   {/* Branch Select */}
                   <div>
                     <label htmlFor="branch" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
-                      Preferred Branch <span className="text-gold">*</span>
+                      Preferred Branch <span className="text-gold-text">*</span>
                     </label>
                     <select
                       id="branch"
                       name="branch"
                       value={formData.branch}
                       onChange={handleInputChange}
-                      className="w-full min-h-[48px] bg-ink border border-border rounded-sm px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                      aria-required="true"
+                      aria-invalid={!!errors.branch}
+                      aria-describedby={errors.branch ? 'branch-error' : undefined}
+                      className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
                     >
                       <option value="Ghatkopar East (Flagship Salon & Academy)">
-                        Ghatkopar East (Flagship Salon & Academy)
+                        Ghatkopar East (Flagship Salon &amp; Academy)
                       </option>
                     </select>
+                    {errors.branch && (
+                      <p id="branch-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
+                        {errors.branch}
+                      </p>
+                    )}
                   </div>
 
                   {/* Service or Course Category Select */}
                   <div>
                     <label htmlFor="serviceOrCourse" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
-                      Service / Course Interest <span className="text-gold">*</span>
+                      Service / Course Interest <span className="text-gold-text">*</span>
                     </label>
                     <select
                       id="serviceOrCourse"
                       name="serviceOrCourse"
                       value={formData.serviceOrCourse}
                       onChange={handleInputChange}
-                      className="w-full min-h-[48px] bg-ink border border-border rounded-sm px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                      aria-required="true"
+                      aria-invalid={!!errors.serviceOrCourse}
+                      aria-describedby={errors.serviceOrCourse ? 'service-error' : undefined}
+                      className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
                     >
-                      <option value="Director's Haircut & Styling">Director's Haircut & Styling</option>
-                      <option value="French Balayage & Colour">French Balayage & Colour</option>
+                      <option value="Director's Haircut & Styling">Director&apos;s Haircut &amp; Styling</option>
+                      <option value="French Balayage & Colour">French Balayage &amp; Colour</option>
                       <option value="Keratin / Botox Hair Treatment">Keratin / Botox Hair Treatment</option>
                       <option value="Royal Couture Bridal Package">Royal Couture Bridal Package</option>
-                      <option value="Korean Hydra Facial & Skincare">Korean Hydra Facial & Skincare</option>
+                      <option value="Korean Hydra Facial & Skincare">Korean Hydra Facial &amp; Skincare</option>
                       <option value="Russian Gel Nail Art">Russian Gel Nail Art</option>
                       <option value="Academy: Master Hairdressing Diploma">Academy: Master Hairdressing Diploma</option>
                       <option value="Academy: Bridal Makeup Mastery">Academy: Bridal Makeup Mastery</option>
                       <option value="General Consultation">General Consultation</option>
                     </select>
+                    {errors.serviceOrCourse && (
+                      <p id="service-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
+                        {errors.serviceOrCourse}
+                      </p>
+                    )}
                   </div>
 
                   {/* Date & Time Row */}
@@ -378,7 +498,7 @@ export const Contact: React.FC = () => {
                         min={minDate}
                         value={formData.preferredDate}
                         onChange={handleInputChange}
-                        className="w-full min-h-[48px] bg-ink border border-border rounded-sm px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
+                        className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
                       />
                     </div>
 
@@ -391,7 +511,7 @@ export const Contact: React.FC = () => {
                         name="preferredTime"
                         value={formData.preferredTime}
                         onChange={handleInputChange}
-                        className="w-full min-h-[48px] bg-ink border border-border rounded-sm px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                        className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
                       >
                         <option value="Morning (10:00 AM - 1:00 PM)">Morning (10 AM - 1 PM)</option>
                         <option value="Afternoon (1:00 PM - 5:00 PM)">Afternoon (1 PM - 5 PM)</option>
@@ -412,7 +532,7 @@ export const Contact: React.FC = () => {
                       value={formData.notes}
                       onChange={handleInputChange}
                       placeholder="e.g. Inquiring about wedding date availability or sensitive scalp care..."
-                      className="w-full bg-ink border border-border rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-subtle focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
+                      className="w-full bg-surface border border-input rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
                     ></textarea>
                   </div>
 
@@ -429,8 +549,8 @@ export const Contact: React.FC = () => {
                     Send Booking Enquiry on WhatsApp
                   </Button>
 
-                  <p className="text-[11px] text-text-subtle text-center">
-                    Instant confirmation via WhatsApp • No online pre-payment required
+                  <p className="text-[11px] text-text-muted text-center">
+                    Instant confirmation via WhatsApp &bull; No online pre-payment required
                   </p>
                 </form>
               </div>
