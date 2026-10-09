@@ -1,36 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-ink text-text">
+<html lang="en" class="motion-safe:scroll-smooth bg-background text-text">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Angels Salon & Academy | Luxury Hair Salon & Beauty Academy in Mumbai</title>
     <meta name="description" content="Discover premier luxury hair styling, transformative colouring, bridal couture makeup, and certified academy courses at Angels Salon & Academy, Ghatkopar East, Mumbai." />
-    <meta name="theme-color" content="#0A0A0A" />
-    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
-    <link rel="apple-touch-icon" href="/logo.jpg" />
+    <meta name="theme-color" content="#FAF7F2" />
 
-    <!-- Google Fonts: Cormorant Garamond (refined luxury serif) + Inter (clean readable sans) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://angelssalon.com/" />
 
-    <!-- Google Maps Network Preconnect -->
-    <link rel="preconnect" href="https://maps.google.com" />
-    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.google.com" />
+    <!-- Brand Icons: Crisp SVG Favicon & 180x180 Apple Touch PNG -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Open Graph Default -->
+    <!-- Open Graph (Absolute URLs with production SITE_URL: https://angelssalon.com) -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:site_name" content="Angels Salon & Academy" />
+    <meta property="og:url" content="https://angelssalon.com/" />
     <meta property="og:title" content="Angels Salon & Academy | Luxury Hair Salon & Academy Mumbai" />
     <meta property="og:description" content="Masterful hair artistry, bespoke bridal makeup, aesthetic skincare, and government-recognized academy courses in Ghatkopar East, Mumbai." />
-    <meta property="og:image" content="/images/hero_bg.jpg" />
+    <meta property="og:image" content="https://angelssalon.com/images/hero_bg.jpg" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Angels Salon & Academy" />
     <meta name="twitter:description" content="Luxury Hair Care, Bridal Makeup & Professional Academy in Mumbai." />
-    <meta name="twitter:image" content="/images/hero_bg.jpg" />
+    <meta name="twitter:image" content="https://angelssalon.com/images/hero_bg.jpg" />
   </head>
-  <body class="min-h-screen bg-ink font-sans text-text antialiased selection:bg-gold selection:text-ink">
+  <body class="min-h-screen bg-background font-sans text-text antialiased selection:bg-gold selection:text-dark">
+    <noscript>
+      <div style="padding: 24px; text-align: center; font-family: 'Inter', -apple-system, sans-serif; background: #FAF7F2; color: #1F1B16; border-bottom: 2px solid #C9A227;">
+        <h2 style="font-family: serif; font-size: 24px; margin-bottom: 8px;">Angels Salon &amp; Academy</h2>
+        <p style="margin-bottom: 12px; color: #6B6258;">Please enable JavaScript to view the full luxury salon experience and interactive reservations.</p>
+        <p style="font-size: 14px;">Direct Concierge Booking: <a href="tel:07303312054" style="color: #8A6D12; font-weight: bold;">073033 12054</a> &bull; 29/843, Shival Nagar, Pant Nagar, Ghatkopar East, Mumbai 400075</p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
