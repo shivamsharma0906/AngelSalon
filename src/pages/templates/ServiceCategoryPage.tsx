@@ -96,7 +96,7 @@ export const ServiceCategoryPage: React.FC = () => {
         schemaData={combinedSchema}
       />
 
-      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-ink">
+      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
         {/* Breadcrumbs Navigation */}
         <Container size="lg">
           <Breadcrumbs
@@ -110,7 +110,7 @@ export const ServiceCategoryPage: React.FC = () => {
         {/* Hero Header */}
         <section className="mb-16 text-center">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
               Luxury Salon Ritual
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
@@ -256,8 +256,8 @@ export const ServiceCategoryPage: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {category.processSteps.map((step) => (
-                <div key={step.step} data-card-hover className="p-6 bg-ink border border-border rounded-sm">
-                  <span className="font-serif text-3xl font-bold text-gold block mb-2">
+                <div key={step.step} data-card-hover className="p-6 bg-surface border border-border rounded-sm shadow-card-light">
+                  <span className="font-serif text-3xl font-bold text-gold-text block mb-2">
                     {step.step}
                   </span>
                   <h3 className="font-serif text-lg font-bold text-text mb-2">

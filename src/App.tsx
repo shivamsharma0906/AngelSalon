@@ -17,6 +17,9 @@ const Gallery = lazy(() => import('./pages/Gallery'));
 const Academy = lazy(() => import('./pages/Academy'));
 const Testimonials = lazy(() => import('./pages/Testimonials'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Products = lazy(() => import('./pages/Products'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
 
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -30,7 +33,7 @@ const CourseCategoryPage = lazy(() => import('./pages/templates/CourseCategoryPa
 const PageLoader: React.FC = () => (
   <div className="min-h-[50vh] flex flex-col items-center justify-center py-16" aria-live="polite" aria-busy="true">
     <div className="w-9 h-9 rounded-full border-2 border-border border-t-gold animate-spin mb-3"></div>
-    <span className="font-serif text-xs tracking-luxury uppercase text-gold">
+    <span className="font-serif text-xs tracking-luxury uppercase text-gold-text">
       Angels Salon & Academy
     </span>
   </div>
@@ -54,7 +57,7 @@ export const App: React.FC = () => {
         <SkipToContent />
 
         {/* Global Layout Shell */}
-        <div className="min-h-screen min-h-screen-dvh flex flex-col bg-ink text-text overflow-x-hidden">
+        <div className="min-h-screen min-h-screen-dvh flex flex-col bg-background text-text overflow-x-hidden">
           <Header />
 
           <div className="flex-1">
@@ -67,7 +70,10 @@ export const App: React.FC = () => {
                 <Route path="/style-gallery" element={<Gallery />} />
                 <Route path="/academy" element={<Academy />} />
                 <Route path="/testimonials" element={<Testimonials />} />
+                <Route path="/products" element={<Products />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
 
                 {/* 2. Services Child Pages (6 Dedicated Routes via Template) */}
                 <Route path="/services/:slug" element={<ServiceCategoryPage />} />

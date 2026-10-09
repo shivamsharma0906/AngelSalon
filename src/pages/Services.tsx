@@ -21,7 +21,7 @@ export const Services: React.FC = () => {
         schemaData={localBusinessSchema}
       />
 
-      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-ink">
+      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
         {/* Breadcrumbs Navigation */}
         <Container size="lg">
           <Breadcrumbs items={[{ label: 'Services' }]} />
@@ -30,7 +30,7 @@ export const Services: React.FC = () => {
         {/* Page Hero Header */}
         <section className="text-center mb-14 sm:mb-18">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
               Haute Coiffure & Beauty Rituals
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
@@ -51,20 +51,20 @@ export const Services: React.FC = () => {
                 <Card
                   key={cat.slug}
                   data-card-hover
-                  className="overflow-hidden flex flex-col justify-between group"
+                  className="overflow-hidden flex flex-col justify-between group shadow-card-light"
                 >
                   <div>
                     {/* Category Cover Image Frame */}
-                    <div data-reveal="image" className="relative aspect-[16/10] w-full overflow-hidden bg-ink border-b border-border">
+                    <div data-reveal="image" className="relative aspect-[16/10] w-full overflow-hidden bg-surface-subtle border-b border-border">
                       <img
                         src={cat.overviewImage}
                         alt={`${cat.name} service preview`}
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-60" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60" />
                       <div className="absolute bottom-3 left-4">
-                        <span className="font-serif text-lg font-bold text-text">
+                        <span className="font-serif text-lg font-bold text-text-inverse">
                           {cat.name}
                         </span>
                       </div>
@@ -76,8 +76,8 @@ export const Services: React.FC = () => {
                         {cat.shortDescription}
                       </p>
 
-                      <div className="space-y-1 mb-6 text-xs text-text-subtle">
-                        <span className="text-gold font-medium block">
+                      <div className="space-y-1 mb-6 text-xs text-text-muted">
+                        <span className="text-gold-text font-medium block">
                           Popular Treatments:
                         </span>
                         <p className="line-clamp-2">
@@ -116,8 +116,8 @@ export const Services: React.FC = () => {
         {/* Personalized Consultation Callout */}
         <section data-reveal className="text-center">
           <Container size="md">
-            <div className="p-8 sm:p-12 rounded-sm bg-surface border border-gold/30 shadow-card-dark">
-              <span className="text-xs uppercase tracking-luxury text-gold font-semibold mb-2 block">
+            <div className="p-8 sm:p-12 rounded-sm bg-surface border border-gold/30 shadow-card-light">
+              <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold mb-2 block">
                 Complimentary Styling Advice
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3">

@@ -30,12 +30,20 @@ export const Home: React.FC = () => {
         schemaData={localBusinessSchema}
       />
 
+      {/* Scoped hero image preload only on Home page */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero-carousel/slide1_desktop_1920.webp"
+        type="image/webp"
+      />
+
       <main id="main-content">
         {/* 1. Hero with crossfade slideshow */}
         <Hero />
 
         {/* 2. Dedicated Appointment Reservation Console */}
-        <section id="reserve" className="py-8 sm:py-10 bg-ink border-b border-border/60" aria-label="Reserve an Appointment">
+        <section id="reserve" className="py-8 sm:py-10 bg-background border-b border-border" aria-label="Reserve an Appointment">
           <Container size="lg">
             <HorizontalBookingBar />
           </Container>
@@ -72,8 +80,8 @@ export const Home: React.FC = () => {
         {/* 11. Visit Angels (alternating tone: surface when video is hidden) */}
         <VisitAngels tone={isVideoVisible ? 'ink' : 'surface'} />
 
-        {/* 12. Final CTA (1px gold-line top border, alternating tone) */}
-        <FinalCTA tone={isVideoVisible ? 'surface' : 'ink'} />
+        {/* 12. Final CTA (dark banner with gold accents) */}
+        <FinalCTA />
       </main>
     </>
   );

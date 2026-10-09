@@ -53,11 +53,11 @@ export const About: React.FC = () => {
         schemaData={localBusinessSchema}
       />
 
-      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-ink">
+      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
         {/* Page Hero Header */}
         <section className="text-center mb-16 sm:mb-20">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
               Our Heritage & Craft
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
@@ -83,7 +83,7 @@ export const About: React.FC = () => {
                     aria-hidden="true"
                   ></div>
 
-                  <div data-reveal="image" className="relative rounded-sm overflow-hidden border border-border shadow-2xl bg-ink aspect-[4/5]">
+                  <div data-reveal="image" className="relative rounded-sm overflow-hidden border border-border shadow-card-light bg-surface-subtle aspect-[4/5]">
                     <img
                       src="/images/real/client_bob_cut.jpg"
                       alt="Real client textured bob haircut handcrafted at Angels Salon Ghatkopar"
@@ -94,14 +94,14 @@ export const About: React.FC = () => {
                     />
 
                     {/* Overlay badge */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-ink/90 backdrop-blur-md border border-gold/40 p-4 rounded-sm shadow-gold-sm flex items-center justify-between">
+                    <div className="absolute bottom-4 left-4 right-4 bg-dark/90 backdrop-blur-md border border-gold/40 p-4 rounded-sm shadow-card-light flex items-center justify-between text-text-inverse">
                       <div>
-                        <span className="block font-serif text-2xl font-bold text-gold">
+                        <span className="block font-serif text-2xl font-bold text-gold-light">
                           <CountUp value="10+" /> Years
                         </span>
                         <span className="text-xs uppercase tracking-luxury text-text-muted">Mastery in Mumbai</span>
                       </div>
-                      <div className="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center text-gold font-bold">
+                      <div className="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center text-gold-light font-bold">
                         ★
                       </div>
                     </div>
@@ -118,7 +118,7 @@ export const About: React.FC = () => {
                   Where Confidence is Sculpted, One Detail at a Time
                 </h2>
 
-                <blockquote className="border-l-2 border-gold pl-5 py-2 mb-6 italic font-serif text-lg sm:text-xl text-gold-soft leading-relaxed">
+                <blockquote className="border-l-2 border-gold pl-5 py-2 mb-6 italic font-serif text-lg sm:text-xl text-gold-text leading-relaxed">
                   "At Angel's Salon, customer satisfaction, hygiene, and attention to detail are at the heart of everything we do."
                 </blockquote>
 
@@ -140,7 +140,7 @@ export const About: React.FC = () => {
                     <span className="font-serif text-lg font-bold text-text block">
                       The Angels Leadership & Master Stylists
                     </span>
-                    <span className="text-xs uppercase tracking-luxury text-gold">
+                    <span className="text-xs uppercase tracking-luxury text-gold-text">
                       Artistic Directors & Educators
                     </span>
                   </div>
@@ -151,7 +151,7 @@ export const About: React.FC = () => {
         </section>
 
         {/* OFFICIAL ABOUT US & 11 FACILITIES COMPONENT (MATCHING SCREENSHOT) */}
-        <AboutAndFacilities className="bg-surface/40 border-y border-border" />
+        <AboutAndFacilities className="bg-surface-subtle border-y border-border" />
 
         {/* 4 Pillars of Excellence */}
         <section className="mb-20 sm:mb-28 bg-surface border-b border-border py-16 sm:py-24">
@@ -169,7 +169,7 @@ export const About: React.FC = () => {
               {corePillars.map((pillar, idx) => (
                 <Card key={idx} data-card-hover className="p-6 sm:p-7 flex flex-col justify-between">
                   <div>
-                    <div className="w-12 h-12 rounded-full bg-raised border border-gold-line text-gold flex items-center justify-center mb-5 shadow-sm select-none" aria-hidden="true">
+                    <div className="w-12 h-12 rounded-full bg-surface-subtle border border-gold-line text-gold flex items-center justify-center mb-5 shadow-sm select-none" aria-hidden="true">
                       {pillar.icon}
                     </div>
                     <h3 className="font-serif text-xl font-bold text-text mb-2.5">
@@ -198,8 +198,8 @@ export const About: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {milestones.map((m, index) => (
-                <div key={index} data-card-hover className="bg-surface border border-border p-6 rounded-sm relative">
-                  <span className="font-serif text-3xl font-bold text-gold block mb-2">
+                <div key={index} data-card-hover className="bg-surface border border-border p-6 rounded-sm relative shadow-card-light">
+                  <span className="font-serif text-3xl font-bold text-gold-text block mb-2">
                     {m.year}
                   </span>
                   <h3 className="font-serif text-lg font-bold text-text mb-2">
@@ -215,7 +215,7 @@ export const About: React.FC = () => {
         </section>
 
         {/* Real Client Transformations Showcase */}
-        <section className="mb-20 sm:mb-28 bg-surface border-y border-border py-16">
+        <section className="mb-20 sm:mb-28 bg-surface-subtle border-y border-border py-16">
           <Container size="lg">
             <div data-reveal className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>

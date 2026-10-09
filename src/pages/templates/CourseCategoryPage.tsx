@@ -55,7 +55,7 @@ export const CourseCategoryPage: React.FC = () => {
         schemaData={combinedSchema}
       />
 
-      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-ink">
+      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
         {/* Breadcrumbs Navigation */}
         <Container size="lg">
           <Breadcrumbs
@@ -69,7 +69,7 @@ export const CourseCategoryPage: React.FC = () => {
         {/* Hero Header */}
         <section className="mb-16 text-center">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
               Government Recognized Diploma Programs
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
@@ -118,7 +118,7 @@ export const CourseCategoryPage: React.FC = () => {
                             ⏱ {course.duration}
                           </span>
                           {course.badge && (
-                            <span className="bg-gold text-ink text-[10px] font-bold uppercase tracking-luxury px-2 py-0.5 rounded-full">
+                            <span className="bg-gold text-text text-[10px] font-bold uppercase tracking-luxury px-2 py-0.5 rounded-full">
                               {course.badge}
                             </span>
                           )}
@@ -214,12 +214,12 @@ export const CourseCategoryPage: React.FC = () => {
               align="center"
             />
 
-            <div className="relative rounded-sm border border-border bg-surface shadow-card-dark overflow-hidden">
+            <div className="relative rounded-sm border border-border bg-surface shadow-card-light overflow-hidden">
               <div className="w-full overflow-x-auto no-scrollbar scroll-smooth">
                 <table className="w-full text-left text-sm border-collapse min-w-[540px]">
                   <thead>
-                    <tr className="border-b border-border bg-ink">
-                      <th scope="col" className="p-4 sm:p-5 font-serif text-base text-gold uppercase tracking-wider">
+                    <tr className="border-b border-border bg-surface-subtle">
+                      <th scope="col" className="p-4 sm:p-5 font-serif text-base text-gold-text uppercase tracking-wider">
                         Course Features
                       </th>
                       <th scope="col" className="p-4 sm:p-5 font-serif text-base text-text font-bold">

@@ -57,7 +57,7 @@ export const Testimonials: React.FC = () => {
         schemaData={testimonialsSchema}
       />
 
-      <main id="main-content" className="pt-28 pb-16 sm:pt-36 sm:pb-24 bg-ink min-h-screen">
+      <main id="main-content" className="pt-28 pb-16 sm:pt-36 sm:pb-24 bg-background min-h-screen">
         {/* 1. Page Header (Quiet, spacious, sentence case) */}
         <section className="mb-16 sm:mb-24 text-left" aria-label="Page header">
           <Container size="lg">
@@ -73,7 +73,7 @@ export const Testimonials: React.FC = () => {
                   href={googleSummary.reviewsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold hover:underline font-medium inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-sm"
+                  className="text-gold-text hover:text-gold hover:underline font-medium inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-sm"
                 >
                   <span>★ {googleSummary.rating} on Google from {googleSummary.count} reviews</span>
                   <span aria-hidden="true">↗</span>
@@ -194,7 +194,7 @@ export const Testimonials: React.FC = () => {
                 href={googleSummary.reviewsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm border border-gold-line text-gold hover:bg-gold/10 hover:border-gold transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm border border-gold-line text-gold-text hover:bg-gold/10 hover:border-gold transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
               >
                 <span>Read all {googleSummary.count} reviews on Google Maps</span>
                 <span aria-hidden="true">↗</span>
@@ -204,7 +204,7 @@ export const Testimonials: React.FC = () => {
         </section>
 
         {/* 4. Asking for Reviews (Plain, Honest Paragraph and One Button) */}
-        <section className="py-16 sm:py-24 bg-ink border-b border-border/40" aria-label="Review invitation">
+        <section className="py-16 sm:py-24 bg-surface-subtle border-b border-border" aria-label="Review invitation">
           <Container size="md" className="text-center">
             <h2 className="font-serif text-2xl sm:text-3xl font-normal text-text mb-4 tracking-tight">
               Visited us recently?
@@ -216,7 +216,7 @@ export const Testimonials: React.FC = () => {
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm bg-gold text-ink hover:bg-gold-soft transition-all duration-200 shadow-gold-sm"
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm bg-gold text-dark hover:bg-gold-soft transition-all duration-200 shadow-sm"
             >
               <span>Review us on Google</span>
               <span aria-hidden="true">↗</span>
@@ -225,7 +225,7 @@ export const Testimonials: React.FC = () => {
         </section>
 
         {/* 5. Salon FAQs (Plain Accordion with Schema) */}
-        <section className="py-16 sm:py-24 bg-ink border-b border-border/40" aria-label="Frequently asked questions">
+        <section className="py-16 sm:py-24 bg-background border-b border-border" aria-label="Frequently asked questions">
           <Container size="md">
             <div className="text-left mb-10 sm:mb-12">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-text mb-2 tracking-tight">
@@ -243,7 +243,7 @@ export const Testimonials: React.FC = () => {
                 return (
                   <div
                     key={idx}
-                    className="border border-border/70 rounded-sm bg-surface overflow-hidden transition-colors"
+                    className="border border-border/70 rounded-sm bg-surface overflow-hidden transition-colors shadow-card-light"
                   >
                     <button
                       type="button"
@@ -255,7 +255,7 @@ export const Testimonials: React.FC = () => {
                         {faq.question}
                       </span>
                       <span
-                        className="text-gold text-sm font-medium transition-transform duration-200 shrink-0 select-none"
+                        className="text-gold-text text-sm font-medium transition-transform duration-200 shrink-0 select-none"
                         aria-hidden="true"
                       >
                         {isOpen ? '—' : '+'}
@@ -275,7 +275,7 @@ export const Testimonials: React.FC = () => {
         </section>
 
         {/* 6. Closing Booking Link */}
-        <section className="py-16 sm:py-24 text-center bg-ink" aria-label="Book an appointment">
+        <section className="py-16 sm:py-24 text-center bg-surface-subtle" aria-label="Book an appointment">
           <Container size="md">
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-text mb-3 tracking-tight">
               Ready to book your appointment?

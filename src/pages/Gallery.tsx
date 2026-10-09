@@ -107,7 +107,7 @@ export const Gallery: React.FC = () => {
         schemaData={gallerySchema}
       />
 
-      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-ink">
+      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
         {/* Breadcrumbs Navigation */}
         <Container size="lg">
           <Breadcrumbs items={[{ label: 'Style Gallery' }]} />
@@ -116,7 +116,7 @@ export const Gallery: React.FC = () => {
         {/* Hero Section */}
         <section className="text-center mb-10 sm:mb-14">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
               Authentic Artistry & Client Portfolios
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
@@ -129,19 +129,19 @@ export const Gallery: React.FC = () => {
 
             {/* Trust Highlights Badges */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs text-text-muted">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-gold shrink-0"></span>
                 <span>20 Real Photographs</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-gold shrink-0"></span>
                 <span>Verified Client Work</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-gold shrink-0"></span>
                 <span>Pant Nagar, Ghatkopar East</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-gold shrink-0"></span>
                 <span>WhatsApp Direct Booking</span>
               </span>
@@ -152,7 +152,7 @@ export const Gallery: React.FC = () => {
         {/* Category Filter Tabs & Quick Search */}
         <section className="mb-10 sm:mb-12">
           <Container size="lg">
-            <div className="bg-surface/80 border border-border rounded-sm p-4 sm:p-6 shadow-card-dark">
+            <div className="bg-surface border border-border rounded-sm p-4 sm:p-6 shadow-card-light">
               {/* Category Pills Bar */}
               <div
                 className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none"
@@ -172,16 +172,16 @@ export const Gallery: React.FC = () => {
                       onClick={() => setActiveCategory(filter.id)}
                       className={`whitespace-nowrap px-4 py-2 text-xs sm:text-sm font-medium rounded-sm transition-all duration-200 flex items-center gap-2 shrink-0 min-h-[44px] ${
                         isActive
-                          ? 'bg-gold text-ink font-bold shadow-gold-sm border border-gold'
-                          : 'bg-surface-elevated/70 text-text-muted hover:text-text hover:border-gold/40 border border-border'
+                          ? 'bg-gold text-dark font-bold shadow-sm border border-gold'
+                          : 'bg-surface text-text-muted hover:text-text hover:border-gold/40 border border-border'
                       }`}
                     >
                       <span>{filter.label}</span>
                       <span
                         className={`text-[11px] px-1.5 py-0.5 rounded-full font-mono ${
                           isActive
-                            ? 'bg-ink text-gold font-bold'
-                            : 'bg-ink/60 text-text-muted border border-border/60'
+                            ? 'bg-dark text-gold-light font-bold'
+                            : 'bg-surface-subtle text-text-muted border border-border'
                         }`}
                       >
                         {count}
@@ -214,7 +214,7 @@ export const Gallery: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search by haircut, balayage, nails, offer..."
-                    className="w-full bg-ink/70 border border-border rounded-sm pl-9 pr-8 py-2 text-xs sm:text-sm text-text placeholder-text-muted/60 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors min-h-[44px]"
+                    className="w-full bg-surface border border-input rounded-sm pl-9 pr-8 py-2 text-xs sm:text-sm text-text placeholder-text-muted focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors min-h-[44px]"
                     aria-label="Search gallery items"
                   />
                   {searchQuery && (
@@ -231,7 +231,7 @@ export const Gallery: React.FC = () => {
 
                 <div className="text-xs text-text-muted flex items-center justify-between sm:justify-end gap-2 shrink-0">
                   <span>
-                    Showing <strong className="text-gold">{filteredItems.length}</strong> of{' '}
+                    Showing <strong className="text-gold-text font-bold">{filteredItems.length}</strong> of{' '}
                     {galleryItems.length} items
                   </span>
                   {(activeCategory !== 'all' || searchQuery) && (
@@ -241,7 +241,7 @@ export const Gallery: React.FC = () => {
                         setActiveCategory('all');
                         setSearchQuery('');
                       }}
-                      className="text-xs text-gold underline hover:text-gold-light ml-2 transition-colors cursor-pointer"
+                      className="text-xs text-gold-text underline hover:text-gold ml-2 transition-colors cursor-pointer font-medium"
                     >
                       Reset filters
                     </button>
@@ -285,12 +285,12 @@ export const Gallery: React.FC = () => {
                     <Card
                       key={item.id}
                       data-card-hover
-                      className="overflow-hidden flex flex-col justify-between group border border-border/80 hover:border-gold/50 transition-all duration-300 bg-surface shadow-card-dark"
+                      className="overflow-hidden flex flex-col justify-between group border border-border/80 hover:border-gold/50 transition-all duration-300 bg-surface shadow-card-light"
                     >
                       <div>
                         {/* Interactive Image Frame */}
                         <div
-                          className="relative aspect-square w-full overflow-hidden bg-ink cursor-pointer group/img"
+                          className="relative aspect-square w-full overflow-hidden bg-surface-subtle cursor-pointer group/img"
                           onClick={() => handleOpenLightbox(item)}
                           role="button"
                           tabIndex={0}
@@ -312,15 +312,15 @@ export const Gallery: React.FC = () => {
                           />
 
                           {/* Dark Vignette Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                           {/* Category Tag (Top Left) */}
-                          <div className="absolute top-3 left-3 bg-ink/90 backdrop-blur-sm border border-gold/40 text-[10.5px] font-bold uppercase tracking-luxury text-gold px-2.5 py-1 rounded-sm shadow-sm pointer-events-none">
+                          <div className="absolute top-3 left-3 bg-dark/90 backdrop-blur-sm border border-gold/40 text-[10.5px] font-bold uppercase tracking-luxury text-gold-light px-2.5 py-1 rounded-sm shadow-sm pointer-events-none">
                             {item.categoryLabel}
                           </div>
 
                           {/* Zoom Expand Button (Top Right) */}
-                          <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-ink/80 border border-border text-text-muted hover:text-gold hover:border-gold transition-colors flex items-center justify-center shadow-md">
+                          <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface/90 border border-border text-text-muted hover:text-gold hover:border-gold transition-colors flex items-center justify-center shadow-md">
                             <svg
                               width="15"
                               height="15"

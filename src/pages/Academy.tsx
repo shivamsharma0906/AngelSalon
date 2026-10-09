@@ -56,7 +56,7 @@ export const Academy: React.FC = () => {
         schemaData={combinedSchema}
       />
 
-      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-ink">
+      <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
         {/* Breadcrumbs Navigation */}
         <Container size="lg">
           <Breadcrumbs items={[{ label: 'Academy' }]} />
@@ -65,7 +65,7 @@ export const Academy: React.FC = () => {
         {/* Page Hero Header */}
         <section className="text-center mb-14 sm:mb-18">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
               Government Recognized & ISO Certified
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
@@ -86,26 +86,26 @@ export const Academy: React.FC = () => {
                 <Card
                   key={category.slug}
                   data-card-hover
-                  className="overflow-hidden flex flex-col justify-between group"
+                  className="overflow-hidden flex flex-col justify-between group shadow-card-light"
                 >
                   <div>
                     {/* Media Thumbnail */}
-                    <div data-reveal="image" className="relative aspect-[16/10] w-full overflow-hidden bg-ink border-b border-border">
+                    <div data-reveal="image" className="relative aspect-[16/10] w-full overflow-hidden bg-surface-subtle border-b border-border">
                       <img
                         src={category.image}
                         alt={category.alt}
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-60" />
-                      <div className="absolute top-3 right-3 bg-ink/90 border border-gold/40 text-[10px] font-bold uppercase tracking-luxury text-gold px-2.5 py-0.5 rounded-sm">
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60" />
+                      <div className="absolute top-3 right-3 bg-dark/90 border border-gold/40 text-[10px] font-bold uppercase tracking-luxury text-gold-light px-2.5 py-0.5 rounded-sm">
                         {category.badge}
                       </div>
                     </div>
 
                     {/* Content */}
                     <div className="p-6 sm:p-8">
-                      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3 group-hover:text-gold transition-colors">
+                      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3 group-hover:text-gold-text transition-colors">
                         {category.title}
                       </h2>
                       <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-6">
@@ -138,7 +138,7 @@ export const Academy: React.FC = () => {
         </section>
 
         {/* Why Learn at Angels */}
-        <section className="mb-20 bg-surface border-y border-border py-16">
+        <section className="mb-20 bg-surface-subtle border-y border-border py-16">
           <Container size="lg">
             <SectionHeading
               subtitle="The Academy Advantage"
@@ -148,9 +148,9 @@ export const Academy: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {academyData.whyLearnPoints.map((point, index) => (
-                <Card key={index} data-card-hover className="p-6 flex flex-col justify-between">
+                <Card key={index} data-card-hover className="p-6 flex flex-col justify-between shadow-card-light">
                   <div>
-                    <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center font-serif text-xl font-bold text-gold mb-4">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center font-serif text-xl font-bold text-gold-text mb-4">
                       0{index + 1}
                     </div>
                     <h3 className="font-serif text-xl font-bold text-text mb-2.5">
@@ -180,19 +180,19 @@ export const Academy: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {academyData.placements.map((placement, idx) => (
-                <Card key={idx} data-card-hover className="p-6 sm:p-7 flex flex-col justify-between">
+                <Card key={idx} data-card-hover className="p-6 sm:p-7 flex flex-col justify-between shadow-card-light">
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs uppercase tracking-luxury text-gold font-semibold">
+                      <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold">
                         {placement.batchYear}
                       </span>
-                      <span className="text-xs text-text-subtle font-mono">
+                      <span className="text-xs text-text-muted font-mono">
                         Verified Placement
                       </span>
                     </div>
 
                     <p className="text-sm text-text-muted leading-relaxed italic mb-6">
-                      "{placement.quote}"
+                      &ldquo;{placement.quote}&rdquo;
                     </p>
                   </div>
 
@@ -200,10 +200,10 @@ export const Academy: React.FC = () => {
                     <h3 className="font-serif text-lg font-bold text-text">
                       {placement.studentName}
                     </h3>
-                    <span className="text-xs text-gold font-medium block">
+                    <span className="text-xs text-gold-text font-medium block">
                       {placement.placedRole}
                     </span>
-                    <span className="text-xs text-text-subtle">
+                    <span className="text-xs text-text-muted">
                       {placement.salonPlacement}
                     </span>
                   </div>
@@ -228,8 +228,8 @@ export const Academy: React.FC = () => {
         {/* Closing Action Banner */}
         <section data-reveal className="text-center">
           <Container size="md">
-            <div className="p-8 sm:p-12 rounded-sm bg-surface border border-gold/30 shadow-card-dark">
-              <span className="text-xs uppercase tracking-luxury text-gold font-semibold mb-2 block">
+            <div className="p-8 sm:p-12 rounded-sm bg-surface border border-gold/30 shadow-card-light">
+              <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold mb-2 block">
                 Admissions Now Open
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3">

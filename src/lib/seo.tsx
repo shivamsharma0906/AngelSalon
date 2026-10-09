@@ -9,6 +9,7 @@ export interface SEOProps {
   image?: string;
   type?: 'website' | 'article';
   schemaData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  noIndex?: boolean;
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -18,6 +19,7 @@ export const SEO: React.FC<SEOProps> = ({
   image = `${siteConfig.url}/images/hero_bg.jpg`,
   type = 'website',
   schemaData,
+  noIndex = false,
 }) => {
   const fullTitle = title
     ? `${title} | ${siteConfig.name}`
@@ -30,7 +32,11 @@ export const SEO: React.FC<SEOProps> = ({
       {/* Standard Meta */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonicalUrl} />
+      {noIndex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <link rel="canonical" href={canonicalUrl} />
+      )}
 
       {/* Open Graph */}
       <meta property="og:site_name" content={siteConfig.name} />

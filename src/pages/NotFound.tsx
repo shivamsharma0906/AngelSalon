@@ -11,9 +11,10 @@ export const NotFound: React.FC = () => {
         title="Page Not Found (404)"
         description="The page you are looking for does not exist. Return to Angels Salon & Academy home."
         canonicalPath="/404"
+        noIndex={true}
       />
 
-      <main id="main-content" className="min-h-[80vh] flex items-center justify-center pt-28 pb-20 bg-ink text-center" data-reveal>
+      <main id="main-content" className="min-h-[80vh] flex items-center justify-center pt-28 pb-20 bg-background text-center" data-reveal>
         <Container size="md">
           <LaurelDivider size="lg" className="mb-6" />
 

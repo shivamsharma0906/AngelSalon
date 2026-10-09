@@ -17,7 +17,10 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [isDocumentHidden, setIsDocumentHidden] = useState(false);
   const [isInViewport, setIsInViewport] = useState(true);
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
+  const [isReducedMotion, setIsReducedMotion] = useState(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
   const [liveAnnouncement, setLiveAnnouncement] = useState('');
   const [progressPercent, setProgressPercent] = useState(0);
 
@@ -25,16 +28,15 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
   const pointerStartX = useRef<number | null>(null);
   const pointerStartY = useRef<number | null>(null);
   const progressIntervalRef = useRef<number | null>(null);
-  const timerStartTimeRef = useRef<number>(Date.now());
+  const timerStartTimeRef = useRef<number>(0);
   const elapsedBeforePauseRef = useRef<number>(0);
 
   const SLIDE_DURATION = 5500;
 
-  // 1. Detect prefers-reduced-motion (SSR-safe)
+  // 1. Listen for prefers-reduced-motion changes
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return;
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setIsReducedMotion(mq.matches);
 
     const handler = (e: MediaQueryListEvent) => setIsReducedMotion(e.matches);
     mq.addEventListener('change', handler);
