@@ -92,7 +92,7 @@ export const TransformationShowcase: React.FC = () => {
               onClick={() => setActiveTab(item.id)}
               className={`shrink-0 min-h-[44px] px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide whitespace-nowrap transition-all ${
                 activeTab === item.id
-                  ? 'bg-gold text-ink shadow-gold-sm'
+                  ? 'bg-gold text-text shadow-sm'
                   : 'bg-surface border border-border text-text-muted hover:text-text hover:border-gold/40'
               }`}
             >

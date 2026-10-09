@@ -21,7 +21,7 @@ export const AboutFounder: React.FC = () => {
               ></div>
 
               {/* Main Image with Soft Reveal */}
-              <div data-reveal="image" className="relative rounded-sm overflow-hidden border border-border shadow-2xl bg-ink aspect-[4/5]">
+              <div data-reveal="image" className="relative rounded-sm overflow-hidden border border-border shadow-card-light bg-surface-subtle aspect-[4/5]">
                 <img
                   src={founder.image}
                   alt={founder.imageAlt}
@@ -33,16 +33,16 @@ export const AboutFounder: React.FC = () => {
                 />
 
                 {/* Golden Experience Floating Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-ink/90 backdrop-blur-md border border-gold/40 p-4 rounded-sm shadow-gold-sm flex items-center justify-between">
+                <div className="absolute bottom-4 left-4 right-4 bg-dark/90 backdrop-blur-md border border-gold/40 p-4 rounded-sm shadow-card-light flex items-center justify-between text-text-inverse">
                   <div>
-                    <span className="block font-serif text-2xl font-bold text-gold">
+                    <span className="block font-serif text-2xl font-bold text-gold-light">
                       <CountUp value={founder.yearsExperience} />
                     </span>
                     <span className="text-xs uppercase tracking-luxury text-text-muted">
                       Excellence in Mumbai
                     </span>
                   </div>
-                  <div className="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center text-gold">
+                  <div className="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center text-gold-light">
                     ★
                   </div>
                 </div>

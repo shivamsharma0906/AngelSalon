@@ -197,7 +197,7 @@ export const BeautyQuiz: React.FC = () => {
               
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-text">
                 <span className="bg-surface/90 px-2.5 py-1 rounded-md border border-border">⏱️ {rec.duration}</span>
-                <span className="bg-gold text-ink font-bold px-3 py-1 rounded-md">{rec.price}</span>
+                <span className="bg-gold text-text font-bold px-3 py-1 rounded-md">{rec.price}</span>
               </div>
             </div>
 

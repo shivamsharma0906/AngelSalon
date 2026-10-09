@@ -27,12 +27,12 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
 
   return (
     <div className={`w-full max-w-6xl mx-auto px-4 sm:px-6 ${className}`}>
-      <div className="bg-raised border border-gold/40 hover:border-gold/60 rounded-[4px] p-4 sm:p-5 lg:p-3 shadow-2xl backdrop-blur-md transition-colors duration-300">
+      <div className="bg-surface border border-border hover:border-gold/60 rounded-[4px] p-4 sm:p-5 lg:p-3 shadow-card-light backdrop-blur-md transition-colors duration-300">
         <form onSubmit={handleBooking} className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
           
           {/* 1. Service Selection */}
-          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-ink border border-gold/30 hover:border-gold/60 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-colors flex flex-col justify-center text-left">
-            <label htmlFor="booking-service" className="text-[12px] uppercase tracking-wider text-muted font-semibold mb-0.5 flex items-center gap-1.5">
+          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-surface-subtle border border-input hover:border-gold/60 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-colors flex flex-col justify-center text-left">
+            <label htmlFor="booking-service" className="text-[12px] uppercase tracking-wider text-text-muted font-semibold mb-0.5 flex items-center gap-1.5">
               <ScissorsIcon size={14} className="text-gold shrink-0" />
               <span>Service</span>
             </label>
@@ -44,7 +44,7 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
                 className="w-full bg-transparent text-base font-medium text-text cursor-pointer focus:outline-none appearance-none pr-6 truncate"
               >
                 {bookingDefaults.services.map((service, idx) => (
-                  <option key={idx} value={service} className="bg-raised text-text">
+                  <option key={idx} value={service} className="bg-surface text-text">
                     {service}
                   </option>
                 ))}
@@ -56,8 +56,8 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
           </div>
 
           {/* 2. Location (Static Ghatkopar East) */}
-          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-ink border border-gold/30 hover:border-gold/60 transition-colors flex flex-col justify-center text-left">
-            <span className="text-[12px] uppercase tracking-wider text-muted font-semibold mb-0.5 flex items-center gap-1.5">
+          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-surface-subtle border border-input hover:border-gold/60 transition-colors flex flex-col justify-center text-left">
+            <span className="text-[12px] uppercase tracking-wider text-text-muted font-semibold mb-0.5 flex items-center gap-1.5">
               <MapPinIcon size={14} className="text-gold shrink-0" />
               <span>Location</span>
             </span>
@@ -67,8 +67,8 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
           </div>
 
           {/* 3. Date Selection */}
-          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-ink border border-gold/30 hover:border-gold/60 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-colors flex flex-col justify-center text-left">
-            <label htmlFor="booking-date" className="text-[12px] uppercase tracking-wider text-muted font-semibold mb-0.5 flex items-center gap-1.5">
+          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-surface-subtle border border-input hover:border-gold/60 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-colors flex flex-col justify-center text-left">
+            <label htmlFor="booking-date" className="text-[12px] uppercase tracking-wider text-text-muted font-semibold mb-0.5 flex items-center gap-1.5">
               <CalendarIcon size={14} className="text-gold shrink-0" />
               <span>Date</span>
             </label>
@@ -80,7 +80,7 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
                 className="w-full bg-transparent text-base font-medium text-text cursor-pointer focus:outline-none appearance-none pr-6 truncate"
               >
                 {bookingDefaults.dates.map((date, idx) => (
-                  <option key={idx} value={date} className="bg-raised text-text">
+                  <option key={idx} value={date} className="bg-surface text-text">
                     {date}
                   </option>
                 ))}
@@ -92,8 +92,8 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
           </div>
 
           {/* 4. Time Selection */}
-          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-ink border border-gold/30 hover:border-gold/60 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-colors flex flex-col justify-center text-left">
-            <label htmlFor="booking-time" className="text-[12px] uppercase tracking-wider text-muted font-semibold mb-0.5 flex items-center gap-1.5">
+          <div className="flex-1 min-h-[48px] px-3.5 py-2 rounded-[4px] bg-surface-subtle border border-input hover:border-gold/60 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-colors flex flex-col justify-center text-left">
+            <label htmlFor="booking-time" className="text-[12px] uppercase tracking-wider text-text-muted font-semibold mb-0.5 flex items-center gap-1.5">
               <ClockIcon size={14} className="text-gold shrink-0" />
               <span>Time Window</span>
             </label>
@@ -105,7 +105,7 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
                 className="w-full bg-transparent text-base font-medium text-text cursor-pointer focus:outline-none appearance-none pr-6 truncate"
               >
                 {bookingDefaults.times.map((slot, idx) => (
-                  <option key={idx} value={slot} className="bg-raised text-text">
+                  <option key={idx} value={slot} className="bg-surface text-text">
                     {slot}
                   </option>
                 ))}

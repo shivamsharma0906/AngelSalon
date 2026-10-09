@@ -188,8 +188,8 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                     onClick={() => setActiveView('storefront')}
                     className={`flex-1 min-h-[44px] px-4 py-2 rounded-[4px] text-xs uppercase tracking-wider font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold ${
                       activeView === 'storefront'
-                        ? 'bg-gold text-ink shadow-sm'
-                        : 'bg-ink border border-gold/30 text-muted hover:text-text hover:border-gold'
+                        ? 'bg-gold text-dark shadow-sm'
+                        : 'bg-surface border border-border text-text-muted hover:text-text hover:border-gold'
                     }`}
                   >
                     Storefront Entrance
@@ -204,8 +204,8 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                     }}
                     className={`flex-1 min-h-[44px] px-4 py-2 rounded-[4px] text-xs uppercase tracking-wider font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold ${
                       activeView === 'map'
-                        ? 'bg-gold text-ink shadow-sm'
-                        : 'bg-ink border border-gold/30 text-muted hover:text-text hover:border-gold'
+                        ? 'bg-gold text-dark shadow-sm'
+                        : 'bg-surface border border-border text-text-muted hover:text-text hover:border-gold'
                     }`}
                   >
                     Interactive Map
@@ -213,7 +213,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                 </div>
 
                 {/* View Container */}
-                <div className="relative w-full h-[320px] sm:h-[400px] lg:h-full min-h-[320px] lg:min-h-[400px] rounded-[4px] overflow-hidden border border-gold/40 hover:border-gold/60 transition-colors bg-surface flex flex-col">
+                <div className="relative w-full h-[320px] sm:h-[400px] lg:h-full min-h-[320px] lg:min-h-[400px] rounded-[4px] overflow-hidden border border-border hover:border-gold/60 transition-colors bg-surface flex flex-col">
                   {activeView === 'storefront' ? (
                     <div className="relative w-full h-full">
                       <img
@@ -222,14 +222,14 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-[4px] bg-ink/90 backdrop-blur-md border border-gold/30 text-xs text-text flex items-center justify-between">
-                        <span className="font-medium text-gold">Pant Nagar Storefront Entrance</span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-[4px] bg-dark/90 backdrop-blur-md border border-gold/30 text-xs text-text-inverse flex items-center justify-between">
+                        <span className="font-medium text-gold-light">Pant Nagar Storefront Entrance</span>
                         <a
                           href={branch.googleMapsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs uppercase tracking-wider text-muted hover:text-gold flex items-center gap-1 font-semibold"
+                          className="text-xs uppercase tracking-wider text-text-muted hover:text-gold-light flex items-center gap-1 font-semibold"
                         >
                           <span>Open in Maps</span>
                           <span aria-hidden="true">&rarr;</span>

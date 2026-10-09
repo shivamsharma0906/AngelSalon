@@ -12,7 +12,7 @@ export const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ video, className =
   return (
     <div className={`relative rounded-sm overflow-hidden border border-border bg-surface shadow-card-dark ${className}`}>
       {/* Video Viewport (16:9 Aspect Ratio) */}
-      <div className="relative aspect-video w-full bg-ink overflow-hidden group">
+      <div className="relative aspect-video w-full bg-dark overflow-hidden group">
         {!isPlaying ? (
           <>
             {/* Poster Thumbnail */}
@@ -24,10 +24,10 @@ export const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ video, className =
             />
 
             {/* Dark Vignette Overlay */}
-            <div className="absolute inset-0 bg-ink/40 group-hover:bg-ink/20 transition-colors" />
+            <div className="absolute inset-0 bg-dark/40 group-hover:bg-dark/20 transition-colors" />
 
             {/* Duration Badge */}
-            <div className="absolute top-3 right-3 px-2 py-0.5 rounded-sm bg-ink/90 border border-gold/40 text-[11px] font-mono text-gold font-bold">
+            <div className="absolute top-3 right-3 px-2 py-0.5 rounded-sm bg-dark/90 border border-gold/40 text-[11px] font-mono text-gold font-bold">
               {video.duration}
             </div>
 
@@ -36,7 +36,7 @@ export const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ video, className =
               type="button"
               onClick={() => setIsPlaying(true)}
               aria-label={`Play video: ${video.title}`}
-              className="absolute inset-0 m-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-ink/80 hover:bg-gold text-gold hover:text-ink border-2 border-gold flex items-center justify-center transition-all duration-300 transform group-hover:scale-110 shadow-gold-glow focus:outline-none focus:ring-4 focus:ring-gold/50"
+              className="absolute inset-0 m-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-dark/80 hover:bg-gold text-gold hover:text-text border-2 border-gold flex items-center justify-center transition-all duration-300 transform group-hover:scale-110 shadow-gold-glow focus:outline-none focus:ring-4 focus:ring-gold/50"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="ml-1">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>

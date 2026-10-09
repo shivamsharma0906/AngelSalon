@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type SectionTone = 'ink' | 'surface';
+export type SectionTone = 'background' | 'surface' | 'subtle' | 'dark' | 'ink';
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   tone?: SectionTone;
@@ -10,16 +10,23 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const Section: React.FC<SectionProps> = ({
-  tone = 'ink',
+  tone = 'background',
   hasTopBorder = false,
   hasBottomBorder = false,
   className = '',
   children,
   ...props
 }) => {
-  const toneClasses = tone === 'surface' ? 'bg-surface' : 'bg-ink';
-  const topBorderClass = hasTopBorder ? 'border-t border-gold/25' : '';
-  const bottomBorderClass = hasBottomBorder ? 'border-b border-gold/25' : '';
+  const toneClasses = {
+    background: 'bg-background text-text',
+    surface: 'bg-surface text-text',
+    subtle: 'bg-surface-subtle text-text',
+    dark: 'bg-dark text-text-inverse',
+    ink: 'bg-background text-text',
+  }[tone] || 'bg-background text-text';
+
+  const topBorderClass = hasTopBorder ? 'border-t border-border' : '';
+  const bottomBorderClass = hasBottomBorder ? 'border-b border-border' : '';
 
   return (
     <section

@@ -99,13 +99,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       role="dialog"
       aria-modal="true"
       aria-label="Book Appointment"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-ink/80 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-dark/80 backdrop-blur-md animate-fade-in"
     >
       {/* Backdrop click to close */}
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-lg bg-surface border border-gold/50 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl overflow-hidden max-h-[90vh] max-h-[90dvh] overflow-y-auto overscroll-contain">
+      <div className="relative z-10 w-full max-w-lg bg-surface border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-card-light overflow-hidden max-h-[90vh] max-h-[90dvh] overflow-y-auto overscroll-contain">
         {/* Top gold glow bar */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
 
@@ -114,14 +114,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 sm:top-5 sm:right-5 w-11 h-11 rounded-full bg-ink/60 border border-border text-text-muted hover:text-gold hover:border-gold transition-colors flex items-center justify-center focus:outline-none focus:ring-1 focus:ring-gold"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 w-11 h-11 rounded-full bg-surface-subtle border border-border text-text-muted hover:text-gold hover:border-gold transition-colors flex items-center justify-center focus:outline-none focus:ring-1 focus:ring-gold"
         >
           ✕
         </button>
 
         {/* Modal Header */}
         <div className="mb-5 sm:mb-6 pr-8">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-gold font-bold block mb-1">
+          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-gold-text font-bold block mb-1">
             Instant VIP Confirmation
           </span>
           <h2 className="font-serif text-xl sm:text-3xl font-bold text-text">
@@ -143,7 +143,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <select
                 value={selectedService}
                 onChange={(e) => setSelectedService(e.target.value)}
-                className="w-full min-h-[48px] bg-ink border border-border hover:border-gold focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text appearance-none cursor-pointer focus:outline-none pr-8 transition-colors"
+                className="w-full min-h-[48px] bg-surface border border-input hover:border-gold focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text appearance-none cursor-pointer focus:outline-none pr-8 transition-colors"
               >
                 {servicesList.map((s, i) => (
                   <option key={i} value={s.name} className="bg-surface text-text">
@@ -166,7 +166,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <select
                 value={selectedBranch}
                 onChange={(e) => setSelectedBranch(e.target.value)}
-                className="w-full min-h-[48px] bg-ink border border-border hover:border-gold focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text appearance-none cursor-pointer focus:outline-none pr-8 transition-colors"
+                className="w-full min-h-[48px] bg-surface border border-input hover:border-gold focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text appearance-none cursor-pointer focus:outline-none pr-8 transition-colors"
               >
                 <option value="Ghatkopar East (Pant Nagar)" className="bg-surface text-text">
                   📍 Ghatkopar East (Near Kirti Computer Institute)
@@ -188,8 +188,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 type="button"
                 onClick={() => setDateType('today')}
                 className={`min-h-[44px] py-2 px-3 text-xs sm:text-sm font-semibold rounded-xl border text-center transition-all ${dateType === 'today'
-                    ? 'bg-gold/20 border-gold text-gold shadow-gold-sm'
-                    : 'bg-ink border-border text-text-muted hover:border-gold/40'
+                    ? 'bg-gold/20 border-gold text-gold-text font-bold shadow-sm'
+                    : 'bg-surface-subtle border-border text-text-muted hover:border-gold/40'
                   }`}
               >
                 Today
@@ -198,8 +198,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 type="button"
                 onClick={() => setDateType('tomorrow')}
                 className={`min-h-[44px] py-2 px-3 text-xs sm:text-sm font-semibold rounded-xl border text-center transition-all ${dateType === 'tomorrow'
-                    ? 'bg-gold/20 border-gold text-gold shadow-gold-sm'
-                    : 'bg-ink border-border text-text-muted hover:border-gold/40'
+                    ? 'bg-gold/20 border-gold text-gold-text font-bold shadow-sm'
+                    : 'bg-surface-subtle border-border text-text-muted hover:border-gold/40'
                   }`}
               >
                 Tomorrow
@@ -208,8 +208,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 type="button"
                 onClick={() => setDateType('custom')}
                 className={`min-h-[44px] py-2 px-3 text-xs sm:text-sm font-semibold rounded-xl border text-center transition-all ${dateType === 'custom'
-                    ? 'bg-gold/20 border-gold text-gold shadow-gold-sm'
-                    : 'bg-ink border-border text-text-muted hover:border-gold/40'
+                    ? 'bg-gold/20 border-gold text-gold-text font-bold shadow-sm'
+                    : 'bg-surface-subtle border-border text-text-muted hover:border-gold/40'
                   }`}
               >
                 Pick Date
@@ -222,7 +222,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 min={new Date().toISOString().split('T')[0]}
                 value={customDate}
                 onChange={(e) => setCustomDate(e.target.value)}
-                className="mt-2 w-full min-h-[48px] bg-ink border border-gold/50 rounded-xl px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:ring-1 focus:ring-gold"
+                className="mt-2 w-full min-h-[48px] bg-surface border border-input rounded-xl px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:ring-1 focus:ring-gold"
                 required={dateType === 'custom'}
               />
             )}
@@ -244,8 +244,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   type="button"
                   onClick={() => setTimeSlot(slot.full)}
                   className={`min-h-[44px] py-2 px-2 text-xs font-medium rounded-xl border text-center transition-all ${timeSlot === slot.full
-                      ? 'bg-gold/20 border-gold text-gold font-bold shadow-gold-sm'
-                      : 'bg-ink border-border text-text-muted hover:border-gold/40'
+                      ? 'bg-gold/20 border-gold text-gold-text font-bold shadow-sm'
+                      : 'bg-surface-subtle border-border text-text-muted hover:border-gold/40'
                     }`}
                 >
                   {slot.label}
@@ -266,7 +266,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 placeholder="e.g. Priya Sharma"
                 value={guestName}
                 onChange={(e) => setGuestName(e.target.value)}
-                className="w-full min-h-[48px] bg-ink border border-border focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text focus:outline-none scroll-mt-20"
+                className="w-full min-h-[48px] bg-surface border border-input focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text focus:outline-none scroll-mt-20"
               />
             </div>
             <div>
@@ -280,7 +280,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 placeholder="e.g. 98765 43210"
                 value={guestPhone}
                 onChange={(e) => setGuestPhone(e.target.value)}
-                className="w-full min-h-[48px] bg-ink border border-border focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text focus:outline-none scroll-mt-20"
+                className="w-full min-h-[48px] bg-surface border border-input focus:border-gold rounded-xl px-3.5 py-3 text-base sm:text-sm text-text focus:outline-none scroll-mt-20"
               />
             </div>
           </div>

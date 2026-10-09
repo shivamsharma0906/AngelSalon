@@ -7,7 +7,7 @@ import { Button } from '../ui/Button';
 import { LaurelDivider } from '../ui/LaurelDivider';
 import { WhatsAppIcon, ArrowRightIcon } from '../ui/icons';
 
-export const FinalCTA: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'surface' }) => {
+export const FinalCTA: React.FC<{ tone?: 'dark' | 'surface' | 'background' }> = () => {
   const { finalCta } = homeData;
 
   const whatsAppFinalUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
@@ -15,7 +15,7 @@ export const FinalCTA: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'surfa
   )}`;
 
   return (
-    <Section tone={tone} className="py-20 sm:py-28 border-t border-gold-line text-center" aria-label="Book Your Experience">
+    <Section tone="dark" className="py-20 sm:py-28 border-t border-gold-line text-center bg-dark text-text-inverse" aria-label="Book Your Experience">
       <Container size="md" data-reveal>
         <div className="flex justify-center mb-6">
           <LaurelDivider size="md" />
@@ -25,11 +25,11 @@ export const FinalCTA: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'surfa
           Your Beauty Sanctuary Awaits
         </span>
 
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text tracking-tight mb-4 max-w-3xl mx-auto leading-tight">
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-inverse tracking-tight mb-4 max-w-3xl mx-auto leading-tight">
           {finalCta.heading}
         </h2>
 
-        <p className="text-base sm:text-lg text-muted max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        <p className="text-base sm:text-lg text-text-inverse-muted max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
           {finalCta.subtext}
         </p>
 

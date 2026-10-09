@@ -115,7 +115,7 @@ export const HeroBookingConsole: React.FC = () => {
           onClick={() => setActiveTab('appointment')}
           className={`py-1.5 px-3 text-xs font-semibold tracking-wider uppercase rounded-md transition-all ${
             activeTab === 'appointment'
-              ? 'bg-gold text-ink shadow-sm'
+              ? 'bg-gold text-text shadow-sm'
               : 'text-text-muted hover:text-text'
           }`}
         >
@@ -126,7 +126,7 @@ export const HeroBookingConsole: React.FC = () => {
           onClick={() => setActiveTab('consultation')}
           className={`py-1.5 px-3 text-xs font-semibold tracking-wider uppercase rounded-md transition-all ${
             activeTab === 'consultation'
-              ? 'bg-gold text-ink shadow-sm'
+              ? 'bg-gold text-text shadow-sm'
               : 'text-text-muted hover:text-text'
           }`}
         >

@@ -14,8 +14,9 @@ import {
   ArrowRightIcon,
 } from '../ui/icons';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
   const flagship = siteConfig.branches[0];
 
   const whatsAppBookingUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
@@ -28,7 +29,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer
-      className="relative overflow-x-clip bg-footer text-text border-t border-gold-line pb-20 lg:pb-0"
+      className="relative overflow-x-clip bg-dark text-text-inverse border-t border-gold-line pb-20 lg:pb-0"
       aria-label="Footer"
     >
       <div className="pt-8 sm:pt-12 flex justify-center">
@@ -37,22 +38,22 @@ export const Footer: React.FC = () => {
 
       {/* Pre-Footer Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-8 sm:pb-14">
-        <div data-reveal className="relative overflow-hidden rounded-[4px] bg-raised border border-gold/40 hover:border-gold/60 transition-colors shadow-2xl p-6 sm:p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
+        <div data-reveal className="relative overflow-hidden rounded-[4px] bg-dark-surface border border-gold/40 hover:border-gold/60 transition-colors shadow-2xl p-6 sm:p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
           
           <div className="flex items-center gap-4 sm:gap-5 w-full lg:w-auto">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-ink border border-gold-line flex items-center justify-center shrink-0 text-gold shadow-sm">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-dark border border-gold-line flex items-center justify-center shrink-0 text-gold shadow-sm">
               <WhatsAppIcon size={26} className="text-gold" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-[12px] uppercase tracking-wider text-gold font-semibold">Salon Concierge</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                <span className="text-[12px] text-muted font-normal">Available Daily</span>
+                <span className="text-[12px] text-text-inverse-muted font-normal">Available Daily</span>
               </div>
-              <h2 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-text tracking-tight leading-tight">
+              <h2 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-text-inverse tracking-tight leading-tight">
                 Ready for Your Transformation?
               </h2>
-              <p className="hidden sm:block text-sm text-muted mt-1 max-w-xl font-normal leading-relaxed">
+              <p className="hidden sm:block text-sm text-text-inverse-muted mt-1 max-w-xl font-normal leading-relaxed">
                 Connect directly with our team for appointments, styling consultations, or academy diploma enrollment.
               </p>
             </div>
@@ -291,23 +292,23 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Footer-bar Strip for Copyright */}
-        <div className="mt-10 sm:mt-14 pt-4 sm:pt-6 border-t border-gold/25 flex flex-col sm:flex-row items-center justify-between text-xs text-muted gap-3 text-center sm:text-left">
+        <div className="mt-10 sm:mt-14 pt-4 sm:pt-6 border-t border-gold/25 flex flex-col sm:flex-row items-center justify-between text-xs text-text-inverse-muted gap-3 text-center sm:text-left">
           <p className="font-normal text-[12px]">
-            &copy; {currentYear} <strong className="text-text font-medium">{siteConfig.name}</strong>. All Rights Reserved.
+            &copy; {CURRENT_YEAR} <strong className="text-text-inverse font-medium">{siteConfig.name}</strong>. All Rights Reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
             <Link
-              to="/contact"
+              to="/privacy"
               className="min-h-[44px] inline-flex items-center px-2 hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
             >
-              Privacy
+              Privacy Policy
             </Link>
             <span className="text-gold/40">•</span>
             <Link
-              to="/contact"
+              to="/terms"
               className="min-h-[44px] inline-flex items-center px-2 hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
             >
-              Terms
+              Terms &amp; Conditions
             </Link>
             <span className="text-gold/40">•</span>
             <Link

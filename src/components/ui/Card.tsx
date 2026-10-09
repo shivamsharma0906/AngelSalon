@@ -16,11 +16,11 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       data-card-hover={hoverEffect ? '' : undefined}
-      className={`relative bg-raised border border-gold/30 rounded-[4px] transition-all duration-300 ${
+      className={`relative bg-surface border border-gold/30 rounded-[4px] shadow-card-light transition-all duration-300 ${
         hoverEffect
-          ? 'hover:border-gold-line hover:-translate-y-1.5 focus-within:border-gold-line'
+          ? 'hover:border-gold hover:-translate-y-1 hover:shadow-card-hover focus-within:border-gold'
           : ''
-      } ${glow ? 'border-gold-line' : ''} ${className}`}
+      } ${glow ? 'border-gold shadow-gold-sm' : ''} ${className}`}
       {...props}
     >
       {children}

@@ -143,7 +143,7 @@ export const ServicesPreview: React.FC = () => {
               onClick={() => setSelectedFilter(tab.id as 'all' | 'hair' | 'skin' | 'beauty')}
               className={`min-h-[40px] px-4 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all ${
                 selectedFilter === tab.id
-                  ? 'bg-gold text-ink font-bold shadow-gold-sm'
+                  ? 'bg-gold text-text font-bold shadow-sm'
                   : 'bg-surface border border-border text-text-muted hover:text-text hover:border-gold/40'
               }`}
             >

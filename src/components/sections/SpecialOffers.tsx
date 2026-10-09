@@ -49,7 +49,7 @@ export const SpecialOffers: React.FC<{ className?: string }> = ({ className = ''
   }
 
   return (
-    <section className={`py-12 sm:py-20 lg:py-24 bg-ink ${className}`} aria-label="Current Salon Offers & Seasonal Packages">
+    <section className={`py-12 sm:py-20 lg:py-24 bg-surface-subtle border-y border-border ${className}`} aria-label="Current Salon Offers & Seasonal Packages">
       <Container size="lg">
         <div data-reveal>
           <SectionHeading
@@ -75,21 +75,21 @@ export const SpecialOffers: React.FC<{ className?: string }> = ({ className = ''
                 <Card
                   key={offer.id}
                   data-card-hover
-                  className="h-full p-6 sm:p-7 flex flex-col justify-between group border-border hover:border-gold/60 transition-all duration-300 bg-surface rounded-[4px]"
+                  className="h-full p-6 sm:p-7 flex flex-col justify-between group border-border hover:border-gold/60 transition-all duration-300 bg-surface rounded-[4px] shadow-card-light"
                 >
                   <div>
                     {/* Header: Badge & Optional Rate */}
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-[11px] uppercase tracking-luxury text-gold font-semibold">
+                      <span className="text-[11px] uppercase tracking-luxury text-gold-text font-semibold">
                         {offer.badge}
                       </span>
-                      <span className="text-xs font-semibold text-text-muted px-2 py-0.5 rounded bg-raised border border-border">
+                      <span className="text-xs font-semibold text-text-muted px-2 py-0.5 rounded bg-surface-subtle border border-border">
                         {offer.discount}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-text mb-3 group-hover:text-gold transition-colors leading-snug">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-text mb-3 group-hover:text-gold-text transition-colors leading-snug">
                       {offer.title}
                     </h3>
 
@@ -138,17 +138,17 @@ export const SpecialOffers: React.FC<{ className?: string }> = ({ className = ''
       {/* Poster Preview Lightbox Modal */}
       {selectedPoster && (
         <div
-          className="fixed inset-0 z-50 bg-ink/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 z-50 bg-dark/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setSelectedPoster(null)}
           role="dialog"
           aria-modal="true"
           aria-label={`Official poster for ${selectedPoster.title}`}
         >
           <div
-            className="relative max-w-lg w-full bg-surface border border-gold-line rounded-lg overflow-hidden shadow-card-dark"
+            className="relative max-w-lg w-full bg-surface border border-gold-line rounded-lg overflow-hidden shadow-card-light"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 border-b border-border bg-raised">
+            <div className="flex items-center justify-between p-4 border-b border-border bg-surface-subtle">
               <h4 className="font-serif text-base font-bold text-text truncate pr-4">
                 {selectedPoster.title}
               </h4>
@@ -161,14 +161,14 @@ export const SpecialOffers: React.FC<{ className?: string }> = ({ className = ''
                 ✕
               </button>
             </div>
-            <div className="p-3 bg-ink flex items-center justify-center max-h-[75vh]">
+            <div className="p-3 bg-surface flex items-center justify-center max-h-[75vh]">
               <img
                 src={selectedPoster.image}
                 alt={selectedPoster.alt}
                 className="max-h-[70vh] w-auto object-contain rounded"
               />
             </div>
-            <div className="p-4 bg-raised border-t border-border flex items-center justify-between text-xs">
+            <div className="p-4 bg-surface-subtle border-t border-border flex items-center justify-between text-xs">
               <span className="text-text-muted">{selectedPoster.terms}</span>
               <Button
                 as="a"

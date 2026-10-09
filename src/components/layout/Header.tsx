@@ -35,10 +35,10 @@ export const Header: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-safe bg-ink border-b border-border/80 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-safe bg-surface/95 backdrop-blur-md border-b border-border/60 ${
           isScrolled
-            ? 'py-2 sm:py-3 shadow-card-dark'
-            : 'py-2.5 sm:py-3.5 shadow-md'
+            ? 'py-2 sm:py-3 shadow-card-light'
+            : 'py-2.5 sm:py-3.5 shadow-sm'
         }`}
       >
         <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between gap-3 sm:gap-4">
@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
             to="/"
             className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-1 focus:ring-gold rounded-sm shrink-0"
           >
-            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-gold/60 p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-gold-sm bg-ink shrink-0">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-gold/60 p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-gold-sm bg-surface shrink-0">
               <img
                 src={siteConfig.logo.src}
                 alt={siteConfig.logo.alt}
@@ -81,7 +81,7 @@ export const Header: React.FC = () => {
             {/* Direct Call Badge (Wide Desktop) */}
             <a
               href={`tel:${siteConfig.contact.phoneRaw}`}
-              className="hidden 2xl:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-muted hover:text-gold transition-colors py-1.5 px-3 rounded-full border border-border/80 hover:border-gold/40 bg-surface/50 min-h-[44px]"
+              className="hidden 2xl:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text hover:text-gold-text transition-colors py-1.5 px-3 rounded-full border border-border/80 hover:border-gold/40 bg-surface min-h-[44px]"
               aria-label={`Call ${siteConfig.name}`}
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-gold">

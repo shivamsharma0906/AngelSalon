@@ -41,7 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantClasses = {
-    gold: "bg-gold hover:bg-gold-soft text-ink font-bold border border-gold shadow-gold-sm hover:scale-[1.01] active:scale-[0.99]",
+    gold: "bg-gold hover:bg-gold-hover text-text font-bold border border-gold shadow-sm hover:scale-[1.01] active:scale-[0.99]",
     outline: "bg-transparent hover:bg-gold/10 text-gold hover:text-gold-soft border border-gold/60 hover:border-gold active:scale-[0.99]",
     surface: "bg-surface hover:bg-surface-elevated text-text border border-border hover:border-gold/40 active:scale-[0.99]",
     whatsapp: "bg-whatsapp hover:bg-whatsapp-hover text-white font-bold border border-whatsapp shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.99]",

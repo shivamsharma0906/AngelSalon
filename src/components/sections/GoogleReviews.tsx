@@ -24,7 +24,7 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 
   return (
     <article
-      className="bg-raised border border-gold/30 hover:border-gold rounded-[4px] p-6 sm:p-7 flex flex-col justify-between shadow-md transition-all duration-300 h-full group"
+      className="bg-surface border border-border hover:border-gold rounded-[4px] p-6 sm:p-7 flex flex-col justify-between shadow-card-light transition-all duration-300 h-full group"
       aria-label={`Review by ${review.name}`}
     >
       <div>
@@ -32,16 +32,16 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
         <div className="flex items-center justify-between gap-3 mb-5">
           <div className="flex items-center gap-3">
             <div
-              className="w-10 h-10 rounded-full bg-ink border border-gold-line text-gold flex items-center justify-center font-bold text-xs uppercase tracking-wider shadow-sm select-none"
+              className="w-10 h-10 rounded-full bg-surface-subtle border border-gold/40 text-gold-text flex items-center justify-center font-bold text-xs uppercase tracking-wider shadow-sm select-none"
               aria-hidden="true"
             >
               {initials}
             </div>
             <div>
-              <h3 className="font-serif text-base font-bold text-text group-hover:text-gold transition-colors leading-tight">
+              <h3 className="font-serif text-base font-bold text-text group-hover:text-gold-text transition-colors leading-tight">
                 {review.name}
               </h3>
-              <span className="text-[12px] text-muted font-medium uppercase tracking-wider">
+              <span className="text-[12px] text-text-muted font-medium uppercase tracking-wider">
                 Google review
               </span>
             </div>
@@ -55,7 +55,7 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
         </div>
 
         {/* Verbatim Review Text */}
-        <blockquote className="text-base text-muted leading-relaxed font-normal">
+        <blockquote className="text-base text-text-muted leading-relaxed font-normal">
           <span className="text-gold font-serif text-lg leading-none select-none">“</span>
           {review.text}
           <span className="text-gold font-serif text-lg leading-none select-none">”</span>
@@ -64,12 +64,12 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 
       {/* Conditional Read on Google link for possiblyTruncated reviews (min 44px tap target) */}
       {review.possiblyTruncated && hasReviewsUrl && (
-        <div className="pt-3 mt-4 border-t border-gold/25">
+        <div className="pt-3 mt-4 border-t border-border">
           <a
             href={googleSummary.reviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="min-h-[44px] text-xs text-gold hover:text-gold-soft font-semibold inline-flex items-center gap-1.5 transition-colors py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+            className="min-h-[44px] text-xs text-gold-text hover:text-gold font-semibold inline-flex items-center gap-1.5 transition-colors py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
           >
             <span>Read on Google</span>
             <span aria-hidden="true">&rarr;</span>
@@ -86,8 +86,8 @@ export const GoogleReviewSummaryHeader: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center mb-10 sm:mb-12">
       {/* 4.7 Rating with Gold Star */}
-      <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-raised border border-gold-line shadow-sm mb-3">
-        <span className="font-serif text-2xl sm:text-3xl font-bold text-gold tracking-tight">
+      <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-surface border border-border shadow-card-light mb-3">
+        <span className="font-serif text-2xl sm:text-3xl font-bold text-gold-text tracking-tight">
           {googleSummary.rating}
         </span>
         <StarIcon size={20} className="fill-gold text-gold shrink-0" />
@@ -97,7 +97,7 @@ export const GoogleReviewSummaryHeader: React.FC = () => {
       </div>
 
       {/* Note: Showing selected reviews */}
-      <p className="text-xs text-muted font-normal">
+      <p className="text-xs text-text-muted font-normal">
         Showing selected reviews
       </p>
     </div>
