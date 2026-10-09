@@ -12,7 +12,7 @@ const scanDirs = [
 ];
 
 // Patterns that violate the unified visual system
-const forbiddenPatterns: Array<{ name: string; regex: RegExp }> = [
+const forbiddenPatterns = [
   {
     name: 'Tailwind grey/slate/zinc/neutral/stone class',
     regex: /\b(?:bg|text|border|from|to|via)-(?:gray|zinc|neutral|slate|stone)-\d{2,3}\b/g,
@@ -27,8 +27,8 @@ const forbiddenPatterns: Array<{ name: string; regex: RegExp }> = [
   },
 ];
 
-function scanDirectory(dir: string): string[] {
-  let results: string[] = [];
+function scanDirectory(dir) {
+  let results = [];
   if (!fs.existsSync(dir)) return results;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {

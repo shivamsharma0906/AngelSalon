@@ -24,9 +24,9 @@ const rawContent = fs.readFileSync(rawExportPath, 'utf8');
 const reviewsTsContent = fs.readFileSync(reviewsTsPath, 'utf8');
 
 // Extract review text entries from src/data/reviews.ts
-const textMatches: string[] = [];
+const textMatches = [];
 const regex = /text:\s*"([^"]+)"/g;
-let match: RegExpExecArray | null;
+let match;
 
 while ((match = regex.exec(reviewsTsContent)) !== null) {
   textMatches.push(match[1]);
@@ -57,8 +57,8 @@ if (hasError) {
 console.log('[VERIFY-REVIEWS] All review texts found verbatim in raw export.');
 
 // 2. Confirm no review text exists anywhere in src/ outside src/data/reviews.ts
-function scanDir(dir: string): string[] {
-  let results: string[] = [];
+function scanDir(dir) {
+  let results = [];
   const list = fs.readdirSync(dir);
   for (const file of list) {
     const fullPath = path.join(dir, file);
