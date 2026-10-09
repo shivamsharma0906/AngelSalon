@@ -98,7 +98,7 @@ export const Academy: React.FC = () => {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60" />
-                      <div className="absolute top-3 right-3 bg-dark/90 border border-gold/40 text-[10px] font-bold uppercase tracking-luxury text-gold-light px-2.5 py-0.5 rounded-sm">
+                      <div className="absolute top-3 right-3 bg-surface/95 backdrop-blur-md border border-border text-[10px] font-bold uppercase tracking-wider text-gold-text px-2.5 py-0.5 rounded-sm shadow-sm">
                         {category.badge}
                       </div>
                     </div>

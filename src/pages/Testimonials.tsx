@@ -216,7 +216,7 @@ export const Testimonials: React.FC = () => {
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm bg-gold text-dark hover:bg-gold-soft transition-all duration-200 shadow-sm"
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm bg-gold text-text hover:bg-gold-soft transition-all duration-200 shadow-sm"
             >
               <span>Review us on Google</span>
               <span aria-hidden="true">↗</span>

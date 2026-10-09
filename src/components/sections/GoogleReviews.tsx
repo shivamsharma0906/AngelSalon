@@ -170,7 +170,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 min-h-[48px] px-8 py-3.5 rounded-[4px] bg-raised border border-gold-line text-gold hover:bg-gold hover:text-ink font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold group"
+              className="inline-flex items-center gap-2.5 min-h-[48px] px-8 py-3.5 rounded-[4px] bg-raised border border-gold-line text-gold hover:bg-gold hover:text-text font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold group"
             >
               <span>Read all reviews on Google</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>

@@ -32,7 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-sm tracking-wide disabled:opacity-50 disabled:cursor-not-allowed select-none focus:outline-none";
+  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-sm tracking-wide disabled:opacity-50 disabled:cursor-not-allowed select-none focus:outline-none whitespace-nowrap";
 
   const sizeClasses = {
     sm: "text-xs px-3.5 py-1.5 gap-1.5 uppercase tracking-wider",

@@ -95,7 +95,7 @@ npm run preview
 2. Log into [Vercel](https://vercel.com) and click **"Add New Project"**.
 3. Select the repository.
 4. Set **Framework Preset** to `Vite`.
-5. Under **Root Directory**, set `./` (or `AngelSalon-main` if nested).
+5. Under **Root Directory**, leave as default (`./`).
 6. Click **Deploy**. Vercel will build and serve your site globally on high-speed edge CDN.
 
 > **Note on Client-Side Routing**: A `vercel.json` rewrite is included to route all traffic to `index.html`:

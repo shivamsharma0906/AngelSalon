@@ -202,7 +202,7 @@ export const AboutAndFacilities: React.FC<AboutAndFacilitiesProps> = ({
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="min-h-[44px] text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-lg bg-gold text-ink font-bold hover:bg-gold-soft transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                  className="min-h-[44px] text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-lg bg-gold text-text font-bold hover:bg-gold-soft transition-colors flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <span>Directions</span>
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

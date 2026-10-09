@@ -119,10 +119,10 @@ const ProductCard: React.FC<CardProps> = ({ product, onClick }) => {
           {product.brand.split(" ")[0]}
         </span>
         {product.isPopular && (
-          <div className="absolute top-2 left-2 bg-gold text-dark text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-full leading-none">Best</div>
+          <div className="absolute top-2 left-2 bg-gold text-text text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-full leading-none">Best</div>
         )}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center bg-dark/40">
-          <span className="text-gold-light text-[10px] font-bold uppercase tracking-wider bg-dark/90 px-2.5 py-1 rounded-full border border-gold/30">Tap to view</span>
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center bg-dark/20 backdrop-blur-[2px]">
+          <span className="text-gold-text text-[10px] font-bold uppercase tracking-wider bg-surface/95 px-2.5 py-1 rounded-full border border-border shadow-sm">Tap to view</span>
         </div>
       </div>
       <div className="p-3">
@@ -205,7 +205,7 @@ export const Products: React.FC = () => {
                   <button key={tab.id} type="button" onClick={() => setActiveCategory(tab.id)}
                     className={`shrink-0 min-h-[34px] px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all focus:outline-none focus:ring-1 focus:ring-gold ${
                       activeCategory === tab.id
-                        ? "bg-gold text-dark font-bold"
+                        ? "bg-gold text-text font-bold"
                         : "bg-surface border border-border text-text-muted hover:text-text hover:border-gold/40"
                     }`}>
                     {tab.label}

@@ -196,7 +196,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
       onBlur={() => setIsFocused(false)}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      className={`relative w-full h-[calc(100svh-64px)] sm:h-[calc(100vh-76px)] lg:h-[calc(100vh-80px)] min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-ink select-none touch-pan-y focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold group ${className}`}
+      className={`relative w-full h-[calc(100svh-64px)] sm:h-[calc(100vh-72px)] min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-ink select-none touch-pan-y focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold group ${className}`}
     >
       {/* Stable Visually Hidden H1 per page */}
       <h1 className="sr-only">
@@ -253,7 +253,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
             type="button"
             onClick={prevSlide}
             aria-label="Previous slide"
-            className="w-12 h-12 rounded-full border border-gold-line bg-ink/75 text-gold hover:border-gold hover:bg-gold hover:text-ink backdrop-blur-md transition-all duration-300 flex items-center justify-center pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold shadow-2xl hover:scale-105 active:scale-95"
+            className="w-12 h-12 rounded-full border border-gold-line bg-ink/75 text-gold hover:border-gold hover:bg-gold hover:text-text backdrop-blur-md transition-all duration-300 flex items-center justify-center pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold shadow-2xl hover:scale-105 active:scale-95"
           >
             <svg className="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -265,7 +265,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
             type="button"
             onClick={() => nextSlide(false)}
             aria-label="Next slide"
-            className="w-12 h-12 rounded-full border border-gold-line bg-ink/75 text-gold hover:border-gold hover:bg-gold hover:text-ink backdrop-blur-md transition-all duration-300 flex items-center justify-center pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold shadow-2xl hover:scale-105 active:scale-95"
+            className="w-12 h-12 rounded-full border border-gold-line bg-ink/75 text-gold hover:border-gold hover:bg-gold hover:text-text backdrop-blur-md transition-all duration-300 flex items-center justify-center pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold shadow-2xl hover:scale-105 active:scale-95"
           >
             <svg className="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

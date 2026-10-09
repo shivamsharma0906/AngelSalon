@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
               href={whatsAppBookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[48px] flex-1 sm:flex-none sm:w-auto px-6 py-3 rounded-[4px] bg-gold text-ink font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-gold-soft transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="min-h-[48px] flex-1 sm:flex-none sm:w-auto px-6 py-3 rounded-[4px] bg-gold text-text font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-gold-soft transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <WhatsAppIcon size={16} />
               <span>Book Now</span>
@@ -263,7 +263,7 @@ export const Footer: React.FC = () => {
                 href={flagship.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-3 py-2 rounded-[4px] bg-ink border border-gold-line text-gold hover:bg-gold hover:text-ink font-bold text-xs uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-3 py-2 rounded-[4px] bg-ink border border-gold-line text-gold hover:bg-gold hover:text-text font-bold text-xs uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
               >
                 <span>Get Directions</span>
                 <DirectionsIcon size={14} />

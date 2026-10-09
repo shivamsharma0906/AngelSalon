@@ -120,14 +120,14 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
 
                 {/* Action Buttons: Call | WhatsApp | Directions */}
                 <div className="space-y-3 pt-6 border-t border-gold/25">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     <Button
                       as="a"
                       href={`tel:${branch.phoneRaw}`}
                       variant="outline"
-                      size="md"
+                      size="sm"
                       fullWidth
-                      className="min-h-[48px] border-gold/40 text-gold hover:border-gold hover:text-gold-soft text-xs uppercase tracking-wider font-semibold rounded-[4px]"
+                      className="min-h-[48px] px-2 sm:px-2.5 border-gold/40 text-gold hover:border-gold hover:text-gold-soft text-[11px] sm:text-xs uppercase tracking-wider font-semibold rounded-[4px] whitespace-nowrap"
                       leftIcon={<PhoneIcon size={16} />}
                     >
                       Call
@@ -138,10 +138,10 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                       href={whatsAppVisitUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      variant="gold"
-                      size="md"
+                      variant="whatsapp"
+                      size="sm"
                       fullWidth
-                      className="min-h-[48px] text-xs uppercase tracking-wider font-bold rounded-[4px]"
+                      className="min-h-[48px] px-2 sm:px-2.5 text-[11px] sm:text-xs uppercase tracking-wider font-bold rounded-[4px] whitespace-nowrap"
                       leftIcon={<WhatsAppIcon size={16} />}
                     >
                       WhatsApp
@@ -153,9 +153,9 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                       target="_blank"
                       rel="noopener noreferrer"
                       variant="outline"
-                      size="md"
+                      size="sm"
                       fullWidth
-                      className="min-h-[48px] border-gold-line text-gold hover:border-gold text-xs uppercase tracking-wider font-semibold rounded-[4px]"
+                      className="min-h-[48px] px-2 sm:px-2.5 border-gold-line text-gold hover:border-gold text-[11px] sm:text-xs uppercase tracking-wider font-semibold rounded-[4px] whitespace-nowrap"
                       leftIcon={<DirectionsIcon size={16} />}
                     >
                       Directions
@@ -188,7 +188,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                     onClick={() => setActiveView('storefront')}
                     className={`flex-1 min-h-[44px] px-4 py-2 rounded-[4px] text-xs uppercase tracking-wider font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold ${
                       activeView === 'storefront'
-                        ? 'bg-gold text-dark shadow-sm'
+                        ? 'bg-gold text-text shadow-sm'
                         : 'bg-surface border border-border text-text-muted hover:text-text hover:border-gold'
                     }`}
                   >
@@ -204,7 +204,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                     }}
                     className={`flex-1 min-h-[44px] px-4 py-2 rounded-[4px] text-xs uppercase tracking-wider font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold ${
                       activeView === 'map'
-                        ? 'bg-gold text-dark shadow-sm'
+                        ? 'bg-gold text-text shadow-sm'
                         : 'bg-surface border border-border text-text-muted hover:text-text hover:border-gold'
                     }`}
                   >

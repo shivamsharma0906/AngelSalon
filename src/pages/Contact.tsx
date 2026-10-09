@@ -333,7 +333,7 @@ export const Contact: React.FC = () => {
                       href={branch.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm bg-surface border border-gold/60 text-gold-text hover:bg-gold hover:text-dark text-xs uppercase font-bold tracking-luxury transition-all"
+                      className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm bg-surface border border-gold/60 text-gold-text hover:bg-gold hover:text-text text-xs uppercase font-bold tracking-luxury transition-all"
                     >
                       <span>Get Directions on Google Maps</span>
                       <span aria-hidden="true">&rarr;</span>

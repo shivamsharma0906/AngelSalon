@@ -172,7 +172,7 @@ export const Gallery: React.FC = () => {
                       onClick={() => setActiveCategory(filter.id)}
                       className={`whitespace-nowrap px-4 py-2 text-xs sm:text-sm font-medium rounded-sm transition-all duration-200 flex items-center gap-2 shrink-0 min-h-[44px] ${
                         isActive
-                          ? 'bg-gold text-dark font-bold shadow-sm border border-gold'
+                          ? 'bg-gold text-text font-bold shadow-sm border border-gold'
                           : 'bg-surface text-text-muted hover:text-text hover:border-gold/40 border border-border'
                       }`}
                     >
@@ -180,7 +180,7 @@ export const Gallery: React.FC = () => {
                       <span
                         className={`text-[11px] px-1.5 py-0.5 rounded-full font-mono ${
                           isActive
-                            ? 'bg-dark text-gold-light font-bold'
+                            ? 'bg-surface text-text font-bold shadow-sm'
                             : 'bg-surface-subtle text-text-muted border border-border'
                         }`}
                       >
@@ -315,7 +315,7 @@ export const Gallery: React.FC = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                           {/* Category Tag (Top Left) */}
-                          <div className="absolute top-3 left-3 bg-dark/90 backdrop-blur-sm border border-gold/40 text-[10.5px] font-bold uppercase tracking-luxury text-gold-light px-2.5 py-1 rounded-sm shadow-sm pointer-events-none">
+                          <div className="absolute top-3 left-3 bg-surface/95 backdrop-blur-md border border-border text-[10.5px] font-bold uppercase tracking-wider text-gold-text px-2.5 py-1 rounded-sm shadow-md pointer-events-none">
                             {item.categoryLabel}
                           </div>
 

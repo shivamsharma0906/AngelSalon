@@ -22,12 +22,21 @@ export interface CarouselProps {
    * Additional track class name
    */
   trackClassName?: string;
+  /**
+   * Whether the carousel should automatically advance (default: true)
+   */
+  autoRotate?: boolean;
+  /**
+   * Autoplay interval in milliseconds (default: 3500ms)
+   */
+  autoRotateInterval?: number;
 }
 
 /**
  * Reusable, dependency-free Carousel built on native CSS scroll-snap.
  * Provides accessible semantics (carousel roledescription, slide counts),
- * keyboard navigation (ArrowLeft / ArrowRight), and responsive Prev/Next controls (sm+).
+ * keyboard navigation (ArrowLeft / ArrowRight), responsive Prev/Next controls,
+ * and intelligent smooth auto-rotation.
  */
 export const Carousel: React.FC<CarouselProps> = ({
   label,
@@ -35,10 +44,15 @@ export const Carousel: React.FC<CarouselProps> = ({
   slideClassName = 'w-[85vw] sm:w-[46%] lg:w-[31%] shrink-0 snap-start',
   className = '',
   trackClassName = '',
+  autoRotate = true,
+  autoRotateInterval = 3500,
 }) => {
   const trackRef = useRef<HTMLUListElement | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isTabHidden, setIsTabHidden] = useState(false);
 
   const slides = React.Children.toArray(children).filter(Boolean);
   const totalSlides = slides.length;
@@ -49,12 +63,22 @@ export const Carousel: React.FC<CarouselProps> = ({
     if (!track) return;
 
     const { scrollLeft, scrollWidth, clientWidth } = track;
-    // Allow a 2px buffer for fractional pixel roundoff
-    const atStart = scrollLeft <= 2;
-    const atEnd = scrollLeft + clientWidth >= scrollWidth - 2;
+    // Allow a 3px buffer for fractional pixel roundoff
+    const atStart = scrollLeft <= 3;
+    const atEnd = scrollLeft + clientWidth >= scrollWidth - 5;
 
     setCanScrollLeft(!atStart);
     setCanScrollRight(!atEnd);
+  }, []);
+
+  // Track tab visibility so inactive tabs do not run animations
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const handleVisibility = () => {
+      setIsTabHidden(document.visibilityState === 'hidden');
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
   // Set up ResizeObserver and initial scroll check (SSR-safe)
@@ -107,6 +131,35 @@ export const Carousel: React.FC<CarouselProps> = ({
     [isReducedMotion]
   );
 
+  // Auto-scroll step: advance forward, or loop seamlessly back to start
+  const handleAutoAdvance = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = track;
+    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+    const behavior = isReducedMotion() ? 'auto' : 'smooth';
+
+    if (isAtEnd) {
+      track.scrollTo({ left: 0, behavior });
+    } else {
+      scrollByFraction('right');
+    }
+  }, [scrollByFraction, isReducedMotion]);
+
+  // Auto-rotation timer with pause conditions
+  useEffect(() => {
+    if (!autoRotate || totalSlides <= 1 || isReducedMotion() || isHovered || isFocused || isTabHidden) {
+      return;
+    }
+
+    const timer = setInterval(() => {
+      handleAutoAdvance();
+    }, autoRotateInterval);
+
+    return () => clearInterval(timer);
+  }, [autoRotate, autoRotateInterval, totalSlides, isReducedMotion, isHovered, isFocused, isTabHidden, handleAutoAdvance]);
+
   // Keyboard navigation when focus is inside or on the track
   const handleKeyDown = (e: React.KeyboardEvent<HTMLUListElement>) => {
     if (e.key === 'ArrowLeft') {
@@ -123,6 +176,10 @@ export const Carousel: React.FC<CarouselProps> = ({
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsFocused(true)}
+      onBlur={() => setIsFocused(false)}
       className={`relative w-full ${className}`}
     >
       {/* Header Controls (Desktop / Tablet sm+ Prev & Next buttons) */}

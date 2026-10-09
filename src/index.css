@@ -61,10 +61,12 @@
     --color-muted: #6B6258;
     --color-gold: #C9A227;
     --color-gold-hover: #DEB843;
-    --color-gold-text: #8A6D12;
+    --color-gold-text: #7A5F0E;
     --color-border: rgba(201, 162, 39, 0.25);
     --color-border-subtle: rgba(31, 27, 22, 0.08);
-    --color-border-input: #B59A57;
+    --color-border-input: #9A7F36;
+    --color-whatsapp: #075E54;
+    --color-whatsapp-hover: #0A7366;
     --color-footer: #14110E;
     --color-footer-bar: #0E0C0A;
 
@@ -126,7 +128,7 @@
 
   /* Accessible focus ring */
   *:focus-visible {
-    outline: 2px solid #8A6D12;
+    outline: 2px solid #7A5F0E;
     outline-offset: 3px;
   }
 
@@ -218,7 +220,7 @@
 
   /* Rich gold gradient text */
   .text-gold-gradient {
-    background: linear-gradient(135deg, #B58A18 0%, #8A6D12 50%, #6E5307 100%);
+    background: linear-gradient(135deg, #B58A18 0%, #7A5F0E 50%, #6E5307 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

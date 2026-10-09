@@ -100,12 +100,12 @@ export const BottomActionBar: React.FC = () => {
           <span className="text-[10px] font-semibold uppercase tracking-wider">Call</span>
         </a>
 
-        {/* 2. Primary WhatsApp Button (Prominent Gold Accent) */}
+        {/* 2. Primary WhatsApp Button (WhatsApp Dark Teal) */}
         <a
           href={whatsAppBookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-[1.5] min-h-[44px] px-3 py-1 rounded-full bg-gold text-text font-bold flex items-center justify-center gap-1.5 shadow-sm hover:bg-gold-hover transition-all active:scale-95"
+          className="flex-[1.5] min-h-[44px] px-3 py-1 rounded-full bg-whatsapp text-white font-bold flex items-center justify-center gap-1.5 shadow-sm hover:bg-whatsapp-hover transition-all active:scale-95"
           aria-label="Book on WhatsApp"
         >
           <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />

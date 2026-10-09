@@ -213,7 +213,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               type="button"
               onClick={handlePrev}
               aria-label="Previous Image"
-              className="w-11 h-11 absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-surface/90 hover:bg-gold hover:text-dark text-gold-text border border-border hover:border-gold flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold shadow-sm"
+              className="w-11 h-11 absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-surface/90 hover:bg-gold hover:text-text text-gold-text border border-border hover:border-gold flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold shadow-sm"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6"></polyline>
@@ -227,7 +227,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               type="button"
               onClick={handleNext}
               aria-label="Next Image"
-              className="w-11 h-11 absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-surface/90 hover:bg-gold hover:text-dark text-gold-text border border-border hover:border-gold flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold shadow-sm"
+              className="w-11 h-11 absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-surface/90 hover:bg-gold hover:text-text text-gold-text border border-border hover:border-gold flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold shadow-sm"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -263,7 +263,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               href={whatsappInquiryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-sm bg-gold text-dark font-semibold text-xs hover:bg-gold-light transition-colors min-h-[44px] shadow-sm focus:outline-none focus:ring-2 focus:ring-gold"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-sm bg-whatsapp text-white font-semibold text-xs hover:bg-whatsapp-hover transition-colors min-h-[44px] shadow-sm focus:outline-none focus:ring-2 focus:ring-whatsapp"
             >
               <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>Book on WhatsApp</span>

@@ -52,12 +52,14 @@ export default {
           DEFAULT: '#C9A227', // Fills, borders, icons
           soft: '#DEB843',    // Light hover tint
           hover: '#DEB843',
+          light: '#DEB843',   // Light gold accent
           dark: '#9E7E1B',    // Active / pressed
-          text: '#8A6D12',    // Gold text on light backgrounds (WCAG AA >= 4.5:1)
+          text: '#7A5F0E',    // Gold text on light backgrounds (5.2:1 on sand, 5.7:1 on cream)
           muted: 'rgba(201, 162, 39, 0.12)', // Subtle highlight pill
           glow: 'rgba(201, 162, 39, 0.25)',
           line: 'rgba(201, 162, 39, 0.35)',
         },
+        'gold-light': '#DEB843',
         // Borders
         border: {
           DEFAULT: 'rgba(201, 162, 39, 0.25)',
@@ -65,7 +67,7 @@ export default {
           line: 'rgba(201, 162, 39, 0.25)',
           gold: 'rgba(201, 162, 39, 0.35)',
           'gold-light': 'rgba(201, 162, 39, 0.45)',
-          input: '#B59A57',   // Form inputs (contrast >= 3:1 against #FFFFFF/#FAF7F2)
+          input: '#9A7F36',   // Form inputs (3.8:1 on white, 3.6:1 on cream)
           dark: 'rgba(201, 162, 39, 0.25)',
         },
         'gold-line': 'rgba(201, 162, 39, 0.35)',
@@ -88,9 +90,9 @@ export default {
           dark: '#14110E',
         },
         whatsapp: {
-          DEFAULT: '#25D366',
-          hover: '#20BA59',
-          dark: '#128C7E',
+          DEFAULT: '#075E54', // WhatsApp dark teal (~7.7:1 with white text)
+          hover: '#0A7366',   // Rich teal hover
+          dark: '#054C44',    // Deep teal active
         }
       },
       fontFamily: {

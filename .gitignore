@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local tools and review folders
+powershell.cmd
+_review_before_delete/
