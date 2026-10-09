@@ -64,18 +64,15 @@ All appointment booking actions and inquiry buttons route directly through `src/
 ## 5. Local Setup & Development
 
 ### Prerequisites
-- Node.js (v18 or higher recommended)
+- Node.js (v20 or higher recommended, see `.nvmrc`)
 - npm or yarn
 
 ### Installation
 ```bash
-# 1. Navigate to the project directory
-cd AngelSalon-main
-
-# 2. Install dependencies
+# 1. Install dependencies
 npm install
 
-# 3. Start local development server
+# 2. Start local development server
 npm run dev
 ```
 Open your browser at `http://localhost:5173`.
