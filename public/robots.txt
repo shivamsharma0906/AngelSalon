@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://angelssalon.com/sitemap.xml
+Sitemap: https://angelfamilysalon.in/sitemap.xml

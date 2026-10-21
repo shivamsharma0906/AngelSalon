@@ -120,4 +120,4 @@ npm run preview
 - **Chembur Studio**: Shop 14, Heritage Avenue, Near Diamond Garden, Chembur, Mumbai 400071
 - **Phone**: 073033 12054
 - **WhatsApp**: +91 73033 12054
-- **Email**: info@angelssalon.com
+- **Email**: info@angelfamilysalon.in

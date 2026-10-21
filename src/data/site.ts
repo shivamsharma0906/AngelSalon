@@ -97,7 +97,7 @@ export const siteConfig: SiteConfig = {
   shortName: "Angels",
   tagline: "Elevating Personal Artistry & Professional Mastery",
   description: "Premier luxury hair salon, bridal makeup destination, and government-recognized beauty academy in Ghatkopar East, Mumbai.",
-  url: "https://angelssalon.com",
+  url: "https://angelfamilysalon.in",
   logo: {
     src: "/logo.jpg",
     alt: "Angels Salon & Academy Gold Monogram Emblem",
@@ -105,7 +105,7 @@ export const siteConfig: SiteConfig = {
     height: 180,
   },
   contact: {
-    email: "info@angelssalon.com",
+    email: "info@angelfamilysalon.in",
     phoneDisplay: "073033 12054",
     phoneRaw: "07303312054",
     whatsappNumber: "917303312054",
