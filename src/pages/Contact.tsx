@@ -189,13 +189,24 @@ export const Contact: React.FC = () => {
 
   const localBusinessSchema = generateLocalBusinessSchema();
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: `${siteConfig.url}/contact` },
+    ],
+  };
+
+  const contactSchema = [...localBusinessSchema, breadcrumbSchema];
+
   return (
     <>
       <SEO
-        title="Contact & Location | Book on WhatsApp"
+        title="Contact & Location | Angels Salon & Academy Mumbai"
         description="Visit Angels Salon & Academy in Ghatkopar East, Mumbai. Find driving directions, opening hours, contact numbers, and send instant booking requests via WhatsApp."
         canonicalPath="/contact"
-        schemaData={localBusinessSchema}
+        schemaData={contactSchema}
       />
 
       {/* Scoped Google Maps preconnects only for Contact page */}

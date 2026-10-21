@@ -50,7 +50,7 @@ export const Academy: React.FC = () => {
   return (
     <>
       <SEO
-        title="Hair & Beauty Academy Mumbai | Angels"
+        title="Hair & Beauty Academy in Mumbai | Angels Academy"
         description="Launch an international styling career with Angels Academy in Ghatkopar East. Government-recognized hair and bridal makeup diplomas with 100% placement support."
         canonicalPath="/academy"
         schemaData={combinedSchema}

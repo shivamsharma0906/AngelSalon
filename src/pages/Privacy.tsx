@@ -5,12 +5,22 @@ import { LaurelDivider } from '../components/ui/LaurelDivider';
 import { siteConfig } from '../data/site';
 
 export const Privacy: React.FC = () => {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: `${siteConfig.url}/privacy` },
+    ],
+  };
+
   return (
     <>
       <SEO
         title="Privacy Policy | Angels Salon & Academy"
-        description="Privacy policy and data protection standards for Angels Salon & Academy, Ghatkopar East, Mumbai."
+        description="Privacy policy and client data protection guidelines for Angels Salon & Academy in Ghatkopar East, Mumbai. Read our commitment to your privacy."
         canonicalPath="/privacy"
+        schemaData={breadcrumbSchema}
       />
 
       <main id="main-content" className="pt-28 pb-20 bg-background min-h-screen">

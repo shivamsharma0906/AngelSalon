@@ -5,12 +5,22 @@ import { LaurelDivider } from '../components/ui/LaurelDivider';
 import { siteConfig } from '../data/site';
 
 export const Terms: React.FC = () => {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Terms & Conditions', item: `${siteConfig.url}/terms` },
+    ],
+  };
+
   return (
     <>
       <SEO
         title="Terms & Conditions | Angels Salon & Academy"
-        description="Terms of service, booking policies, and academy enrollment guidelines for Angels Salon & Academy Mumbai."
+        description="Terms of service, booking policies, and academy enrollment guidelines for Angels Salon & Academy in Ghatkopar East, Mumbai. Learn about our salon policies."
         canonicalPath="/terms"
+        schemaData={breadcrumbSchema}
       />
 
       <main id="main-content" className="pt-28 pb-20 bg-background min-h-screen">

@@ -574,7 +574,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "Transform your hair with ethically sourced, 100% Remy human hair extensions. Perfectly matched to your hair density and shade for invisible, lightweight wear.",
     heroImage: "/images/real/interior_styling_stations.webp",
     overviewImage: "/images/real/interior_wash_lounge.webp",
-    seoTitle: "Hair Extensions in Mumbai | Angels Salon",
+    seoTitle: "Hair Extensions in Ghatkopar Mumbai | Angels Salon",
     seoDescription: "Seamless tape-in and keratin bond hair extensions in Ghatkopar East, Mumbai. Ethically sourced 100% Remy hair. Book on WhatsApp.",
     services: [
       {

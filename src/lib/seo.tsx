@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { siteConfig } from '../data/site';
+import { googleSummary } from '../data/reviews';
 
 export interface SEOProps {
   title?: string;
@@ -21,8 +22,10 @@ export const SEO: React.FC<SEOProps> = ({
   schemaData,
   noIndex = false,
 }) => {
+  // Prevent duplicate brand name in title if already included
+  const hasBrand = title && (title.includes('Angels') || title.includes(siteConfig.name));
   const fullTitle = title
-    ? `${title} | ${siteConfig.name}`
+    ? (hasBrand ? title : `${title} | ${siteConfig.name}`)
     : `${siteConfig.name} | Luxury Hair Salon & Academy Mumbai`;
 
   const canonicalUrl = `${siteConfig.url}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
@@ -44,7 +47,11 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={type} />
+      <meta property="og:locale" content="en_IN" />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={fullTitle} />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -104,6 +111,13 @@ export function generateLocalBusinessSchema() {
         closes: '21:00',
       },
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: googleSummary.rating.toString(),
+      reviewCount: googleSummary.count.toString(),
+      bestRating: '5',
+      worstRating: '1',
+    },
     sameAs: siteConfig.socialLinks.map((s) => s.url),
   }));
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { SEO, generateLocalBusinessSchema } from '../lib/seo';
+import { siteConfig } from '../data/site';
 import { serviceCategoriesData } from '../data/services';
 import { buildWhatsAppLink } from '../lib/whatsapp';
 import { Container } from '../components/ui/Container';
@@ -12,13 +13,24 @@ import { SpecialOffers } from '../components/sections/SpecialOffers';
 export const Services: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteConfig.url}/services` },
+    ],
+  };
+
+  const servicesSchema = [...localBusinessSchema, breadcrumbSchema];
+
   return (
     <>
       <SEO
         title="Luxury Salon Services & Menu | Angels Mumbai"
         description="Explore our complete menu of precision haircuts, French balayage, executive barbering, keratin smoothing, and bridal couture at Angels Salon Mumbai."
         canonicalPath="/services"
-        schemaData={localBusinessSchema}
+        schemaData={servicesSchema}
       />
 
       <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">

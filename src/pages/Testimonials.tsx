@@ -51,8 +51,8 @@ export const Testimonials: React.FC = () => {
   return (
     <>
       <SEO
-        title="Client Reviews & Ratings | Angels Salon & Academy Ghatkopar East"
-        description="Read honest Google reviews from clients of Angels Salon & Academy in Ghatkopar East, Mumbai. Haircuts, hair colour, smoothing treatments and skin care rated 4.7 on Google."
+        title="Client Reviews & Ratings | Angels Salon Ghatkopar"
+        description="Read verified client reviews of Angels Salon & Academy in Ghatkopar East, Mumbai. Haircuts, balayage, smoothening, and skincare rated 4.7★ on Google."
         canonicalPath="/testimonials"
         schemaData={testimonialsSchema}
       />

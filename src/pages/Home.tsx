@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { SEO, generateLocalBusinessSchema } from '../lib/seo';
 import { homeData } from '../data/home';
 import { Hero } from '../components/sections/Hero';
@@ -32,21 +33,23 @@ export const Home: React.FC = () => {
         schemaData={localBusinessSchema}
       />
 
-      {/* Responsive hero image preloads matching picture source queries */}
-      <link
-        rel="preload"
-        as="image"
-        href="/images/hero-carousel/slide1_mobile_768.webp"
-        type="image/webp"
-        media="(max-width: 640px)"
-      />
-      <link
-        rel="preload"
-        as="image"
-        href="/images/hero-carousel/slide1_desktop_1920.webp"
-        type="image/webp"
-        media="(min-width: 641px)"
-      />
+      {/* Responsive hero image preloads matching picture source queries mounted in head */}
+      <Helmet>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-carousel/slide1_mobile_768.webp"
+          type="image/webp"
+          media="(max-width: 640px)"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-carousel/slide1_desktop_1920.webp"
+          type="image/webp"
+          media="(min-width: 641px)"
+        />
+      </Helmet>
 
       <main id="main-content">
         {/* 1. Hero with crossfade slideshow */}

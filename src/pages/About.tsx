@@ -1,5 +1,6 @@
 import React from 'react';
 import { SEO, generateLocalBusinessSchema } from '../lib/seo';
+import { siteConfig } from '../data/site';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { Card } from '../components/ui/Card';
@@ -13,6 +14,17 @@ import { ShieldCheckIcon, ScissorsIcon, DiamondIcon, HeartIcon } from '../compon
 
 export const About: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${siteConfig.url}/about` },
+    ],
+  };
+
+  const aboutSchema = [...localBusinessSchema, breadcrumbSchema];
 
   const corePillars = [
     {
@@ -47,10 +59,10 @@ export const About: React.FC = () => {
   return (
     <>
       <SEO
-        title="About Us | Luxury Hair Salon & Academy Mumbai"
-        description="Discover the story, directors, official facilities, and uncompromised hygiene standards of Angels Salon & Academy in Ghatkopar East, Mumbai. Over a decade of beauty excellence."
+        title="About Angels Salon & Academy | Our Story & Standards"
+        description="Discover the story, team, facilities, and hygiene standards of Angels Salon & Academy in Ghatkopar East, Mumbai. Over a decade of beauty excellence."
         canonicalPath="/about"
-        schemaData={localBusinessSchema}
+        schemaData={aboutSchema}
       />
 
       <main id="main-content" className="pt-28 pb-20 sm:pt-36 sm:pb-28 bg-background">
