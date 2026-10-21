@@ -485,10 +485,10 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Date & Time Row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Date & Time Row - 2 columns on mobile */}
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                     <div>
-                      <label htmlFor="preferredDate" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
+                      <label htmlFor="preferredDate" className="block text-[11px] sm:text-xs uppercase tracking-wider text-text font-medium mb-1 sm:mb-1.5 truncate">
                         Preferred Date
                       </label>
                       <input
@@ -498,12 +498,12 @@ export const Contact: React.FC = () => {
                         min={minDate}
                         value={formData.preferredDate}
                         onChange={handleInputChange}
-                        className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
+                        className="w-full min-h-[46px] sm:min-h-[48px] bg-surface border border-input rounded-sm px-2.5 sm:px-3.5 py-2 text-xs sm:text-sm text-text focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="preferredTime" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
+                      <label htmlFor="preferredTime" className="block text-[11px] sm:text-xs uppercase tracking-wider text-text font-medium mb-1 sm:mb-1.5 truncate">
                         Preferred Time
                       </label>
                       <select
@@ -511,11 +511,11 @@ export const Contact: React.FC = () => {
                         name="preferredTime"
                         value={formData.preferredTime}
                         onChange={handleInputChange}
-                        className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-3.5 py-2.5 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                        className="w-full min-h-[46px] sm:min-h-[48px] bg-surface border border-input rounded-sm px-2 sm:px-3.5 py-2 text-xs sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
                       >
-                        <option value="Morning (10:00 AM - 1:00 PM)">Morning (10 AM - 1 PM)</option>
-                        <option value="Afternoon (1:00 PM - 5:00 PM)">Afternoon (1 PM - 5 PM)</option>
-                        <option value="Evening (5:00 PM - 8:30 PM)">Evening (5 PM - 8:30 PM)</option>
+                        <option value="Morning (10:00 AM - 1:00 PM)">Morning (10-1)</option>
+                        <option value="Afternoon (1:00 PM - 5:00 PM)">Afternoon (1-5)</option>
+                        <option value="Evening (5:00 PM - 8:30 PM)">Evening (5-8:30)</option>
                       </select>
                     </div>
                   </div>

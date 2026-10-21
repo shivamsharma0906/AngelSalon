@@ -254,13 +254,13 @@ export const ServiceCategoryPage: React.FC = () => {
               align="center"
             />
 
-            <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {category.processSteps.map((step) => (
-                <div key={step.step} data-card-hover className="p-6 bg-surface border border-border rounded-sm shadow-card-light">
-                  <span className="font-serif text-3xl font-bold text-gold-text block mb-2">
+                <div key={step.step} data-card-hover className="p-3.5 sm:p-6 bg-surface border border-border rounded-sm shadow-card-light">
+                  <span className="font-serif text-2xl sm:text-3xl font-bold text-gold-text block mb-1 sm:mb-2">
                     {step.step}
                   </span>
-                  <h3 className="font-serif text-lg font-bold text-text mb-2">
+                  <h3 className="font-serif text-sm sm:text-lg font-bold text-text mb-1 sm:mb-2">
                     {step.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-text-muted leading-relaxed">

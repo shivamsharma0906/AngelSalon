@@ -240,17 +240,17 @@ export const AboutAndFacilities: React.FC<AboutAndFacilitiesProps> = ({
               </h2>
             </div>
 
-            {/* Facilities Pill Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4">
+            {/* Facilities Pill Grid - 2 columns on mobile, 3 columns on tablet/desktop */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
               {facilities.map((fac) => (
                 <div
                   key={fac.name}
-                  className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-ink/70 border border-border hover:border-gold/50 hover:bg-surface transition-all duration-200 group shadow-sm"
+                  className="flex items-center gap-2.5 sm:gap-3.5 p-2.5 sm:p-4 rounded-xl bg-ink/70 border border-border hover:border-gold/50 hover:bg-surface transition-all duration-200 group shadow-sm"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-surface border border-gold/20 group-hover:border-gold flex items-center justify-center shrink-0 transition-colors">
+                  <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-surface border border-gold/20 group-hover:border-gold flex items-center justify-center shrink-0 transition-colors [&>svg]:w-3.5 [&>svg]:h-3.5 sm:[&>svg]:w-4 sm:[&>svg]:h-4">
                     {fac.icon}
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-text group-hover:text-gold transition-colors">
+                  <span className="text-[11px] sm:text-sm font-medium text-text group-hover:text-gold transition-colors leading-tight truncate">
                     {fac.name}
                   </span>
                 </div>

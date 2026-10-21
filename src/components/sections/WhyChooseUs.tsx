@@ -49,34 +49,34 @@ export const WhyChooseUs: React.FC = () => {
           </p>
         </div>
 
-        {/* 4 Reasons Grid */}
-        <div data-reveal data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Reasons Grid - 2 columns on mobile, 4 columns on desktop */}
+        <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {reasons.items.map((item) => (
             <Card
               key={item.id}
               hoverEffect
-              className="p-6 flex flex-col justify-between h-full group"
+              className="p-3.5 sm:p-6 flex flex-col justify-between h-full group"
             >
               <div>
-                <div className="w-12 h-12 rounded-[4px] bg-ink border border-gold/30 flex items-center justify-center mb-5 group-hover:border-gold transition-colors">
+                <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-[4px] bg-ink border border-gold/30 flex items-center justify-center mb-3 sm:mb-5 group-hover:border-gold transition-colors">
                   {renderIcon(item.id)}
                 </div>
-                <h3 className="font-serif text-xl font-bold text-text mb-2 group-hover:text-gold transition-colors">
+                <h3 className="font-serif text-sm sm:text-xl font-bold text-text mb-1.5 sm:mb-2 group-hover:text-gold transition-colors leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-base text-muted leading-relaxed font-normal mb-4">
+                <p className="text-xs sm:text-base text-muted leading-relaxed font-normal mb-3 sm:mb-4 line-clamp-3 sm:line-clamp-none">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-gold/25">
+              <div className="pt-2.5 sm:pt-4 border-t border-gold/25">
                 <a
                   href="#reviews"
                   onClick={scrollToReviews}
-                  className="text-xs uppercase tracking-wider text-gold hover:text-gold-soft font-semibold inline-flex items-center gap-1.5 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="text-[11px] sm:text-xs uppercase tracking-wider text-gold hover:text-gold-soft font-semibold inline-flex items-center gap-1 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
-                  <span>Read client reviews</span>
-                  <ArrowRightIcon size={14} />
+                  <span className="truncate">Read reviews</span>
+                  <ArrowRightIcon size={12} className="shrink-0" />
                 </a>
               </div>
             </Card>

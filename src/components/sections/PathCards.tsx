@@ -32,7 +32,7 @@ export const PathCards: React.FC = () => {
               <Card
                 key={card.id}
                 hoverEffect
-                className="p-6 sm:p-8 flex flex-col justify-between h-full group"
+                className="p-4 sm:p-8 flex flex-col justify-between h-full group"
               >
                 <div>
                   <div className="w-12 h-12 rounded-[4px] bg-surface-subtle border border-gold/30 flex items-center justify-center mb-5 group-hover:border-gold transition-colors">

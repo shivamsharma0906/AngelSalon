@@ -165,17 +165,17 @@ export const About: React.FC = () => {
               />
             </div>
 
-            <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {corePillars.map((pillar, idx) => (
-                <Card key={idx} data-card-hover className="p-6 sm:p-7 flex flex-col justify-between">
+                <Card key={idx} data-card-hover className="p-3.5 sm:p-7 flex flex-col justify-between">
                   <div>
-                    <div className="w-12 h-12 rounded-full bg-surface-subtle border border-gold-line text-gold flex items-center justify-center mb-5 shadow-sm select-none" aria-hidden="true">
+                    <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-surface-subtle border border-gold-line text-gold flex items-center justify-center mb-3 sm:mb-5 shadow-sm select-none" aria-hidden="true">
                       {pillar.icon}
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-text mb-2.5">
+                    <h3 className="font-serif text-sm sm:text-xl font-bold text-text mb-1.5 sm:mb-2.5">
                       {pillar.title}
                     </h3>
-                    <p className="text-sm text-text-muted leading-relaxed">
+                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
@@ -196,13 +196,13 @@ export const About: React.FC = () => {
               />
             </div>
 
-            <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {milestones.map((m, index) => (
-                <div key={index} data-card-hover className="bg-surface border border-border p-6 rounded-sm relative shadow-card-light">
-                  <span className="font-serif text-3xl font-bold text-gold-text block mb-2">
+                <div key={index} data-card-hover className="bg-surface border border-border p-3.5 sm:p-6 rounded-sm relative shadow-card-light">
+                  <span className="font-serif text-2xl sm:text-3xl font-bold text-gold-text block mb-1 sm:mb-2">
                     {m.year}
                   </span>
-                  <h3 className="font-serif text-lg font-bold text-text mb-2">
+                  <h3 className="font-serif text-sm sm:text-lg font-bold text-text mb-1 sm:mb-2">
                     {m.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-text-muted leading-relaxed">

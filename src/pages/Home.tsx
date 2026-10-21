@@ -32,12 +32,20 @@ export const Home: React.FC = () => {
         schemaData={localBusinessSchema}
       />
 
-      {/* Scoped hero image preload only on Home page */}
+      {/* Responsive hero image preloads matching picture source queries */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero-carousel/slide1_mobile_768.webp"
+        type="image/webp"
+        media="(max-width: 640px)"
+      />
       <link
         rel="preload"
         as="image"
         href="/images/hero-carousel/slide1_desktop_1920.webp"
         type="image/webp"
+        media="(min-width: 641px)"
       />
 
       <main id="main-content">

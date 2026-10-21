@@ -120,15 +120,15 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
 
                 {/* Action Buttons: Call | WhatsApp | Directions */}
                 <div className="space-y-3 pt-6 border-t border-gold/25">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5">
                     <Button
                       as="a"
                       href={`tel:${branch.phoneRaw}`}
                       variant="outline"
                       size="sm"
                       fullWidth
-                      className="min-h-[48px] px-2 sm:px-2.5 border-gold/40 text-gold hover:border-gold hover:text-gold-soft text-[11px] sm:text-xs uppercase tracking-wider font-semibold rounded-[4px] whitespace-nowrap"
-                      leftIcon={<PhoneIcon size={16} />}
+                      className="min-h-[44px] sm:min-h-[48px] px-1 sm:px-2.5 border-gold/40 text-gold hover:border-gold hover:text-gold-soft text-[10px] sm:text-xs uppercase tracking-wider font-semibold rounded-[4px] whitespace-nowrap"
+                      leftIcon={<PhoneIcon size={14} className="sm:w-4 sm:h-4 shrink-0" />}
                     >
                       Call
                     </Button>
@@ -141,8 +141,8 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                       variant="whatsapp"
                       size="sm"
                       fullWidth
-                      className="min-h-[48px] px-2 sm:px-2.5 text-[11px] sm:text-xs uppercase tracking-wider font-bold rounded-[4px] whitespace-nowrap"
-                      leftIcon={<WhatsAppIcon size={16} />}
+                      className="min-h-[44px] sm:min-h-[48px] px-1 sm:px-2.5 text-[10px] sm:text-xs uppercase tracking-wider font-bold rounded-[4px] whitespace-nowrap"
+                      leftIcon={<WhatsAppIcon size={14} className="sm:w-4 sm:h-4 shrink-0" />}
                     >
                       WhatsApp
                     </Button>
@@ -155,10 +155,10 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                       variant="outline"
                       size="sm"
                       fullWidth
-                      className="min-h-[48px] px-2 sm:px-2.5 border-gold-line text-gold hover:border-gold text-[11px] sm:text-xs uppercase tracking-wider font-semibold rounded-[4px] whitespace-nowrap"
-                      leftIcon={<DirectionsIcon size={16} />}
+                      className="min-h-[44px] sm:min-h-[48px] px-1 sm:px-2.5 border-gold-line text-gold hover:border-gold text-[10px] sm:text-xs uppercase tracking-wider font-semibold rounded-[4px] whitespace-nowrap"
+                      leftIcon={<DirectionsIcon size={14} className="sm:w-4 sm:h-4 shrink-0" />}
                     >
-                      Directions
+                      Map
                     </Button>
                   </div>
 

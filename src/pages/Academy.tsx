@@ -146,17 +146,17 @@ export const Academy: React.FC = () => {
               align="center"
             />
 
-            <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {academyData.whyLearnPoints.map((point, index) => (
-                <Card key={index} data-card-hover className="p-6 flex flex-col justify-between shadow-card-light">
+                <Card key={index} data-card-hover className="p-3.5 sm:p-6 flex flex-col justify-between shadow-card-light">
                   <div>
-                    <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center font-serif text-xl font-bold text-gold-text mb-4">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center font-serif text-sm sm:text-xl font-bold text-gold-text mb-2.5 sm:mb-4">
                       0{index + 1}
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-text mb-2.5">
+                    <h3 className="font-serif text-sm sm:text-xl font-bold text-text mb-1.5 sm:mb-2.5">
                       {point.title}
                     </h3>
-                    <p className="text-sm text-text-muted leading-relaxed">
+                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
                       {point.description}
                     </p>
                   </div>
