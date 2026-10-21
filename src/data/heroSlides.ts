@@ -83,7 +83,7 @@ export const heroSlides: HeroSlideItem[] = [
       width: 768,
       height: 960,
     },
-    alt: 'Angels Salon & Academy studio interior and styling stations in Ghatkopar East',
+    alt: 'Angels Salon & Academy storefront facade and illuminated signage in Pant Nagar, Ghatkopar East, Mumbai',
     desktopObjectPosition: 'center center',
     mobileObjectPosition: 'center center',
     needsBetterPhoto: false,
@@ -114,50 +114,19 @@ export const heroSlides: HeroSlideItem[] = [
       width: 768,
       height: 960,
     },
-    alt: 'Luxury dimensional balayage and custom hair colouring at Angels Salon',
-    desktopObjectPosition: '70% 35%',
-    mobileObjectPosition: '60% 30%',
+    alt: 'Real client dimensional honey-caramel balayage crafted at Angels Salon',
+    desktopObjectPosition: 'center 30%',
+    mobileObjectPosition: 'center 25%',
     needsBetterPhoto: false,
   },
 
-  // Slide 3: Editorial — Bridal
-  {
-    id: 'bridal-styling',
-    layout: 'editorial',
-    label: 'Bridal & Occasion Styling',
-    headline: 'Bridal makeup and wedding day styling.',
-    bodyText: 'Traditional and contemporary bridal looks with professional draping, hair styling and HD makeup.',
-    cta: {
-      label: 'View Bridal Packages',
-      href: '/services/bridal-makeup',
-    },
-    desktopImage: {
-      src: '/images/hero-carousel/slide3_desktop_1920.webp',
-      srcSet:
-        '/images/hero-carousel/slide3_desktop_768.webp 768w, /images/hero-carousel/slide3_desktop_1280.webp 1280w, /images/hero-carousel/slide3_desktop_1920.webp 1920w',
-      width: 1920,
-      height: 1080,
-    },
-    mobileImage: {
-      src: '/images/hero-carousel/slide3_mobile_768.webp',
-      srcSet:
-        '/images/hero-carousel/slide3_mobile_480.webp 480w, /images/hero-carousel/slide3_mobile_768.webp 768w',
-      width: 768,
-      height: 960,
-    },
-    alt: 'Radiant Indian bride with exquisite jewellery and wedding day hair styling at Angels Salon',
-    desktopObjectPosition: '65% 35%',
-    mobileObjectPosition: '65% 30%',
-    needsBetterPhoto: false,
-  },
-
-  // Slide 4: Editorial — Professional Academy
+  // Slide 3: Editorial — Professional Academy
   {
     id: 'academy-diplomas',
     layout: 'editorial',
     label: 'Professional Academy',
     headline: 'Professional beauty and hair diplomas.',
-    bodyText: 'Hands-on training in hairdressing, makeup artistry and salon management with practical studio work.',
+    bodyText: 'Hands-on training in hairdressing, makeup artistry and cosmetology with direct mentorship on our Mumbai salon floor.',
     cta: {
       label: 'Explore Academy Courses',
       href: '/academy',
@@ -176,9 +145,9 @@ export const heroSlides: HeroSlideItem[] = [
       width: 768,
       height: 960,
     },
-    alt: 'Angels Salon Academy professional styling atelier and training stations in Mumbai',
-    desktopObjectPosition: '60% 35%',
-    mobileObjectPosition: '55% 30%',
+    alt: 'Angels Salon Academy styling floor and practical training stations in Ghatkopar East',
+    desktopObjectPosition: 'center 45%',
+    mobileObjectPosition: 'center 40%',
     needsBetterPhoto: false,
   },
 ];

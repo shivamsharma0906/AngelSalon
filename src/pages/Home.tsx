@@ -18,8 +18,11 @@ import { FinalCTA } from '../components/sections/FinalCTA';
 export const Home: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
 
-  // If video is unverified or has no genuine URL, it renders null
-  const isVideoVisible = Boolean(homeData.video.verified && homeData.video.youtubeId);
+  // If video is unverified or has no genuine source, it renders null
+  const isVideoVisible = Boolean(
+    homeData.video.verified &&
+      (homeData.video.youtubeId || (homeData.video as { src?: string }).src)
+  );
 
   return (
     <>

@@ -217,8 +217,10 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                   {activeView === 'storefront' ? (
                     <div className="relative w-full h-full">
                       <img
-                        src="/images/real/salon_storefront.jpg"
-                        alt="Angels Salon & Academy storefront in Pant Nagar Ghatkopar East with Marathi and English signage"
+                        src="/images/real/storefront_frontal.webp"
+                        alt="Angels Salon & Academy storefront in Pant Nagar Ghatkopar East with clean glass entrance and illuminated signage"
+                        width={1600}
+                        height={1200}
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />

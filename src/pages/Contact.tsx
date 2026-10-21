@@ -256,10 +256,10 @@ export const Contact: React.FC = () => {
                   {/* Storefront Exterior Photo */}
                   <div data-reveal="image" className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-border mb-4 bg-surface-subtle shadow-sm">
                     <img
-                      src="/images/salon_outside.jpg"
-                      alt="Angels Salon & Academy storefront exterior in Ghatkopar East Mumbai"
-                      width={800}
-                      height={450}
+                      src="/images/real/storefront_facade.webp"
+                      alt="Angels Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai"
+                      width={1920}
+                      height={1440}
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
                       decoding="async"

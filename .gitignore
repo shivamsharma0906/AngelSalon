@@ -26,3 +26,13 @@ dist-ssr
 # Local tools and review folders
 powershell.cmd
 _review_before_delete/
+
+# Raw client media folder (never commit uncompressed/unoptimized source assets)
+angel photos website-20261021T075951Z-1-001/
+angel photos website*/
+
+# Scratch analysis and preview frames
+scripts/media_frames/
+scripts/previews/
+scripts/*.json
+

@@ -123,10 +123,10 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
       ],
     },
     studentWorkGallery: [
-      { image: "/images/academy_training.jpg", alt: "Students cutting hair in academy studio", title: "Live Model Scissor Training" },
-      { image: "/images/gallery_hair.jpg", alt: "Student layered haircut result", title: "Graduate Precision Layering" },
-      { image: "/images/hero_bg.jpg", alt: "Student balayage result", title: "Graduate Freehand Balayage" },
-      { image: "/images/about_salon.jpg", alt: "Director guiding student technique", title: "One-on-One Director Mentorship" },
+      { image: "/images/real/storefront_facade.webp", alt: "Angels Salon & Academy official storefront and academy entrance", title: "Academy Entrance & Signage" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Angels Salon practical training floor and hydraulic styling stations", title: "Practical Training Atelier" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Arched illuminated vanity stations for student hands-on practice", title: "Student Styling Stations" },
+      { image: "/images/real/interior_wash_lounge.webp", alt: "Professional shampoo backwash lounge for student hair treatment practice", title: "Hair Wash & Spa Lab" },
     ],
     faqs: [
       {
@@ -206,10 +206,10 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
       ],
     },
     studentWorkGallery: [
-      { image: "/images/gallery_bridal.jpg", alt: "Student bridal look with traditional veil", title: "Graduate Bridal Look" },
-      { image: "/images/gallery_makeup.jpg", alt: "Smokey eye makeup look by student", title: "Graduate Smokey Eye Artistry" },
-      { image: "/images/gallery_nails.jpg", alt: "Russian gel nail extensions by student", title: "Russian Gel Extension Work" },
-      { image: "/images/academy_training.jpg", alt: "Students in practical makeup studio", title: "Hands-on Practical Lab" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Professional vanity stations with shadow-free lighting for makeup practice", title: "Cosmetology Vanity Stations" },
+      { image: "/images/real/interior_spa_room.webp", alt: "Private clinical aesthetic suite for skincare and facial training", title: "Clinical Aesthetics Suite" },
+      { image: "/images/real/interior_nail_bar.webp", alt: "Dedicated backlit nail bar for manicure and nail art training", title: "Nail Art Training Station" },
+      { image: "/images/real/storefront_signage_gold.webp", alt: "Angels Salon & Academy 3D gold brand signage in Ghatkopar East", title: "Angels Academy Campus" },
     ],
     faqs: [
       {

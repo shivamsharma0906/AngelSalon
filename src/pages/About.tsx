@@ -83,12 +83,12 @@ export const About: React.FC = () => {
                     aria-hidden="true"
                   ></div>
 
-                  <div data-reveal="image" className="relative rounded-sm overflow-hidden border border-border shadow-card-light bg-surface-subtle aspect-[4/5]">
+                    <div data-reveal="image" className="relative rounded-sm overflow-hidden border border-border shadow-card-light bg-surface-subtle aspect-[4/5]">
                     <img
-                      src="/images/real/client_bob_cut.jpg"
-                      alt="Real client textured bob haircut handcrafted at Angels Salon Ghatkopar"
-                      width={600}
-                      height={750}
+                      src="/images/real/interior_styling_stations.webp"
+                      alt="Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East, Mumbai"
+                      width={1600}
+                      height={1200}
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="lazy"
                     />
@@ -112,7 +112,7 @@ export const About: React.FC = () => {
               {/* Story Narrative Side */}
               <div data-reveal className="lg:col-span-7 flex flex-col justify-center">
                 <span className="text-xs uppercase tracking-luxury text-gold font-semibold mb-2 block">
-                  Artistic Directors' Manifesto
+                  Our Salon Philosophy & Craft
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-text mb-4">
                   Where Confidence is Sculpted, One Detail at a Time
@@ -141,7 +141,7 @@ export const About: React.FC = () => {
                       The Angels Leadership & Master Stylists
                     </span>
                     <span className="text-xs uppercase tracking-luxury text-gold-text">
-                      Artistic Directors & Educators
+                      Master Stylists & Educators
                     </span>
                   </div>
                 </div>
@@ -239,16 +239,20 @@ export const About: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div data-reveal="image" className="aspect-[4/5] rounded-xl overflow-hidden border border-border group">
                   <img
-                    src="/images/real/client_straight_glass.jpg"
-                    alt="Waist-length glass hair smoothening result at Angels Salon"
+                    src="/images/real/client1_glass_hair_after.webp"
+                    alt="Real client waist-length liquid glass hair smoothening result at Angels Salon"
+                    width={960}
+                    height={1280}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
                 <div data-reveal="image" className="aspect-[4/5] rounded-xl overflow-hidden border border-border mt-6 group">
                   <img
-                    src="/images/real/client_ruby_layers.jpg"
-                    alt="Ruby red layered blowout highlights executed at Angels Salon"
+                    src="/images/real/client2_caramel_balayage_after.webp"
+                    alt="Real client dimensional honey-caramel balayage executed at Angels Salon"
+                    width={1200}
+                    height={1600}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />

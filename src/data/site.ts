@@ -196,10 +196,10 @@ export const siteConfig: SiteConfig = {
       "Whether you're looking for a stylish haircut, hair coloring, smoothening, facials, bridal or party makeup, skincare treatments, or regular grooming, we ensure every visit is relaxing and satisfying. We believe every client deserves exceptional service and a rejuvenating salon experience tailored to their individual style and preferences.",
       "Visit us any day of the week from 9:30 AM to 9:00 PM and experience professional beauty and grooming services that leave you looking confident and refreshed."
     ],
-    signatureName: "The Angels Leadership & Educators",
-    signatureRole: "Artistic Directors & Master Stylists",
-    image: "/images/real/client_bob_cut.jpg",
-    imageAlt: "Master hair stylist creating bespoke look at Angels Salon",
+    signatureName: "The Angels Salon & Academy Team",
+    signatureRole: "Master Stylists & Educators",
+    image: "/images/real/interior_styling_stations.webp",
+    imageAlt: "Angels Salon & Academy styling stations and vanity mirrors in Ghatkopar East",
     yearsExperience: "10+",
   },
   facilities: [

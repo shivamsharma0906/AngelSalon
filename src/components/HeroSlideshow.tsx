@@ -503,7 +503,7 @@ const AcademySlideView: React.FC<{
       {/* Full-Width Immersive Studio Training Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
-          src={slide.collageImages[0]?.src || '/images/hero-carousel/collage_c1_academy.webp'}
+          src={slide.collageImages[0]?.src || '/images/real/interior_studio_floor.webp'}
           alt={isActive ? 'Angels Salon Academy live training studio floor' : ''}
           width={1920}
           height={1080}
@@ -578,7 +578,7 @@ const AcademySlideView: React.FC<{
           <div className="hidden lg:flex flex-col w-72 xl:w-80 rounded-xl border border-gold-line bg-surface/90 backdrop-blur-md p-3.5 shadow-2xl overflow-hidden shrink-0">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-line bg-raised mb-3 group/preview">
               <img
-                src={slide.collageImages[1]?.src || '/images/hero-carousel/collage_c2_haircut.webp'}
+                src={slide.collageImages[1]?.src || '/images/real/interior_styling_stations.webp'}
                 alt="Student precision haircut result at Angels Academy"
                 width={360}
                 height={450}

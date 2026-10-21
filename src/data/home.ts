@@ -21,34 +21,34 @@ export interface HeroSlide {
 export const heroSlidesData: HeroSlide[] = [
   {
     id: 'salon-interior',
-    src: '/images/hero/salon_interior_desktop.webp',
-    srcSet: '/images/hero/salon_interior_mobile.webp 800w, /images/hero/salon_interior_desktop.webp 1672w',
+    src: '/images/real/interior_styling_stations.webp',
+    srcSet: '/images/hero-carousel/slide1_mobile_768.webp 768w, /images/hero-carousel/slide1_desktop_1920.webp 1920w',
     sizes: '(max-width: 640px) 100vw, 100vw',
-    alt: 'Angels Salon & Academy luxury interior and styling stations in Ghatkopar East',
-    objectPosition: 'center center',
+    alt: 'Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East',
+    objectPosition: 'center 45%',
   },
   {
     id: 'client-glass-hair',
-    src: '/images/hero/client_glass_hair_desktop.webp',
-    srcSet: '/images/hero/client_glass_hair_mobile.webp 800w, /images/hero/client_glass_hair_desktop.webp 1080w',
+    src: '/images/real/client1_glass_hair_after.webp',
+    srcSet: '/images/real/client1_glass_hair_after.webp 960w',
     sizes: '(max-width: 640px) 100vw, 100vw',
-    alt: 'Client mirror-glass hair smoothening and Nanoplastia treatment result',
-    objectPosition: 'center 20%',
+    alt: 'Real client mirror-glass hair smoothening and Nanoplastia treatment result',
+    objectPosition: 'center 35%',
   },
   {
     id: 'client-styling',
-    src: '/images/hero/client_styling_desktop.webp',
-    srcSet: '/images/hero/client_styling_mobile.webp 800w, /images/hero/client_styling_desktop.webp 911w',
+    src: '/images/real/client2_caramel_balayage_after.webp',
+    srcSet: '/images/real/client2_caramel_balayage_after.webp 1200w',
     sizes: '(max-width: 640px) 100vw, 100vw',
-    alt: 'Client precision haircut, dimensional blow-dry, and face-framing style',
-    objectPosition: 'center 25%',
+    alt: 'Real client dimensional honey-caramel balayage crafted at Angels Salon',
+    objectPosition: 'center 30%',
   },
   {
     id: 'client-nails',
-    src: '/images/hero/client_nails_desktop.webp',
-    srcSet: '/images/hero/client_nails_mobile.webp 800w, /images/hero/client_nails_desktop.webp 1080w',
+    src: '/images/real/interior_nail_bar.webp',
+    srcSet: '/images/real/interior_nail_bar.webp 1600w',
     sizes: '(max-width: 640px) 100vw, 100vw',
-    alt: 'Russian gel nail extensions and bespoke nail art at Angels Salon',
+    alt: 'Dedicated backlit nail bar and lacquer collection at Angels Salon',
     objectPosition: 'center center',
   },
 ];
@@ -95,6 +95,8 @@ export interface VideoContent {
   youtubeId?: string;
   thumbnail?: string;
   verified: boolean;
+  src?: string;
+  poster?: string;
 }
 
 export interface HomeData {
@@ -222,8 +224,8 @@ export const homeData: HomeData = {
       "Conveniently situated in Shival Nagar, Pant Nagar, Angels Salon & Academy is a trusted unisex destination for modern hair artistry, clinical skincare, and certified beauty education.",
       "Our team focuses on gentle techniques, thorough hygiene, and attentive consultations to deliver personalized results for every member of the family.",
     ],
-    image: "/images/real/salon_interior_real.jpg",
-    imageAlt: "Angels Family Salon & Academy modern styling stations and interior in Ghatkopar East, Mumbai",
+    image: "/images/real/interior_styling_stations.webp",
+    imageAlt: "Angels Salon & Academy modern arched illuminated vanity stations and styling chairs in Ghatkopar East",
     ctaText: "Read our story",
     ctaLink: "/about",
     verified: true,
@@ -264,16 +266,19 @@ export const homeData: HomeData = {
   academyTeaser: {
     headline: "Angels Academy of Hair & Beauty",
     subtext: "Hands-on hairdressing, bridal makeup, and cosmetology diplomas with direct mentorship in our Mumbai studio.",
-    image: "/images/academy_training.jpg",
-    imageAlt: "Students practicing hairdressing techniques inside Angels Academy studio",
+    image: "/images/real/storefront_facade.webp",
+    imageAlt: "Angels Salon & Academy illuminated storefront and academy entrance in Ghatkopar East",
     ctaText: "Explore the Academy",
     ctaLink: "/academy",
     verified: true,
   },
 
   video: {
-    title: "Salon Transformations",
-    verified: false, // Unverified - Section 8 hides until genuine video URL is provided
+    title: "Signature Hair Craft & Mirror Shine in Motion",
+    verified: true,
+    src: "/videos/signature_hair_movement.mp4",
+    poster: "/videos/signature_hair_movement_poster.webp",
+    thumbnail: "/videos/signature_hair_movement_poster.webp",
   },
 
   finalCta: {
