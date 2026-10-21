@@ -13,8 +13,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
   className = '',
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
   const [isDocumentHidden, setIsDocumentHidden] = useState(false);
   const [isInViewport, setIsInViewport] = useState(true);
   const [isReducedMotion, setIsReducedMotion] = useState(() => {
@@ -31,7 +29,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
   const timerStartTimeRef = useRef<number>(0);
   const elapsedBeforePauseRef = useRef<number>(0);
 
-  const SLIDE_DURATION = 5500;
+  const SLIDE_DURATION = 4500;
 
   // 1. Listen for prefers-reduced-motion changes
   useEffect(() => {
@@ -96,10 +94,8 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
     goToSlide(prevIndex, false);
   }, [activeIndex, slides.length, goToSlide]);
 
+  // Continuous auto-sliding: pauses only when tab is hidden or element is scrolled out of viewport
   const isPaused =
-    isReducedMotion ||
-    isHovered ||
-    isFocused ||
     isDocumentHidden ||
     !isInViewport ||
     slides.length <= 1;
@@ -171,17 +167,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
     }
   };
 
-  // 8. Hover detection for fine pointers only
-  const handleMouseEnter = () => {
-    if (typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches) {
-      setIsHovered(true);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   return (
     <section
       ref={containerRef}
@@ -190,10 +175,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
       aria-label="Featured salon highlights and services"
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
       className={`relative w-full h-[calc(100svh-64px)] sm:h-[calc(100vh-72px)] min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-ink select-none touch-pan-y focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold group ${className}`}

@@ -114,9 +114,9 @@ export const heroSlides: HeroSlideItem[] = [
       width: 768,
       height: 960,
     },
-    alt: 'Real client dimensional honey-caramel balayage crafted at Angels Salon',
-    desktopObjectPosition: 'center 30%',
-    mobileObjectPosition: 'center 25%',
+    alt: 'Angels Salon modern hair wash lounge, professional colour dispensary, and luxury reclining shampoo stations in Ghatkopar East',
+    desktopObjectPosition: 'center center',
+    mobileObjectPosition: 'center center',
     needsBetterPhoto: false,
   },
 
