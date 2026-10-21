@@ -200,7 +200,6 @@ export const Footer: React.FC = () => {
                 {[
                   { to: '/academy/hair-courses', label: 'Hair Courses' },
                   { to: '/academy/makeup-courses', label: 'Makeup Courses' },
-                  { to: '/style-gallery', label: 'Style Gallery' },
                   { to: '/testimonials', label: 'Testimonials' },
                   { to: '/about', label: 'About Angels' },
                 ].map((item) => (

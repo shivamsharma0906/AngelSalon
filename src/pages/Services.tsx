@@ -44,64 +44,89 @@ export const Services: React.FC = () => {
         </section>
 
         {/* 8 Child Category Overview Cards Grid */}
-        <section className="mb-20">
+        <section className="mb-20 sm:mb-24">
           <Container size="lg">
-            <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {serviceCategoriesData.map((cat) => (
                 <Card
                   key={cat.slug}
                   data-card-hover
-                  className="overflow-hidden flex flex-col justify-between group shadow-card-light"
+                  className="overflow-hidden flex flex-col justify-between group shadow-card-light border border-gold-line/40 hover:border-gold transition-all duration-300 h-full"
                 >
-                  <div>
+                  <div className="flex flex-col flex-1">
                     {/* Category Cover Image Frame */}
-                    <div data-reveal="image" className="relative aspect-[16/10] w-full overflow-hidden bg-surface-subtle border-b border-border">
+                    <div className="relative aspect-[16/10] sm:aspect-[3/2] w-full overflow-hidden bg-surface-subtle border-b border-border">
                       <img
                         src={cat.overviewImage}
-                        alt={`${cat.name} service preview`}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                        alt={`${cat.name} at Angels Salon Mumbai`}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
+                        decoding="async"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60" />
-                      <div className="absolute bottom-3 left-4">
-                        <span className="font-serif text-lg font-bold text-text-inverse">
-                          {cat.name}
-                        </span>
+                      <div className="absolute top-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded-sm border border-gold-line/40 text-[11px] font-medium text-gold shadow-sm">
+                        {cat.services.length} Treatments
                       </div>
                     </div>
 
-                    {/* Card Content */}
-                    <div className="p-6">
-                      <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+                    {/* Card Content with Clear Typographic Hierarchy */}
+                    <div className="p-6 sm:p-7 flex flex-col flex-1">
+                      <div className="mb-3">
+                        <span className="text-[11px] font-semibold uppercase tracking-luxury text-gold-text block mb-1.5">
+                          Salon Category
+                        </span>
+                        <h2 className="font-serif text-2xl font-bold text-text group-hover:text-gold transition-colors tracking-tight">
+                          {cat.name}
+                        </h2>
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-text-muted leading-relaxed line-clamp-2 mb-5">
                         {cat.shortDescription}
                       </p>
 
-                      <div className="space-y-1 mb-6 text-xs text-text-muted">
-                        <span className="text-gold-text font-medium block">
-                          Popular Treatments:
+                      {/* Featured Treatments Pills */}
+                      <div className="mt-auto pt-4 border-t border-border/60">
+                        <span className="text-[11px] uppercase tracking-luxury text-gold-text font-semibold block mb-2">
+                          Popular Services
                         </span>
-                        <p className="line-clamp-2">
-                          {cat.services.map((s) => s.name).slice(0, 3).join(' • ')}
-                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {cat.services.slice(0, 3).map((s) => (
+                            <span
+                              key={s.id}
+                              className="text-[11px] sm:text-xs px-2.5 py-1 rounded-sm bg-surface-subtle border border-border text-text font-normal truncate max-w-full"
+                            >
+                              {s.name}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-6 pt-0 flex items-center justify-between gap-3 border-t border-border/60">
+                  {/* Card Action Footer */}
+                  <div className="p-6 pt-0 sm:p-7 sm:pt-0">
                     <Button
                       as="a"
                       href={`/services/${cat.slug}`}
-                      variant="outline"
+                      variant="gold"
                       size="md"
                       fullWidth
-                      className="min-h-[44px]"
+                      className="min-h-[46px] text-xs uppercase tracking-luxury font-semibold shadow-gold-sm hover:shadow-gold-md"
                       rightIcon={
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
                           <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                       }
                     >
-                      Explore {cat.name}
+                      Explore Menu &amp; Pricing
                     </Button>
                   </div>
                 </Card>

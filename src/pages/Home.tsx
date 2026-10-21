@@ -5,7 +5,6 @@ import { Hero } from '../components/sections/Hero';
 import { HorizontalBookingBar } from '../components/sections/HorizontalBookingBar';
 import { Container } from '../components/ui/Container';
 import { PathCards } from '../components/sections/PathCards';
-import { OurWork } from '../components/sections/OurWork';
 import { WelcomeToAngels } from '../components/sections/WelcomeToAngels';
 import { OurServicesTiles } from '../components/sections/OurServicesTiles';
 import { WhyChooseUs } from '../components/sections/WhyChooseUs';
@@ -55,10 +54,7 @@ export const Home: React.FC = () => {
         {/* 3. Path cards (ink) */}
         <PathCards />
 
-        {/* 4. Our Work (surface) */}
-        <OurWork />
-
-        {/* 5. Welcome to Angels (ink) */}
+        {/* 4. Welcome to Angels (ink) */}
         <WelcomeToAngels />
 
         {/* 6. Our Services (surface) */}

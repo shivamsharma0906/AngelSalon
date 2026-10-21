@@ -10,19 +10,14 @@ export const RedirectHandler: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 1. Redirect legacy /gallery or sub-paths (/style-gallery/recent-work, /style-gallery/pictures, /style-gallery/videos) to /style-gallery
+    // 1. Redirect legacy /gallery or /style-gallery to /services
     if (
       pathname === '/gallery' ||
       pathname.startsWith('/gallery/') ||
+      pathname === '/style-gallery' ||
       pathname.startsWith('/style-gallery/')
     ) {
-      navigate('/style-gallery', { replace: true });
-      return;
-    }
-
-    // 2. Query param migration: /style-gallery?tab=... -> /style-gallery
-    if (pathname === '/style-gallery' && search) {
-      navigate('/style-gallery', { replace: true });
+      navigate('/services', { replace: true });
       return;
     }
 

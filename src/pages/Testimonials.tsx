@@ -58,10 +58,10 @@ export const Testimonials: React.FC = () => {
       />
 
       <main id="main-content" className="pt-28 pb-16 sm:pt-36 sm:pb-24 bg-background min-h-screen">
-        {/* 1. Page Header (Quiet, spacious, sentence case) */}
-        <section className="mb-16 sm:mb-24 text-left" aria-label="Page header">
+        {/* 1. Page Header (Quiet, spacious, centered) */}
+        <section className="mb-16 sm:mb-24 text-center" aria-label="Page header">
           <Container size="lg">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl mx-auto">
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-text mb-4 tracking-tight leading-[1.1]">
                 What our clients say
               </h1>
@@ -88,7 +88,7 @@ export const Testimonials: React.FC = () => {
         {/* 2. Featured Results (3 Real Client Stories with Large Photos) */}
         <section className="mb-20 sm:mb-28" aria-label="Featured client stories">
           <Container size="lg">
-            <div className="mb-10 sm:mb-12">
+            <div className="mb-10 sm:mb-14 text-center max-w-2xl mx-auto">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-text mb-2 tracking-tight">
                 Featured client stories
               </h2>

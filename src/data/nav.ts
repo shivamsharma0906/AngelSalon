@@ -78,10 +78,6 @@ export const navigationData: NavItem[] = [
     ],
   },
   {
-    label: "Style Gallery",
-    path: "/style-gallery",
-  },
-  {
     label: "Academy",
     path: "/academy",
     hasDropdown: true,

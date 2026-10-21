@@ -13,7 +13,6 @@ import { useReveal } from './hooks/useReveal';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
-const Gallery = lazy(() => import('./pages/Gallery'));
 const Academy = lazy(() => import('./pages/Academy'));
 const Testimonials = lazy(() => import('./pages/Testimonials'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -67,7 +66,6 @@ export const App: React.FC = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/style-gallery" element={<Gallery />} />
                 <Route path="/academy" element={<Academy />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/products" element={<Products />} />

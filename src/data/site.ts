@@ -219,7 +219,6 @@ export const siteConfig: SiteConfig = {
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
-    { label: "Style Gallery", path: "/style-gallery" },
     { label: "Academy", path: "/academy" },
     { label: "Testimonials", path: "/testimonials" },
     { label: "Products", path: "/products" },

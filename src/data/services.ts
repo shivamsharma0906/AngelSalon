@@ -52,7 +52,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroHeadline: "Precision Architecture for Every Silhouette",
     heroIntro: "Experience bespoke haircuts crafted with Vidal Sassoon geometric precision and high-fashion sensibility. Every session includes personalized face-shape diagnostic and luxury blowout finish.",
     heroImage: "/images/real/interior_styling_stations.webp",
-    overviewImage: "/images/real/client2_caramel_balayage_after.webp",
+    overviewImage: "/images/real/interior_styling_stations.webp",
     seoTitle: "Women's Haircuts & Styling | Angels Salon Mumbai",
     seoDescription: "Designer women's haircuts, red-carpet blowouts, and face-contouring layers in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
@@ -376,7 +376,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroHeadline: "Executive Grooming & Sharp Tailoring",
     heroIntro: "A refined grooming experience designed for the modern gentleman. Enjoy razor-fade precision haircuts, beard sculpting, keratin texture treatments, and executive scalp massages in comfort.",
     heroImage: "/images/real/interior_studio_floor.webp",
-    overviewImage: "/images/real/interior_styling_stations.webp",
+    overviewImage: "/images/real/interior_studio_floor.webp",
     seoTitle: "Men's Haircut, Beard Grooming & Hair Spa | Angels Mumbai",
     seoDescription: "Men's haircuts, beard contouring, keratin, hair spa, and global hair color in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
@@ -573,7 +573,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroHeadline: "Incomparable Length, Volume & Luxury",
     heroIntro: "Transform your hair with ethically sourced, 100% Remy human hair extensions. Perfectly matched to your hair density and shade for invisible, lightweight wear.",
     heroImage: "/images/real/interior_styling_stations.webp",
-    overviewImage: "/images/real/client1_glass_hair_after.webp",
+    overviewImage: "/images/real/interior_wash_lounge.webp",
     seoTitle: "Hair Extensions in Mumbai | Angels Salon",
     seoDescription: "Seamless tape-in and keratin bond hair extensions in Ghatkopar East, Mumbai. Ethically sourced 100% Remy hair. Book on WhatsApp.",
     services: [
@@ -1551,8 +1551,8 @@ export const homeServiceTiles: HomeServiceTile[] = [
     id: 'haircut',
     slug: 'womens-haircut-and-style',
     label: 'Haircut & Styling',
-    photo: '/images/real/client2_caramel_balayage_after.webp',
-    objectPosition: 'center 30%',
+    photo: '/images/real/interior_styling_stations.webp',
+    objectPosition: 'center 40%',
     verified: true,
   },
   {
@@ -1560,7 +1560,7 @@ export const homeServiceTiles: HomeServiceTile[] = [
     slug: 'womens-hair-colour',
     label: 'Hair Colour',
     photo: '/images/real/client2_caramel_balayage_after.webp',
-    objectPosition: 'center 35%',
+    objectPosition: 'center 30%',
     verified: true,
   },
   {
@@ -1591,7 +1591,7 @@ export const homeServiceTiles: HomeServiceTile[] = [
     id: 'bridal',
     slug: 'bridal-makeup',
     label: 'Bridal Couture',
-    photo: '/images/real/interior_styling_stations.webp',
+    photo: '/images/real/interior_spa_room.webp',
     objectPosition: 'center 40%',
     verified: true,
   },
