@@ -91,28 +91,31 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-4 flex flex-col space-y-4">
             <Link
               to="/"
-              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-[4px] w-fit"
+              className="flex items-center gap-3.5 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-[4px] w-fit"
             >
-              <div className="relative w-11 h-11 rounded-full overflow-hidden border border-gold-line p-0.5 transition-transform duration-300 group-hover:scale-105 bg-ink shrink-0">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-gold/70 ring-2 ring-gold/20 p-0.5 transition-transform duration-300 group-hover:scale-105 bg-dark-surface shadow-gold-sm shrink-0">
                 <img
                   src={siteConfig.logo.src}
                   alt={siteConfig.logo.alt}
-                  width={44}
-                  height={44}
+                  width={80}
+                  height={80}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold tracking-wider text-text transition-colors group-hover:text-gold leading-none mb-1">
+              <div className="flex flex-col justify-center">
+                <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-text-inverse transition-colors group-hover:text-gold leading-none mb-1.5">
                   ANGELS
                 </span>
-                <span className="text-[12px] uppercase tracking-wider text-gold font-semibold leading-none">
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-gold font-semibold leading-none">
                   Salon & Academy
+                </span>
+                <span className="text-[11px] text-text-inverse-muted mt-1 leading-none">
+                  Ghatkopar East • Mumbai
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-muted leading-relaxed font-normal max-w-sm">
+            <p className="text-sm text-text-inverse-muted leading-relaxed font-normal max-w-sm">
               Ghatkopar East's premier unisex destination for precision haircuts, bespoke hair colour, smoothening treatments, and certified academy education.
             </p>
 
@@ -121,15 +124,15 @@ export const Footer: React.FC = () => {
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[4px] bg-raised border border-gold/30 hover:border-gold transition-all text-xs w-fit group shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold min-h-[44px]"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[4px] bg-dark-surface border border-gold/30 hover:border-gold transition-all text-xs w-fit group shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold min-h-[44px]"
             >
               <div className="flex items-center text-gold text-xs">
                 <StarIcon size={14} className="fill-gold text-gold" />
               </div>
-              <span className="font-bold text-text group-hover:text-gold transition-colors">
+              <span className="font-bold text-text-inverse group-hover:text-gold transition-colors">
                 {googleSummary.rating} on Google
               </span>
-              <span className="text-muted text-[12px]">({googleSummary.count} reviews)</span>
+              <span className="text-text-inverse-muted text-[12px]">({googleSummary.count} reviews)</span>
               <span className="text-gold text-[12px]">↗</span>
             </a>
 
@@ -142,7 +145,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.ariaLabel}
-                  className="w-11 h-11 rounded-full bg-raised border border-gold/30 flex items-center justify-center text-text hover:text-gold hover:border-gold transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold shrink-0"
+                  className="w-11 h-11 rounded-full bg-dark-surface border border-gold/30 flex items-center justify-center text-text-inverse hover:text-gold hover:border-gold transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold shrink-0"
                 >
                   {social.platform === 'instagram' && <InstagramIcon size={18} />}
                   {social.platform === 'facebook' && <FacebookIcon size={18} />}
@@ -159,9 +162,9 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col">
               <div className="mb-3">
                 <span className="text-[12px] font-bold uppercase tracking-wider text-gold block">Directory</span>
-                <span className="font-serif text-base font-bold text-text border-b border-gold/25 pb-1 block">Salon Services</span>
+                <span className="font-serif text-base font-bold text-text-inverse border-b border-gold/25 pb-1 block">Salon Services</span>
               </div>
-              <ul className="space-y-1 text-sm text-muted">
+              <ul className="space-y-1 text-sm text-text-inverse-muted">
                 {[
                   { to: '/services/womens-haircut-and-style', label: 'Haircut & Styling' },
                   { to: '/services/womens-hair-colour', label: 'French Balayage' },
@@ -194,9 +197,9 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col">
               <div className="mb-3">
                 <span className="text-[12px] font-bold uppercase tracking-wider text-gold block">Masterclasses</span>
-                <span className="font-serif text-base font-bold text-text border-b border-gold/25 pb-1 block">Academy</span>
+                <span className="font-serif text-base font-bold text-text-inverse border-b border-gold/25 pb-1 block">Academy</span>
               </div>
-              <ul className="space-y-1 text-sm text-muted">
+              <ul className="space-y-1 text-sm text-text-inverse-muted">
                 {[
                   { to: '/academy/hair-courses', label: 'Hair Courses' },
                   { to: '/academy/makeup-courses', label: 'Makeup Courses' },
@@ -230,31 +233,31 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-3 flex flex-col space-y-3">
             <div>
               <span className="text-[12px] font-bold uppercase tracking-wider text-gold block">Flagship Studio</span>
-              <span className="font-serif text-base font-bold text-text">Visit Angels</span>
+              <span className="font-serif text-base font-bold text-text-inverse">Visit Angels</span>
             </div>
 
-            <div className="rounded-[4px] bg-raised border border-gold/30 p-4 space-y-3 hover:border-gold transition-colors">
+            <div className="rounded-[4px] bg-dark-surface border border-gold/30 p-4 space-y-3 hover:border-gold transition-colors">
               <div className="flex items-center justify-between pb-2 border-b border-gold/25">
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span className="text-[12px] font-bold text-text uppercase tracking-wider">Open Daily</span>
+                  <span className="text-[12px] font-bold text-text-inverse uppercase tracking-wider">Open Daily</span>
                 </div>
                 <span className="text-[12px] text-gold font-medium">9:30 AM – 9:00 PM</span>
               </div>
 
               {/* Tappable directions address */}
               <div className="space-y-1 text-xs leading-relaxed">
-                <p className="font-serif text-sm font-bold text-text">Angels Salon &amp; Academy</p>
+                <p className="font-serif text-sm font-bold text-text-inverse">Angels Salon &amp; Academy</p>
                 <a
                   href={flagship.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-muted hover:text-gold transition-colors text-[12px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="block text-text-inverse-muted hover:text-gold transition-colors text-[12px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   29/843, Shival Nagar, Pant Nagar,<br />
                   Ghatkopar East, Mumbai 400075
                 </a>
-                <p className="text-[12px] text-muted">(Beside Kirti Computer Institute)</p>
+                <p className="text-[12px] text-text-inverse-muted">(Beside Kirti Computer Institute)</p>
               </div>
 
               {/* Get Directions Link Button */}
@@ -262,7 +265,7 @@ export const Footer: React.FC = () => {
                 href={flagship.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-3 py-2 rounded-[4px] bg-ink border border-gold-line text-gold hover:bg-gold hover:text-text font-bold text-xs uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-3 py-2 rounded-[4px] bg-gold text-dark font-bold text-xs uppercase tracking-wider hover:bg-gold-soft transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold shadow-sm"
               >
                 <span>Get Directions</span>
                 <DirectionsIcon size={14} />
@@ -272,14 +275,14 @@ export const Footer: React.FC = () => {
               <div className="grid grid-cols-2 gap-2 pt-2 border-t border-gold/25">
                 <a
                   href={`tel:${siteConfig.contact.phoneRaw}`}
-                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-ink border border-gold/30 text-gold hover:border-gold transition-colors text-xs font-semibold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-dark-elevated border border-gold/30 text-gold hover:border-gold transition-colors text-xs font-semibold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <PhoneIcon size={14} />
                   <span>Call</span>
                 </a>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-ink border border-gold/30 text-muted hover:text-gold hover:border-gold transition-colors text-xs font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                  className="min-h-[48px] flex items-center justify-center gap-1.5 px-2 py-2 rounded-[4px] bg-dark-elevated border border-gold/30 text-text-inverse-muted hover:text-gold hover:border-gold transition-colors text-xs font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                 >
                   <MailIcon size={14} />
                   <span>Email</span>

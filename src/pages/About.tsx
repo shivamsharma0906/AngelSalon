@@ -31,21 +31,25 @@ export const About: React.FC = () => {
       icon: <ShieldCheckIcon size={22} className="text-gold" />,
       title: "Surgical-Grade Hygiene",
       description: "We enforce strict medical-grade autoclaving of styling instruments, single-use disposable gowns, and thorough sanitization of styling stations between every client appointment.",
+      shortDescription: "Medical-grade autoclaving, single-use gowns & sanitized stations between clients.",
     },
     {
       icon: <ScissorsIcon size={22} className="text-gold" />,
       title: "Elite Certified Artistry",
       description: "Our styling team has been educated at premier academies including Toni&Guy, L'Oréal Professionnel Paris, and Vidal Sassoon, undergoing regular masterclasses to lead seasonal trends.",
+      shortDescription: "Trained at Toni&Guy, L'Oréal Paris & Vidal Sassoon with seasonal masterclasses.",
     },
     {
       icon: <DiamondIcon size={22} className="text-gold" />,
       title: "World-Class Product Partners",
       description: "We never compromise on chemical formulations. We exclusively partner with authentic global brands including L'Oréal Professionnel, Skeyndor, Olaplex, Nashi Argan, and Kérastase.",
+      shortDescription: "Exclusively using authentic L'Oréal, Skeyndor, Olaplex & Kérastase formulations.",
     },
     {
       icon: <HeartIcon size={22} className="text-gold" />,
       title: "Empowering & Inclusive Space",
       description: "Proudly unisex and dedicated to creating an intimate, comfortable sanctuary where every client is received with utmost warmth, confidentiality, and respect.",
+      shortDescription: "Warm, respectful unisex sanctuary tailored to individual comfort and style.",
     },
   ];
 
@@ -135,15 +139,28 @@ export const About: React.FC = () => {
                 </blockquote>
 
                 <div className="space-y-4 text-text-muted text-sm sm:text-base leading-relaxed mb-8">
-                  <p>
-                    Angel's Salon is a premium unisex salon in Ghatkopar East, Mumbai, dedicated to helping you look and feel your best. Conveniently located in Shival Nagar beside Kirti Computer Institute, we offer a complete range of professional hair, skin, beauty, and grooming services for both men and women.
-                  </p>
-                  <p>
-                    Our experienced team combines expert techniques with high-quality products to deliver personalized services in a clean, comfortable, and welcoming environment. Whether you're looking for a stylish haircut, hair coloring, smoothening, facials, bridal or party makeup, skincare treatments, or regular grooming, we ensure every visit is relaxing and satisfying.
-                  </p>
-                  <p>
-                    We believe every client deserves exceptional service and a rejuvenating salon experience tailored to their individual style and preferences. Visit us any day of the week from 9:30 AM to 9:00 PM and experience professional beauty and grooming services that leave you looking confident and refreshed.
-                  </p>
+                  {/* Desktop Full Narrative */}
+                  <div className="hidden sm:block space-y-4">
+                    <p>
+                      Angel's Salon is a premium unisex salon in Ghatkopar East, Mumbai, dedicated to helping you look and feel your best. Conveniently located in Shival Nagar beside Kirti Computer Institute, we offer a complete range of professional hair, skin, beauty, and grooming services for both men and women.
+                    </p>
+                    <p>
+                      Our experienced team combines expert techniques with high-quality products to deliver personalized services in a clean, comfortable, and welcoming environment. Whether you're looking for a stylish haircut, hair coloring, smoothening, facials, bridal or party makeup, skincare treatments, or regular grooming, we ensure every visit is relaxing and satisfying.
+                    </p>
+                    <p>
+                      We believe every client deserves exceptional service and a rejuvenating salon experience tailored to their individual style and preferences. Visit us any day of the week from 9:30 AM to 9:00 PM and experience professional beauty and grooming services that leave you looking confident and refreshed.
+                    </p>
+                  </div>
+
+                  {/* Mobile Concise Narrative */}
+                  <div className="sm:hidden space-y-2 text-xs">
+                    <p>
+                      Angel's Salon is Ghatkopar East's premier unisex destination for precision haircutting, bespoke hair colour, rejuvenating facials, bridal couture makeup, and certified academy education.
+                    </p>
+                    <p className="text-text font-medium pt-0.5">
+                      Open daily from <span className="text-gold font-semibold">9:30 AM to 9:00 PM</span> at Shival Nagar, Pant Nagar.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-border">
@@ -187,8 +204,11 @@ export const About: React.FC = () => {
                     <h3 className="font-serif text-sm sm:text-xl font-bold text-text mb-1.5 sm:mb-2.5">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed hidden sm:block">
                       {pillar.description}
+                    </p>
+                    <p className="text-[11px] leading-relaxed text-text-muted sm:hidden">
+                      {pillar.shortDescription}
                     </p>
                   </div>
                 </Card>
@@ -217,7 +237,7 @@ export const About: React.FC = () => {
                   <h3 className="font-serif text-sm sm:text-lg font-bold text-text mb-1 sm:mb-2">
                     {m.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                  <p className="text-xs sm:text-sm text-text-muted leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {m.description}
                   </p>
                 </div>

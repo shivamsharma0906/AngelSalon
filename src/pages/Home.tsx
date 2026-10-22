@@ -56,7 +56,7 @@ export const Home: React.FC = () => {
         <Hero />
 
         {/* 2. Dedicated Appointment Reservation Console */}
-        <section id="reserve" className="py-8 sm:py-10 bg-background border-b border-border" aria-label="Reserve an Appointment">
+        <section id="reserve" className="py-4 sm:py-10 bg-background border-b border-border" aria-label="Reserve an Appointment">
           <Container size="lg">
             <HorizontalBookingBar />
           </Container>

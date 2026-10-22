@@ -213,25 +213,25 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'in
                 </div>
 
                 {/* View Container */}
-                <div className="relative w-full h-[320px] sm:h-[400px] lg:h-full min-h-[320px] lg:min-h-[400px] rounded-[4px] overflow-hidden border border-border hover:border-gold/60 transition-colors bg-surface flex flex-col">
+                <div className="relative w-full aspect-[16/9] sm:aspect-auto sm:h-[400px] lg:h-full min-h-[220px] lg:min-h-[400px] rounded-[4px] overflow-hidden border border-border hover:border-gold/60 transition-colors bg-surface flex flex-col">
                   {activeView === 'storefront' ? (
                     <div className="relative w-full h-full">
                       <img
                         src="/images/real/storefront_frontal.webp"
                         alt="Angels Salon & Academy storefront in Pant Nagar Ghatkopar East with clean glass entrance and illuminated signage"
                         width={1600}
-                        height={1200}
-                        className="w-full h-full object-cover"
+                        height={900}
+                        className="w-full h-full object-cover object-center"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-[4px] bg-dark/90 backdrop-blur-md border border-gold/30 text-xs text-text-inverse flex items-center justify-between">
-                        <span className="font-medium text-gold-light">Pant Nagar Storefront Entrance</span>
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3 sm:right-3 p-2.5 sm:p-3 rounded-[4px] bg-dark/90 backdrop-blur-md border border-gold/30 text-xs text-text-inverse flex items-center justify-between">
+                        <span className="font-medium text-gold-light text-[11px] sm:text-xs">Pant Nagar Storefront Entrance</span>
                         <a
                           href={branch.googleMapsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs uppercase tracking-wider text-text-muted hover:text-gold-light flex items-center gap-1 font-semibold"
+                          className="text-[11px] sm:text-xs uppercase tracking-wider text-text-muted hover:text-gold-light flex items-center gap-1 font-semibold"
                         >
                           <span>Open in Maps</span>
                           <span aria-hidden="true">&rarr;</span>

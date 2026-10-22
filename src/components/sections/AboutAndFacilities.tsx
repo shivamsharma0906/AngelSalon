@@ -156,21 +156,21 @@ export const AboutAndFacilities: React.FC<AboutAndFacilitiesProps> = ({
 
             {/* Real Salon Exterior Storefront */}
             <div className="mb-6 relative rounded-2xl overflow-hidden border border-border bg-ink shadow-xl group">
-              <div className="aspect-[16/10] sm:aspect-[16/9] md:aspect-[3/2] max-h-[520px] w-full overflow-hidden flex items-center justify-center bg-ink">
+              <div className="aspect-[16/9] max-h-[520px] w-full overflow-hidden flex items-center justify-center bg-ink">
                 <img
                   src="/images/real/storefront_facade.webp"
                   alt="Angels Salon & Academy storefront facade and illuminated signage in Ghatkopar East, Mumbai"
                   width={1920}
-                  height={1440}
+                  height={1080}
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
                   loading="lazy"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 right-3 sm:right-4 flex flex-wrap items-center justify-between gap-2">
-                <span className="bg-ink/85 backdrop-blur-md border border-gold/40 text-[10px] sm:text-xs font-semibold text-gold px-3 py-1 rounded-full uppercase tracking-luxury">
-                  Flagship Storefront & Academy • Pant Nagar, Ghatkopar East
-                </span>
+              <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 right-2.5 sm:right-4 flex flex-wrap items-center justify-between gap-2">
+                {/* <span className="bg-ink/90 backdrop-blur-md border border-gold/40 text-[9.5px] xs:text-[10px] sm:text-xs font-semibold text-gold px-2.5 py-1 sm:px-3 sm:py-1 rounded-full uppercase tracking-luxury shadow-sm">
+                  Flagship Storefront &amp; Academy • Pant Nagar, Ghatkopar East
+                </span> */}
                 <span className="text-[11px] text-text-subtle bg-surface/85 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-border hidden sm:inline-block">
                   Open 7 Days • 9:30 AM – 9:00 PM
                 </span>
@@ -218,21 +218,34 @@ export const AboutAndFacilities: React.FC<AboutAndFacilitiesProps> = ({
             {/* Official Narrative */}
             {showAboutText && (
               <div className="space-y-4 text-xs sm:text-sm md:text-base text-text-muted leading-relaxed font-light">
-                <p>
-                  Angel's Salon is a premium unisex salon in Ghatkopar East, Mumbai, dedicated to helping you look and feel your best. Conveniently located in Shival Nagar beside Kirti Computer Institute, we offer a complete range of professional hair, skin, beauty, and grooming services for both men and women. Our experienced team combines expert techniques with high-quality products to deliver personalized services in a clean, comfortable, and welcoming environment.
-                </p>
-                <p>
-                  Whether you're looking for a stylish haircut, hair coloring, smoothening, facials, bridal or party makeup, skincare treatments, or regular grooming, we ensure every visit is relaxing and satisfying. At Angel's Salon, customer satisfaction, hygiene, and attention to detail are at the heart of everything we do. We believe every client deserves exceptional service and a rejuvenating salon experience tailored to their individual style and preferences.
-                </p>
-                <p className="text-text font-medium pt-1">
-                  Visit us any day of the week from <span className="text-gold font-semibold">9:30 AM to 9:00 PM</span> and experience professional beauty and grooming services that leave you looking confident and refreshed.
-                </p>
+                {/* Desktop Version */}
+                <div className="hidden sm:block space-y-4">
+                  <p>
+                    Angel's Salon is a premium unisex salon in Ghatkopar East, Mumbai, dedicated to helping you look and feel your best. Conveniently located in Shival Nagar beside Kirti Computer Institute, we offer a complete range of professional hair, skin, beauty, and grooming services for both men and women. Our experienced team combines expert techniques with high-quality products to deliver personalized services in a clean, comfortable, and welcoming environment.
+                  </p>
+                  <p>
+                    Whether you're looking for a stylish haircut, hair coloring, smoothening, facials, bridal or party makeup, skincare treatments, or regular grooming, we ensure every visit is relaxing and satisfying. At Angel's Salon, customer satisfaction, hygiene, and attention to detail are at the heart of everything we do. We believe every client deserves exceptional service and a rejuvenating salon experience tailored to their individual style and preferences.
+                  </p>
+                  <p className="text-text font-medium pt-1">
+                    Visit us any day of the week from <span className="text-gold font-semibold">9:30 AM to 9:00 PM</span> and experience professional beauty and grooming services that leave you looking confident and refreshed.
+                  </p>
+                </div>
+
+                {/* Mobile Concise Version */}
+                <div className="sm:hidden space-y-2 text-xs">
+                  <p>
+                    Angel's Salon is Ghatkopar East's premier unisex destination for precision haircutting, bespoke hair colour, rejuvenating facials, bridal couture makeup, and certified academy education.
+                  </p>
+                  <p className="text-text font-medium text-[11px] pt-0.5">
+                    Open daily <span className="text-gold font-semibold">9:30 AM – 9:00 PM</span> at Shival Nagar, Pant Nagar.
+                  </p>
+                </div>
               </div>
             )}
           </div>
 
-          {/* Card 2: FACILITIES */}
-          <div className="bg-surface/90 border border-border rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-gold/40">
+          {/* Card 2: FACILITIES (Hidden on mobile mode) */}
+          <div className="hidden sm:block bg-surface/90 border border-border rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-gold/40">
             <div className="flex items-center gap-3 mb-6">
               <span className="w-2 h-2 rounded-full bg-gold inline-block animate-pulse"></span>
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-gold">

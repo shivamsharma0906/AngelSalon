@@ -81,7 +81,7 @@ export const heroSlides: HeroSlideItem[] = [
       srcSet:
         '/images/hero-carousel/slide1_mobile_480.webp 480w, /images/hero-carousel/slide1_mobile_768.webp 768w',
       width: 768,
-      height: 960,
+      height: 432,
     },
     alt: 'Angels Salon & Academy storefront facade and illuminated signage in Pant Nagar, Ghatkopar East, Mumbai',
     desktopObjectPosition: 'center center',
@@ -112,7 +112,7 @@ export const heroSlides: HeroSlideItem[] = [
       srcSet:
         '/images/hero-carousel/slide2_mobile_480.webp 480w, /images/hero-carousel/slide2_mobile_768.webp 768w',
       width: 768,
-      height: 960,
+      height: 432,
     },
     alt: 'Angels Salon modern hair wash lounge, professional colour dispensary, and luxury reclining shampoo stations in Ghatkopar East',
     desktopObjectPosition: 'center center',
@@ -120,16 +120,47 @@ export const heroSlides: HeroSlideItem[] = [
     needsBetterPhoto: false,
   },
 
-  // Slide 3: Editorial — Professional Academy
+  // Slide 3: Editorial — Bridal & Occasion Artistry
   {
-    id: 'academy-diplomas',
+    id: 'bridal-couture',
     layout: 'editorial',
-    label: 'Professional Academy',
-    headline: 'Professional beauty and hair diplomas.',
-    bodyText: 'Hands-on training in hairdressing, makeup artistry and cosmetology with direct mentorship on our Mumbai salon floor.',
+    label: 'Bridal & Occasion Artistry',
+    headline: 'Royal bridal couture and HD party makeup.',
+    bodyText: 'Bespoke bridal makeovers, HD airbrush finishes, saree draping and bridal trials in private suites.',
     cta: {
-      label: 'Explore Academy Courses',
-      href: '/academy',
+      label: 'Explore Bridal Services',
+      href: '/services/bridal-makeup',
+    },
+    desktopImage: {
+      src: '/images/hero-carousel/slide3_desktop_1920.webp',
+      srcSet:
+        '/images/hero-carousel/slide3_desktop_768.webp 768w, /images/hero-carousel/slide3_desktop_1280.webp 1280w, /images/hero-carousel/slide3_desktop_1920.webp 1920w',
+      width: 1920,
+      height: 1080,
+    },
+    mobileImage: {
+      src: '/images/hero-carousel/slide3_mobile_768.webp',
+      srcSet:
+        '/images/hero-carousel/slide3_mobile_480.webp 480w, /images/hero-carousel/slide3_mobile_768.webp 768w',
+      width: 768,
+      height: 432,
+    },
+    alt: 'Angels Salon private bridal and aesthetic care suite in Ghatkopar East, Mumbai',
+    desktopObjectPosition: 'center center',
+    mobileObjectPosition: 'center center',
+    needsBetterPhoto: false,
+  },
+
+  // Slide 4: Editorial — Luxury Nail Bar & Skincare
+  {
+    id: 'nail-skincare',
+    layout: 'editorial',
+    label: 'Nail Bar & Aesthetic Care',
+    headline: 'Custom nail extensions and clinical facials.',
+    bodyText: 'Russian gel nail extensions, chrome art, Korean glass facials and revitalizing hand-foot spas.',
+    cta: {
+      label: 'Explore Nails & Skincare',
+      href: '/services/nails',
     },
     desktopImage: {
       src: '/images/hero-carousel/slide4_desktop_1920.webp',
@@ -143,11 +174,42 @@ export const heroSlides: HeroSlideItem[] = [
       srcSet:
         '/images/hero-carousel/slide4_mobile_480.webp 480w, /images/hero-carousel/slide4_mobile_768.webp 768w',
       width: 768,
-      height: 960,
+      height: 432,
+    },
+    alt: 'Angels Salon luxury illuminated nail bar, gel extensions, and manicure pedicure station in Ghatkopar East',
+    desktopObjectPosition: 'center center',
+    mobileObjectPosition: 'center center',
+    needsBetterPhoto: false,
+  },
+
+  // Slide 5: Editorial — Professional Academy
+  {
+    id: 'academy-diplomas',
+    layout: 'editorial',
+    label: 'Professional Academy',
+    headline: 'Professional beauty and hair diplomas.',
+    bodyText: 'Hands-on training in hairdressing, makeup artistry and cosmetology with direct mentorship on our Mumbai salon floor.',
+    cta: {
+      label: 'Explore Academy Courses',
+      href: '/academy',
+    },
+    desktopImage: {
+      src: '/images/hero-carousel/slide5_desktop_1920.webp',
+      srcSet:
+        '/images/hero-carousel/slide5_desktop_768.webp 768w, /images/hero-carousel/slide5_desktop_1280.webp 1280w, /images/hero-carousel/slide5_desktop_1920.webp 1920w',
+      width: 1920,
+      height: 1080,
+    },
+    mobileImage: {
+      src: '/images/hero-carousel/slide5_mobile_768.webp',
+      srcSet:
+        '/images/hero-carousel/slide5_mobile_480.webp 480w, /images/hero-carousel/slide5_mobile_768.webp 768w',
+      width: 768,
+      height: 432,
     },
     alt: 'Angels Salon Academy styling floor and practical training stations in Ghatkopar East',
-    desktopObjectPosition: 'center 45%',
-    mobileObjectPosition: 'center 40%',
+    desktopObjectPosition: 'center center',
+    mobileObjectPosition: 'center center',
     needsBetterPhoto: false,
   },
 ];

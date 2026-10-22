@@ -45,7 +45,7 @@ export const VideoSection: React.FC = () => {
             ) : (
               <div
                 onClick={() => setIsPlaying(true)}
-                className="w-full h-full relative cursor-pointer group flex items-center justify-center"
+                className="w-full h-full relative cursor-pointer group"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
@@ -61,19 +61,19 @@ export const VideoSection: React.FC = () => {
                   alt={video.title}
                   width={400}
                   height={711}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-ink/35 group-hover:bg-ink/15 transition-colors" />
+                <div className="absolute inset-0 bg-ink/35 group-hover:bg-ink/15 transition-colors pointer-events-none" />
 
                 {/* Glowing Gold Play Button */}
-                <div className="w-16 h-16 rounded-full bg-raised/90 border border-gold-line text-gold flex items-center justify-center shadow-gold-md group-hover:scale-110 group-hover:border-gold transition-transform z-10">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-raised/90 border border-gold-line text-gold flex items-center justify-center shadow-gold-md group-hover:scale-110 group-hover:border-gold transition-transform z-10 pointer-events-none">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-1">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 text-center z-10">
+                <div className="absolute bottom-4 left-4 right-4 text-center z-10 pointer-events-none">
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-gold bg-raised/85 px-3 py-1 rounded-full border border-gold-line/50 shadow-sm">
                     Tap to Watch (15s)
                   </span>
@@ -94,7 +94,7 @@ export const VideoSection: React.FC = () => {
             ) : (
               <div
                 onClick={() => setIsPlaying(true)}
-                className="w-full h-full relative cursor-pointer group flex items-center justify-center"
+                className="w-full h-full relative cursor-pointer group"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
@@ -111,12 +111,12 @@ export const VideoSection: React.FC = () => {
                     alt={video.title}
                     width={800}
                     height={450}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                 )}
-                <div className="absolute inset-0 bg-ink/40 group-hover:bg-ink/20 transition-colors" />
-                <div className="w-16 h-16 rounded-full bg-raised/90 border border-gold-line text-gold flex items-center justify-center shadow-gold-md group-hover:scale-110 group-hover:border-gold transition-transform z-10">
+                <div className="absolute inset-0 bg-ink/40 group-hover:bg-ink/20 transition-colors pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-raised/90 border border-gold-line text-gold flex items-center justify-center shadow-gold-md group-hover:scale-110 group-hover:border-gold transition-transform z-10 pointer-events-none">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-1">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>

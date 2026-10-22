@@ -177,15 +177,22 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
       onKeyDown={handleKeyDown}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      className={`relative w-full h-[calc(100svh-64px)] sm:h-[calc(100vh-72px)] min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-ink select-none touch-pan-y focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold group ${className}`}
+      className={`relative w-full h-[445px] xs:h-[460px] sm:h-[calc(100vh-72px)] sm:min-h-[640px] lg:min-h-[700px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-ink select-none touch-pan-y focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold group ${className}`}
     >
       {/* Stable Visually Hidden H1 per page */}
       <h1 className="sr-only">
         Angels Salon & Academy | Luxury Hair, Skin & Bridal Salon in Ghatkopar East, Mumbai
       </h1>
 
-      {/* Stacked Slides Container with Smooth 800ms Crossfade */}
-      <div className="absolute inset-0 z-0">
+      {/* Horizontal Carousel Track */}
+      <div
+        className={`absolute inset-0 z-0 flex w-full h-full ${
+          isReducedMotion ? '' : 'transition-transform duration-500 ease-out'
+        }`}
+        style={{
+          transform: `translateX(-${activeIndex * 100}%)`,
+        }}
+      >
         {slides.map((slide, index) => {
           const isActive = index === activeIndex;
           const isFirstSlide = index === 0;
@@ -199,11 +206,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
               aria-hidden={!isActive}
               data-active={isActive}
               {...(!isActive ? ({ inert: '' } as unknown as React.HTMLAttributes<HTMLDivElement>) : {})}
-              className={`absolute inset-0 w-full h-full transition-opacity ${
-                isReducedMotion ? 'duration-0' : 'duration-[800ms]'
-              } ease-in-out ${
-                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
-              }`}
+              className="relative w-full h-full shrink-0 flex-none bg-ink overflow-hidden"
             >
               {slide.layout === 'editorial' ? (
                 <EditorialSlideView
@@ -255,11 +258,8 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
         </div>
       </div>
 
-      {/* Spacer to push controls to bottom */}
-      <div className="flex-1" />
-
-      {/* Minimalist Floating Pagination Dots (Matching Reference 4) */}
-      <div className="relative z-30 w-full flex items-center justify-center pb-6 sm:pb-8 pointer-events-auto">
+      {/* Minimalist Floating Pagination Dots */}
+      <div className="absolute bottom-2.5 sm:bottom-6 left-0 right-0 z-30 flex items-center justify-center pointer-events-auto">
         <div
           className="flex items-center gap-2 sm:gap-2.5"
           role="tablist"
@@ -311,9 +311,9 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
 };
 
 /**
- * Editorial Slide View (Slides 1, 2, 3)
- * Full-width immersive background image with subtle cinematic zoom,
- * directional gradient overlay, elegant typography, gold accents, and distinct visual features.
+ * Editorial Slide View (Slides 1, 2, 3, 4, 5)
+ * Horizontal uncropped 16:9 photo layout on mobile with proportional typography,
+ * Full-width immersive background on desktop with directional scrim.
  */
 const EditorialSlideView: React.FC<{
   slide: EditorialHeroSlide;
@@ -323,122 +323,136 @@ const EditorialSlideView: React.FC<{
   isReducedMotion: boolean;
 }> = ({ slide, slideIndex, isFirstSlide, isActive, isReducedMotion }) => {
   return (
-    <div className="relative w-full h-full flex flex-col justify-end lg:justify-center overflow-hidden">
-      {/* Immersive Background Image with Subtle Cinematic Zoom */}
-      <picture className="absolute inset-0 w-full h-full overflow-hidden">
-        <source
-          media="(max-width: 640px)"
-          srcSet={slide.mobileImage.srcSet}
-          width={slide.mobileImage.width}
-          height={slide.mobileImage.height}
-        />
-        <source
-          media="(min-width: 641px)"
-          srcSet={slide.desktopImage.srcSet}
-          width={slide.desktopImage.width}
-          height={slide.desktopImage.height}
-        />
-        <img
-          src={slide.desktopImage.src}
-          alt={isActive ? slide.alt : ''}
-          width={slide.desktopImage.width}
-          height={slide.desktopImage.height}
-          loading={isFirstSlide ? 'eager' : 'lazy'}
-          decoding="async"
-          {...(isFirstSlide
-            ? ({ fetchpriority: 'high' } as React.ImgHTMLAttributes<HTMLImageElement>)
-            : {})}
-          className={`w-full h-full object-cover object-[var(--mobile-pos)] sm:object-[var(--desktop-pos)] opacity-100 transition-transform duration-[6000ms] ease-out ${
-            isActive && !isReducedMotion ? 'scale-105' : 'scale-100'
-          }`}
-          style={
-            {
-              '--mobile-pos': slide.mobileObjectPosition,
-              '--desktop-pos': slide.desktopObjectPosition,
-            } as React.CSSProperties
-          }
-        />
-      </picture>
+    <div className="relative w-full h-full flex flex-col justify-start sm:justify-end lg:justify-center overflow-hidden bg-ink">
+      {/* Horizontal Photo Frame on mobile (16:9, completely uncropped and clearly visible),
+          Full-screen background cover on tablet/desktop */}
+      <div className="relative w-full aspect-[16/9] xs:aspect-[16/9] sm:aspect-auto sm:absolute sm:inset-0 sm:h-full overflow-hidden bg-surface shrink-0 shadow-sm">
+        <picture className="w-full h-full block">
+          <source
+            media="(max-width: 640px)"
+            srcSet={slide.mobileImage.srcSet}
+            width={slide.mobileImage.width}
+            height={slide.mobileImage.height}
+          />
+          <source
+            media="(min-width: 641px)"
+            srcSet={slide.desktopImage.srcSet}
+            width={slide.desktopImage.width}
+            height={slide.desktopImage.height}
+          />
+          <img
+            src={slide.desktopImage.src}
+            alt={isActive ? slide.alt : ''}
+            width={slide.desktopImage.width}
+            height={slide.desktopImage.height}
+            loading={isFirstSlide ? 'eager' : 'lazy'}
+            decoding="async"
+            {...(isFirstSlide
+              ? ({ fetchpriority: 'high' } as React.ImgHTMLAttributes<HTMLImageElement>)
+              : {})}
+            className={`w-full h-full object-cover sm:object-[var(--desktop-pos)] opacity-100 transition-transform duration-[6000ms] ease-out ${
+              isActive && !isReducedMotion ? 'scale-100 sm:scale-105' : 'scale-100'
+            }`}
+            style={
+              {
+                '--desktop-pos': slide.desktopObjectPosition,
+              } as React.CSSProperties
+            }
+          />
+        </picture>
+        {/* Subtle luxury gold accent divider on mobile */}
+        <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold/80 to-transparent sm:hidden" />
+      </div>
 
-      {/* Directional Luxury Scrim:
-          Deep gradient behind left-aligned text for 100% WCAG AAA readability,
-          opening up clearly to the right so the photo remains the main, luminous visual focus!
-      */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 via-50% to-transparent lg:hidden pointer-events-none" />
+      {/* Directional Luxury Scrim on desktop/tablet only */}
+      <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-ink via-ink/80 via-50% to-transparent lg:hidden pointer-events-none" />
       <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/75 via-35% lg:via-42% to-transparent pointer-events-none" />
       <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent h-32 bottom-0 top-auto pointer-events-none" />
 
-
-      {/* Left-Aligned Editorial Text Content */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-16 pb-20 sm:pb-24 lg:py-0">
+      {/* Left-Aligned Editorial Text Content: flows directly underneath the horizontal photo on mobile */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 xs:px-5 sm:px-6 lg:px-8 xl:px-12 flex flex-col justify-start sm:justify-end lg:justify-center pt-2.5 xs:pt-3 sm:pt-16 pb-8 sm:pb-24 lg:py-0 flex-1 sm:flex-none">
         <div className="max-w-md lg:max-w-xl text-left">
           {/* Eyebrow with Gold Accent Line */}
-          <div className="flex items-center gap-2.5 mb-3.5">
-            <span className="w-6 sm:w-8 h-[1.5px] bg-gold inline-block" />
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+          <div className="flex items-center gap-2 mb-1 xs:mb-1.5 sm:mb-3.5">
+            <span className="w-5 sm:w-8 h-[1.5px] bg-gold inline-block" />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               {slide.label}
             </span>
           </div>
 
           {/* Large Headline */}
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.35rem,4.2vw,3.75rem)] font-normal text-text leading-[1.1] mb-4 tracking-tight">
+          <h2 className="font-serif text-[20px] xs:text-[22px] sm:text-4xl md:text-5xl lg:text-[clamp(2.35rem,4.2vw,3.75rem)] font-normal text-text leading-[1.18] sm:leading-[1.1] mb-1 xs:mb-1.5 sm:mb-4 tracking-tight">
             {slide.headline}
           </h2>
 
           {/* Short Line of Body Text */}
-          <p className="text-sm sm:text-base text-text-muted font-light leading-relaxed mb-5 sm:mb-6 max-w-sm sm:max-w-md">
+          <p className="text-xs sm:text-base text-text-muted font-light leading-relaxed mb-2 xs:mb-2.5 sm:mb-6 max-w-sm sm:max-w-md line-clamp-2 sm:line-clamp-none">
             {slide.bodyText}
           </p>
 
           {/* Distinct Feature Pills (Customized per Slide) */}
           {slideIndex === 0 && (
-            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 xs:mb-3 sm:mb-8">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
                 Hair • Skin • Nails
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
                 Pant Nagar, Ghatkopar East
               </span>
             </div>
           )}
 
           {slideIndex === 1 && (
-            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 xs:mb-3 sm:mb-8">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
                 Ammonia-Free Toning
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
                 Custom Balayage
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
                 Global Shades
               </span>
             </div>
           )}
 
           {slideIndex === 2 && (
-            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 xs:mb-3 sm:mb-8">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
                 HD Bridal Makeup
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
                 Paithani & Saree Draping
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
                 Occasion Styling
               </span>
             </div>
           )}
 
           {slideIndex === 3 && (
-            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 xs:mb-3 sm:mb-8">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+                Gel Extensions & Nail Art
+              </span>
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+                Korean Glass Facials
+              </span>
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
+                Deluxe Hand & Foot Spas
+              </span>
+            </div>
+          )}
+
+          {slideIndex === 4 && (
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 xs:mb-3 sm:mb-8">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
                 Hands-on Studio Work
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-gold-line text-gold">
                 Master Stylist Mentors
               </span>
-              <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-raised/80 border border-line text-text-muted">
                 Small Student Batches
               </span>
             </div>
@@ -452,9 +466,9 @@ const EditorialSlideView: React.FC<{
               target={slide.cta.isExternal ? '_blank' : undefined}
               rel={slide.cta.isExternal ? 'noopener noreferrer' : undefined}
               variant="gold"
-              size="md"
-              leftIcon={slide.cta.isWhatsApp ? <WhatsAppIcon size={16} className="text-ink shrink-0" /> : undefined}
-              className="min-h-[48px] px-8 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-gold-sm hover:shadow-gold-md transition-all duration-300"
+              size="sm"
+              leftIcon={slide.cta.isWhatsApp ? <WhatsAppIcon size={15} className="text-ink shrink-0" /> : undefined}
+              className="min-h-[40px] xs:min-h-[42px] sm:min-h-[48px] px-5 xs:px-6 sm:px-8 text-[11px] xs:text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-gold-sm hover:shadow-gold-md transition-all duration-300"
             >
               {slide.cta.label}
             </Button>
@@ -502,41 +516,41 @@ const AcademySlideView: React.FC<{
 
 
       {/* Main Content Layout */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-16 pb-20 sm:pb-24 lg:py-0">
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-3.5 xs:px-4 sm:px-6 lg:px-8 xl:px-12 flex flex-col justify-end h-full pt-16 pb-14 sm:pb-24 lg:py-0">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           
           {/* Left: Solid Frosted Glass Editorial Panel */}
           <div className="w-full max-w-xl text-left">
-            <div className="p-6 sm:p-8 lg:p-10 rounded-xl bg-surface/90 border border-gold-line backdrop-blur-md shadow-2xl">
+            <div className="p-4 xs:p-5 sm:p-8 lg:p-10 rounded-2xl bg-surface/95 border border-gold-line/40 backdrop-blur-md shadow-2xl">
               {slide.label && (
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-6 h-[1.5px] bg-gold inline-block" />
-                  <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <span className="w-5 sm:w-6 h-[1.5px] bg-gold inline-block" />
+                  <span className="text-[10.5px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gold">
                     {slide.label}
                   </span>
                 </div>
               )}
 
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-text leading-[1.12] mb-3.5 tracking-tight">
+              <h2 className="font-serif text-2xl xs:text-[26px] sm:text-4xl md:text-5xl font-normal text-text leading-[1.14] sm:leading-[1.12] mb-2 sm:mb-3.5 tracking-tight">
                 {slide.headline}
               </h2>
 
-              <p className="text-sm sm:text-base text-text-muted font-light leading-relaxed mb-5">
+              <p className="text-xs xs:text-sm sm:text-base text-text-muted font-light leading-relaxed mb-3 sm:mb-5 line-clamp-2 sm:line-clamp-none">
                 {slide.bodyText}
               </p>
 
               {/* 4 Distinct Academy Pillars */}
-              <div className="grid grid-cols-2 gap-2.5 pt-4 pb-6 border-t border-line text-xs font-medium text-text-muted">
-                <div className="flex items-center gap-2">
+              <div className="grid grid-cols-2 gap-2 pt-3 pb-4 sm:pt-4 sm:pb-6 border-t border-line text-[11px] sm:text-xs font-medium text-text-muted">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <span className="text-gold font-bold">✦</span> Hands-on Studio Work
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <span className="text-gold font-bold">✦</span> Master Stylist Mentors
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <span className="text-gold font-bold">✦</span> Hair, Skin & Makeup
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <span className="text-gold font-bold">✦</span> Small Student Batches
                 </div>
               </div>
@@ -547,7 +561,7 @@ const AcademySlideView: React.FC<{
                   href={slide.cta.href}
                   variant="gold"
                   size="md"
-                  className="min-h-[48px] px-8 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-gold-sm"
+                  className="min-h-[44px] sm:min-h-[48px] px-6 sm:px-8 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-gold-sm"
                 >
                   {slide.cta.label}
                 </Button>

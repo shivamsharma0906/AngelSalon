@@ -26,7 +26,7 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
   };
 
   return (
-    <div className={`w-full max-w-6xl mx-auto px-4 sm:px-6 ${className}`}>
+    <div className={`w-full max-w-6xl mx-auto ${className}`}>
       <div className="bg-surface border border-border hover:border-gold/60 rounded-[4px] p-4 sm:p-5 lg:p-3 shadow-card-light backdrop-blur-md transition-colors duration-300">
         <form onSubmit={handleBooking} className="grid grid-cols-2 lg:flex lg:flex-row items-stretch lg:items-center gap-2 sm:gap-3">
           
