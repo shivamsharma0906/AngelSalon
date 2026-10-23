@@ -259,7 +259,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
       </div>
 
       {/* Minimalist Floating Pagination Dots */}
-      <div className="absolute bottom-2.5 sm:bottom-6 left-0 right-0 z-30 flex items-center justify-center pointer-events-auto">
+      <div className="hidden sm:flex absolute bottom-6 left-0 right-0 z-30 items-center justify-center pointer-events-auto">
         <div
           className="flex items-center gap-2 sm:gap-2.5"
           role="tablist"
