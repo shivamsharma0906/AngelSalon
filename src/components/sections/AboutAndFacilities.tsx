@@ -158,10 +158,10 @@ export const AboutAndFacilities: React.FC<AboutAndFacilitiesProps> = ({
             <div className="mb-6 relative rounded-2xl overflow-hidden border border-border bg-ink shadow-xl group">
               <div className="aspect-[16/9] max-h-[520px] w-full overflow-hidden flex items-center justify-center bg-ink">
                 <img
-                  src="/images/real/storefront_facade.webp"
-                  alt="Angels Salon & Academy storefront facade and illuminated signage in Ghatkopar East, Mumbai"
-                  width={1920}
-                  height={1080}
+                  src="/images/real/storefront_signage_gold.webp"
+                  alt="Angels Salon & Academy 3D gold brand signage and boutique entrance in Ghatkopar East, Mumbai"
+                  width={1600}
+                  height={1200}
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
                   loading="lazy"
                 />

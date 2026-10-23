@@ -84,13 +84,6 @@ async function main() {
     .toFile(stylingDest);
   console.log('Updated: interior_styling_stations.webp');
 
-  const studioFloorDest = path.join(PROJECT_ROOT, 'public/images/real/interior_studio_floor.webp');
-  backupIfExists(studioFloorDest);
-  await sharp(CLEANED_IMAGES.stylingFloor)
-    .resize(1200, 1600, { fit: 'cover', position: 'center' })
-    .webp({ quality: 88, effort: 4 })
-    .toFile(studioFloorDest);
-  console.log('Updated: interior_studio_floor.webp');
 
   // 3. STOREFRONT SIGNAGE GOLD
   console.log('Processing Storefront Angled Gold Signage...');
