@@ -49,9 +49,10 @@ export const RedirectHandler: React.FC = () => {
 
     // 5. Accessibility focus management: move focus to the page H1
     const timer = setTimeout(() => {
-      const h1 = document.querySelector('h1');
+      const h1 = document.querySelector('h1') as HTMLElement | null;
       if (h1) {
         h1.setAttribute('tabindex', '-1');
+        h1.style.outline = 'none';
         h1.focus({ preventScroll: true });
       }
     }, 100);
@@ -61,3 +62,5 @@ export const RedirectHandler: React.FC = () => {
 
   return null;
 };
+
+export default RedirectHandler;

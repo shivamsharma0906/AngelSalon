@@ -1,59 +1,37 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
+import { FramedImage } from '../ui/FramedImage';
+import { SALON_IMAGE_ASSETS } from '../../data/imageFocalPoints';
 
 const GALLERY_ITEMS = [
   {
-    id: 'styling-stations',
-    title: 'Styling Sanctuary',
-    category: 'Interior Atelier',
-    src: '/images/real/interior_styling_stations.webp',
-    alt: 'Angels Salon modern styling stations and vanity mirrors in Ghatkopar East',
+    asset: SALON_IMAGE_ASSETS.stylingStations,
     aspect: 'aspect-[4/5]',
     arch: true,
   },
   {
-    id: 'caramel-balayage',
-    title: 'French Balayage',
-    category: 'Real Transformation',
-    src: '/images/real/client2_caramel_balayage_after.webp',
-    alt: 'Real client dimensional honey-caramel balayage crafted at Angels Salon Mumbai',
+    asset: SALON_IMAGE_ASSETS.balayageCaramel,
     aspect: 'aspect-square',
     arch: false,
   },
   {
-    id: 'glass-hair',
-    title: 'Nanoplastia Mirror Glass',
-    category: 'Texture Care',
-    src: '/images/real/client1_glass_hair_after.webp',
-    alt: 'Real client mirror-glass hair smoothening and Nanoplastia treatment result',
+    asset: SALON_IMAGE_ASSETS.glassHairNanoplastia,
     aspect: 'aspect-[4/5]',
     arch: true,
   },
   {
-    id: 'wash-lounge',
-    title: 'Shampoo & Scalp Lounge',
-    category: 'Relaxation',
-    src: '/images/real/interior_wash_lounge.webp',
-    alt: 'Comfortable reclining wash lounge chairs for hair treatments and scalp baths',
+    asset: SALON_IMAGE_ASSETS.washLounge,
     aspect: 'aspect-square',
     arch: false,
   },
   {
-    id: 'nail-bar',
-    title: 'Boutique Nail Bar',
-    category: 'Nail Artistry',
-    src: '/images/real/interior_nail_bar.webp',
-    alt: 'Dedicated backlit nail bar and lacquer collection at Angels Salon',
+    asset: SALON_IMAGE_ASSETS.nailBar,
     aspect: 'aspect-[16/10]',
     arch: false,
   },
   {
-    id: 'signage',
-    title: 'Boutique Facade',
-    category: 'Pant Nagar Flagship',
-    src: '/images/real/storefront_signage_gold.webp',
-    alt: 'Angels Salon & Academy 3D gold illuminated academy signage and boutique exterior',
+    asset: SALON_IMAGE_ASSETS.storefrontSignageGold,
     aspect: 'aspect-[16/10]',
     arch: false,
   },
@@ -81,42 +59,25 @@ export const StudioGallery: React.FC = () => {
           </p>
         </div>
 
-        {/* Asymmetrical Lustre Photo Grid */}
+        {/* Asymmetrical Lustre Photo Grid utilizing FramedImage */}
         <div data-reveal data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {GALLERY_ITEMS.map((item) => (
-            <div
-              key={item.id}
-              className={`group relative overflow-hidden bg-dark border border-border hover:border-gold/50 shadow-lustre-sm hover:shadow-lustre-md transition-all duration-300 ${
-                item.arch
-                  ? 'rounded-t-[180px] rounded-b-[24px]'
-                  : 'rounded-[24px] sm:rounded-[28px]'
-              }`}
-            >
-              <div className={`relative w-full ${item.aspect} overflow-hidden`}>
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  width={800}
-                  height={800}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent pointer-events-none" />
-
-                {/* Floating Caption Pill on Hover */}
-                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-full bg-surface/90 backdrop-blur-md border border-border shadow-sm flex items-center justify-between transition-transform duration-300">
-                  <div>
-                    <p className="font-serif text-sm font-bold text-text leading-none mb-0.5">
-                      {item.title}
-                    </p>
-                    <p className="text-[10px] text-text-muted leading-none">
-                      {item.category}
-                    </p>
-                  </div>
-                  <span className="w-2 h-2 rounded-full bg-gold" />
-                </div>
-              </div>
+          {GALLERY_ITEMS.map(({ asset, aspect, arch }) => (
+            <div key={asset.id} className="w-full">
+              <FramedImage
+                src={asset.src}
+                alt={asset.alt}
+                focalPoint={asset.focalPoint}
+                aspectRatio={aspect}
+                radius={arch ? 'arch-tall' : 'rounded'}
+                border="gold"
+                caption={{
+                  title: asset.title,
+                  subtitle: asset.subtitle,
+                  badge: asset.badge,
+                }}
+                width={asset.intrinsicWidth}
+                height={asset.intrinsicHeight}
+              />
             </div>
           ))}
         </div>

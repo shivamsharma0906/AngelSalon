@@ -6,10 +6,10 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { LaurelDivider } from '../components/ui/LaurelDivider';
-import { CountUp } from '../components/ui/CountUp';
 import { AboutAndFacilities } from '../components/sections/AboutAndFacilities';
 import { SpecialOffers } from '../components/sections/SpecialOffers';
 import { ShieldCheckIcon, ScissorsIcon, DiamondIcon, HeartIcon } from '../components/ui/icons';
+import { FramedImage } from '../components/ui/FramedImage';
 
 export const About: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
@@ -89,32 +89,24 @@ export const About: React.FC = () => {
         <section className="mb-16 sm:mb-20">
           <Container size="lg">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              {/* Photo Side - REAL SALON CLIENT RESULT with Roman Arch Framing */}
+              {/* Photo Side - REAL SALON CLIENT RESULT with FramedImage */}
               <div className="lg:col-span-5 relative">
-                <div className="relative mx-auto max-w-md lg:max-w-none">
-                  <div data-reveal="image" className="relative rounded-t-[180px] rounded-b-[28px] overflow-hidden border border-border shadow-lustre-md bg-dark aspect-[4/5]">
-                    <img
-                      src="/images/real/interior_styling_stations.webp"
-                      alt="Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East, Mumbai"
-                      width={1600}
-                      height={1200}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                      loading="lazy"
-                    />
-
-                    {/* Overlay badge */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-dark/90 backdrop-blur-md border border-gold/40 p-4 rounded-full shadow-lustre-sm flex items-center justify-between text-text-inverse">
-                      <div>
-                        <span className="block font-serif text-xl sm:text-2xl font-bold text-gold-light">
-                          <CountUp value="10+" /> Years
-                        </span>
-                        <span className="text-[11px] uppercase tracking-wider text-text-muted">Mastery in Mumbai</span>
-                      </div>
-                      <div className="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center text-gold-light font-bold">
-                        ★
-                      </div>
-                    </div>
-                  </div>
+                <div className="relative mx-auto max-w-md lg:max-w-none" data-reveal="image">
+                  <FramedImage
+                    src="/images/real/interior_styling_stations.webp"
+                    alt="Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East, Mumbai"
+                    focalPoint="50% 40%"
+                    aspectRatio="aspect-[4/5]"
+                    radius="arch-tall"
+                    border="gold"
+                    caption={{
+                      title: "10+ Years Mastery",
+                      subtitle: "Pant Nagar Flagship Atelier",
+                      badge: "Est. 2014",
+                    }}
+                    width={1200}
+                    height={1600}
+                  />
                 </div>
               </div>
 
@@ -243,7 +235,7 @@ export const About: React.FC = () => {
           </Container>
         </section>
 
-        {/* Real Client Transformations Showcase */}
+        {/* Real Client Transformations Showcase using FramedImage */}
         <section className="mb-20 sm:mb-28 bg-surface border-y border-border py-16">
           <Container size="lg">
             <div data-reveal className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -266,24 +258,36 @@ export const About: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div data-reveal="image" className="aspect-[4/5] rounded-[24px] overflow-hidden border border-border group bg-dark shadow-lustre-sm">
-                  <img
+                <div data-reveal="image" className="w-full">
+                  <FramedImage
                     src="/images/real/client1_glass_hair_after.webp"
                     alt="Real client waist-length liquid glass hair smoothening result at Angels Salon"
+                    focalPoint="50% 30%"
+                    aspectRatio="aspect-[4/5]"
+                    radius="rounded"
+                    border="gold"
+                    caption={{
+                      title: "Nanoplastia",
+                      badge: "Smooth",
+                    }}
                     width={960}
                     height={1280}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
                   />
                 </div>
-                <div data-reveal="image" className="aspect-[4/5] rounded-[24px] overflow-hidden border border-border mt-6 group bg-dark shadow-lustre-sm">
-                  <img
+                <div data-reveal="image" className="w-full mt-6">
+                  <FramedImage
                     src="/images/real/client2_caramel_balayage_after.webp"
                     alt="Real client dimensional honey-caramel balayage executed at Angels Salon"
+                    focalPoint="50% 25%"
+                    aspectRatio="aspect-[4/5]"
+                    radius="rounded"
+                    border="gold"
+                    caption={{
+                      title: "French Balayage",
+                      badge: "Caramel",
+                    }}
                     width={1200}
                     height={1600}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
                   />
                 </div>
               </div>

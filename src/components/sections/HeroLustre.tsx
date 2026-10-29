@@ -1,53 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { siteConfig } from '../../data/site';
 import { googleSummary } from '../../data/reviews';
 import { buildWhatsAppLink } from '../../lib/whatsapp';
 import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 import { StarIcon } from '../ui/icons';
+import { ImageTabs, ImageTabItem } from '../ui/ImageTabs';
+import { HERO_SHOWCASE_ITEMS } from '../../data/imageFocalPoints';
 
-const HERO_IMAGES = [
-  {
-    id: 'styling-stations',
-    title: 'Styling Sanctuary',
-    subtitle: 'Vidal Sassoon Precision',
-    src: '/images/real/interior_styling_stations.webp',
-    alt: 'Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East',
-    badge: 'Flagship Studio',
+const HERO_TAB_ITEMS: ImageTabItem[] = HERO_SHOWCASE_ITEMS.map((item) => ({
+  id: item.id,
+  label: item.title,
+  src: item.src,
+  alt: item.alt,
+  focalPoint: item.focalPoint,
+  caption: {
+    title: item.title,
+    subtitle: item.subtitle,
+    badge: item.badge,
   },
-  {
-    id: 'balayage',
-    title: 'French Balayage',
-    subtitle: 'Dimensional Caramel Tones',
-    src: '/images/real/client2_caramel_balayage_after.webp',
-    alt: 'Real client dimensional caramel balayage crafted at Angels Salon Mumbai',
-    badge: 'Master Colourists',
-  },
-  {
-    id: 'glass-hair',
-    title: 'Nanoplastia Shine',
-    subtitle: 'Mirror-Glass Smoothing',
-    src: '/images/real/client1_glass_hair_after.webp',
-    alt: 'Real client mirror-glass hair smoothening and Nanoplastia treatment result',
-    badge: 'Signature Treatment',
-  },
-  {
-    id: 'academy-studio',
-    title: 'Beauty Academy',
-    subtitle: 'Hands-on Model Training',
-    src: '/images/real/interior_studio_floor.webp',
-    alt: 'Angels Academy spacious salon floor and student training stations in Mumbai',
-    badge: 'Certified Diplomas',
-  },
-];
+  width: item.intrinsicWidth,
+  height: item.intrinsicHeight,
+}));
 
 export const HeroLustre: React.FC = () => {
-  const [activePhotoIdx, setActivePhotoIdx] = useState(0);
-
   const whatsAppBookingUrl = buildWhatsAppLink({
     message: "Hi Angels Salon & Academy! I would like to schedule an appointment. Could you please share available slots?",
   });
-
-  const activePhoto = HERO_IMAGES[activePhotoIdx];
 
   return (
     <section
@@ -71,7 +49,7 @@ export const HeroLustre: React.FC = () => {
 
         {/* Editorial Headline (Instrument Serif bold luxury) */}
         <div data-reveal className="text-center max-w-4xl mx-auto mb-6">
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal text-text leading-[1.08] tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal text-text leading-[1.1] tracking-tight">
             Crafted for confidence, <br className="hidden sm:inline" />
             <span className="italic font-normal">made to shine.</span>
           </h1>
@@ -118,58 +96,16 @@ export const HeroLustre: React.FC = () => {
           </a>
         </div>
 
-        {/* Lustre Studio Architectural Arched Visual Centerpiece */}
-        <div data-reveal="image" className="relative max-w-3xl mx-auto">
-          {/* Main Arched Photo Frame */}
-          <div className="relative aspect-[4/5] sm:aspect-[16/11] md:aspect-[16/10] w-full rounded-t-[160px] sm:rounded-t-[240px] md:rounded-t-[280px] rounded-b-[28px] overflow-hidden bg-dark shadow-lustre-lg border-2 border-border/80 group">
-            <img
-              src={activePhoto.src}
-              alt={activePhoto.alt}
-              width={1600}
-              height={1000}
-              loading="eager"
-              decoding="async"
-              className="w-full h-full object-cover object-center transition-all duration-700 ease-out group-hover:scale-105"
-            />
-            {/* Subtle bottom gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent pointer-events-none" />
-
-            {/* Bottom Caption Pill inside the Arch */}
-            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-center justify-between p-3 sm:p-4 rounded-full bg-surface/95 backdrop-blur-md border border-border shadow-lustre-md">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-gold" />
-                <div>
-                  <p className="font-serif text-sm sm:text-base font-bold text-text leading-none mb-0.5">
-                    {activePhoto.title}
-                  </p>
-                  <p className="text-[11px] sm:text-xs text-text-muted leading-none">
-                    {activePhoto.subtitle}
-                  </p>
-                </div>
-              </div>
-              <span className="text-[10px] sm:text-xs uppercase tracking-wider font-semibold px-3 py-1 rounded-full bg-gold/15 text-gold-text">
-                {activePhoto.badge}
-              </span>
-            </div>
-          </div>
-
-          {/* Interactive Photo Selection Pills (Below the arch) */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-4 sm:mt-6">
-            {HERO_IMAGES.map((img, idx) => (
-              <button
-                key={img.id}
-                type="button"
-                onClick={() => setActivePhotoIdx(idx)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-                  idx === activePhotoIdx
-                    ? 'bg-dark text-text-inverse shadow-sm'
-                    : 'bg-surface/80 border border-border text-text-muted hover:border-gold hover:text-text'
-                }`}
-              >
-                {img.title}
-              </button>
-            ))}
-          </div>
+        {/* Reusable FramedImage Architecture with Interactive Accessible Tabs */}
+        <div data-reveal="image">
+          <ImageTabs
+            items={HERO_TAB_ITEMS}
+            label="Featured Salon Visual Showcases"
+            aspectRatio="aspect-[4/5] sm:aspect-[16/11] md:aspect-[4/3.2]"
+            radius="arch"
+            border="gold"
+            priority
+          />
         </div>
 
         {/* Trust Stats Counter Bar (Lustre Studio minimal divider grid) */}
@@ -201,4 +137,3 @@ export const HeroLustre: React.FC = () => {
 };
 
 export default HeroLustre;
-
