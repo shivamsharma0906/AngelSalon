@@ -26,12 +26,12 @@ export const Footer: React.FC = () => {
       className="relative overflow-x-clip bg-dark text-text-inverse border-t border-border/25 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] lg:pb-0"
       aria-label="Footer"
     >
-      {/* Main 4-Column Directory Grid (Lustre Studio Rhythm: 4 desktop, 2 tablet, 1 mobile) */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-12 sm:pt-16">
-        <div data-reveal data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 xl:gap-10">
+      {/* Main Directory Grid (Mobile 2-Column Side-by-Side to eliminate empty space, Desktop 4-Column) */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-10 sm:pt-14">
+        <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-8 gap-y-8 lg:gap-8 xl:gap-10">
 
-          {/* Column 1: Brand Block */}
-          <div className="flex flex-col space-y-4">
+          {/* Column 1: Brand Block (Full width on mobile, 1 col on desktop) */}
+          <div className="col-span-2 lg:col-span-1 flex flex-col space-y-4">
             <Link
               to="/"
               className="flex items-center gap-3.5 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-full w-fit"
@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Column 2: Salon Services ("Explore") */}
-          <nav aria-label="Salon services footer navigation" className="flex flex-col">
+          <nav aria-label="Salon services footer navigation" className="col-span-1 flex flex-col">
             <div className="mb-3">
               <span className="text-[11px] font-bold uppercase tracking-wider text-gold block">
                 Directory
@@ -140,7 +140,7 @@ export const Footer: React.FC = () => {
           </nav>
 
           {/* Column 3: Academy ("Masterclasses") */}
-          <nav aria-label="Academy footer navigation" className="flex flex-col">
+          <nav aria-label="Academy footer navigation" className="col-span-1 flex flex-col">
             <div className="mb-3">
               <span className="text-[11px] font-bold uppercase tracking-wider text-gold block">
                 Masterclasses
@@ -179,7 +179,7 @@ export const Footer: React.FC = () => {
           </nav>
 
           {/* Column 4: Visit & Hours ("Studio Flagship") */}
-          <div className="flex flex-col space-y-3">
+          <div className="col-span-2 lg:col-span-1 flex flex-col space-y-3">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-gold block">
                 Studio Flagship

@@ -30,7 +30,7 @@ export const Home: React.FC = () => {
         <link
           rel="preload"
           as="image"
-          href="/images/real/storefront_frontal.webp"
+          href="/images/real/interior_styling_stations.webp"
           type="image/webp"
         />
       </Helmet>

@@ -174,8 +174,8 @@ export const Testimonials: React.FC = () => {
               </p>
             </div>
 
-            {/* 2-Column Responsive Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            {/* 2-Column Responsive Grid (2-Column Mobile & Desktop) */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
               {googleReviews.map((review) => (
                 <div key={review.id} className="h-full">
                   <GoogleReviewCard review={review} />

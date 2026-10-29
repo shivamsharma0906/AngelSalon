@@ -23,44 +23,44 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 
   return (
     <article
-      className="bg-surface border border-border hover:border-gold/50 rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 flex flex-col justify-between shadow-lustre-sm hover:shadow-lustre-md transition-all duration-300 h-full group"
+      className="bg-surface border border-border hover:border-gold/50 rounded-[18px] sm:rounded-[28px] p-4 sm:p-7 md:p-8 flex flex-col justify-between shadow-lustre-sm hover:shadow-lustre-md transition-all duration-300 h-full group"
       aria-label={`Review by ${review.name}`}
     >
       <div>
-        <div className="flex items-center justify-between gap-3 mb-6">
-          <div className="flex items-center gap-1 text-gold" aria-label="5 out of 5 stars">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-3 mb-4 sm:mb-6">
+          <div className="flex items-center gap-0.5 sm:gap-1 text-gold" aria-label="5 out of 5 stars">
             {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} size={15} className="fill-gold text-gold" />
+              <StarIcon key={i} size={13} className="fill-gold text-gold" />
             ))}
           </div>
 
-          <span className="text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full bg-background border border-border text-gold-text">
-            Verified Client
+          <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-background border border-border text-gold-text shrink-0">
+            Verified
           </span>
         </div>
 
-        <blockquote className="text-sm sm:text-base text-text-muted leading-relaxed font-normal mb-6">
-          <span className="text-gold font-serif text-xl leading-none select-none mr-1">“</span>
+        <blockquote className="text-xs sm:text-base text-text-muted leading-relaxed font-normal mb-4 sm:mb-6">
+          <span className="text-gold font-serif text-lg sm:text-xl leading-none select-none mr-0.5">“</span>
           {review.text}
-          <span className="text-gold font-serif text-xl leading-none select-none ml-1">”</span>
+          <span className="text-gold font-serif text-lg sm:text-xl leading-none select-none ml-0.5">”</span>
         </blockquote>
       </div>
 
       <div>
-        <div className="pt-5 border-t border-border flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
+        <div className="pt-3.5 sm:pt-5 border-t border-border flex items-center justify-between gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div
-              className="w-10 h-10 rounded-full bg-surface-subtle border border-gold/40 text-gold-text flex items-center justify-center font-bold text-xs uppercase tracking-wider shadow-sm select-none"
+              className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-surface-subtle border border-gold/40 text-gold-text flex items-center justify-center font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-sm select-none shrink-0"
               aria-hidden="true"
             >
               {initials}
             </div>
-            <div>
-              <h3 className="font-serif text-base font-bold text-text group-hover:text-gold-text transition-colors leading-tight">
+            <div className="min-w-0">
+              <h3 className="font-serif text-xs sm:text-base font-bold text-text group-hover:text-gold-text transition-colors leading-tight truncate">
                 {review.name}
               </h3>
-              <span className="text-[11px] text-text-muted font-normal">
-                Verified Google Client
+              <span className="text-[9px] sm:text-[11px] text-text-muted font-normal block truncate">
+                Verified Client
               </span>
             </div>
           </div>
@@ -70,7 +70,7 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-text-muted hover:text-gold uppercase tracking-wider font-semibold transition-colors shrink-0"
+              className="text-[10px] sm:text-[11px] text-text-muted hover:text-gold uppercase tracking-wider font-semibold transition-colors shrink-0"
               aria-label="View on Google"
             >
               Google ↗

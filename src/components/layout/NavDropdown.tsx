@@ -190,8 +190,8 @@ export const NavDropdown: React.FC<NavDropdownProps> = ({ item }) => {
             : 'opacity-0 translate-y-2 pointer-events-none'
         }`}
       >
-        {/* Panel Container with 2px gold hairline top */}
-        <div className="relative rounded-[4px] bg-surface border border-border border-t-2 border-t-gold shadow-2xl py-2 overflow-hidden backdrop-blur-md">
+        {/* Panel Container with refined rounded corners and subtle shadow */}
+        <div className="relative rounded-2xl bg-surface border border-border shadow-2xl py-2 overflow-hidden backdrop-blur-md">
           <ul className="divide-y divide-border/60">
             {item.children?.map((child) => {
               const isChildItemActive = location.pathname === child.path;

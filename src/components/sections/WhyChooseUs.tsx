@@ -77,31 +77,31 @@ export const WhyChooseUs: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: 2x2 Feature Cards Grid */}
-          <div data-reveal data-reveal-stagger className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+          {/* Right Column: 2x2 Feature Cards Grid (2-Column Mobile & Desktop) */}
+          <div data-reveal data-reveal-stagger className="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-6">
             {WHY_FEATURES.map((feat) => {
               const IconComp = feat.icon;
               return (
                 <div
                   key={feat.number}
-                  className="rounded-[24px] sm:rounded-[28px] bg-surface p-7 sm:p-8 border border-border/80 shadow-lustre-sm hover:shadow-lustre-md hover:border-gold/50 transition-all duration-300 flex flex-col justify-between group"
+                  className="rounded-[18px] sm:rounded-[28px] bg-surface p-4 sm:p-7 md:p-8 border border-border/80 shadow-lustre-sm hover:shadow-lustre-md hover:border-gold/50 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     {/* Top row: Circular icon pill on left, Number on right */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-10 h-10 rounded-full bg-surface-subtle border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform duration-300 shadow-sm">
-                        <IconComp size={18} className="text-gold" />
+                    <div className="flex items-center justify-between mb-3 sm:mb-6">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-surface-subtle border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                        <IconComp size={16} className="text-gold" />
                       </div>
-                      <span className="font-serif text-sm font-normal text-text-muted">
+                      <span className="font-serif text-xs sm:text-sm font-normal text-text-muted">
                         {feat.number}
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-xl sm:text-2xl font-normal text-text mb-3 group-hover:text-gold-text transition-colors leading-snug">
+                    <h3 className="font-serif text-sm xs:text-base sm:text-2xl font-normal text-text mb-1.5 sm:mb-3 group-hover:text-gold-text transition-colors leading-snug">
                       {feat.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-normal">
+                    <p className="text-[11px] sm:text-sm text-text-muted leading-relaxed font-normal">
                       {feat.description}
                     </p>
                   </div>

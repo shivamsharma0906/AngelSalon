@@ -2,67 +2,91 @@ import React from 'react';
 import { homeData } from '../../data/home';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
-import { ArrowRightIcon } from '../ui/icons';
-import { FramedImage } from '../ui/FramedImage';
+import { buildWhatsAppLink } from '../../lib/whatsapp';
 
 export const WelcomeToAngels: React.FC = () => {
   const { welcome } = homeData;
+
+  const whatsAppBookingUrl = buildWhatsAppLink({
+    message: "Hi Angel Salon & Academy! I would like to book an appointment. Could you please share available slots?",
+  });
 
   if (!welcome || !welcome.verified || welcome.paragraphs.length === 0) {
     return null;
   }
 
   return (
-    <Section tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="About Angel Salon & Academy">
+    <Section tone="surface" className="py-16 sm:py-24 border-t border-border overflow-hidden" aria-label="About Angel Salon & Academy">
       <Container size="lg">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
-          {/* Asymmetrical Lustre Arched Image Frame */}
-          <div data-reveal="image" className="lg:col-span-5 relative order-2 lg:order-1">
-            <FramedImage
-              src={welcome.image}
-              alt={welcome.imageAlt}
-              focalPoint="50% 40%"
-              aspectRatio="aspect-[4/5]"
-              radius="arch-tall"
-              border="gold"
-              width={1200}
-              height={1600}
-            />
-          </div>
-
           {/* Editorial Copy Column */}
-          <div data-reveal className="lg:col-span-7 flex flex-col items-start text-left order-1 lg:order-2">
+          <div data-reveal className="lg:col-span-6 flex flex-col items-start text-left">
+            {/* Lustre Signature Dash Eyebrow */}
+            <div className="flex items-center gap-2.5 mb-3 sm:mb-4">
+              <span className="w-5 sm:w-6 h-[1.5px] bg-gold-text"></span>
+              <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                ABOUT ANGEL
+              </span>
+            </div>
 
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-6 leading-tight tracking-tight">
-              Every client is a canvas, <br className="hidden sm:inline" />
-              <span className="italic">every detail is art.</span>
+            {/* Headline matching Lustre editorial phrasing */}
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-text leading-[1.18] tracking-tight mb-4 sm:mb-5">
+              A modern studio for hair <br className="hidden sm:inline" />
+              that feels like you.
             </h2>
 
-            <div className="space-y-4 text-sm sm:text-base text-text-muted leading-relaxed font-normal mb-8">
-              {welcome.paragraphs.map((p, idx) => (
-                <p key={idx}>{p}</p>
-              ))}
+            {/* Editorial Body Text */}
+            <p className="text-sm sm:text-base text-text-muted font-normal leading-relaxed mb-6 sm:mb-8 max-w-xl">
+              At Angel Salon &amp; Academy, great hair starts with listening. Our stylists combine thoughtful consultation with refined technique to create cuts, colour and styling tailored to your texture, lifestyle and identity.
+            </p>
+
+            {/* Outlined Action CTA */}
+            <a
+              href={whatsAppBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-dark/60 text-text hover:bg-dark hover:text-text-inverse text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 shadow-lustre-sm active:scale-95 mb-2 lg:mb-0"
+            >
+              <span>Book Appointment</span>
+              <span aria-hidden="true" className="text-base leading-none">→</span>
+            </a>
+          </div>
+
+          {/* Arched Mirror Photo with Overlapping Circular Stylist Photo */}
+          <div data-reveal="image" className="lg:col-span-6 relative w-full max-w-sm sm:max-w-md mx-auto pt-4 lg:pt-0">
+            {/* Main Arched Photo Frame */}
+            <div className="relative w-full aspect-[4/4.8] rounded-t-[180px] sm:rounded-t-[220px] rounded-b-[24px] overflow-hidden bg-surface-subtle shadow-xl border border-border/60">
+              <img
+                src="/images/real/interior_wash_lounge.webp"
+                alt="Angel Salon & Academy tranquil wash lounge and luxury styling studio"
+                width={1200}
+                height={1600}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: '50% 40%' }}
+              />
             </div>
 
-            {/* Quick Navigation Action Pills */}
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-dark text-text-inverse hover:bg-gold-text text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-lustre-sm"
-              >
-                <span>Read Our Full Story</span>
-                <ArrowRightIcon size={14} />
-              </a>
-
-              <a
-                href="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-border hover:border-gold/60 text-text hover:text-gold-text text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-lustre-sm"
-              >
-                <span>Explore Salon Rituals</span>
-              </a>
+            {/* Overlapping Circular Hair Styling Photo */}
+            <div
+              className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-4 w-28 h-28 sm:w-36 sm:h-36 rounded-full border-[5px] sm:border-[6px] border-white shadow-xl overflow-hidden bg-surface pointer-events-none select-none transition-transform duration-300 hover:scale-105"
+              aria-hidden="true"
+            >
+              <img
+                src="/images/real/client1_glass_hair_after.webp"
+                alt="Client styling ritual"
+                width={200}
+                height={200}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: '50% 30%' }}
+              />
             </div>
           </div>
+
         </div>
       </Container>
     </Section>

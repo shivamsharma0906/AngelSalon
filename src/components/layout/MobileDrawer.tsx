@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { siteConfig } from '../../data/site';
-import { navigationData, NavItem } from '../../data/nav';
 import { buildWhatsAppLink } from '../../lib/whatsapp';
-import { Button } from '../ui/Button';
-import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export interface MobileDrawerProps {
   isOpen: boolean;
@@ -12,16 +9,9 @@ export interface MobileDrawerProps {
 }
 
 export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
-  const drawerRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
-
-  // Accordion state: only one submenu open at a time on mobile
-  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
-
-  const toggleSubmenu = (label: string) => {
-    setOpenSubmenu((prev) => (prev === label ? null : label));
-  };
 
   // Close drawer on route change
   useEffect(() => {
@@ -34,27 +24,24 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
   useEffect(() => {
     if (!isOpen) return;
 
-    // 1. Precise body scroll lock preserving scroll position
     const scrollY = window.scrollY;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
 
-    // 2. Focus close button on open
     const timer = setTimeout(() => {
       closeButtonRef.current?.focus();
     }, 50);
 
-    // 3. Keydown handler: Escape & Tab Trap
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
         return;
       }
 
-      if (e.key === 'Tab' && drawerRef.current) {
-        const focusableElements = drawerRef.current.querySelectorAll<HTMLElement>(
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
           'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
         );
         const focusable = Array.from(focusableElements).filter(
@@ -86,7 +73,6 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
       clearTimeout(timer);
       window.removeEventListener('keydown', handleKeyDown);
 
-      // Restore body scroll position accurately
       const savedTop = document.body.style.top;
       document.body.style.position = '';
       document.body.style.top = '';
@@ -106,34 +92,45 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
     message: "Hi Angel Salon & Academy! I would like to book an appointment. Could you please share available slots?",
   });
 
+  const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'Services', path: '/services' },
+    { label: 'About', path: '/about' },
+    { label: 'Academy', path: '/academy' },
+    { label: 'Testimonials', path: '/testimonials' },
+    { label: 'Contact', path: '/contact' },
+  ];
+
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Mobile Navigation Menu"
-      className="fixed inset-0 z-[60] flex justify-end bg-ink/80 backdrop-blur-sm animate-fade-in"
+      aria-label="Navigation Menu"
+      className="fixed inset-0 z-[60] flex flex-col items-center justify-start pt-3 sm:pt-4 px-3 sm:px-6 bg-dark/60 backdrop-blur-sm animate-fade-in overflow-y-auto"
       onClick={onClose}
     >
-      {/* Drawer Panel */}
+      {/* Floating Navbar Dropdown Card matching Lustre layout (Anchored at top navbar position) */}
       <div
-        ref={drawerRef}
-        className="relative w-[min(100%,22rem)] h-full h-[100dvh] max-h-[100dvh] overflow-hidden bg-surface border-l border-border flex flex-col justify-between p-4 sm:p-6 shadow-2xl animate-slide-up pt-safe pb-safe"
+        ref={modalRef}
+        className="relative w-full max-w-md bg-surface rounded-[28px] sm:rounded-[32px] p-5 sm:p-7 shadow-2xl border border-border/80 flex flex-col animate-slide-down"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-border shrink-0">
-          <div className="flex items-center gap-3">
-            <img
-              src={siteConfig.logo.src}
-              alt={siteConfig.logo.alt}
-              className="w-10 h-10 rounded-full border border-gold/40 object-cover"
-            />
+        {/* Header Row: Brand on left, Solid dark circle close button on right */}
+        <div className="flex items-center justify-between pb-5 border-b border-border/60">
+          <div className="flex items-center gap-2.5">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/50 p-0.5 shadow-sm bg-surface shrink-0">
+              <img
+                src={siteConfig.logo.src}
+                alt={siteConfig.logo.alt}
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
             <div className="flex flex-col">
-              <span className="font-serif text-base font-bold tracking-luxury text-text">
+              <span className="font-serif text-lg font-bold tracking-luxury text-text leading-none mb-0.5">
                 ANGEL
               </span>
-              <span className="text-[9.5px] uppercase tracking-luxury text-gold">
-                Salon & Academy
+              <span className="text-[8.5px] uppercase tracking-luxury text-gold-text font-medium leading-none">
+                Salon &amp; Academy
               </span>
             </div>
           </div>
@@ -143,144 +140,55 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="w-11 h-11 flex items-center justify-center text-text-muted hover:text-gold border border-transparent hover:border-gold/30 rounded-sm transition-colors outline-none focus:outline-none focus:ring-0"
+            className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-dark text-text-inverse hover:bg-gold-text transition-colors shadow-sm outline-none focus:outline-none focus:ring-0"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
 
-        {/* Navigation Links with Nested Accordions (Minimum 48px rows) */}
-        <nav
-          className="my-3 flex-1 flex flex-col justify-start overflow-y-auto space-y-1 pr-1 overscroll-contain"
-          aria-label="Mobile Navigation"
-        >
-          {navigationData.map((item: NavItem) => {
-            const hasChildren = item.hasDropdown && item.children && item.children.length > 0;
-            const isSubmenuOpen = openSubmenu === item.label;
-            const submenuId = `mobile-submenu-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
-
-            if (!hasChildren) {
-              return (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  onClick={onClose}
-                  className={({ isActive }) =>
-                    `min-h-[48px] px-4 py-3 text-base font-serif tracking-wide rounded-sm transition-colors flex items-center justify-between ${
-                      isActive
-                        ? 'text-gold font-bold bg-gold/10 border-l-2 border-gold pl-5'
-                        : 'text-text-muted hover:text-text hover:bg-surface-elevated'
-                    }`
-                  }
-                >
-                  <span>{item.label}</span>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold/60">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </NavLink>
-              );
-            }
-
-            return (
-              <div key={item.path} className="border-b border-border/40 pb-1">
-                {/* Parent Row: Label link on left, separate Chevron toggle on right */}
-                <div className="min-h-[48px] flex items-center justify-between rounded-sm hover:bg-surface-elevated/50">
-                  <NavLink
-                    to={item.path}
-                    onClick={onClose}
-                    className={({ isActive }) =>
-                      `flex-1 min-h-[48px] px-4 py-3 text-base font-serif tracking-wide transition-colors flex items-center ${
-                        isActive ? 'text-gold font-bold' : 'text-text-muted hover:text-text'
-                      }`
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
-
-                  {/* Disclosure Button (48x48px touch target) */}
-                  <button
-                    type="button"
-                    aria-expanded={isSubmenuOpen}
-                    aria-controls={submenuId}
-                    aria-label={item.ariaLabel || `Toggle ${item.label} submenu`}
-                    onClick={() => toggleSubmenu(item.label)}
-                    className="w-12 h-12 flex items-center justify-center text-text-muted hover:text-gold transition-colors focus:outline-none focus:text-gold"
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`transition-transform duration-200 ${isSubmenuOpen ? 'rotate-180 text-gold' : ''}`}
-                    >
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </button>
-                </div>
-
-                {/* Submenu Accordion Panel — 2-column grid */}
-                <div
-                  id={submenuId}
-                  hidden={!isSubmenuOpen}
-                  className={`px-1 py-2 border-l-2 border-gold/30 ml-2 my-1 ${
-                    isSubmenuOpen ? 'block animate-fade-in' : 'hidden'
-                  }`}
-                >
-                  <div className="grid grid-cols-2 gap-1">
-                    {item.children?.map((child) => (
-                      <NavLink
-                        key={child.path}
-                        to={child.path}
-                        onClick={onClose}
-                        className={({ isActive }) =>
-                          `min-h-[44px] flex items-start px-2.5 py-2 text-xs tracking-wide rounded-sm transition-colors leading-tight ${
-                            isActive
-                              ? 'text-gold font-bold bg-gold/10 border border-gold/30'
-                              : 'text-text-muted hover:text-gold hover:bg-surface-elevated border border-border/40 hover:border-gold/20'
-                          }`
-                        }
-                      >
-                        <span className="line-clamp-2">{child.label}</span>
-                      </NavLink>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        {/* Clean, spacious vertical navigation list matching reference */}
+        <nav className="py-5 flex flex-col space-y-2.5" aria-label="Mobile Navigation">
+          {navLinks.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              onClick={onClose}
+              className={({ isActive }) =>
+                `text-base sm:text-lg font-medium transition-colors py-1 block tracking-wide ${
+                  isActive
+                    ? 'text-gold font-semibold'
+                    : 'text-text hover:text-gold'
+                }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
-        {/* Bottom Actions: Call and Book on WhatsApp (Minimum 48px heights) */}
-        <div className="pt-3 border-t border-border space-y-2.5 shrink-0">
+        {/* Bottom Action CTA: Book Appointment pill button */}
+        <div className="pt-2">
           <a
-            href={`tel:${siteConfig.contact.phoneRaw}`}
-            className="min-h-[48px] w-full flex items-center justify-center gap-3 px-4 py-2.5 rounded-sm bg-surface-elevated border border-border text-sm font-semibold text-text hover:text-gold hover:border-gold/40 transition-colors"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>Call {siteConfig.contact.phoneDisplay}</span>
-          </a>
-
-          <Button
-            as="a"
             href={whatsAppBookingUrl}
             target="_blank"
-            variant="whatsapp"
-            size="md"
-            fullWidth
-            className="min-h-[48px] shadow-md text-sm font-bold tracking-luxury"
-            leftIcon={<WhatsAppIcon className="w-5 h-5 fill-current" />}
+            rel="noopener noreferrer"
+            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gold-dark text-text-inverse hover:bg-dark text-sm font-medium tracking-wide transition-all duration-300 shadow-md active:scale-95 min-h-[46px]"
           >
-            Book on WhatsApp
-          </Button>
+            <span>Book Appointment</span>
+            <span aria-hidden="true" className="text-base leading-none">→</span>
+          </a>
         </div>
       </div>
     </div>

@@ -110,17 +110,17 @@ export const OurServicesTiles: React.FC = () => {
           </div>
         </div>
 
-        {/* 6 Lustre Editorial Service Cards with Zoom-in on hover */}
+        {/* 6 Lustre Editorial Service Cards with Zoom-in on hover (2-Column Mobile, 3-Column Desktop) */}
         <div
           data-reveal
           data-reveal-stagger
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 max-w-6xl mx-auto"
         >
           {LUSTRE_SERVICES.map((service) => (
             <Link
               key={service.id}
               to={service.path}
-              className="group relative aspect-[3/4.2] sm:aspect-[3/4] rounded-tl-[70px] sm:rounded-tl-[90px] rounded-tr-[24px] rounded-b-[24px] overflow-hidden bg-surface-subtle shadow-lustre-sm hover:shadow-lustre-md transition-all duration-500 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group relative aspect-[3/4.2] sm:aspect-[3/4] rounded-tl-[40px] sm:rounded-tl-[90px] rounded-tr-[16px] sm:rounded-tr-[24px] rounded-b-[16px] sm:rounded-b-[24px] overflow-hidden bg-surface-subtle shadow-lustre-sm hover:shadow-lustre-md transition-all duration-500 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               aria-label={`Explore ${service.title}`}
             >
               {/* Background Image with Zoom-in Feature */}
@@ -136,11 +136,11 @@ export const OurServicesTiles: React.FC = () => {
               />
 
               {/* Bottom Frosted Card Overlay */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-4 sm:p-5 rounded-[20px] bg-white/85 dark:bg-surface/90 backdrop-blur-md border border-white/70 shadow-lg text-left transition-transform duration-300 group-hover:-translate-y-1">
-                <h3 className="font-serif text-xl sm:text-2xl font-normal text-text mb-1 group-hover:text-gold-text transition-colors leading-tight">
+              <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-5 rounded-[14px] sm:rounded-[20px] bg-white/90 dark:bg-surface/90 backdrop-blur-md border border-white/70 shadow-lg text-left transition-transform duration-300 group-hover:-translate-y-1">
+                <h3 className="font-serif text-sm xs:text-base sm:text-2xl font-normal text-text mb-0.5 sm:mb-1 group-hover:text-gold-text transition-colors leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-xs sm:text-[13px] text-text-muted leading-relaxed line-clamp-2">
+                <p className="text-[10px] sm:text-[13px] text-text-muted leading-relaxed line-clamp-2 hidden xs:block">
                   {service.description}
                 </p>
               </div>

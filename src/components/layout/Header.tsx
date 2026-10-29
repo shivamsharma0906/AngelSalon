@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../../data/site';
 import { navigationData } from '../../data/nav';
-import { buildWhatsAppLink } from '../../lib/whatsapp';
-import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 import { NavDropdown } from './NavDropdown';
 import { MobileDrawer } from './MobileDrawer';
 
@@ -26,10 +24,6 @@ export const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const whatsAppBookingUrl = buildWhatsAppLink({
-    message: "Hi Angel Salon & Academy! I would like to book an appointment. Could you please share available slots?",
-  });
 
   return (
     <>
@@ -75,31 +69,19 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right Header Actions */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Lustre Studio Signature Pill Button (Book Appointment) */}
-            <a
-              href={whatsAppBookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-dark text-text-inverse hover:bg-gold-text text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-sm min-h-[38px] active:scale-95"
-            >
-              <WhatsAppIcon size={14} className="fill-current text-gold shrink-0" />
-              <span>Book Appointment</span>
-            </a>
-
-            {/* Mobile / Tablet Hamburger Button */}
+          {/* Mobile / Tablet Hamburger Button (Solid dark circular button matching Lustre layout) */}
+          <div className="flex lg:hidden items-center shrink-0">
             <button
               type="button"
               onClick={() => setIsDrawerOpen(true)}
               aria-label="Open navigation menu"
               aria-expanded={isDrawerOpen}
-              className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-border text-text hover:text-gold hover:border-gold transition-colors outline-none focus:outline-none focus:ring-0"
+              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-dark text-text-inverse hover:bg-gold-text transition-colors shadow-sm outline-none focus:outline-none focus:ring-0"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="4" y1="7" x2="20" y2="7"></line>
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="17" x2="20" y2="17"></line>
               </svg>
             </button>
           </div>

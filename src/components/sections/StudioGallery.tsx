@@ -53,8 +53,8 @@ export const StudioGallery: React.FC = () => {
           </p>
         </div>
 
-        {/* Asymmetrical Lustre Photo Grid utilizing FramedImage */}
-        <div data-reveal data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        {/* Asymmetrical Lustre Photo Grid utilizing FramedImage (2-Column Mobile, 3-Column Desktop) */}
+        <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {GALLERY_ITEMS.map(({ asset, aspect, arch }) => (
             <div key={asset.id} className="w-full">
               <FramedImage
@@ -77,10 +77,10 @@ export const StudioGallery: React.FC = () => {
             href="https://www.instagram.com/angelsalon_ghatkopar"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-surface border border-border hover:border-gold/60 text-text hover:text-gold-text text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-lustre-sm"
+            className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded-full bg-surface border border-border hover:border-gold/60 text-text hover:text-gold-text text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-lustre-sm max-w-full text-center"
           >
             <span>Follow Our Daily Transformations on Instagram</span>
-            <span aria-hidden="true">&nearr;</span>
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </Container>
