@@ -5,7 +5,6 @@ import { serviceCategoriesData } from '../data/services';
 import { buildWhatsAppLink } from '../lib/whatsapp';
 import { Container } from '../components/ui/Container';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
-import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { LaurelDivider } from '../components/ui/LaurelDivider';
 import { SpecialOffers } from '../components/sections/SpecialOffers';
@@ -42,10 +41,10 @@ export const Services: React.FC = () => {
         {/* Page Hero Header */}
         <section className="text-center mb-14 sm:mb-18">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gold-text mb-3 inline-block">
               Haute Coiffure & Beauty Rituals
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
               Our Salon Services
             </h1>
             <LaurelDivider size="md" />
@@ -60,14 +59,14 @@ export const Services: React.FC = () => {
           <Container size="lg">
             <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {serviceCategoriesData.map((cat) => (
-                <Card
+                <div
                   key={cat.slug}
                   data-card-hover
-                  className="overflow-hidden flex flex-col justify-between group shadow-card-light border border-gold-line/40 hover:border-gold transition-all duration-300 h-full"
+                  className="rounded-[28px] overflow-hidden flex flex-col justify-between group shadow-lustre-sm hover:shadow-lustre-md border border-border hover:border-gold/50 transition-all duration-300 h-full bg-surface"
                 >
                   <div className="flex flex-col flex-1">
                     {/* Category Cover Image Frame */}
-                    <div className="relative aspect-[16/10] sm:aspect-[3/2] w-full overflow-hidden bg-surface-subtle border-b border-border">
+                    <div className="relative aspect-[16/10] sm:aspect-[3/2] w-full overflow-hidden bg-dark border-b border-border">
                       <img
                         src={cat.overviewImage}
                         alt={`${cat.name} at Angels Salon Mumbai`}
@@ -75,7 +74,7 @@ export const Services: React.FC = () => {
                         loading="lazy"
                         decoding="async"
                       />
-                      <div className="absolute top-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded-sm border border-gold-line/40 text-[11px] font-medium text-gold shadow-sm">
+                      <div className="absolute top-3 right-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full border border-border text-[11px] font-medium text-gold-text shadow-sm">
                         {cat.services.length} Treatments
                       </div>
                     </div>
@@ -83,10 +82,10 @@ export const Services: React.FC = () => {
                     {/* Card Content with Clear Typographic Hierarchy */}
                     <div className="p-6 sm:p-7 flex flex-col flex-1">
                       <div className="mb-3">
-                        <span className="text-[11px] font-semibold uppercase tracking-luxury text-gold-text block mb-1.5">
+                        <span className="text-[11px] font-semibold uppercase tracking-wider text-gold-text block mb-1.5">
                           Salon Category
                         </span>
-                        <h2 className="font-serif text-2xl font-bold text-text group-hover:text-gold transition-colors tracking-tight">
+                        <h2 className="font-serif text-2xl font-bold text-text group-hover:text-gold-text transition-colors tracking-tight">
                           {cat.name}
                         </h2>
                       </div>
@@ -96,15 +95,15 @@ export const Services: React.FC = () => {
                       </p>
 
                       {/* Featured Treatments Pills */}
-                      <div className="mt-auto pt-4 border-t border-border/60">
-                        <span className="text-[11px] uppercase tracking-luxury text-gold-text font-semibold block mb-2">
+                      <div className="mt-auto pt-4 border-t border-border/80">
+                        <span className="text-[11px] uppercase tracking-wider text-gold-text font-semibold block mb-2">
                           Popular Services
                         </span>
                         <div className="flex flex-wrap gap-1.5">
                           {cat.services.slice(0, 3).map((s) => (
                             <span
                               key={s.id}
-                              className="text-[11px] sm:text-xs px-2.5 py-1 rounded-sm bg-surface-subtle border border-border text-text font-normal truncate max-w-full"
+                              className="text-[11px] sm:text-xs px-3 py-1 rounded-full bg-background border border-border text-text font-normal truncate max-w-full"
                             >
                               {s.name}
                             </span>
@@ -122,7 +121,7 @@ export const Services: React.FC = () => {
                       variant="gold"
                       size="md"
                       fullWidth
-                      className="min-h-[46px] text-xs uppercase tracking-luxury font-semibold shadow-gold-sm hover:shadow-gold-md"
+                      className="min-h-[46px] text-xs uppercase tracking-wider font-semibold rounded-full shadow-lustre-sm"
                       rightIcon={
                         <svg
                           width="14"
@@ -141,7 +140,7 @@ export const Services: React.FC = () => {
                       Explore Menu &amp; Pricing
                     </Button>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
           </Container>
@@ -153,8 +152,8 @@ export const Services: React.FC = () => {
         {/* Personalized Consultation Callout */}
         <section data-reveal className="text-center">
           <Container size="md">
-            <div className="p-8 sm:p-12 rounded-sm bg-surface border border-gold/30 shadow-card-light">
-              <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold mb-2 block">
+            <div className="p-8 sm:p-12 rounded-[28px] bg-surface border border-border hover:border-gold/50 transition-colors shadow-lustre-sm">
+              <span className="text-xs uppercase tracking-wider text-gold-text font-semibold mb-2 block">
                 Complimentary Styling Advice
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3">
@@ -173,11 +172,11 @@ export const Services: React.FC = () => {
                   variant="whatsapp"
                   size="lg"
                   data-btn-sweep
-                  className="w-full sm:w-auto min-h-[48px]"
+                  className="w-full sm:w-auto min-h-[48px] rounded-full"
                 >
                   Book on WhatsApp
                 </Button>
-                <Button as="a" href="/contact" variant="outline" size="lg" className="w-full sm:w-auto min-h-[48px]">
+                <Button as="a" href="/contact" variant="outline" size="lg" className="w-full sm:w-auto min-h-[48px] rounded-full">
                   Visit Our Salon
                 </Button>
               </div>

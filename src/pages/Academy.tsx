@@ -6,7 +6,6 @@ import { buildWhatsAppLink } from '../lib/whatsapp';
 import { Container } from '../components/ui/Container';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { SectionHeading } from '../components/ui/SectionHeading';
-import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { Accordion } from '../components/ui/Accordion';
 import { LaurelDivider } from '../components/ui/LaurelDivider';
@@ -65,10 +64,10 @@ export const Academy: React.FC = () => {
         {/* Page Hero Header */}
         <section className="text-center mb-14 sm:mb-18">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gold-text mb-3 inline-block">
               Government Recognized & ISO Certified
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
               Angels Academy of Hair & Beauty
             </h1>
             <LaurelDivider size="md" />
@@ -83,22 +82,22 @@ export const Academy: React.FC = () => {
           <Container size="lg">
             <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {courseCategoryCards.map((category) => (
-                <Card
+                <div
                   key={category.slug}
                   data-card-hover
-                  className="overflow-hidden flex flex-col justify-between group shadow-card-light"
+                  className="rounded-[28px] overflow-hidden flex flex-col justify-between group shadow-lustre-sm hover:shadow-lustre-md border border-border hover:border-gold/50 transition-all duration-300 bg-surface"
                 >
                   <div>
                     {/* Media Thumbnail */}
-                    <div data-reveal="image" className="relative aspect-[16/10] w-full overflow-hidden bg-surface-subtle border-b border-border">
+                    <div data-reveal="image" className="relative aspect-[16/10] w-full overflow-hidden bg-dark border-b border-border">
                       <img
                         src={category.image}
                         alt={category.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60" />
-                      <div className="absolute top-3 right-3 bg-surface/95 backdrop-blur-md border border-border text-[10px] font-bold uppercase tracking-wider text-gold-text px-2.5 py-0.5 rounded-sm shadow-sm">
+                      <div className="absolute top-3 right-3 bg-surface/95 backdrop-blur-md border border-border text-[10px] font-bold uppercase tracking-wider text-gold-text px-3 py-1 rounded-full shadow-sm">
                         {category.badge}
                       </div>
                     </div>
@@ -114,14 +113,14 @@ export const Academy: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 sm:p-8 pt-0 border-t border-border/60">
+                  <div className="p-6 sm:p-8 pt-0 border-t border-border/80">
                     <Button
                       as="a"
                       href={category.path}
                       variant="outline"
                       size="md"
                       fullWidth
-                      className="min-h-[44px]"
+                      className="min-h-[44px] rounded-full"
                       rightIcon={
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="9 18 15 12 9 6"></polyline>
@@ -131,14 +130,14 @@ export const Academy: React.FC = () => {
                       Explore {category.badge}
                     </Button>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
           </Container>
         </section>
 
         {/* Why Learn at Angels */}
-        <section className="mb-20 bg-surface-subtle border-y border-border py-16">
+        <section className="mb-20 bg-surface border-y border-border py-16">
           <Container size="lg">
             <SectionHeading
               subtitle="The Academy Advantage"
@@ -148,7 +147,11 @@ export const Academy: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {academyData.whyLearnPoints.map((point, index) => (
-                <Card key={index} data-card-hover className="p-3.5 sm:p-6 flex flex-col justify-between shadow-card-light">
+                <div
+                  key={index}
+                  data-card-hover
+                  className="rounded-[24px] p-4 sm:p-6 flex flex-col justify-between shadow-lustre-sm bg-background/50 border border-border hover:border-gold/50 transition-all duration-300"
+                >
                   <div>
                     <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center font-serif text-sm sm:text-xl font-bold text-gold-text mb-2.5 sm:mb-4">
                       0{index + 1}
@@ -160,7 +163,7 @@ export const Academy: React.FC = () => {
                       {point.description}
                     </p>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
           </Container>
@@ -180,10 +183,14 @@ export const Academy: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {academyData.placements.map((placement, idx) => (
-                <Card key={idx} data-card-hover className="p-6 sm:p-7 flex flex-col justify-between shadow-card-light">
+                <div
+                  key={idx}
+                  data-card-hover
+                  className="rounded-[24px] p-6 sm:p-7 flex flex-col justify-between shadow-lustre-sm bg-surface border border-border hover:border-gold/50 transition-all duration-300"
+                >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold">
+                      <span className="text-xs uppercase tracking-wider text-gold-text font-semibold">
                         {placement.batchYear}
                       </span>
                       <span className="text-xs text-text-muted font-mono">
@@ -196,7 +203,7 @@ export const Academy: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-border">
+                  <div className="pt-4 border-t border-border/80">
                     <h3 className="font-serif text-lg font-bold text-text">
                       {placement.studentName}
                     </h3>
@@ -207,7 +214,7 @@ export const Academy: React.FC = () => {
                       {placement.salonPlacement}
                     </span>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
           </Container>
@@ -228,8 +235,8 @@ export const Academy: React.FC = () => {
         {/* Closing Action Banner */}
         <section data-reveal className="text-center">
           <Container size="md">
-            <div className="p-8 sm:p-12 rounded-sm bg-surface border border-gold/30 shadow-card-light">
-              <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold mb-2 block">
+            <div className="p-8 sm:p-12 rounded-[28px] bg-surface border border-border hover:border-gold/50 transition-colors shadow-lustre-sm">
+              <span className="text-xs uppercase tracking-wider text-gold-text font-semibold mb-2 block">
                 Admissions Now Open
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3">
@@ -248,11 +255,11 @@ export const Academy: React.FC = () => {
                   variant="whatsapp"
                   size="lg"
                   data-btn-sweep
-                  className="w-full sm:w-auto min-h-[48px]"
+                  className="w-full sm:w-auto min-h-[48px] rounded-full"
                 >
                   Apply on WhatsApp
                 </Button>
-                <Button as="a" href="/academy/hair-courses" variant="outline" size="lg" className="w-full sm:w-auto min-h-[48px]">
+                <Button as="a" href="/academy/hair-courses" variant="outline" size="lg" className="w-full sm:w-auto min-h-[48px] rounded-full">
                   View Hair Courses
                 </Button>
               </div>

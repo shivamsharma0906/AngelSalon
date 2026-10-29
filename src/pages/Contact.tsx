@@ -4,7 +4,6 @@ import { SEO, generateLocalBusinessSchema } from '../lib/seo';
 import { siteConfig } from '../data/site';
 import { buildFormInquiryLink } from '../lib/whatsapp';
 import { Container } from '../components/ui/Container';
-import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { LaurelDivider } from '../components/ui/LaurelDivider';
 import { MapPinIcon } from '../components/ui/icons';
@@ -121,39 +120,32 @@ export const Contact: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error as user modifies input
+
+    // Real-time validation clearance
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
-  const handlePhoneBlur = () => {
-    if (formData.phone.trim()) {
-      const normalized = normalizeIndianPhone(formData.phone);
-      if (normalized.isValid) {
-        setFormData((prev) => ({ ...prev, phone: normalized.display }));
-      }
+  const handlePhoneBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const formatted = normalizeIndianPhone(e.target.value);
+    if (formatted.isValid) {
+      setFormData((prev) => ({ ...prev, phone: formatted.display }));
     }
   };
 
-  const validateForm = (): boolean => {
-    // 1. Check honeypot field
-    if (formData.website_bot_check.trim().length > 0) {
-      // Bot detected: silent reject without error indication
-      return false;
-    }
-
+  const validate = (): boolean => {
     const newErrors: FormErrors = {};
 
-    for (const [key, rules] of Object.entries(contactFormSchema) as [keyof FormErrors, SchemaFieldRule[]][]) {
-      const val = formData[key] || '';
+    (Object.keys(contactFormSchema) as Array<keyof FormErrors>).forEach((field) => {
+      const rules = contactFormSchema[field];
       for (const rule of rules) {
-        if (!rule.validate(val, formData)) {
-          newErrors[key] = rule.message;
-          break; // Show first failing rule message
+        if (!rule.validate(formData[field] || '', formData)) {
+          newErrors[field] = rule.message;
+          break; // First rule violation takes precedence
         }
       }
-    }
+    });
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -162,29 +154,34 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) {
+    // Silent rejection of spambots filling hidden field
+    if (formData.website_bot_check && formData.website_bot_check.trim().length > 0) {
+      return;
+    }
+
+    if (!validate()) {
+      const firstErrorField = Object.keys(errors)[0];
+      const element = document.getElementById(firstErrorField);
+      if (element) {
+        element.focus();
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
 
     setIsSubmitting(true);
 
-    const normalizedPhone = normalizeIndianPhone(formData.phone);
-
-    // Build WhatsApp URL with validated & normalized payload
-    const whatsappUrl = buildFormInquiryLink({
+    const waLink = buildFormInquiryLink({
       name: formData.name,
-      phone: normalizedPhone.cleanDigits,
-      branch: formData.branch,
-      serviceOrCourse: formData.serviceOrCourse,
+      phone: formData.phone,
+      service: formData.serviceOrCourse,
       preferredDate: formData.preferredDate || undefined,
       preferredTime: formData.preferredTime || undefined,
       notes: formData.notes || undefined,
     });
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    }, 300);
+    window.open(waLink, '_blank', 'noopener,noreferrer');
+    setIsSubmitting(false);
   };
 
   const localBusinessSchema = generateLocalBusinessSchema();
@@ -219,10 +216,10 @@ export const Contact: React.FC = () => {
         {/* Page Header */}
         <section data-reveal className="text-center mb-12 sm:mb-16">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gold-text mb-3 inline-block">
               We Welcome You
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
               Contact Us
             </h1>
             <LaurelDivider size="md" />
@@ -241,9 +238,9 @@ export const Contact: React.FC = () => {
               </h2>
 
               {siteConfig.branches.map((branch) => (
-                <Card data-card-hover key={branch.id} className="p-6 bg-surface border border-border shadow-card-light">
+                <div key={branch.id} className="p-6 sm:p-8 bg-surface border border-border rounded-[28px] shadow-lustre-sm hover:shadow-lustre-md hover:border-gold/50 transition-all duration-300">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold">
+                    <span className="text-xs uppercase tracking-wider text-gold-text font-semibold">
                       Main Flagship &amp; Academy
                     </span>
                     <a
@@ -265,7 +262,7 @@ export const Contact: React.FC = () => {
                   </h3>
 
                   {/* Storefront Exterior Photo */}
-                  <div data-reveal="image" className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-border mb-4 bg-surface-subtle shadow-sm">
+                  <div data-reveal="image" className="w-full aspect-[16/9] rounded-[20px] overflow-hidden border border-border mb-4 bg-dark shadow-sm">
                     <img
                       src="/images/real/storefront_facade.webp"
                       alt="Angels Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai"
@@ -295,7 +292,7 @@ export const Contact: React.FC = () => {
 
                   {/* Google Maps Embed with Touch-Friendly Directions CTA and Mobile Scroll Protection */}
                   <div
-                    className="relative w-full h-56 rounded-xl overflow-hidden border border-border bg-surface group"
+                    className="relative w-full h-56 rounded-[20px] overflow-hidden border border-border bg-surface group"
                     onClick={() => setIsMapActive(true)}
                   >
                     {!isMapLoaded && (
@@ -339,25 +336,25 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="mt-3">
+                  <div className="mt-4">
                     <a
                       href={branch.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm bg-surface border border-gold/60 text-gold-text hover:bg-gold hover:text-text text-xs uppercase font-bold tracking-luxury transition-all"
+                      className="min-h-[44px] w-full flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-surface border border-border hover:border-gold/60 text-text hover:text-gold-text text-xs uppercase font-bold tracking-wider transition-all shadow-lustre-sm"
                     >
                       <span>Get Directions on Google Maps</span>
                       <span aria-hidden="true">&rarr;</span>
                     </a>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
 
             {/* Right Column: Send Enquiry Form */}
             <div data-reveal className="lg:col-span-6">
-              <div className="bg-surface border border-border rounded-sm p-5 sm:p-8 lg:p-10 shadow-card-light lg:sticky lg:top-28">
-                <span className="text-xs uppercase tracking-luxury text-gold-text font-semibold mb-2 block">
+              <div className="bg-surface border border-border rounded-[28px] p-6 sm:p-8 lg:p-10 shadow-lustre-sm hover:shadow-lustre-md transition-shadow lg:sticky lg:top-28">
+                <span className="text-xs uppercase tracking-wider text-gold-text font-semibold mb-2 block">
                   Priority Scheduling
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3">
@@ -398,8 +395,8 @@ export const Contact: React.FC = () => {
                       aria-required="true"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
-                      className={`w-full min-h-[48px] bg-surface border rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
-                        errors.name ? 'border-red-600 focus:border-red-600' : 'border-input focus:border-gold'
+                      className={`w-full min-h-[48px] bg-background border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
+                        errors.name ? 'border-red-600 focus:border-red-600' : 'border-border focus:border-gold'
                       }`}
                     />
                     {errors.name && (
@@ -427,8 +424,8 @@ export const Contact: React.FC = () => {
                       aria-required="true"
                       aria-invalid={!!errors.phone}
                       aria-describedby={errors.phone ? 'phone-error' : undefined}
-                      className={`w-full min-h-[48px] bg-surface border rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
-                        errors.phone ? 'border-red-600 focus:border-red-600' : 'border-input focus:border-gold'
+                      className={`w-full min-h-[48px] bg-background border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
+                        errors.phone ? 'border-red-600 focus:border-red-600' : 'border-border focus:border-gold'
                       }`}
                     />
                     {errors.phone && (
@@ -451,7 +448,7 @@ export const Contact: React.FC = () => {
                       aria-required="true"
                       aria-invalid={!!errors.branch}
                       aria-describedby={errors.branch ? 'branch-error' : undefined}
-                      className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                      className="w-full min-h-[48px] bg-background border border-border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
                     >
                       <option value="Ghatkopar East (Flagship Salon & Academy)">
                         Ghatkopar East (Flagship Salon &amp; Academy)
@@ -477,7 +474,7 @@ export const Contact: React.FC = () => {
                       aria-required="true"
                       aria-invalid={!!errors.serviceOrCourse}
                       aria-describedby={errors.serviceOrCourse ? 'service-error' : undefined}
-                      className="w-full min-h-[48px] bg-surface border border-input rounded-sm px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                      className="w-full min-h-[48px] bg-background border border-border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
                     >
                       <option value="Director's Haircut & Styling">Director&apos;s Haircut &amp; Styling</option>
                       <option value="French Balayage & Colour">French Balayage &amp; Colour</option>
@@ -496,7 +493,7 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Date & Time Row - 2 columns on mobile */}
+                  {/* Date & Time Row */}
                   <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                     <div>
                       <label htmlFor="preferredDate" className="block text-[11px] sm:text-xs uppercase tracking-wider text-text font-medium mb-1 sm:mb-1.5 truncate">
@@ -509,7 +506,7 @@ export const Contact: React.FC = () => {
                         min={minDate}
                         value={formData.preferredDate}
                         onChange={handleInputChange}
-                        className="w-full min-h-[46px] sm:min-h-[48px] bg-surface border border-input rounded-sm px-2.5 sm:px-3.5 py-2 text-xs sm:text-sm text-text focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
+                        className="w-full min-h-[46px] sm:min-h-[48px] bg-background border border-border rounded-[14px] px-2.5 sm:px-3.5 py-2 text-xs sm:text-sm text-text focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
                       />
                     </div>
 
@@ -522,7 +519,7 @@ export const Contact: React.FC = () => {
                         name="preferredTime"
                         value={formData.preferredTime}
                         onChange={handleInputChange}
-                        className="w-full min-h-[46px] sm:min-h-[48px] bg-surface border border-input rounded-sm px-2 sm:px-3.5 py-2 text-xs sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                        className="w-full min-h-[46px] sm:min-h-[48px] bg-background border border-border rounded-[14px] px-2 sm:px-3.5 py-2 text-xs sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
                       >
                         <option value="Morning (10:00 AM - 1:00 PM)">Morning (10-1)</option>
                         <option value="Afternoon (1:00 PM - 5:00 PM)">Afternoon (1-5)</option>
@@ -543,7 +540,7 @@ export const Contact: React.FC = () => {
                       value={formData.notes}
                       onChange={handleInputChange}
                       placeholder="e.g. Inquiring about wedding date availability or sensitive scalp care..."
-                      className="w-full bg-surface border border-input rounded-sm px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
+                      className="w-full bg-background border border-border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none focus:border-gold scroll-mt-24 transition-colors"
                     ></textarea>
                   </div>
 
@@ -555,7 +552,7 @@ export const Contact: React.FC = () => {
                     fullWidth
                     isLoading={isSubmitting}
                     data-btn-sweep
-                    className="min-h-[48px] text-sm font-bold tracking-luxury py-3.5"
+                    className="min-h-[48px] text-sm font-bold tracking-wider py-3.5 rounded-full shadow-lustre-md"
                   >
                     Send Booking Enquiry on WhatsApp
                   </Button>
