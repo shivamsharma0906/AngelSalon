@@ -127,3 +127,4 @@ export const HERO_SHOWCASE_ITEMS = [
   SALON_IMAGE_ASSETS.glassHairNanoplastia,
   SALON_IMAGE_ASSETS.academyStudioFloor,
 ];
+
