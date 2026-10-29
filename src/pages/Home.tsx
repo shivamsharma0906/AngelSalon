@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { SEO, generateLocalBusinessSchema } from '../lib/seo';
+import { SEO, generateLocalBusinessSchema, generateEducationalOrganizationSchema } from '../lib/seo';
 import { homeData } from '../data/home';
 import { Hero } from '../components/sections/Hero';
 import { HorizontalBookingBar } from '../components/sections/HorizontalBookingBar';
@@ -17,6 +17,8 @@ import { FinalCTA } from '../components/sections/FinalCTA';
 
 export const Home: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
+  const educationalOrgSchema = generateEducationalOrganizationSchema();
+  const homeSchemas = [...localBusinessSchema, educationalOrgSchema];
 
   // If video is unverified or has no genuine source, it renders null
   const isVideoVisible = Boolean(
@@ -30,7 +32,7 @@ export const Home: React.FC = () => {
         title="Angels Salon & Academy | Hair Salon in Ghatkopar East"
         description="Premier hair salon & beauty academy in Ghatkopar East, Mumbai. Expert hair styling, balayage, smoothening & facials. Rated 4.7 on Google. Book on WhatsApp."
         canonicalPath="/"
-        schemaData={localBusinessSchema}
+        schemaData={homeSchemas}
       />
 
       {/* Responsive hero image preloads matching picture source queries mounted in head */}

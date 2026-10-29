@@ -1,5 +1,5 @@
 import React from 'react';
-import { SEO, generateCourseSchema, generateFAQSchema } from '../lib/seo';
+import { SEO, generateCourseSchema, generateFAQSchema, generateEducationalOrganizationSchema } from '../lib/seo';
 import { academyData } from '../data/courses';
 import { siteConfig } from '../data/site';
 import { buildWhatsAppLink } from '../lib/whatsapp';
@@ -45,7 +45,7 @@ export const Academy: React.FC = () => {
   const courseSchemas = generateCourseSchema(academyData.courses);
   const faqSchema = generateFAQSchema(academyData.faqs);
 
-  const combinedSchema = [breadcrumbSchema, ...courseSchemas, faqSchema];
+  const combinedSchema = [breadcrumbSchema, generateEducationalOrganizationSchema(), ...courseSchemas, faqSchema];
 
   return (
     <>

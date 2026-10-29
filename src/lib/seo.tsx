@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { siteConfig } from '../data/site';
 import { googleSummary } from '../data/reviews';
+import { serviceCategoriesData } from '../data/services';
 
 export interface SEOProps {
   title?: string;
@@ -70,18 +71,23 @@ export const SEO: React.FC<SEOProps> = ({
 };
 
 /**
- * Generates LocalBusiness / HairSalon JSON-LD structured data for branches
+ * Generates LocalBusiness (HairSalon & BeautySalon) JSON-LD structured data for branches,
+ * including full address, geo coordinates, opening hours, review aggregate ratings,
+ * social profile links, and the full services offer catalog.
  */
 export function generateLocalBusinessSchema() {
   return siteConfig.branches.map((branch) => ({
     '@context': 'https://schema.org',
-    '@type': 'HairSalon',
+    '@type': ['HairSalon', 'BeautySalon'],
     '@id': `${siteConfig.url}/#${branch.id}`,
     name: `${siteConfig.name} - ${branch.name}`,
+    description: siteConfig.description,
     image: `${siteConfig.url}/images/real/storefront_facade.webp`,
     url: siteConfig.url,
     telephone: branch.phone,
-    priceRange: '₹₹₹',
+    priceRange: 'INR 500-5000',
+    currenciesAccepted: 'INR',
+    paymentAccepted: 'Cash, Credit Card, UPI',
     address: {
       '@type': 'PostalAddress',
       streetAddress: branch.address.street,
@@ -119,7 +125,59 @@ export function generateLocalBusinessSchema() {
       worstRating: '1',
     },
     sameAs: siteConfig.socialLinks.map((s) => s.url),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Salon & Beauty Services',
+      itemListElement: serviceCategoriesData.map((category) => ({
+        '@type': 'OfferCatalog',
+        name: category.name,
+        description: category.shortDescription,
+        url: `${siteConfig.url}/services/${category.slug}`,
+        itemListElement: category.services.map((item) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: item.name,
+            description: item.description,
+          },
+          price: item.startingPrice.replace(/[^\d]/g, ''),
+          priceCurrency: 'INR',
+        })),
+      })),
+    },
   }));
+}
+
+/**
+ * Generates EducationalOrganization schema for Angels Academy
+ */
+export function generateEducationalOrganizationSchema() {
+  const branch = siteConfig.branches[0];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    '@id': `${siteConfig.url}/academy#organization`,
+    name: `${siteConfig.name} Academy`,
+    description: 'Government-recognized professional hair and beauty academy offering certified diplomas in hairdressing and bridal makeup in Mumbai.',
+    url: `${siteConfig.url}/academy`,
+    logo: `${siteConfig.url}${siteConfig.logo.src}`,
+    image: `${siteConfig.url}/images/real/storefront_signage_gold.webp`,
+    telephone: branch.phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: branch.address.street,
+      addressLocality: branch.address.city,
+      addressRegion: branch.address.state,
+      postalCode: branch.address.postalCode,
+      addressCountry: 'IN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: branch.coordinates.lat,
+      longitude: branch.coordinates.lng,
+    },
+    sameAs: siteConfig.socialLinks.map((s) => s.url),
+  };
 }
 
 /**
@@ -132,9 +190,9 @@ export function generateCourseSchema(courses: Array<{ name: string; overview: st
     name: course.name,
     description: course.overview,
     provider: {
-      '@type': 'Organization',
+      '@type': 'EducationalOrganization',
       name: `${siteConfig.name} Academy`,
-      sameAs: siteConfig.url,
+      sameAs: `${siteConfig.url}/academy`,
     },
     timeRequired: course.duration,
   }));
@@ -171,4 +229,3 @@ export function generateVideoSchema(videos: Array<{ title: string; description: 
     uploadDate: v.uploadDate,
   }));
 }
-
