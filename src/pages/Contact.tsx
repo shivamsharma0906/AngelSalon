@@ -174,7 +174,8 @@ export const Contact: React.FC = () => {
     const waLink = buildFormInquiryLink({
       name: formData.name,
       phone: formData.phone,
-      service: formData.serviceOrCourse,
+      branch: formData.branch,
+      serviceOrCourse: formData.serviceOrCourse,
       preferredDate: formData.preferredDate || undefined,
       preferredTime: formData.preferredTime || undefined,
       notes: formData.notes || undefined,
