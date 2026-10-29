@@ -37,14 +37,12 @@ export const HeroLustre: React.FC = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-gold/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
-        {/* Top Eyebrow (Lustre Studio clean luxury tracked pill) */}
-        <div data-reveal className="flex items-center justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface/80 border border-border shadow-lustre-sm">
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.2em] font-semibold text-gold-text">
-              Ghatkopar East, Mumbai · Hair Salon & Academy
-            </span>
-          </div>
+        {/* Top Eyebrow (Lustre Studio clean luxury tracked text) */}
+        <div data-reveal className="flex items-center justify-center gap-2 mb-5 sm:mb-6">
+          <span className="w-2 h-2 rounded-full bg-gold animate-pulse shrink-0" aria-hidden="true" />
+          <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-gold-text">
+            Ghatkopar East, Mumbai · Hair Salon & Academy
+          </span>
         </div>
 
         {/* Editorial Headline (Instrument Serif bold luxury) */}

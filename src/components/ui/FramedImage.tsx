@@ -123,7 +123,7 @@ export const FramedImage: React.FC<FramedImageProps> = ({
       {/* Bottom gradient scrim to guarantee caption readability across dark/light photos */}
       {(showScrim && hasCaption) && (
         <div
-          className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/25 to-transparent pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark/75 via-dark/20 to-transparent pointer-events-none"
           aria-hidden="true"
         />
       )}

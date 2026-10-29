@@ -38,9 +38,9 @@ export const WelcomeToAngels: React.FC = () => {
 
           {/* Editorial Copy Column */}
           <div data-reveal className="lg:col-span-7 flex flex-col items-start text-left order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/80 border border-border shadow-sm mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              <span className="text-[11px] uppercase tracking-[0.18em] text-gold-text font-semibold">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+              <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
                 Our Philosophy
               </span>
             </div>

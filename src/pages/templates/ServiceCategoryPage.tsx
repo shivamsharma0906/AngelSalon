@@ -7,9 +7,7 @@ import { SEO, generateFAQSchema } from '../../lib/seo';
 import { Container } from '../../components/ui/Container';
 import { Breadcrumbs } from '../../components/ui/Breadcrumbs';
 import { SectionHeading } from '../../components/ui/SectionHeading';
-import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
-import { Badge } from '../../components/ui/Badge';
 import { Accordion } from '../../components/ui/Accordion';
 import { LaurelDivider } from '../../components/ui/LaurelDivider';
 import { WhatsAppIcon } from '../../components/ui/WhatsAppIcon';
@@ -110,10 +108,13 @@ export const ServiceCategoryPage: React.FC = () => {
         {/* Hero Header */}
         <section className="mb-16 text-center">
           <Container size="md">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-luxury text-gold-text mb-3 inline-block">
-              Luxury Salon Ritual
-            </span>
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text leading-tight mb-4">
+            <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+              <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                Salon Ritual &amp; Care
+              </span>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
               {category.name}
             </h1>
             <LaurelDivider size="md" />
@@ -129,11 +130,12 @@ export const ServiceCategoryPage: React.FC = () => {
                 variant="gold"
                 size="md"
                 leftIcon={<WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />}
+                className="rounded-full shadow-lustre-sm"
               >
                 Book {category.name} on WhatsApp
               </Button>
-              <Button as="a" href="/contact" variant="outline" size="md">
-                Salon Directions & Hours
+              <Button as="a" href="/contact" variant="outline" size="md" className="rounded-full">
+                Salon Directions &amp; Hours
               </Button>
             </div>
           </Container>
@@ -143,10 +145,16 @@ export const ServiceCategoryPage: React.FC = () => {
         <section className="mb-20">
           <Container size="lg">
             <div data-reveal className="mb-10 text-center max-w-xl mx-auto">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text">
-                Treatment Offerings & Pricing
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                  Menu &amp; Rates
+                </span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-text tracking-tight">
+                Treatment Offerings &amp; Pricing
               </h2>
-              <p className="text-sm text-text-muted mt-2">
+              <p className="text-sm text-text-muted mt-2 font-light">
                 Official transparent rates. Complimentary diagnostic with every appointment.
               </p>
 
@@ -196,51 +204,73 @@ export const ServiceCategoryPage: React.FC = () => {
             ) : (
               <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {filteredServices.map((service) => {
+                  const serviceWaUrl = buildWhatsAppLink({
+                    message: `Hi Angels Salon! I would like to book the "${service.name}" treatment (${service.startingPrice}). Could you please share available slots?`,
+                  });
 
                   return (
-                    <Card data-card-hover key={service.id} className="p-6 sm:p-7 flex flex-col justify-between group">
-                    <div>
-                      <div className="flex items-center justify-between gap-3 mb-3">
-                        <Badge variant="surface">⏱ {service.duration}</Badge>
-                        <span className="font-serif text-xl font-bold text-gold tracking-tight">
-                          {service.startingPrice}
-                        </span>
+                    <div
+                      key={service.id}
+                      data-card-hover
+                      className="rounded-[24px] sm:rounded-[28px] bg-surface border border-border hover:border-gold/60 p-6 sm:p-8 flex flex-col justify-between group transition-all duration-300 shadow-lustre-sm hover:shadow-lustre-md"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-3 mb-3">
+                          <span className="text-[11px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full bg-surface-subtle text-text-muted border border-border">
+                            ⏱ {service.duration}
+                          </span>
+                          <span className="font-serif text-2xl font-bold text-gold-text tracking-tight">
+                            {service.startingPrice}
+                          </span>
+                        </div>
+
+                        <h3 className="font-serif text-xl sm:text-2xl font-bold text-text mb-2 group-hover:text-gold-text transition-colors tracking-tight">
+                          {service.name}
+                        </h3>
+
+                        <p className="text-sm text-text-muted leading-relaxed mb-4">
+                          {service.description}
+                        </p>
+
+                        <ul className="space-y-1.5 mb-6 text-xs text-text-muted">
+                          {service.highlights.map((hl, i) => (
+                            <li key={i} className="flex items-center gap-2">
+                              <span className="text-gold-text font-bold">✓</span>
+                              <span>{hl}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
 
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-text mb-2 group-hover:text-gold transition-colors">
-                        {service.name}
-                      </h3>
-
-                      <p className="text-sm text-text-muted leading-relaxed mb-4">
-                        {service.description}
-                      </p>
-
-                      <ul className="space-y-1.5 mb-6 text-xs text-text-muted">
-                        {service.highlights.map((hl, i) => (
-                          <li key={i} className="flex items-center gap-2">
-                            <span className="text-gold font-bold">✓</span>
-                            <span>{hl}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="pt-4 border-t border-border flex flex-col sm:flex-row items-center gap-3">
+                        <Button
+                          as="a"
+                          href={serviceWaUrl}
+                          target="_blank"
+                          variant="gold"
+                          size="sm"
+                          fullWidth
+                          className="rounded-full shadow-lustre-sm"
+                          leftIcon={<WhatsAppIcon className="w-3.5 h-3.5 fill-current shrink-0" />}
+                        >
+                          Book Treatment
+                        </Button>
+                        <Button
+                          as="a"
+                          href="/contact"
+                          variant="outline"
+                          size="sm"
+                          fullWidth
+                          className="rounded-full"
+                        >
+                          Check Availability
+                        </Button>
+                      </div>
                     </div>
-
-                    <div className="pt-4 border-t border-border">
-                      <Button
-                        as="a"
-                        href="/contact"
-                        variant="outline"
-                        size="sm"
-                        fullWidth
-                      >
-                        Check Availability
-                      </Button>
-                    </div>
-                  </Card>
-                );
-              })}
-            </div>
-          )}
+                  );
+                })}
+              </div>
+            )}
           </Container>
         </section>
 
@@ -256,8 +286,8 @@ export const ServiceCategoryPage: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {category.processSteps.map((step) => (
-                <div key={step.step} data-card-hover className="p-3.5 sm:p-6 bg-surface border border-border rounded-sm shadow-card-light">
-                  <span className="font-serif text-2xl sm:text-3xl font-bold text-gold-text block mb-1 sm:mb-2">
+                <div key={step.step} data-card-hover className="p-4 sm:p-6 bg-surface border border-border rounded-[20px] sm:rounded-[24px] shadow-lustre-sm hover:border-gold/50 transition-all">
+                  <span className="font-serif text-2xl sm:text-3xl font-normal text-gold-text block mb-1 sm:mb-2">
                     {step.step}
                   </span>
                   <h3 className="font-serif text-sm sm:text-lg font-bold text-text mb-1 sm:mb-2">
@@ -286,15 +316,17 @@ export const ServiceCategoryPage: React.FC = () => {
 
             <div data-reveal data-reveal-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {category.galleryImages.map((img, idx) => (
-                <div key={idx} data-reveal="image" className="group aspect-square rounded-sm overflow-hidden border border-border bg-surface relative">
+                <div key={idx} data-reveal="image" className="group aspect-square rounded-[20px] sm:rounded-[24px] overflow-hidden border border-gold/40 hover:border-gold bg-surface-subtle relative shadow-lustre-sm transition-all">
                   <img
                     src={img.image}
                     alt={img.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity p-2.5 sm:p-4 flex items-end">
-                    <span className="text-[11px] sm:text-xs font-semibold text-text truncate">{img.title}</span>
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-3 right-3 p-2 rounded-full bg-surface/90 backdrop-blur-md border border-border/80 shadow-lustre-sm flex items-center justify-between text-xs pointer-events-auto">
+                    <span className="font-serif text-[11px] sm:text-xs font-semibold text-text truncate">{img.title}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 ml-1.5" aria-hidden="true" />
                   </div>
                 </div>
               ))}
@@ -317,13 +349,16 @@ export const ServiceCategoryPage: React.FC = () => {
         {/* Related Categories & Parent Link */}
         <section className="mb-12" data-reveal>
           <Container size="lg">
-            <div className="p-8 sm:p-10 rounded-sm bg-surface border border-border flex flex-col md:flex-row items-center justify-between gap-6" data-card-hover>
+            <div className="p-8 sm:p-10 rounded-[28px] bg-surface border border-gold/30 hover:border-gold/60 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lustre-sm transition-colors" data-card-hover>
               <div>
-                <span className="text-xs uppercase tracking-luxury text-gold font-semibold mb-1 block">
-                  Explore More Services
-                </span>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-gold-text font-semibold">
+                    Explore More Services
+                  </span>
+                </div>
                 <h3 className="font-serif text-2xl font-bold text-text">
-                  Looking for Other Hair & Beauty Care?
+                  Looking for Other Hair &amp; Beauty Care?
                 </h3>
                 <p className="text-xs sm:text-sm text-text-muted mt-1">
                   Discover our full suite of luxury salon services or consult with our master directors.
@@ -331,8 +366,8 @@ export const ServiceCategoryPage: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                <Button as="a" href="/services" variant="outline" size="sm">
-                  ← All Services
+                <Button as="a" href="/services" variant="outline" size="sm" className="rounded-full">
+                  &larr; All Services
                 </Button>
                 <Button
                   as="a"
@@ -341,6 +376,7 @@ export const ServiceCategoryPage: React.FC = () => {
                   variant="gold"
                   size="sm"
                   data-btn-sweep
+                  className="rounded-full shadow-lustre-sm"
                 >
                   Consult on WhatsApp
                 </Button>

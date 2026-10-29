@@ -3,6 +3,7 @@ import { SEO } from '../lib/seo';
 import { Container } from '../components/ui/Container';
 import { Button } from '../components/ui/Button';
 import { WhatsAppIcon } from '../components/ui/WhatsAppIcon';
+import { FramedImage } from '../components/ui/FramedImage';
 import { googleSummary, googleReviews } from '../data/reviews';
 import { siteConfig } from '../data/site';
 import { buildWhatsAppLink } from '../lib/whatsapp';
@@ -62,6 +63,12 @@ export const Testimonials: React.FC = () => {
         <section className="mb-16 sm:mb-24 text-center" aria-label="Page header">
           <Container size="lg">
             <div className="max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                  Verified Experiences
+                </span>
+              </div>
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-text mb-4 tracking-tight leading-[1.1]">
                 What our clients say
               </h1>
@@ -73,7 +80,7 @@ export const Testimonials: React.FC = () => {
                   href={googleSummary.reviewsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold-text hover:text-gold hover:underline font-medium inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-sm"
+                  className="text-gold-text hover:text-gold hover:underline font-medium inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-full px-3 py-1 bg-surface border border-gold/30 shadow-sm"
                 >
                   <span>★ {googleSummary.rating} on Google from {googleSummary.count} reviews</span>
                   <span aria-hidden="true">↗</span>
@@ -85,10 +92,16 @@ export const Testimonials: React.FC = () => {
           </Container>
         </section>
 
-        {/* 2. Featured Results (3 Real Client Stories with Large Photos) */}
+        {/* 2. Featured Results (3 Real Client Stories with Lustre Arch Framing) */}
         <section className="mb-20 sm:mb-28" aria-label="Featured client stories">
           <Container size="lg">
             <div className="mb-10 sm:mb-14 text-center max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                  Real Transformations
+                </span>
+              </div>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-text mb-2 tracking-tight">
                 Featured client stories
               </h2>
@@ -97,7 +110,7 @@ export const Testimonials: React.FC = () => {
               </p>
             </div>
 
-            <div className="space-y-16 sm:space-y-20">
+            <div className="space-y-16 sm:space-y-24">
               {featuredResults.map((item, idx) => {
                 const matchedReview = googleReviews.find((r) => r.id === item.reviewId);
                 const reviewText = matchedReview?.text || '';
@@ -108,26 +121,27 @@ export const Testimonials: React.FC = () => {
                     key={item.id}
                     className={`flex flex-col ${
                       isEven ? 'md:flex-row-reverse' : 'md:flex-row'
-                    } items-center gap-8 lg:gap-14 pb-16 sm:pb-20 border-b border-border/40 last:border-b-0 last:pb-0`}
+                    } items-center gap-8 lg:gap-14 pb-16 sm:pb-24 border-b border-border/40 last:border-b-0 last:pb-0`}
                   >
-                    {/* Large Real Photo */}
+                    {/* Large Real Photo in Lustre Roman Arch Frame */}
                     <div className="w-full md:w-5/12 lg:w-5/12 shrink-0">
-                      <div className="aspect-[4/5] rounded-sm overflow-hidden border border-line bg-surface">
-                        <img
-                          src={item.image}
-                          alt={item.imageAlt}
-                          width={600}
-                          height={750}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
+                      <FramedImage
+                        src={item.image}
+                        alt={item.imageAlt}
+                        aspectRatio="aspect-[4/5]"
+                        radius={isEven ? 'rounded' : 'arch-tall'}
+                        border="gold"
+                        focalPoint="50% 30%"
+                        caption={{
+                          title: item.service,
+                          subtitle: `${item.clientName} · Verified Guest`,
+                        }}
+                      />
                     </div>
 
                     {/* Editorial Content */}
                     <div className="w-full md:w-7/12 lg:w-7/12 text-left">
-                      <span className="text-xs uppercase tracking-luxury text-gold font-medium block mb-3">
+                      <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold block mb-3">
                         {item.service}
                       </span>
 
@@ -148,7 +162,7 @@ export const Testimonials: React.FC = () => {
                         href={buildWhatsAppLink({ message: item.whatsappMessage })}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs uppercase tracking-luxury text-gold hover:text-gold-soft font-semibold inline-flex items-center gap-2 hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-sm"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-surface border border-gold/40 hover:border-gold text-gold-text hover:text-gold text-xs uppercase tracking-wider font-semibold transition-all shadow-lustre-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
                       >
                         <span>Book this service</span>
                         <span aria-hidden="true">→</span>
@@ -168,9 +182,12 @@ export const Testimonials: React.FC = () => {
         >
           <Container size="lg">
             <div className="text-center mb-12 sm:mb-16">
-              <span className="text-xs uppercase tracking-luxury text-gold font-medium block mb-3">
-                Google Business Profile
-              </span>
+              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                  Google Business Profile
+                </span>
+              </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-text mb-3 tracking-tight">
                 Recent Google reviews
               </h2>
@@ -194,7 +211,7 @@ export const Testimonials: React.FC = () => {
                 href={googleSummary.reviewsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm border border-gold-line text-gold-text hover:bg-gold/10 hover:border-gold transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+                className="inline-flex items-center justify-center gap-2 min-h-[46px] px-8 py-3 text-xs uppercase tracking-wider font-semibold rounded-full border border-gold/40 text-gold-text hover:bg-gold/10 hover:border-gold transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold shadow-lustre-sm"
               >
                 <span>Read all {googleSummary.count} reviews on Google Maps</span>
                 <span aria-hidden="true">↗</span>
@@ -216,7 +233,7 @@ export const Testimonials: React.FC = () => {
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-luxury font-semibold rounded-sm bg-gold text-text hover:bg-gold-soft transition-all duration-200 shadow-sm"
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 text-xs uppercase tracking-wider font-semibold rounded-full bg-gold text-text hover:bg-gold-soft transition-all duration-200 shadow-lustre-sm"
             >
               <span>Review us on Google</span>
               <span aria-hidden="true">↗</span>
@@ -224,10 +241,16 @@ export const Testimonials: React.FC = () => {
           </Container>
         </section>
 
-        {/* 5. Salon FAQs (Plain Accordion with Schema) */}
+        {/* 5. Salon FAQs (Lustre Accordion) */}
         <section className="py-16 sm:py-24 bg-background border-b border-border" aria-label="Frequently asked questions">
           <Container size="md">
             <div className="text-left mb-10 sm:mb-12">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                  Helpful Information
+                </span>
+              </div>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-text mb-2 tracking-tight">
                 Frequently asked questions
               </h2>
@@ -243,7 +266,7 @@ export const Testimonials: React.FC = () => {
                 return (
                   <div
                     key={idx}
-                    className="border border-border/70 rounded-sm bg-surface overflow-hidden transition-colors shadow-card-light"
+                    className="border border-border/80 rounded-[20px] sm:rounded-[24px] bg-surface overflow-hidden transition-colors shadow-lustre-sm"
                   >
                     <button
                       type="button"
@@ -293,7 +316,7 @@ export const Testimonials: React.FC = () => {
               variant="gold"
               size="md"
               leftIcon={<WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />}
-              className="min-h-[48px] px-8 text-xs uppercase tracking-luxury font-semibold shadow-gold-sm"
+              className="min-h-[48px] px-8 text-xs uppercase tracking-wider font-semibold rounded-full shadow-lustre-sm"
             >
               Book on WhatsApp
             </Button>

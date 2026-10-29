@@ -269,15 +269,17 @@ export const CourseCategoryPage: React.FC = () => {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6" data-reveal-stagger>
               {category.studentWorkGallery.map((item, idx) => (
-                <div key={idx} data-card-hover className="group aspect-square rounded-sm overflow-hidden border border-border bg-surface relative">
+                <div key={idx} data-card-hover className="group aspect-square rounded-[20px] sm:rounded-[24px] overflow-hidden border border-gold/40 hover:border-gold bg-surface-subtle relative shadow-lustre-sm transition-all">
                   <img
                     src={item.image}
                     alt={item.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity p-2.5 sm:p-4 flex items-end">
-                    <span className="text-[11px] sm:text-xs font-semibold text-text truncate">{item.title}</span>
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-3 right-3 p-2 rounded-full bg-surface/90 backdrop-blur-md border border-border/80 shadow-lustre-sm flex items-center justify-between text-xs pointer-events-auto">
+                    <span className="font-serif text-[11px] sm:text-xs font-semibold text-text truncate">{item.title}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 ml-1.5" aria-hidden="true" />
                   </div>
                 </div>
               ))}
@@ -300,11 +302,14 @@ export const CourseCategoryPage: React.FC = () => {
         {/* Related Programs & Back Link */}
         <section className="mb-12" data-reveal>
           <Container size="lg">
-            <div className="p-8 sm:p-10 rounded-sm bg-surface border border-border flex flex-col md:flex-row items-center justify-between gap-6" data-card-hover>
+            <div className="p-8 sm:p-10 rounded-[28px] bg-surface border border-gold/30 hover:border-gold/60 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lustre-sm transition-colors" data-card-hover>
               <div>
-                <span className="text-xs uppercase tracking-luxury text-gold font-semibold mb-1 block">
-                  Angels Academy of Hair & Beauty
-                </span>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-gold-text font-semibold">
+                    Angels Academy of Hair &amp; Beauty
+                  </span>
+                </div>
                 <h3 className="font-serif text-2xl font-bold text-text">
                   Need Personalized Career Counseling?
                 </h3>
@@ -314,8 +319,8 @@ export const CourseCategoryPage: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                <Button as="a" href="/academy" variant="outline" size="sm">
-                  ← Academy Overview
+                <Button as="a" href="/academy" variant="outline" size="sm" className="rounded-full">
+                  &larr; Academy Overview
                 </Button>
                 <Button
                   as="a"
@@ -324,6 +329,7 @@ export const CourseCategoryPage: React.FC = () => {
                   variant="gold"
                   size="sm"
                   data-btn-sweep
+                  className="rounded-full shadow-lustre-sm"
                 >
                   Speak with Counselor
                 </Button>

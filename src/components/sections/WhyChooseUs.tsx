@@ -27,9 +27,9 @@ export const WhyChooseUs: React.FC = () => {
       <Container size="lg">
         {/* Lustre Section Header */}
         <div data-reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/80 border border-border shadow-sm mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-            <span className="text-[11px] uppercase tracking-[0.18em] text-gold-text font-semibold">
+          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
               The Angels Difference
             </span>
           </div>

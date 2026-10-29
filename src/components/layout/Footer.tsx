@@ -10,17 +10,12 @@ import {
   InstagramIcon,
   FacebookIcon,
   StarIcon,
-  ArrowRightIcon,
 } from '../ui/icons';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export const Footer: React.FC = () => {
   const flagship = siteConfig.branches[0];
-
-  const whatsAppBookingUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
-    "Hi Angels Salon & Academy! I would like to book an appointment. Could you please share available slots?"
-  )}`;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -31,55 +26,8 @@ export const Footer: React.FC = () => {
       className="relative overflow-x-clip bg-dark text-text-inverse border-t border-border/30 pb-20 lg:pb-0"
       aria-label="Footer"
     >
-      {/* Pre-Footer Banner (Lustre Studio arched banner card) */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 sm:pb-14">
-        <div data-reveal className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] bg-dark-surface border border-gold/30 hover:border-gold/50 transition-colors shadow-2xl p-6 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
-          
-          <div className="flex items-center gap-4 sm:gap-5 w-full lg:w-auto">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-dark border border-gold/40 flex items-center justify-center shrink-0 text-gold shadow-sm">
-              <WhatsAppIcon size={24} className="text-gold" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-[11px] uppercase tracking-wider text-gold font-semibold">Salon Concierge</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                <span className="text-[11px] text-text-inverse-muted font-normal">Available Daily</span>
-              </div>
-              <h2 className="font-serif text-xl sm:text-2xl lg:text-3xl font-normal text-text-inverse tracking-tight leading-tight">
-                Ready for your transformation?
-              </h2>
-              <p className="hidden sm:block text-xs sm:text-sm text-text-inverse-muted mt-1 max-w-xl font-normal leading-relaxed">
-                Connect directly with our stylists for appointments, bespoke consultations, or academy diploma enrollment.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-row items-center gap-3 shrink-0 w-full lg:w-auto">
-            <a
-              href={whatsAppBookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="min-h-[44px] flex-1 sm:flex-none sm:w-auto px-7 py-3 rounded-full bg-gold text-text font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-gold-soft transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-            >
-              <WhatsAppIcon size={15} />
-              <span>Book Now</span>
-              <ArrowRightIcon size={13} />
-            </a>
-            <a
-              href={`tel:${siteConfig.contact.phoneRaw}`}
-              className="min-h-[44px] flex-1 sm:flex-none sm:w-auto px-6 py-3 rounded-full bg-dark border border-gold/30 text-text-inverse hover:text-gold hover:border-gold transition-colors flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-              aria-label={`Call ${siteConfig.name}`}
-            >
-              <PhoneIcon size={14} className="text-gold shrink-0" />
-              <span>Call</span>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
       {/* Main Grid */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-14">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 sm:pb-14">
         <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
 
           {/* Brand Column */}

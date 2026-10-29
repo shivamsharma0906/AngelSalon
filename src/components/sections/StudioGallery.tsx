@@ -12,7 +12,7 @@ const GALLERY_ITEMS = [
   },
   {
     asset: SALON_IMAGE_ASSETS.balayageCaramel,
-    aspect: 'aspect-square',
+    aspect: 'aspect-[4/5]',
     arch: false,
   },
   {
@@ -22,17 +22,17 @@ const GALLERY_ITEMS = [
   },
   {
     asset: SALON_IMAGE_ASSETS.washLounge,
-    aspect: 'aspect-square',
+    aspect: 'aspect-[4/5]',
     arch: false,
   },
   {
     asset: SALON_IMAGE_ASSETS.nailBar,
-    aspect: 'aspect-[16/10]',
-    arch: false,
+    aspect: 'aspect-[4/5]',
+    arch: true,
   },
   {
     asset: SALON_IMAGE_ASSETS.storefrontSignageGold,
-    aspect: 'aspect-[16/10]',
+    aspect: 'aspect-[4/5]',
     arch: false,
   },
 ];
@@ -43,10 +43,10 @@ export const StudioGallery: React.FC = () => {
       <Container size="lg">
         {/* Lustre Section Header */}
         <div data-reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/80 border border-border shadow-sm mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-            <span className="text-[11px] uppercase tracking-[0.18em] text-gold-text font-semibold">
-              The Space & The Work
+          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
+            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+              The Space &amp; The Work
             </span>
           </div>
 
