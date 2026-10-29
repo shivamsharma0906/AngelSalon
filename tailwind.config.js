@@ -15,96 +15,103 @@ export default {
     },
     extend: {
       colors: {
-        // Core Light Palette tokens
+        // Lustre Studio inspired warm alabaster & sand palette
         background: {
-          DEFAULT: '#FAF7F2',
-          page: '#FAF7F2',
+          DEFAULT: '#F7F4EF',
+          page: '#F7F4EF',
         },
         surface: {
           DEFAULT: '#FFFFFF',
-          subtle: '#F3EEE6',
-          band: '#F3EEE6',
+          subtle: '#E8E1D6',
+          band: '#E8E1D6',
           card: '#FFFFFF',
           elevated: '#FFFFFF',
-          muted: '#F3EEE6',
+          muted: '#E8E1D6',
         },
-        // Dark sections (reserved for Hero, Final CTA, and Footer)
+        // Deep warm espresso & charcoal for editorial contrast
         dark: {
-          DEFAULT: '#14110E',
-          surface: '#1A1613',
-          elevated: '#241E1A',
-          border: 'rgba(201, 162, 39, 0.25)',
+          DEFAULT: '#171513',
+          surface: '#1F1C18',
+          elevated: '#28231E',
+          border: 'rgba(185, 151, 98, 0.25)',
         },
         // Typography tokens
         text: {
-          DEFAULT: '#1F1B16',
-          pure: '#1F1B16',
+          DEFAULT: '#171513',
+          pure: '#171513',
           muted: '#6B6258',
           subtle: '#6B6258',
-          inverse: '#FAF7F2',
+          inverse: '#F7F4EF',
           'inverse-muted': '#A89F91',
         },
         muted: {
           DEFAULT: '#6B6258',
         },
-        // Luxury Gold accents
+        // Lustre Studio warm antique bronze & gold accents
         gold: {
-          DEFAULT: '#C9A227', // Fills, borders, icons
-          soft: '#DEB843',    // Light hover tint
-          hover: '#DEB843',
-          light: '#DEB843',   // Light gold accent
-          dark: '#9E7E1B',    // Active / pressed
-          text: '#7A5F0E',    // Gold text on light backgrounds (5.2:1 on sand, 5.7:1 on cream)
-          muted: 'rgba(201, 162, 39, 0.12)', // Subtle highlight pill
-          glow: 'rgba(201, 162, 39, 0.25)',
-          line: 'rgba(201, 162, 39, 0.35)',
+          DEFAULT: '#B99762', // Lustre antique gold
+          soft: '#CBB184',    // Hover tint
+          hover: '#CBB184',
+          light: '#CBB184',
+          dark: '#6B4F32',    // Lustre deep bronze
+          text: '#6B4F32',    // High-contrast text on cream
+          muted: 'rgba(185, 151, 98, 0.12)',
+          glow: 'rgba(185, 151, 98, 0.25)',
+          line: 'rgba(185, 151, 98, 0.35)',
         },
-        'gold-light': '#DEB843',
+        'gold-light': '#CBB184',
+        'gold-text': '#6B4F32',
         // Borders
         border: {
-          DEFAULT: 'rgba(201, 162, 39, 0.25)',
-          subtle: 'rgba(31, 27, 22, 0.08)',
-          line: 'rgba(201, 162, 39, 0.25)',
-          gold: 'rgba(201, 162, 39, 0.35)',
-          'gold-light': 'rgba(201, 162, 39, 0.45)',
-          input: '#9A7F36',   // Form inputs (3.8:1 on white, 3.6:1 on cream)
-          dark: 'rgba(201, 162, 39, 0.25)',
+          DEFAULT: '#E8E1D6',
+          subtle: 'rgba(23, 21, 19, 0.08)',
+          line: 'rgba(185, 151, 98, 0.30)',
+          gold: 'rgba(185, 151, 98, 0.35)',
+          'gold-light': 'rgba(185, 151, 98, 0.45)',
+          input: '#B99762',
+          dark: 'rgba(185, 151, 98, 0.25)',
         },
-        'gold-line': 'rgba(201, 162, 39, 0.35)',
-        line: 'rgba(201, 162, 39, 0.25)',
-        // Semantic Dark components
+        'gold-line': 'rgba(185, 151, 98, 0.35)',
+        line: 'rgba(185, 151, 98, 0.25)',
         footer: {
-          DEFAULT: '#14110E',
-          bar: '#0E0C0A',
+          DEFAULT: '#171513',
+          bar: '#100E0D',
         },
-        'footer-bar': '#0E0C0A',
+        'footer-bar': '#100E0D',
         raised: {
           DEFAULT: '#FFFFFF',
-          hover: '#F3EEE6',
+          hover: '#E8E1D6',
         },
-        // Compatibility token aliases (mapping legacy 'ink' gracefully)
         ink: {
-          DEFAULT: '#FAF7F2',
-          deep: '#F3EEE6',
+          DEFAULT: '#F7F4EF',
+          deep: '#E8E1D6',
           lighter: '#FFFFFF',
-          dark: '#14110E',
+          dark: '#171513',
         },
         whatsapp: {
-          DEFAULT: '#075E54', // WhatsApp dark teal (~7.7:1 with white text)
-          hover: '#0A7366',   // Rich teal hover
-          dark: '#054C44',    // Deep teal active
+          DEFAULT: '#075E54',
+          hover: '#0A7366',
+          dark: '#054C44',
         }
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['"Instrument Serif"', '"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
+      borderRadius: {
+        'arch': '240px 240px 32px 32px',
+        'arch-sm': '140px 140px 24px 24px',
+        'arch-xs': '90px 90px 18px 18px',
+      },
       boxShadow: {
-        'gold-sm': '0 2px 10px rgba(201, 162, 39, 0.12)',
-        'gold-md': '0 4px 20px rgba(201, 162, 39, 0.22)',
-        'gold-glow': '0 0 25px rgba(201, 162, 39, 0.25)',
-        'card-light': '0 4px 20px -2px rgba(31, 27, 22, 0.05), 0 2px 6px -1px rgba(31, 27, 22, 0.03)',
-        'card-hover': '0 12px 28px -4px rgba(31, 27, 22, 0.09), 0 4px 10px -2px rgba(201, 162, 39, 0.12)',
+        'lustre-sm': '0 2px 12px rgba(23, 21, 19, 0.04)',
+        'lustre-md': '0 8px 30px rgba(23, 21, 19, 0.06)',
+        'lustre-lg': '0 20px 50px rgba(23, 21, 19, 0.09)',
+        'gold-sm': '0 2px 10px rgba(185, 151, 98, 0.15)',
+        'gold-md': '0 4px 20px rgba(185, 151, 98, 0.25)',
+        'gold-glow': '0 0 25px rgba(185, 151, 98, 0.25)',
+        'card-light': '0 4px 24px -2px rgba(23, 21, 19, 0.05), 0 2px 8px -1px rgba(23, 21, 19, 0.03)',
+        'card-hover': '0 16px 36px -4px rgba(23, 21, 19, 0.08), 0 4px 14px -2px rgba(185, 151, 98, 0.15)',
         'card-dark': '0 10px 30px -10px rgba(0, 0, 0, 0.7)',
       },
       letterSpacing: {
