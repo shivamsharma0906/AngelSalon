@@ -24,12 +24,34 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
 
   return (
     <article
-      className="bg-surface border border-border hover:border-gold rounded-[4px] p-6 sm:p-7 flex flex-col justify-between shadow-card-light transition-all duration-300 h-full group"
+      className="bg-surface border border-border hover:border-gold/50 rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 flex flex-col justify-between shadow-lustre-sm hover:shadow-lustre-md transition-all duration-300 h-full group"
       aria-label={`Review by ${review.name}`}
     >
       <div>
-        {/* Header: Initial Avatar, Name, and Google Badge */}
-        <div className="flex items-center justify-between gap-3 mb-5">
+        {/* Header: Star Rating and Verified Badge */}
+        <div className="flex items-center justify-between gap-3 mb-6">
+          <div className="flex items-center gap-1 text-gold" aria-label="5 out of 5 stars">
+            {[...Array(5)].map((_, i) => (
+              <StarIcon key={i} size={15} className="fill-gold text-gold" />
+            ))}
+          </div>
+
+          <span className="text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full bg-background border border-border text-gold-text">
+            Verified Client
+          </span>
+        </div>
+
+        {/* Verbatim Review Text */}
+        <blockquote className="text-sm sm:text-base text-text-muted leading-relaxed font-normal mb-6">
+          <span className="text-gold font-serif text-xl leading-none select-none mr-1">“</span>
+          {review.text}
+          <span className="text-gold font-serif text-xl leading-none select-none ml-1">”</span>
+        </blockquote>
+      </div>
+
+      <div>
+        {/* Reviewer Details */}
+        <div className="pt-5 border-t border-border flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div
               className="w-10 h-10 rounded-full bg-surface-subtle border border-gold/40 text-gold-text flex items-center justify-center font-bold text-xs uppercase tracking-wider shadow-sm select-none"
@@ -41,139 +63,98 @@ export const GoogleReviewCard: React.FC<{ review: GoogleReview }> = ({ review })
               <h3 className="font-serif text-base font-bold text-text group-hover:text-gold-text transition-colors leading-tight">
                 {review.name}
               </h3>
-              <span className="text-[12px] text-text-muted font-medium uppercase tracking-wider">
-                Google review
+              <span className="text-[11px] text-text-muted font-normal">
+                Verified Google Client
               </span>
             </div>
           </div>
 
-          {/* Star Rating Badge */}
-          <div className="flex items-center gap-1 text-gold" aria-label="5 out of 5 stars">
-            <StarIcon size={14} className="fill-gold text-gold" />
-            <span className="text-xs font-bold text-text">5.0</span>
-          </div>
+          {hasReviewsUrl && (
+            <a
+              href={googleSummary.reviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-text-muted hover:text-gold uppercase tracking-wider font-semibold transition-colors shrink-0"
+              aria-label="View on Google"
+            >
+              Google &rarr;
+            </a>
+          )}
         </div>
-
-        {/* Verbatim Review Text */}
-        <blockquote className="text-base text-text-muted leading-relaxed font-normal">
-          <span className="text-gold font-serif text-lg leading-none select-none">“</span>
-          {review.text}
-          <span className="text-gold font-serif text-lg leading-none select-none">”</span>
-        </blockquote>
       </div>
-
-      {/* Conditional Read on Google link for possiblyTruncated reviews (min 44px tap target) */}
-      {review.possiblyTruncated && hasReviewsUrl && (
-        <div className="pt-3 mt-4 border-t border-border">
-          <a
-            href={googleSummary.reviewsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="min-h-[44px] text-xs text-gold-text hover:text-gold font-semibold inline-flex items-center gap-1.5 transition-colors py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
-          >
-            <span>Read on Google</span>
-            <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-      )}
     </article>
-  );
-};
-
-export const GoogleReviewSummaryHeader: React.FC = () => {
-  const summaryLineText = `${googleSummary.rating} on Google · ${googleSummary.count} reviews`;
-
-  return (
-    <div className="flex flex-col items-center justify-center text-center mb-10 sm:mb-12">
-      {/* 4.7 Rating with Gold Star */}
-      <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-surface border border-border shadow-card-light mb-3">
-        <span className="font-serif text-2xl sm:text-3xl font-bold text-gold-text tracking-tight">
-          {googleSummary.rating}
-        </span>
-        <StarIcon size={20} className="fill-gold text-gold shrink-0" />
-        <span className="text-xs sm:text-sm font-semibold text-text">
-          {summaryLineText}
-        </span>
-      </div>
-
-      {/* Note: Showing selected reviews */}
-      <p className="text-xs text-text-muted font-normal">
-        Showing selected reviews
-      </p>
-    </div>
   );
 };
 
 export const GoogleReviews: React.FC<GoogleReviewsProps> = ({
   mode = 'carousel',
-  limit = 4,
+  limit,
   tone = 'surface',
   className = '',
 }) => {
-  const items = limit ? googleReviews.slice(0, limit) : googleReviews;
-  const hasReviewsUrl = Boolean(googleSummary.reviewsUrl && googleSummary.reviewsUrl.trim().length > 0);
-
-  if (!items || items.length === 0) {
-    return null;
-  }
+  const displayReviews = limit ? googleReviews.slice(0, limit) : googleReviews;
 
   return (
-    <Section
-      id="reviews"
-      tone={tone}
-      className={`py-16 sm:py-24 border-y border-gold/25 relative overflow-hidden ${className}`}
-      aria-label="Client Reviews and Testimonials"
-    >
+    <Section id="reviews" tone={tone} className={`py-20 sm:py-28 border-t border-border ${className}`} aria-label="Customer Testimonials">
       <Container size="lg">
-        {/* Section Heading */}
-        <div data-reveal className="text-center mb-6">
-          <span className="text-[12px] uppercase tracking-wider text-gold font-semibold block mb-2">
-            Selected Reviews
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-text">
-            What Our Clients Say
+        {/* Lustre Section Header */}
+        <div data-reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/80 border border-border shadow-sm mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+            <span className="text-[11px] uppercase tracking-[0.18em] text-gold-text font-semibold">
+              Client Feedback
+            </span>
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-4 leading-tight tracking-tight">
+            Kind <span className="italic">words.</span>
           </h2>
+
+          <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-text-muted">
+            <div className="flex items-center text-gold">
+              <StarIcon size={14} className="fill-gold text-gold" />
+            </div>
+            <span className="font-bold text-text">{googleSummary.rating} out of 5 stars</span>
+            <span>·</span>
+            <span>Based on {googleSummary.count} verified Google reviews</span>
+          </div>
         </div>
 
-        {/* Dynamic Google Summary Bar */}
-        <GoogleReviewSummaryHeader />
-
+        {/* Carousel or Grid Presentation */}
         {mode === 'carousel' ? (
-          /* Accessible, dependency-free Carousel presentation */
           <div data-reveal>
             <Carousel
-              label="Selected Google customer reviews"
-              slideClassName="w-[85vw] sm:w-[46%] lg:w-[31%] shrink-0 snap-start"
+              label="Customer testimonials"
+              slideClassName="w-[85vw] sm:w-[48%] lg:w-[32%] shrink-0 snap-start"
+              autoRotate
+              autoRotateInterval={5500}
             >
-              {items.map((review) => (
-                <div key={review.id} className="h-full">
+              {displayReviews.map((review) => (
+                <div key={review.id} className="h-full pr-4 sm:pr-6">
                   <GoogleReviewCard review={review} />
                 </div>
               ))}
             </Carousel>
           </div>
         ) : (
-          /* Grid Presentation (Testimonials Page) */
-          <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {items.map((review) => (
-              <div key={review.id}>
-                <GoogleReviewCard review={review} />
-              </div>
+          <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {displayReviews.map((review) => (
+              <GoogleReviewCard key={review.id} review={review} />
             ))}
           </div>
         )}
 
-        {/* Read all reviews on Google CTA */}
-        {hasReviewsUrl && (
-          <div data-reveal className="mt-10 sm:mt-12 text-center">
+        {/* Google Reviews Direct Link Button */}
+        {googleSummary.reviewsUrl && (
+          <div data-reveal className="text-center mt-12 sm:mt-16">
             <a
               href={googleSummary.reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 min-h-[48px] px-8 py-3.5 rounded-[4px] bg-raised border border-gold-line text-gold hover:bg-gold hover:text-text font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold group"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-surface border border-border hover:border-gold/60 text-text hover:text-gold-text text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-lustre-sm"
             >
-              <span>Read all reviews on Google</span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+              <span>Read All {googleSummary.count} Google Reviews</span>
+              <span aria-hidden="true">&nearr;</span>
             </a>
           </div>
         )}

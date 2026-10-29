@@ -1,30 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { SEO, generateLocalBusinessSchema, generateEducationalOrganizationSchema } from '../lib/seo';
-import { homeData } from '../data/home';
 import { Hero } from '../components/sections/Hero';
-import { HorizontalBookingBar } from '../components/sections/HorizontalBookingBar';
-import { Container } from '../components/ui/Container';
-import { PathCards } from '../components/sections/PathCards';
 import { WelcomeToAngels } from '../components/sections/WelcomeToAngels';
 import { OurServicesTiles } from '../components/sections/OurServicesTiles';
-import { WhyChooseUs } from '../components/sections/WhyChooseUs';
+import { StudioGallery } from '../components/sections/StudioGallery';
 import { AcademyTeaser } from '../components/sections/AcademyTeaser';
-import { VideoSection } from '../components/sections/VideoSection';
+import { WhyChooseUs } from '../components/sections/WhyChooseUs';
 import { GoogleReviews } from '../components/sections/GoogleReviews';
+import { LustreFAQ } from '../components/sections/LustreFAQ';
 import { VisitAngels } from '../components/sections/VisitAngels';
-import { FinalCTA } from '../components/sections/FinalCTA';
 
 export const Home: React.FC = () => {
   const localBusinessSchema = generateLocalBusinessSchema();
   const educationalOrgSchema = generateEducationalOrganizationSchema();
   const homeSchemas = [...localBusinessSchema, educationalOrgSchema];
-
-  // If video is unverified or has no genuine source, it renders null
-  const isVideoVisible = Boolean(
-    homeData.video.verified &&
-      (homeData.video.youtubeId || (homeData.video as { src?: string }).src)
-  );
 
   return (
     <>
@@ -40,60 +30,38 @@ export const Home: React.FC = () => {
         <link
           rel="preload"
           as="image"
-          href="/images/hero-carousel/slide1_mobile_768.webp"
+          href="/images/real/interior_styling_stations.webp"
           type="image/webp"
-          media="(max-width: 640px)"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/hero-carousel/slide1_desktop_1920.webp"
-          type="image/webp"
-          media="(min-width: 641px)"
         />
       </Helmet>
 
       <main id="main-content">
-        {/* 1. Hero with crossfade slideshow */}
+        {/* 1. Lustre Editorial Hero with Arched Photo Showcase */}
         <Hero />
 
-        {/* 2. Dedicated Appointment Reservation Console */}
-        <section id="reserve" className="py-4 sm:py-10 bg-background border-b border-border" aria-label="Reserve an Appointment">
-          <Container size="lg">
-            <HorizontalBookingBar />
-          </Container>
-        </section>
-
-        {/* 3. Path cards (ink) */}
-        <PathCards />
-
-        {/* 4. Welcome to Angels (ink) */}
+        {/* 2. Welcome to Angels (Lustre Studio Philosophy & Arched Photo) */}
         <WelcomeToAngels />
 
-        {/* 6. Our Services (surface) */}
+        {/* 3. Curated Services Directory */}
         <OurServicesTiles />
 
-        {/* 7. Why clients choose Angels (ink) */}
-        <WhyChooseUs />
+        {/* 4. Inside the Studio Gallery (Lustre 6-Photo Editorial Grid) */}
+        <StudioGallery />
 
-        {/* 8. Academy teaser (surface) */}
+        {/* 5. Dedicated Angels Academy Showcase */}
         <AcademyTeaser />
 
-        {/* 9. Video (ink) - click-to-load facade, hides when unverified */}
-        {isVideoVisible && <VideoSection />}
+        {/* 6. Why Guests Choose Angels (4 Pillars) */}
+        <WhyChooseUs />
 
-        {/* 10. Reviews (alternating tone: ink when video is hidden so adjacent sections never share a tone) */}
-        <GoogleReviews
-          mode="carousel"
-          limit={4}
-          tone={isVideoVisible ? 'surface' : 'ink'}
-        />
+        {/* 7. Client Love / Google Reviews Carousel */}
+        <GoogleReviews mode="carousel" limit={6} />
 
-        {/* 11. Visit Angels (alternating tone: surface when video is hidden) */}
-        <VisitAngels tone={isVideoVisible ? 'ink' : 'surface'} />
+        {/* 8. Frequently Asked Questions Accordion */}
+        <LustreFAQ />
 
-        {/* 12. Final CTA (dark banner with gold accents) */}
-        <FinalCTA />
+        {/* 9. Visit & Reservation Console */}
+        <VisitAngels />
       </main>
     </>
   );
