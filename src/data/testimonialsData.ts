@@ -15,8 +15,8 @@ export const featuredResults: FeaturedResult[] = [
     clientName: 'Reshma Shelke',
     service: 'Layered Haircut & Balayage',
     image: '/images/real/client2_caramel_balayage_after.webp',
-    imageAlt: 'Real client dimensional honey-caramel balayage at Angels Salon Ghatkopar East',
-    whatsappMessage: 'Hi Angels Salon! I saw the dimensional balayage result and would like to book a slot.',
+    imageAlt: 'Real client dimensional honey-caramel balayage at Angel Salon Ghatkopar East',
+    whatsappMessage: 'Hi Angel Salon! I saw the dimensional balayage result and would like to book a slot.',
   },
   {
     id: 'featured-2',
@@ -24,8 +24,8 @@ export const featuredResults: FeaturedResult[] = [
     clientName: 'Mamta Bhogle',
     service: 'Liquid Glass Smoothening & Nanoplastia',
     image: '/images/real/client1_glass_hair_after.webp',
-    imageAlt: 'Real client waist-length pin-straight liquid glass hair at Angels Salon',
-    whatsappMessage: 'Hi Angels Salon! I saw the liquid glass smoothening result and would like to schedule a consultation.',
+    imageAlt: 'Real client waist-length pin-straight liquid glass hair at Angel Salon',
+    whatsappMessage: 'Hi Angel Salon! I saw the liquid glass smoothening result and would like to schedule a consultation.',
   },
   {
     id: 'featured-3',
@@ -33,8 +33,8 @@ export const featuredResults: FeaturedResult[] = [
     clientName: 'Pankaj Kumar',
     service: 'Luxury Hair Wash & Scalp Spa',
     image: '/images/real/interior_wash_lounge.webp',
-    imageAlt: 'Reclining shampoo lounge and hair spa basins at Angels Salon',
-    whatsappMessage: 'Hi Angels Salon! I would like to book a luxury hair wash and scalp spa appointment.',
+    imageAlt: 'Reclining shampoo lounge and hair spa basins at Angel Salon',
+    whatsappMessage: 'Hi Angel Salon! I would like to book a luxury hair wash and scalp spa appointment.',
   },
 ];
 

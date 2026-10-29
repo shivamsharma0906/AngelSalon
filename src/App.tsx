@@ -33,7 +33,7 @@ const PageLoader: React.FC = () => (
   <div className="min-h-[50vh] flex flex-col items-center justify-center py-16" aria-live="polite" aria-busy="true">
     <div className="w-9 h-9 rounded-full border-2 border-border border-t-gold animate-spin mb-3"></div>
     <span className="font-serif text-xs tracking-luxury uppercase text-gold-text">
-      Angels Salon & Academy
+      Angel Salon & Academy
     </span>
   </div>
 );

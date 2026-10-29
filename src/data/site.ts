@@ -93,14 +93,14 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Angels Salon & Academy",
-  shortName: "Angels",
+  name: "Angel Salon & Academy",
+  shortName: "Angel",
   tagline: "Elevating Personal Artistry & Professional Mastery",
   description: "Premier luxury hair salon, bridal makeup destination, and government-recognized beauty academy in Ghatkopar East, Mumbai.",
   url: "https://angelfamilysalon.in",
   logo: {
     src: "/logo.jpg",
-    alt: "Angels Salon & Academy Gold Monogram Emblem",
+    alt: "Angel Salon & Academy Gold Monogram Emblem",
     width: 180,
     height: 180,
   },
@@ -172,19 +172,19 @@ export const siteConfig: SiteConfig = {
       platform: "instagram",
       label: "Instagram",
       url: "https://www.instagram.com/angelsalon_ghatkopar?igsh=MTY4M2pxcWNheHRsOA%3D%3D",
-      ariaLabel: "Follow Angels Salon & Academy on Instagram",
+      ariaLabel: "Follow Angel Salon & Academy on Instagram",
     },
     {
       platform: "facebook",
       label: "Facebook",
       url: "https://www.facebook.com/people/Angel-Salon-Academy/100069843930101/?ref=NONE_xav_ig_profile_page_web#",
-      ariaLabel: "Visit Angels Salon & Academy on Facebook",
+      ariaLabel: "Visit Angel Salon & Academy on Facebook",
     },
     {
       platform: "whatsapp",
       label: "WhatsApp",
       url: "https://wa.me/917303312054",
-      ariaLabel: "Chat with Angels Salon Concierge on WhatsApp",
+      ariaLabel: "Chat with Angel Salon Concierge on WhatsApp",
     },
   ],
   founder: {
@@ -196,10 +196,10 @@ export const siteConfig: SiteConfig = {
       "Whether you're looking for a stylish haircut, hair coloring, smoothening, facials, bridal or party makeup, skincare treatments, or regular grooming, we ensure every visit is relaxing and satisfying. We believe every client deserves exceptional service and a rejuvenating salon experience tailored to their individual style and preferences.",
       "Visit us any day of the week from 9:30 AM to 9:00 PM and experience professional beauty and grooming services that leave you looking confident and refreshed."
     ],
-    signatureName: "The Angels Salon & Academy Team",
+    signatureName: "The Angel Salon & Academy Team",
     signatureRole: "Master Stylists & Educators",
     image: "/images/real/interior_styling_stations.webp",
-    imageAlt: "Angels Salon & Academy styling stations and vanity mirrors in Ghatkopar East",
+    imageAlt: "Angel Salon & Academy styling stations and vanity mirrors in Ghatkopar East",
     yearsExperience: "10+",
   },
   facilities: [

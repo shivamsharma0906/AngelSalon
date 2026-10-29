@@ -20,7 +20,7 @@ const FAQS = [
     a: 'We are open daily from 9:30 AM to 9:00 PM, Monday through Sunday (including public holidays). We are conveniently located at 29/843, Shival Nagar, Pant Nagar, Ghatkopar East, Mumbai 400075 (beside Kirti Computer Institute).',
   },
   {
-    q: 'Do I need prior experience to join the Angels Academy diplomas?',
+    q: 'Do I need prior experience to join the Angel Academy diplomas?',
     a: 'No prior experience is necessary. Our Comprehensive Hairdressing and Bridal Makeup diplomas begin from foundational trichology, shear handling, and color theory, progressing to live-model salon practice.',
   },
   {
@@ -41,12 +41,6 @@ export const LustreFAQ: React.FC = () => {
       <Container size="lg">
         {/* Lustre Section Header */}
         <div data-reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-              Got Questions?
-            </span>
-          </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-4 leading-tight tracking-tight">
             Have questions? <br className="hidden sm:inline" />
@@ -106,7 +100,7 @@ export const LustreFAQ: React.FC = () => {
             Have a specific hair, skin, or course inquiry?
           </p>
           <a
-            href="https://wa.me/917303312054?text=Hi%20Angels%20Salon!%20I%20have%20a%20question%20about%20your%20services."
+            href="https://wa.me/917303312054?text=Hi%20Angel%20Salon!%20I%20have%20a%20question%20about%20your%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-dark text-text-inverse hover:bg-gold-text text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-lustre-sm"

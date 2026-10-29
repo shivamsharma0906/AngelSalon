@@ -103,7 +103,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
   if (!isOpen) return null;
 
   const whatsAppBookingUrl = buildWhatsAppLink({
-    message: "Hi Angels Salon & Academy! I would like to book an appointment. Could you please share available slots?",
+    message: "Hi Angel Salon & Academy! I would like to book an appointment. Could you please share available slots?",
   });
 
   return (
@@ -130,7 +130,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
             />
             <div className="flex flex-col">
               <span className="font-serif text-base font-bold tracking-luxury text-text">
-                ANGELS
+                ANGEL
               </span>
               <span className="text-[9.5px] uppercase tracking-luxury text-gold">
                 Salon & Academy
@@ -143,7 +143,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="w-11 h-11 flex items-center justify-center text-text-muted hover:text-gold border border-transparent hover:border-gold/30 rounded-sm transition-colors focus:outline-none focus:ring-1 focus:ring-gold"
+            className="w-11 h-11 flex items-center justify-center text-text-muted hover:text-gold border border-transparent hover:border-gold/30 rounded-sm transition-colors outline-none focus:outline-none focus:ring-0"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>

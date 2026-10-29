@@ -8,24 +8,18 @@ import { FramedImage } from '../ui/FramedImage';
 
 export const AcademyTeaser: React.FC = () => {
   const whatsAppInquiryUrl = `https://wa.me/917303312054?text=${encodeURIComponent(
-    "Hi Angels Academy! I am interested in your professional diplomas (Hairdressing / Bridal Makeup). Could you please share the upcoming batch dates and syllabus?"
+    "Hi Angel Academy! I am interested in your professional diplomas (Hairdressing / Bridal Makeup). Could you please share the upcoming batch dates and syllabus?"
   )}`;
 
   return (
-    <Section id="academy" tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="Angels Academy of Hair & Beauty">
+    <Section id="academy" tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="Angel Academy of Hair & Beauty">
       <Container size="lg">
         {/* Lustre Section Header */}
         <div data-reveal className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-              Professional Education
-            </span>
-          </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-4 leading-tight tracking-tight">
             Master the craft at <br className="hidden sm:inline" />
-            <span className="italic">Angels Academy.</span>
+            <span className="italic">Angel Academy.</span>
           </h2>
           <p className="text-sm sm:text-base text-text-muted leading-relaxed max-w-xl mx-auto">
             Hands-on hairdressing, bridal couture makeup, and cosmetology diplomas with 80% practical training on live models in our Mumbai flagship atelier.
@@ -112,16 +106,11 @@ export const AcademyTeaser: React.FC = () => {
           <div data-reveal="image" className="lg:col-span-5">
             <FramedImage
               src="/images/real/interior_studio_floor.webp"
-              alt="Angels Academy hands-on styling atelier and student live model practice in Ghatkopar East"
+              alt="Angel Academy hands-on styling atelier and student live model practice in Ghatkopar East"
               focalPoint="50% 45%"
               aspectRatio="aspect-[4/5]"
               radius="arch-tall"
               border="gold"
-              caption={{
-                title: 'Live Model Atelier',
-                subtitle: 'Pant Nagar Flagship Studio',
-                badge: '80% Practical',
-              }}
               width={1200}
               height={1600}
             />

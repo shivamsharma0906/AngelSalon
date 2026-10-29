@@ -181,7 +181,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
     >
       {/* Stable Visually Hidden H1 per page */}
       <h1 className="sr-only">
-        Angels Salon & Academy | Luxury Hair, Skin & Bridal Salon in Ghatkopar East, Mumbai
+        Angel Salon & Academy | Luxury Hair, Skin & Bridal Salon in Ghatkopar East, Mumbai
       </h1>
 
       {/* Horizontal Carousel Track */}
@@ -499,7 +499,7 @@ const AcademySlideView: React.FC<{
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src={slide.collageImages[0]?.src || '/images/real/interior_studio_floor.webp'}
-          alt={isActive ? 'Angels Salon Academy live training studio floor' : ''}
+          alt={isActive ? 'Angel Salon Academy live training studio floor' : ''}
           width={1920}
           height={1080}
           loading={isFirstSlide ? 'eager' : 'lazy'}
@@ -574,7 +574,7 @@ const AcademySlideView: React.FC<{
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-line bg-raised mb-3 group/preview">
               <img
                 src={slide.collageImages[1]?.src || '/images/real/interior_styling_stations.webp'}
-                alt="Student precision haircut result at Angels Academy"
+                alt="Student precision haircut result at Angel Academy"
                 width={360}
                 height={450}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover/preview:scale-105"

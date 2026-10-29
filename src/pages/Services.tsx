@@ -26,8 +26,8 @@ export const Services: React.FC = () => {
   return (
     <>
       <SEO
-        title="Luxury Salon Services & Menu | Angels Mumbai"
-        description="Explore our complete menu of precision haircuts, French balayage, executive barbering, keratin smoothing, and bridal couture at Angels Salon Mumbai."
+        title="Luxury Salon Services & Menu | Angel Mumbai"
+        description="Explore our complete menu of precision haircuts, French balayage, executive barbering, keratin smoothing, and bridal couture at Angel Salon Mumbai."
         canonicalPath="/services"
         schemaData={servicesSchema}
       />
@@ -41,12 +41,6 @@ export const Services: React.FC = () => {
         {/* Page Hero Header */}
         <section className="text-center mb-14 sm:mb-18">
           <Container size="md">
-            <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-              <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                Haute Coiffure &amp; Beauty Rituals
-              </span>
-            </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
               Our Salon Services
             </h1>
@@ -72,22 +66,25 @@ export const Services: React.FC = () => {
                     <div className="relative aspect-[16/10] sm:aspect-[3/2] w-full overflow-hidden bg-surface-subtle border-b border-border">
                       <img
                         src={cat.overviewImage}
-                        alt={`${cat.name} at Angels Salon Mumbai`}
+                        alt={`${cat.name} at Angel Salon Mumbai`}
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
-                      <div className="absolute top-3 right-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full border border-border text-[11px] font-medium text-gold-text shadow-sm">
-                        {cat.services.length} Treatments
-                      </div>
+                      
                     </div>
 
                     {/* Card Content with Clear Typographic Hierarchy */}
                     <div className="p-6 sm:p-7 flex flex-col flex-1">
                       <div className="mb-3">
-                        <span className="text-[11px] font-semibold uppercase tracking-wider text-gold-text block mb-1.5">
-                          Salon Category
-                        </span>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-[11px] font-semibold uppercase tracking-wider text-gold-text">
+                            Salon Category
+                          </span>
+                          <span className="text-[11px] font-medium text-text-muted">
+                            {cat.services.length} Treatments
+                          </span>
+                        </div>
                         <h2 className="font-serif text-2xl font-bold text-text group-hover:text-gold-text transition-colors tracking-tight">
                           {cat.name}
                         </h2>
@@ -156,12 +153,6 @@ export const Services: React.FC = () => {
         <section data-reveal className="text-center">
           <Container size="md">
             <div className="p-8 sm:p-12 rounded-[28px] bg-surface border border-border hover:border-gold/50 transition-colors shadow-lustre-sm">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                  Complimentary Styling Advice
-                </span>
-              </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3">
                 Unsure Which Service Suits You?
               </h2>
@@ -172,7 +163,7 @@ export const Services: React.FC = () => {
                 <Button
                   as="a"
                   href={buildWhatsAppLink({
-                    message: "Hi Angels Salon! I would like to schedule a personal hair & beauty consultation.",
+                    message: "Hi Angel Salon! I would like to schedule a personal hair & beauty consultation.",
                   })}
                   target="_blank"
                   variant="whatsapp"

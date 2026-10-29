@@ -11,7 +11,7 @@ export const FinalCTA: React.FC<{ tone?: 'dark' | 'surface' | 'background' }> = 
   const { finalCta } = homeData;
 
   const whatsAppFinalUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
-    "Hi Angels Salon & Academy! I would like to book an appointment. Could you please share available slots?"
+    "Hi Angel Salon & Academy! I would like to book an appointment. Could you please share available slots?"
   )}`;
 
   return (

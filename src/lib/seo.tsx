@@ -24,7 +24,7 @@ export const SEO: React.FC<SEOProps> = ({
   noIndex = false,
 }) => {
   // Prevent duplicate brand name in title if already included
-  const hasBrand = title && (title.includes('Angels') || title.includes(siteConfig.name));
+  const hasBrand = title && (title.includes('Angel') || title.includes(siteConfig.name));
   const fullTitle = title
     ? (hasBrand ? title : `${title} | ${siteConfig.name}`)
     : `${siteConfig.name} | Luxury Hair Salon & Academy Mumbai`;
@@ -149,7 +149,7 @@ export function generateLocalBusinessSchema() {
 }
 
 /**
- * Generates EducationalOrganization schema for Angels Academy
+ * Generates EducationalOrganization schema for Angel Academy
  */
 export function generateEducationalOrganizationSchema() {
   const branch = siteConfig.branches[0];

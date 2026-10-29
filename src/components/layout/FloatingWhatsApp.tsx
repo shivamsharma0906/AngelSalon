@@ -4,7 +4,7 @@ import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export const FloatingWhatsApp: React.FC = () => {
   const whatsAppUrl = buildWhatsAppLink({
-    message: "Hi Angels Salon & Academy! I would like to enquire about appointments and courses.",
+    message: "Hi Angel Salon & Academy! I would like to enquire about appointments and courses.",
   });
 
   return (
@@ -13,7 +13,7 @@ export const FloatingWhatsApp: React.FC = () => {
         href={whatsAppUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Angels Salon & Academy on WhatsApp"
+        aria-label="Chat with Angel Salon & Academy on WhatsApp"
         className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-whatsapp/40"
       >
         {/* Pulsing halo */}

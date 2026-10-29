@@ -17,7 +17,7 @@ export const Academy: React.FC = () => {
       slug: "hair-courses",
       path: "/academy/hair-courses",
       image: "/images/real/interior_studio_floor.webp",
-      alt: "Angels Salon Academy styling stations and hands-on practice studio floor",
+      alt: "Angel Salon Academy styling stations and hands-on practice studio floor",
       description: "From foundational trichology to Vidal Sassoon geometry, French balayage, and chemical keratin textures with 80% practical studio practice.",
       badge: "Hairdressing Diplomas",
     },
@@ -26,7 +26,7 @@ export const Academy: React.FC = () => {
       slug: "makeup-courses",
       path: "/academy/makeup-courses",
       image: "/images/real/storefront_facade.webp",
-      alt: "Angels Salon & Academy storefront showing official illuminated academy signage",
+      alt: "Angel Salon & Academy storefront showing official illuminated academy signage",
       description: "Command high-ticket bridal bookings with advance HD airbrush techniques, traditional Nauvari/Gujarati saree draping, and Russian nail art.",
       badge: "Bridal Artistry Diplomas",
     },
@@ -49,8 +49,8 @@ export const Academy: React.FC = () => {
   return (
     <>
       <SEO
-        title="Hair & Beauty Academy in Mumbai | Angels Academy"
-        description="Launch an international styling career with Angels Academy in Ghatkopar East. Government-recognized hair and bridal makeup diplomas with 100% placement support."
+        title="Hair & Beauty Academy in Mumbai | Angel Academy"
+        description="Launch an international styling career with Angel Academy in Ghatkopar East. Government-recognized hair and bridal makeup diplomas with 100% placement support."
         canonicalPath="/academy"
         schemaData={combinedSchema}
       />
@@ -68,7 +68,7 @@ export const Academy: React.FC = () => {
               Government Recognized & ISO Certified
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
-              Angels Academy of Hair & Beauty
+              Angel Academy of Hair & Beauty
             </h1>
             <LaurelDivider size="md" />
             <p className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto leading-relaxed font-light mt-3">
@@ -96,14 +96,14 @@ export const Academy: React.FC = () => {
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60" />
-                      <div className="absolute top-3 right-3 bg-surface/95 backdrop-blur-md border border-border text-[10px] font-bold uppercase tracking-wider text-gold-text px-3 py-1 rounded-full shadow-sm">
-                        {category.badge}
-                      </div>
+                      
                     </div>
 
                     {/* Content */}
                     <div className="p-6 sm:p-8">
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-gold-text mb-2">
+                        {category.badge}
+                      </span>
                       <h2 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-3 group-hover:text-gold-text transition-colors">
                         {category.title}
                       </h2>
@@ -136,12 +136,12 @@ export const Academy: React.FC = () => {
           </Container>
         </section>
 
-        {/* Why Learn at Angels */}
+        {/* Why Learn at Angel */}
         <section className="mb-20 bg-surface border-y border-border py-16">
           <Container size="lg">
             <SectionHeading
               subtitle="The Academy Advantage"
-              title="Why Study at Angels?"
+              title="Why Study at Angel?"
               align="center"
             />
 
@@ -249,7 +249,7 @@ export const Academy: React.FC = () => {
                 <Button
                   as="a"
                   href={buildWhatsAppLink({
-                    message: "Hi Angels Academy! I would like to schedule a campus visit and counseling session.",
+                    message: "Hi Angel Academy! I would like to schedule a campus visit and counseling session.",
                   })}
                   target="_blank"
                   variant="whatsapp"

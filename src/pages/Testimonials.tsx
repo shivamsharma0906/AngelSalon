@@ -52,8 +52,8 @@ export const Testimonials: React.FC = () => {
   return (
     <>
       <SEO
-        title="Client Reviews & Ratings | Angels Salon Ghatkopar"
-        description="Read verified client reviews of Angels Salon & Academy in Ghatkopar East, Mumbai. Haircuts, balayage, smoothening, and skincare rated 4.7★ on Google."
+        title="Client Reviews & Ratings | Angel Salon Ghatkopar"
+        description="Read verified client reviews of Angel Salon & Academy in Ghatkopar East, Mumbai. Haircuts, balayage, smoothening, and skincare rated 4.7★ on Google."
         canonicalPath="/testimonials"
         schemaData={testimonialsSchema}
       />
@@ -63,12 +63,6 @@ export const Testimonials: React.FC = () => {
         <section className="mb-16 sm:mb-24 text-center" aria-label="Page header">
           <Container size="lg">
             <div className="max-w-2xl mx-auto">
-              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                  Verified Experiences
-                </span>
-              </div>
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-text mb-4 tracking-tight leading-[1.1]">
                 What our clients say
               </h1>
@@ -96,12 +90,6 @@ export const Testimonials: React.FC = () => {
         <section className="mb-20 sm:mb-28" aria-label="Featured client stories">
           <Container size="lg">
             <div className="mb-10 sm:mb-14 text-center max-w-2xl mx-auto">
-              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                  Real Transformations
-                </span>
-              </div>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-text mb-2 tracking-tight">
                 Featured client stories
               </h2>
@@ -132,11 +120,7 @@ export const Testimonials: React.FC = () => {
                         radius={isEven ? 'rounded' : 'arch-tall'}
                         border="gold"
                         focalPoint="50% 30%"
-                        caption={{
-                          title: item.service,
-                          subtitle: `${item.clientName} · Verified Guest`,
-                        }}
-                      />
+                        />
                     </div>
 
                     {/* Editorial Content */}
@@ -182,12 +166,6 @@ export const Testimonials: React.FC = () => {
         >
           <Container size="lg">
             <div className="text-center mb-12 sm:mb-16">
-              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                  Google Business Profile
-                </span>
-              </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-text mb-3 tracking-tight">
                 Recent Google reviews
               </h2>
@@ -227,7 +205,7 @@ export const Testimonials: React.FC = () => {
               Visited us recently?
             </h2>
             <p className="text-base text-text-muted max-w-lg mx-auto font-light leading-relaxed mb-8">
-              If you have visited Angels Salon recently, please consider leaving a review on Google. Your feedback helps our stylists and helps neighbours in Ghatkopar East know what to expect.
+              If you have visited Angel Salon recently, please consider leaving a review on Google. Your feedback helps our stylists and helps neighbours in Ghatkopar East know what to expect.
             </p>
             <a
               href={googleSummary.reviewsUrl}
@@ -245,12 +223,6 @@ export const Testimonials: React.FC = () => {
         <section className="py-16 sm:py-24 bg-background border-b border-border" aria-label="Frequently asked questions">
           <Container size="md">
             <div className="text-left mb-10 sm:mb-12">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                  Helpful Information
-                </span>
-              </div>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-text mb-2 tracking-tight">
                 Frequently asked questions
               </h2>
@@ -309,7 +281,7 @@ export const Testimonials: React.FC = () => {
             <Button
               as="a"
               href={buildWhatsAppLink({
-                message: 'Hi Angels Salon! I would like to book an appointment.',
+                message: 'Hi Angel Salon! I would like to book an appointment.',
               })}
               target="_blank"
               rel="noopener noreferrer"

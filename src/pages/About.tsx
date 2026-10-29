@@ -62,8 +62,8 @@ export const About: React.FC = () => {
   return (
     <>
       <SEO
-        title="About Angels Salon & Academy | Our Story & Standards"
-        description="Discover the story, team, facilities, and hygiene standards of Angels Salon & Academy in Ghatkopar East, Mumbai. Over a decade of beauty excellence."
+        title="About Angel Salon & Academy | Our Story & Standards"
+        description="Discover the story, team, facilities, and hygiene standards of Angel Salon & Academy in Ghatkopar East, Mumbai. Over a decade of beauty excellence."
         canonicalPath="/about"
         schemaData={aboutSchema}
       />
@@ -76,7 +76,7 @@ export const About: React.FC = () => {
               Our Heritage & Craft
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
-              The Angels Story
+              The Angel Story
             </h1>
             <LaurelDivider size="md" />
             <p className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto leading-relaxed font-light mt-3">
@@ -94,16 +94,11 @@ export const About: React.FC = () => {
                 <div className="relative mx-auto max-w-md lg:max-w-none" data-reveal="image">
                   <FramedImage
                     src="/images/real/interior_styling_stations.webp"
-                    alt="Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East, Mumbai"
+                    alt="Angel Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East, Mumbai"
                     focalPoint="50% 40%"
                     aspectRatio="aspect-[4/5]"
                     radius="arch-tall"
                     border="gold"
-                    caption={{
-                      title: "10+ Years Mastery",
-                      subtitle: "Pant Nagar Flagship Atelier",
-                      badge: "Est. 2014",
-                    }}
                     width={1200}
                     height={1600}
                   />
@@ -152,7 +147,7 @@ export const About: React.FC = () => {
                   <div className="w-12 h-0.5 bg-gold/60"></div>
                   <div>
                     <span className="font-serif text-lg font-bold text-text block">
-                      The Angels Leadership & Master Stylists
+                      The Angel Leadership & Master Stylists
                     </span>
                     <span className="text-xs uppercase tracking-wider text-gold-text">
                       Master Stylists & Educators
@@ -172,7 +167,7 @@ export const About: React.FC = () => {
           <Container size="lg">
             <div data-reveal>
               <SectionHeading
-                subtitle="The Angels Standard"
+                subtitle="The Angel Standard"
                 title="Our Four Pillars of Quality"
                 description="How we consistently deliver five-star experiences to over 15,000 satisfied clients."
                 align="center"
@@ -261,15 +256,11 @@ export const About: React.FC = () => {
                 <div data-reveal="image" className="w-full">
                   <FramedImage
                     src="/images/real/client1_glass_hair_after.webp"
-                    alt="Real client waist-length liquid glass hair smoothening result at Angels Salon"
+                    alt="Real client waist-length liquid glass hair smoothening result at Angel Salon"
                     focalPoint="50% 30%"
                     aspectRatio="aspect-[4/5]"
                     radius="rounded"
                     border="gold"
-                    caption={{
-                      title: "Nanoplastia",
-                      badge: "Smooth",
-                    }}
                     width={960}
                     height={1280}
                   />
@@ -277,15 +268,11 @@ export const About: React.FC = () => {
                 <div data-reveal="image" className="w-full mt-6">
                   <FramedImage
                     src="/images/real/client2_caramel_balayage_after.webp"
-                    alt="Real client dimensional honey-caramel balayage executed at Angels Salon"
+                    alt="Real client dimensional honey-caramel balayage executed at Angel Salon"
                     focalPoint="50% 25%"
                     aspectRatio="aspect-[4/5]"
                     radius="rounded"
                     border="gold"
-                    caption={{
-                      title: "French Balayage",
-                      badge: "Caramel",
-                    }}
                     width={1200}
                     height={1600}
                   />
@@ -302,7 +289,7 @@ export const About: React.FC = () => {
         <section data-reveal className="text-center">
           <Container size="md">
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-text mb-4">
-              Begin Your Journey with Angels
+              Begin Your Journey with Angel
             </h2>
             <p className="text-base text-text-muted mb-8 leading-relaxed max-w-xl mx-auto">
               Our concierge team is at your service to curate your appointment or discuss enrollment in our academy.

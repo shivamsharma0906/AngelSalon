@@ -23,7 +23,7 @@ export const SALON_IMAGE_ASSETS: Record<string, ImageAssetMeta> = {
   stylingStations: {
     id: 'styling-stations',
     src: '/images/real/interior_styling_stations.webp',
-    alt: 'Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East',
+    alt: 'Angel Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East',
     focalPoint: '50% 40%', // Focus on mirrors & styling chairs
     intrinsicWidth: 1200,
     intrinsicHeight: 1600,
@@ -35,7 +35,7 @@ export const SALON_IMAGE_ASSETS: Record<string, ImageAssetMeta> = {
   balayageCaramel: {
     id: 'balayage',
     src: '/images/real/client2_caramel_balayage_after.webp',
-    alt: 'Real client dimensional caramel balayage crafted at Angels Salon Mumbai',
+    alt: 'Real client dimensional caramel balayage crafted at Angel Salon Mumbai',
     focalPoint: '50% 25%', // Focus on hair crown and balayage ribbons
     intrinsicWidth: 1200,
     intrinsicHeight: 1600,
@@ -59,7 +59,7 @@ export const SALON_IMAGE_ASSETS: Record<string, ImageAssetMeta> = {
   academyStudioFloor: {
     id: 'academy-studio',
     src: '/images/real/interior_studio_floor.webp',
-    alt: 'Angels Academy spacious salon floor and student training stations in Mumbai',
+    alt: 'Angel Academy spacious salon floor and student training stations in Mumbai',
     focalPoint: '50% 45%', // Workstations and salon practice floor
     intrinsicWidth: 1200,
     intrinsicHeight: 1600,
@@ -83,7 +83,7 @@ export const SALON_IMAGE_ASSETS: Record<string, ImageAssetMeta> = {
   nailBar: {
     id: 'nail-bar',
     src: '/images/real/interior_nail_bar.webp',
-    alt: 'Dedicated backlit nail bar and lacquer collection at Angels Salon',
+    alt: 'Dedicated backlit nail bar and lacquer collection at Angel Salon',
     focalPoint: '50% 40%',
     intrinsicWidth: 1200,
     intrinsicHeight: 1600,
@@ -95,7 +95,7 @@ export const SALON_IMAGE_ASSETS: Record<string, ImageAssetMeta> = {
   storefrontFacade: {
     id: 'storefront-facade',
     src: '/images/real/storefront_facade.webp',
-    alt: 'Angels Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai',
+    alt: 'Angel Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai',
     focalPoint: '50% 40%',
     intrinsicWidth: 1600,
     intrinsicHeight: 893,
@@ -107,7 +107,7 @@ export const SALON_IMAGE_ASSETS: Record<string, ImageAssetMeta> = {
   storefrontSignageGold: {
     id: 'storefront-signage',
     src: '/images/real/storefront_signage_gold.webp',
-    alt: 'Angels Salon & Academy 3D gold illuminated academy signage and boutique exterior',
+    alt: 'Angel Salon & Academy 3D gold illuminated academy signage and boutique exterior',
     focalPoint: '50% 35%',
     intrinsicWidth: 1600,
     intrinsicHeight: 1200,

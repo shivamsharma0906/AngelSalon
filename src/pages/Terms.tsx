@@ -17,8 +17,8 @@ export const Terms: React.FC = () => {
   return (
     <>
       <SEO
-        title="Terms & Conditions | Angels Salon & Academy"
-        description="Terms of service, booking policies, and academy enrollment guidelines for Angels Salon & Academy in Ghatkopar East, Mumbai. Learn about our salon policies."
+        title="Terms & Conditions | Angel Salon & Academy"
+        description="Terms of service, booking policies, and academy enrollment guidelines for Angel Salon & Academy in Ghatkopar East, Mumbai. Learn about our salon policies."
         canonicalPath="/terms"
         schemaData={breadcrumbSchema}
       />
@@ -41,7 +41,7 @@ export const Terms: React.FC = () => {
               [OWNER / LEGAL REVIEW REQUIRED]
             </span>
             <p className="text-xs text-text-muted">
-              These terms set forth standard salon service protocols, appointment expectations, and academy course policies for Angels Salon &amp; Academy. Final review and formalization by business ownership is recommended.
+              These terms set forth standard salon service protocols, appointment expectations, and academy course policies for Angel Salon &amp; Academy. Final review and formalization by business ownership is recommended.
             </p>
           </div>
 

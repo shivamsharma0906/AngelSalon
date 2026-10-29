@@ -27,7 +27,7 @@ export const CourseCategoryPage: React.FC = () => {
   }
 
   const whatsAppGeneralUrl = buildWhatsAppLink({
-    message: `Hello Angels Academy! I am interested in enrolling in your "${category.name}". Could you please share the upcoming batch schedule and fee structure?`,
+    message: `Hello Angel Academy! I am interested in enrolling in your "${category.name}". Could you please share the upcoming batch schedule and fee structure?`,
   });
 
   // Structured Data: BreadcrumbList + Course schemas + FAQPage
@@ -276,11 +276,7 @@ export const CourseCategoryPage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-3 left-3 right-3 p-2 rounded-full bg-surface/90 backdrop-blur-md border border-border/80 shadow-lustre-sm flex items-center justify-between text-xs pointer-events-auto">
-                    <span className="font-serif text-[11px] sm:text-xs font-semibold text-text truncate">{item.title}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 ml-1.5" aria-hidden="true" />
-                  </div>
+                  
                 </div>
               ))}
             </div>
@@ -304,12 +300,6 @@ export const CourseCategoryPage: React.FC = () => {
           <Container size="lg">
             <div className="p-8 sm:p-10 rounded-[28px] bg-surface border border-gold/30 hover:border-gold/60 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lustre-sm transition-colors" data-card-hover>
               <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-gold-text font-semibold">
-                    Angels Academy of Hair &amp; Beauty
-                  </span>
-                </div>
                 <h3 className="font-serif text-2xl font-bold text-text">
                   Need Personalized Career Counseling?
                 </h3>

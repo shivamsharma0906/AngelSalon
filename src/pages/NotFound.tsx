@@ -9,7 +9,7 @@ export const NotFound: React.FC = () => {
     <>
       <SEO
         title="Page Not Found (404)"
-        description="The page you are looking for does not exist. Return to Angels Salon & Academy home."
+        description="The page you are looking for does not exist. Return to Angel Salon & Academy home."
         canonicalPath="/404"
         noIndex={true}
       />

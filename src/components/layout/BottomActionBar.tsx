@@ -67,7 +67,7 @@ export const BottomActionBar: React.FC = () => {
   const shouldRender = isVisible && !isKeyboardOpen && !isContactPage;
 
   const whatsAppBookingUrl = buildWhatsAppLink({
-    message: "Hi Angels Salon & Academy! I would like to book an appointment. Could you please share available slots?",
+    message: "Hi Angel Salon & Academy! I would like to book an appointment. Could you please share available slots?",
   });
 
   return (

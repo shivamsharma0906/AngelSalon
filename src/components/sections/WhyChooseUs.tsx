@@ -1,86 +1,115 @@
 import React from 'react';
-import { homeData } from '../../data/home';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
-import { ShieldCheckIcon, UserGroupIcon, SparklesIcon, ScissorsIcon } from '../ui/icons';
+import { ShieldCheckIcon, ScissorsIcon, SparklesIcon, HeartIcon } from '../ui/icons';
+
+interface WhyFeature {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+}
+
+const WHY_FEATURES: WhyFeature[] = [
+  {
+    number: '01',
+    title: 'Expert Stylists',
+    description: 'Experienced artists trained in Vidal Sassoon precision cutting, bespoke colour and transformative styling for every hair texture.',
+    icon: ScissorsIcon,
+  },
+  {
+    number: '02',
+    title: 'Premium Products',
+    description: 'Professional, certified cruelty-free and organic formulas chosen for healthy, long-lasting, and beautiful hair results.',
+    icon: SparklesIcon,
+  },
+  {
+    number: '03',
+    title: 'Personalised Care',
+    description: 'Every visit starts with a dedicated consultation tailored to your hair condition, facial contours, lifestyle and routine.',
+    icon: HeartIcon,
+  },
+  {
+    number: '04',
+    title: 'Clean & Safe',
+    description: 'Hospital-grade sterilized tools, fresh sealed linens, and a calm, spotless unisex sanctuary every day.',
+    icon: ShieldCheckIcon,
+  },
+];
 
 export const WhyChooseUs: React.FC = () => {
-  const { reasons } = homeData;
-
-  const renderIcon = (id: string) => {
-    switch (id) {
-      case 'hygiene':
-        return <ShieldCheckIcon size={24} className="text-gold" />;
-      case 'staff':
-        return <UserGroupIcon size={24} className="text-gold" />;
-      case 'treatments':
-        return <SparklesIcon size={24} className="text-gold" />;
-      case 'family':
-        return <ScissorsIcon size={24} className="text-gold" />;
-      default:
-        return <SparklesIcon size={24} className="text-gold" />;
-    }
-  };
-
   return (
-    <Section tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="Why Clients Choose Angels Salon">
+    <Section tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="Why Clients Choose Angel Family Salon">
       <Container size="lg">
-        {/* Lustre Section Header */}
-        <div data-reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-              The Angels Difference
-            </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Heading, description & Arched Salon Photo */}
+          <div data-reveal className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                  Why Angel Family Salon
+                </span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-text mb-5 leading-[1.15] tracking-tight">
+                Why guests keep <br className="hidden sm:inline" />
+                <span className="italic font-normal">coming back.</span>
+              </h2>
+
+              <p className="text-sm sm:text-base text-text-muted leading-relaxed font-normal mb-8 max-w-md">
+                Small details, thoughtful care, and great hair every visit is designed to leave you feeling your best.
+              </p>
+            </div>
+
+            {/* Arched Salon Product / Vanity Photo Frame */}
+            <div data-reveal="image" className="relative w-full aspect-[4/3] rounded-tl-[70px] rounded-br-[70px] rounded-tr-[24px] rounded-bl-[24px] overflow-hidden border border-border shadow-lustre-md bg-dark">
+              <img
+                src="/images/real/interior_skincare_dispensary.webp"
+                alt="Angel Salon & Academy luxury professional hair and skincare dispensary in Ghatkopar East"
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover select-none"
+              />
+            </div>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-4 leading-tight tracking-tight">
-            Why guests keep <br className="hidden sm:inline" />
-            <span className="italic">coming back.</span>
-          </h2>
-          <p className="text-sm sm:text-base text-text-muted leading-relaxed max-w-lg mx-auto">
-            {reasons.description}
-          </p>
-        </div>
+          {/* Right Column: 2x2 Feature Cards Grid */}
+          <div data-reveal data-reveal-stagger className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            {WHY_FEATURES.map((feat) => {
+              const IconComp = feat.icon;
+              return (
+                <div
+                  key={feat.number}
+                  className="rounded-[24px] sm:rounded-[28px] bg-surface p-7 sm:p-8 border border-border/80 shadow-lustre-sm hover:shadow-lustre-md hover:border-gold/50 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    {/* Top row: Circular icon pill on left, Number on right */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-10 h-10 rounded-full bg-surface-subtle border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                        <IconComp size={18} className="text-gold" />
+                      </div>
+                      <span className="font-serif text-sm font-normal text-text-muted">
+                        {feat.number}
+                      </span>
+                    </div>
 
-        {/* 4 Lustre Pillar Cards */}
-        <div data-reveal data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {reasons.items.map((item, idx) => (
-            <div
-              key={item.id}
-              className="group relative flex flex-col justify-between p-7 rounded-[24px] sm:rounded-[28px] bg-background/50 border border-border hover:border-gold/50 shadow-lustre-sm hover:shadow-lustre-md transition-all duration-300"
-            >
-              <div>
-                {/* Number & Icon Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center group-hover:scale-105 group-hover:border-gold/50 transition-all duration-300 shadow-sm">
-                    {renderIcon(item.id)}
+                    <h3 className="font-serif text-xl sm:text-2xl font-normal text-text mb-3 group-hover:text-gold-text transition-colors leading-snug">
+                      {feat.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-normal">
+                      {feat.description}
+                    </p>
                   </div>
-                  <span className="font-serif text-2xl font-normal text-border group-hover:text-gold transition-colors">
-                    0{idx + 1}
-                  </span>
                 </div>
+              );
+            })}
+          </div>
 
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-text mb-3 leading-snug">
-                  {item.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-6">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Review Highlight Keyword Pill */}
-              <div className="pt-4 border-t border-border/80 flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-wider font-semibold text-gold-text">
-                  Keyword
-                </span>
-                <span className="text-[11px] font-medium text-text bg-surface px-2.5 py-0.5 rounded-full border border-border/80">
-                  "{item.highlightReviewKeyword}"
-                </span>
-              </div>
-            </div>
-          ))}
         </div>
       </Container>
     </Section>

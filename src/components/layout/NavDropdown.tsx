@@ -111,10 +111,10 @@ export const NavDropdown: React.FC<NavDropdownProps> = ({ item }) => {
 
   // Base styling for consistent vertical height, font, and baseline across ALL items
   const navLinkClasses = (active: boolean) =>
-    `relative inline-flex items-center h-10 px-2.5 2xl:px-3 text-xs 2xl:text-[13px] uppercase tracking-wider font-medium transition-colors duration-200 rounded-sm whitespace-nowrap select-none focus:outline-none focus:ring-1 focus:ring-gold ${
+    `relative inline-flex items-center h-9 px-1 text-xs uppercase tracking-[0.16em] font-medium transition-colors duration-200 whitespace-nowrap select-none outline-none focus:outline-none focus:ring-0 focus-visible:outline-none ${
       active
         ? 'text-gold font-bold'
-        : 'text-text-muted hover:text-text hover:bg-surface/50'
+        : 'text-text-muted hover:text-text'
     }`;
 
   // If item doesn't have a dropdown, render standard link
@@ -126,7 +126,7 @@ export const NavDropdown: React.FC<NavDropdownProps> = ({ item }) => {
       >
         <span>{item.label}</span>
         {isParentActive && (
-          <span className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-gold rounded-full transition-all duration-300 shadow-gold-sm"></span>
+          <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full transition-all duration-300 shadow-gold-sm"></span>
         )}
       </NavLink>
     );
@@ -173,7 +173,7 @@ export const NavDropdown: React.FC<NavDropdownProps> = ({ item }) => {
         </svg>
 
         {isActive && (
-          <span className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-gold rounded-full transition-all duration-300 shadow-gold-sm"></span>
+          <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full transition-all duration-300 shadow-gold-sm"></span>
         )}
       </Link>
 

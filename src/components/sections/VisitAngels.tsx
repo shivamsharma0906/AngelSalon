@@ -31,7 +31,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'su
   if (!branch) return null;
 
   const whatsAppVisitUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
-    "Hi Angels Salon & Academy! I would like to visit your Ghatkopar East salon. What are your available time slots today?"
+    "Hi Angel Salon & Academy! I would like to visit your Ghatkopar East salon. What are your available time slots today?"
   )}`;
 
   return (
@@ -68,7 +68,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'su
                 </span>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-text mb-6">
-                  Angels Salon &amp; Academy
+                  Angel Salon &amp; Academy
                 </h3>
 
                 {/* Address */}
@@ -204,7 +204,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'su
                   <div className="relative w-full h-full">
                     <img
                       src="/images/real/storefront_frontal.webp"
-                      alt="Angels Salon & Academy storefront in Pant Nagar Ghatkopar East with clean glass entrance and illuminated signage"
+                      alt="Angel Salon & Academy storefront in Pant Nagar Ghatkopar East with clean glass entrance and illuminated signage"
                       width={1200}
                       height={900}
                       className="w-full h-full object-cover object-center"
@@ -234,7 +234,7 @@ export const VisitAngels: React.FC<{ tone?: 'ink' | 'surface' }> = ({ tone = 'su
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="Angels Salon & Academy Google Map"
+                        title="Angel Salon & Academy Google Map"
                         className="w-full h-full"
                       />
                     ) : (

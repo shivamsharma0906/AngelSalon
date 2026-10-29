@@ -36,7 +36,7 @@ export const ServiceCategoryPage: React.FC = () => {
     : category.services;
 
   const whatsAppGeneralUrl = buildWhatsAppLink({
-    message: `Hi Angels Salon! I would like to inquire about booking services in "${category.name}". Could you please share available slots?`,
+    message: `Hi Angel Salon! I would like to inquire about booking services in "${category.name}". Could you please share available slots?`,
   });
 
   // Structured Data: Service + BreadcrumbList + FAQPage
@@ -108,12 +108,6 @@ export const ServiceCategoryPage: React.FC = () => {
         {/* Hero Header */}
         <section className="mb-16 text-center">
           <Container size="md">
-            <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-              <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                Salon Ritual &amp; Care
-              </span>
-            </div>
             <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-text leading-tight mb-4">
               {category.name}
             </h1>
@@ -145,12 +139,6 @@ export const ServiceCategoryPage: React.FC = () => {
         <section className="mb-20">
           <Container size="lg">
             <div data-reveal className="mb-10 text-center max-w-xl mx-auto">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                  Menu &amp; Rates
-                </span>
-              </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-text tracking-tight">
                 Treatment Offerings &amp; Pricing
               </h2>
@@ -205,7 +193,7 @@ export const ServiceCategoryPage: React.FC = () => {
               <div data-reveal data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {filteredServices.map((service) => {
                   const serviceWaUrl = buildWhatsAppLink({
-                    message: `Hi Angels Salon! I would like to book the "${service.name}" treatment (${service.startingPrice}). Could you please share available slots?`,
+                    message: `Hi Angel Salon! I would like to book the "${service.name}" treatment (${service.startingPrice}). Could you please share available slots?`,
                   });
 
                   return (
@@ -278,7 +266,7 @@ export const ServiceCategoryPage: React.FC = () => {
         <section className="mb-20 bg-surface border-y border-border py-16">
           <Container size="lg">
             <SectionHeading
-              subtitle="The Angels Protocol"
+              subtitle="The Angel Protocol"
               title="What to Expect During Your Appointment"
               description="A calibrated luxury journey executed with single-use sanitation and bespoke care."
               align="center"
@@ -323,11 +311,7 @@ export const ServiceCategoryPage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-3 left-3 right-3 p-2 rounded-full bg-surface/90 backdrop-blur-md border border-border/80 shadow-lustre-sm flex items-center justify-between text-xs pointer-events-auto">
-                    <span className="font-serif text-[11px] sm:text-xs font-semibold text-text truncate">{img.title}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 ml-1.5" aria-hidden="true" />
-                  </div>
+                  
                 </div>
               ))}
             </div>
@@ -351,12 +335,6 @@ export const ServiceCategoryPage: React.FC = () => {
           <Container size="lg">
             <div className="p-8 sm:p-10 rounded-[28px] bg-surface border border-gold/30 hover:border-gold/60 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lustre-sm transition-colors" data-card-hover>
               <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-gold-text font-semibold">
-                    Explore More Services
-                  </span>
-                </div>
                 <h3 className="font-serif text-2xl font-bold text-text">
                   Looking for Other Hair &amp; Beauty Care?
                 </h3>

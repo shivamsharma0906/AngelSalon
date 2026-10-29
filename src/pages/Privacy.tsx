@@ -17,8 +17,8 @@ export const Privacy: React.FC = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy | Angels Salon & Academy"
-        description="Privacy policy and client data protection guidelines for Angels Salon & Academy in Ghatkopar East, Mumbai. Read our commitment to your privacy."
+        title="Privacy Policy | Angel Salon & Academy"
+        description="Privacy policy and client data protection guidelines for Angel Salon & Academy in Ghatkopar East, Mumbai. Read our commitment to your privacy."
         canonicalPath="/privacy"
         schemaData={breadcrumbSchema}
       />
@@ -41,7 +41,7 @@ export const Privacy: React.FC = () => {
               [OWNER / LEGAL REVIEW REQUIRED]
             </span>
             <p className="text-xs text-text-muted">
-              This draft policy outlines standard client data handling practices for Angels Salon &amp; Academy. Final legal review by salon counsel is recommended prior to formal execution.
+              This draft policy outlines standard client data handling practices for Angel Salon &amp; Academy. Final legal review by salon counsel is recommended prior to formal execution.
             </p>
           </div>
 

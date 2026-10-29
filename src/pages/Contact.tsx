@@ -22,7 +22,6 @@ interface ContactFormValues {
 interface FormErrors {
   name?: string;
   phone?: string;
-  branch?: string;
   serviceOrCourse?: string;
 }
 
@@ -81,12 +80,7 @@ const contactFormSchema: Record<keyof FormErrors, SchemaFieldRule[]> = {
       message: 'Please enter a valid 10-digit Indian mobile number (e.g. 98200 12345).',
     },
   ],
-  branch: [
-    {
-      validate: (v) => v.trim().length > 0,
-      message: 'Please choose a salon branch.',
-    },
-  ],
+  
   serviceOrCourse: [
     {
       validate: (v) => v.trim().length > 0,
@@ -201,8 +195,8 @@ export const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact & Location | Angels Salon & Academy Mumbai"
-        description="Visit Angels Salon & Academy in Ghatkopar East, Mumbai. Find driving directions, opening hours, contact numbers, and send instant booking requests via WhatsApp."
+        title="Contact & Location | Angel Salon & Academy Mumbai"
+        description="Visit Angel Salon & Academy in Ghatkopar East, Mumbai. Find driving directions, opening hours, contact numbers, and send instant booking requests via WhatsApp."
         canonicalPath="/contact"
         schemaData={contactSchema}
       />
@@ -266,7 +260,7 @@ export const Contact: React.FC = () => {
                   <div data-reveal="image" className="w-full aspect-[16/9] rounded-[20px] overflow-hidden border border-border mb-4 bg-dark shadow-sm">
                     <img
                       src="/images/real/storefront_facade.webp"
-                      alt="Angels Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai"
+                      alt="Angel Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai"
                       width={1920}
                       height={1440}
                       className="w-full h-full object-cover object-center"
@@ -437,30 +431,6 @@ export const Contact: React.FC = () => {
                   </div>
 
                   {/* Branch Select */}
-                  <div>
-                    <label htmlFor="branch" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
-                      Preferred Branch <span className="text-gold-text">*</span>
-                    </label>
-                    <select
-                      id="branch"
-                      name="branch"
-                      value={formData.branch}
-                      onChange={handleInputChange}
-                      aria-required="true"
-                      aria-invalid={!!errors.branch}
-                      aria-describedby={errors.branch ? 'branch-error' : undefined}
-                      className="w-full min-h-[48px] bg-background border border-border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
-                    >
-                      <option value="Ghatkopar East (Flagship Salon & Academy)">
-                        Ghatkopar East (Flagship Salon &amp; Academy)
-                      </option>
-                    </select>
-                    {errors.branch && (
-                      <p id="branch-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
-                        {errors.branch}
-                      </p>
-                    )}
-                  </div>
 
                   {/* Service or Course Category Select */}
                   <div>

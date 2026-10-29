@@ -82,7 +82,7 @@ const ProductSheet: React.FC<SheetProps> = ({ product, onClose }) => {
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
             <p className="text-xs leading-relaxed text-gold-text">
-              100% authentic salon-grade product. In-salon pickup at Angels Ghatkopar East or Mumbai home delivery via WhatsApp.
+              100% authentic salon-grade product. In-salon pickup at Angel Ghatkopar East or Mumbai home delivery via WhatsApp.
             </p>
           </div>
         </div>
@@ -163,8 +163,8 @@ export const Products: React.FC = () => {
   return (
     <>
       <SEO
-        title="Salon Retail Products & Skeyndor Skincare | Angels Mumbai"
-        description="Shop 100% genuine salon-grade retail products: Nashi Argan, Skeyndor Spain, Wella Invigo, and clinical face washes at Angels Salon Ghatkopar East."
+        title="Salon Retail Products & Skeyndor Skincare | Angel Mumbai"
+        description="Shop 100% genuine salon-grade retail products: Nashi Argan, Skeyndor Spain, Wella Invigo, and clinical face washes at Angel Salon Ghatkopar East."
         canonicalPath="/products"
         schemaData={breadcrumbSchema}
       />
@@ -179,7 +179,7 @@ export const Products: React.FC = () => {
                 <span className="text-[11px] font-bold uppercase tracking-luxury text-gold-text mb-2 block">Professional Home Care Sanctuary</span>
                 <h1 className="font-serif text-3xl sm:text-5xl font-bold text-text leading-tight">Salon Boutique</h1>
                 <p className="text-sm sm:text-base text-text-muted mt-2.5 max-w-lg leading-relaxed">
-                  100% genuine European skincare (Skeyndor), Italian argan oils (Nashi Argan) &amp; Wella Professional haircare — direct from Angels Salon.
+                  100% genuine European skincare (Skeyndor), Italian argan oils (Nashi Argan) &amp; Wella Professional haircare — direct from Angel Salon.
                 </p>
               </div>
               <div className="shrink-0 flex sm:flex-col gap-6 sm:gap-2 sm:text-right">
@@ -272,7 +272,7 @@ export const Products: React.FC = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
                 <Button as="a"
-                  href={buildWhatsAppLink({ message: "Hi Angels Salon! I need product recommendations for my hair and skin type." })}
+                  href={buildWhatsAppLink({ message: "Hi Angel Salon! I need product recommendations for my hair and skin type." })}
                   target="_blank" variant="whatsapp" size="lg" fullWidth className="sm:w-auto min-h-[52px]"
                   leftIcon={<WhatsAppIcon className="w-5 h-5 fill-current" />}>
                   Consult on WhatsApp

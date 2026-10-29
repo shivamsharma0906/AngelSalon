@@ -66,11 +66,9 @@ export const FramedImage: React.FC<FramedImageProps> = ({
   focalPoint = '50% 50%',
   aspectRatio = 'aspect-[4/5] sm:aspect-[16/11] md:aspect-[4/3.2]',
   radius = 'arch',
-  caption,
-  priority = false,
+priority = false,
   border = 'gold',
-  showScrim = true,
-  className = '',
+className = '',
   imgClassName = '',
   width = 1600,
   height = 1200,
@@ -82,9 +80,7 @@ export const FramedImage: React.FC<FramedImageProps> = ({
 
   const radiusCls = RADIUS_CLASSES[radius] || RADIUS_CLASSES.arch;
   const borderCls = BORDER_CLASSES[border] || BORDER_CLASSES.gold;
-  const hasCaption = Boolean(caption && caption.title);
-
-  const handleImageLoad = () => {
+const handleImageLoad = () => {
     setIsLoaded(true);
     if (onLoad) onLoad();
   };
@@ -120,41 +116,7 @@ export const FramedImage: React.FC<FramedImageProps> = ({
         } ${imgClassName}`}
       />
 
-      {/* Bottom gradient scrim to guarantee caption readability across dark/light photos */}
-      {(showScrim && hasCaption) && (
-        <div
-          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark/75 via-dark/20 to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
-      )}
 
-      {/* Floating Caption Card inside the frame */}
-      {hasCaption && (
-        <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-2.5 sm:p-4 rounded-full bg-surface/90 sm:bg-surface/95 backdrop-blur-md border border-border/80 shadow-lustre-md flex items-center justify-between gap-2 sm:gap-3 pointer-events-auto transition-transform duration-300">
-          <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-            <span
-              className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gold shrink-0 shadow-sm"
-              aria-hidden="true"
-            />
-            <div className="min-w-0 flex-1">
-              <p className="font-serif text-xs sm:text-base font-bold text-text leading-tight truncate">
-                {caption!.title}
-              </p>
-              {caption!.subtitle && (
-                <p className="text-[10px] sm:text-xs text-text-muted leading-tight truncate mt-0.5">
-                  {caption!.subtitle}
-                </p>
-              )}
-            </div>
-          </div>
-
-          {caption!.badge && (
-            <span className="text-[9px] sm:text-xs uppercase tracking-wider font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-gold/15 text-gold-text shrink-0 shadow-sm">
-              {caption!.badge}
-            </span>
-          )}
-        </div>
-      )}
     </div>
   );
 };

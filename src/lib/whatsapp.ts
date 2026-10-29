@@ -45,7 +45,7 @@ export function buildWhatsAppLink({ phone, message }: WhatsAppLinkParams): strin
  * Contextual WhatsApp link builder for specific Salon Service bookings
  */
 export function buildServiceBookingLink(serviceName: string, branchName: string = "Ghatkopar East"): string {
-  const message = `Hi Angels Salon & Academy! I would like to book an appointment for "${serviceName}" at your ${branchName} branch. Please share available time slots.`;
+  const message = `Hi Angel Salon & Academy! I would like to book an appointment for "${serviceName}" at your ${branchName} branch. Please share available time slots.`;
   return buildWhatsAppLink({ message });
 }
 
@@ -53,7 +53,7 @@ export function buildServiceBookingLink(serviceName: string, branchName: string 
  * Contextual WhatsApp link builder for Academy Course inquiries
  */
 export function buildCourseEnquiryLink(courseName: string): string {
-  const message = `Hello Angels Academy team! I am interested in enrolling in the "${courseName}". Could you please share the upcoming batch schedule, syllabus details, and admission process?`;
+  const message = `Hello Angel Academy team! I am interested in enrolling in the "${courseName}". Could you please share the upcoming batch schedule, syllabus details, and admission process?`;
   return buildWhatsAppLink({ message });
 }
 
@@ -61,7 +61,7 @@ export function buildCourseEnquiryLink(courseName: string): string {
  * Contextual WhatsApp link builder for direct branch visits
  */
 export function buildBranchVisitLink(branchName: string): string {
-  const message = `Hi Angels Salon, I would like to schedule a visit/consultation at your ${branchName} branch. What are your available hours today?`;
+  const message = `Hi Angel Salon, I would like to schedule a visit/consultation at your ${branchName} branch. What are your available hours today?`;
   return buildWhatsAppLink({ message });
 }
 
@@ -78,7 +78,7 @@ export function buildFormInquiryLink(data: {
   notes?: string;
 }): string {
   const lines = [
-    `✨ *New Appointment & Inquiry Request - Angels Salon & Academy*`,
+    `✨ *New Appointment & Inquiry Request - Angel Salon & Academy*`,
     ``,
     `👤 *Name:* ${data.name.trim()}`,
     `📞 *Phone:* ${data.phone.trim()}`,
@@ -106,6 +106,6 @@ export function buildFormInquiryLink(data: {
  * Contextual WhatsApp link builder for Retail Product orders and inquiries
  */
 export function buildProductOrderLink(productName: string, price: string): string {
-  const message = `Hi Angels Salon & Academy! I would like to purchase / inquire about "${productName}" (${price}). Could you please confirm if this product is in stock at your Ghatkopar East salon?`;
+  const message = `Hi Angel Salon & Academy! I would like to purchase / inquire about "${productName}" (${price}). Could you please confirm if this product is in stock at your Ghatkopar East salon?`;
   return buildWhatsAppLink({ message });
 }

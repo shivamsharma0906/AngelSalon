@@ -19,7 +19,7 @@ export const Home: React.FC = () => {
   return (
     <>
       <SEO
-        title="Angels Salon & Academy | Hair Salon in Ghatkopar East"
+        title="Angel Salon & Academy | Hair Salon in Ghatkopar East"
         description="Premier hair salon & beauty academy in Ghatkopar East, Mumbai. Expert hair styling, balayage, smoothening & facials. Rated 4.7 on Google. Book on WhatsApp."
         canonicalPath="/"
         schemaData={homeSchemas}
@@ -30,7 +30,7 @@ export const Home: React.FC = () => {
         <link
           rel="preload"
           as="image"
-          href="/images/real/interior_styling_stations.webp"
+          href="/images/real/storefront_frontal.webp"
           type="image/webp"
         />
       </Helmet>
@@ -39,7 +39,7 @@ export const Home: React.FC = () => {
         {/* 1. Lustre Editorial Hero with Arched Photo Showcase */}
         <Hero />
 
-        {/* 2. Welcome to Angels (Lustre Studio Philosophy & Arched Photo) */}
+        {/* 2. Welcome to Angel (Lustre Studio Philosophy & Arched Photo) */}
         <WelcomeToAngels />
 
         {/* 3. Curated Services Directory */}
@@ -48,10 +48,10 @@ export const Home: React.FC = () => {
         {/* 4. Inside the Studio Gallery (Lustre 6-Photo Editorial Grid) */}
         <StudioGallery />
 
-        {/* 5. Dedicated Angels Academy Showcase */}
+        {/* 5. Dedicated Angel Academy Showcase */}
         <AcademyTeaser />
 
-        {/* 6. Why Guests Choose Angels (4 Pillars) */}
+        {/* 6. Why Guests Choose Angel (4 Pillars) */}
         <WhyChooseUs />
 
         {/* 7. Client Love / Google Reviews Carousel */}

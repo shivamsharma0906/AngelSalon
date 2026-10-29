@@ -124,6 +124,7 @@
   /* Tap delay elimination on touch screens */
   button, [role="button"], a, input, select, textarea {
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Accessible focus ring */

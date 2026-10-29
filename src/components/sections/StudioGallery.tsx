@@ -43,12 +43,6 @@ export const StudioGallery: React.FC = () => {
       <Container size="lg">
         {/* Lustre Section Header */}
         <div data-reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-              The Space &amp; The Work
-            </span>
-          </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-4 leading-tight tracking-tight">
             Inside the studio, <br className="hidden sm:inline" />
@@ -70,11 +64,6 @@ export const StudioGallery: React.FC = () => {
                 aspectRatio={aspect}
                 radius={arch ? 'arch-tall' : 'rounded'}
                 border="gold"
-                caption={{
-                  title: asset.title,
-                  subtitle: asset.subtitle,
-                  badge: asset.badge,
-                }}
                 width={asset.intrinsicWidth}
                 height={asset.intrinsicHeight}
               />

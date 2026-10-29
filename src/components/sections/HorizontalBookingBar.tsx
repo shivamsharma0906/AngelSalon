@@ -14,7 +14,7 @@ export const HorizontalBookingBar: React.FC<{ className?: string }> = ({ classNa
     e.preventDefault();
 
     const message =
-      `Hi Angels Salon & Academy! I would like to book an appointment.\n\n` +
+      `Hi Angel Salon & Academy! I would like to book an appointment.\n\n` +
       `• Service: ${selectedService}\n` +
       `• Location: Pant Nagar, Ghatkopar East, Mumbai\n` +
       `• Preferred Date: ${selectedDate}\n` +

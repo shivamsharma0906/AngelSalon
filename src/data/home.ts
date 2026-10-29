@@ -24,7 +24,7 @@ export const heroSlidesData: HeroSlide[] = [
     src: '/images/real/interior_styling_stations.webp',
     srcSet: '/images/hero-carousel/slide1_mobile_768.webp 768w, /images/hero-carousel/slide1_desktop_1920.webp 1920w',
     sizes: '(max-width: 640px) 100vw, 100vw',
-    alt: 'Angels Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East',
+    alt: 'Angel Salon & Academy modern styling stations and vanity mirrors in Ghatkopar East',
     objectPosition: 'center 45%',
   },
   {
@@ -40,7 +40,7 @@ export const heroSlidesData: HeroSlide[] = [
     src: '/images/real/client2_caramel_balayage_after.webp',
     srcSet: '/images/real/client2_caramel_balayage_after.webp 1200w',
     sizes: '(max-width: 640px) 100vw, 100vw',
-    alt: 'Real client dimensional honey-caramel balayage crafted at Angels Salon',
+    alt: 'Real client dimensional honey-caramel balayage crafted at Angel Salon',
     objectPosition: 'center 30%',
   },
   {
@@ -48,7 +48,7 @@ export const heroSlidesData: HeroSlide[] = [
     src: '/images/real/interior_nail_bar.webp',
     srcSet: '/images/real/interior_nail_bar.webp 1600w',
     sizes: '(max-width: 640px) 100vw, 100vw',
-    alt: 'Dedicated backlit nail bar and lacquer collection at Angels Salon',
+    alt: 'Dedicated backlit nail bar and lacquer collection at Angel Salon',
     objectPosition: 'center center',
   },
 ];
@@ -211,28 +211,28 @@ export const homeData: HomeData = {
       id: "whatsapp-booking",
       title: "Book on WhatsApp",
       description: "Fast appointment assistance and slot confirmation with our team.",
-      href: `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent("Hi Angels Salon & Academy! I would like to schedule an appointment. Could you please share available slots?")}`,
+      href: `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent("Hi Angel Salon & Academy! I would like to schedule an appointment. Could you please share available slots?")}`,
       isExternal: true,
       icon: "whatsapp",
     },
   ],
 
   welcome: {
-    title: "Welcome to Angels Salon & Academy",
+    title: "Welcome to Angel Salon & Academy",
     subtitle: "A Dedicated Beauty Sanctuary in Ghatkopar East",
     paragraphs: [
-      "Conveniently situated in Shival Nagar, Pant Nagar, Angels Salon & Academy is a trusted unisex destination for modern hair artistry, clinical skincare, and certified beauty education.",
+      "Conveniently situated in Shival Nagar, Pant Nagar, Angel Salon & Academy is a trusted unisex destination for modern hair artistry, clinical skincare, and certified beauty education.",
       "Our team focuses on gentle techniques, thorough hygiene, and attentive consultations to deliver personalized results for every member of the family.",
     ],
     image: "/images/real/interior_studio_floor.webp",
-    imageAlt: "Angels Salon & Academy spacious modern salon floor, styling stations, and hair lounge in Ghatkopar East",
+    imageAlt: "Angel Salon & Academy spacious modern salon floor, styling stations, and hair lounge in Ghatkopar East",
     ctaText: "Read our story",
     ctaLink: "/about",
     verified: true,
   },
 
   reasons: {
-    heading: "Why Clients Choose Angels",
+    heading: "Why Clients Choose Angel",
     subheading: "What Clients Mention Most",
     description: "Themes reflected consistently across 630+ genuine Google reviews from our Pant Nagar community.",
     items: [
@@ -264,10 +264,10 @@ export const homeData: HomeData = {
   },
 
   academyTeaser: {
-    headline: "Angels Academy of Hair & Beauty",
+    headline: "Angel Academy of Hair & Beauty",
     subtext: "Hands-on hairdressing, bridal makeup, and cosmetology diplomas with direct mentorship in our Mumbai studio.",
     image: "/images/real/storefront_signage_gold.webp",
-    imageAlt: "Angels Salon & Academy 3D gold illuminated academy signage and boutique exterior in Ghatkopar East",
+    imageAlt: "Angel Salon & Academy 3D gold illuminated academy signage and boutique exterior in Ghatkopar East",
     ctaText: "Explore the Academy",
     ctaLink: "/academy",
     verified: true,
@@ -282,7 +282,7 @@ export const homeData: HomeData = {
   },
 
   finalCta: {
-    heading: "Begin your journey with Angels",
+    heading: "Begin your journey with Angel",
     subtext: "Experience attentive hair, beauty, and wellness services at our Ghatkopar East sanctuary.",
     primaryText: "Book on WhatsApp",
     secondaryText: "Browse Our Services",

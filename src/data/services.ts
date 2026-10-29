@@ -53,7 +53,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "Experience bespoke haircuts crafted with Vidal Sassoon geometric precision and high-fashion sensibility. Every session includes personalized face-shape diagnostic and luxury blowout finish.",
     heroImage: "/images/real/interior_styling_stations.webp",
     overviewImage: "/images/real/interior_styling_stations.webp",
-    seoTitle: "Women's Haircuts & Styling | Angels Salon Mumbai",
+    seoTitle: "Women's Haircuts & Styling | Angel Salon Mumbai",
     seoDescription: "Designer women's haircuts, red-carpet blowouts, and face-contouring layers in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
       {
@@ -184,9 +184,9 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Thermal Sculpting & Finishing", description: "Bespoke round-brush blowout or thermal ironing with UV/heat defense shield." },
     ],
     galleryImages: [
-      { image: "/images/real/client2_caramel_balayage_after.webp", alt: "Client styled dimensional balayage haircut at Angels Salon", title: "Dimensional Layered Cut" },
-      { image: "/images/real/interior_studio_floor.webp", alt: "Modern styling stations and interior floor at Angels Salon", title: "Styling Atelier" },
-      { image: "/images/real/interior_styling_stations.webp", alt: "Arched illuminated styling mirrors at Angels Salon", title: "Vanity Stations" },
+      { image: "/images/real/client2_caramel_balayage_after.webp", alt: "Client styled dimensional balayage haircut at Angel Salon", title: "Dimensional Layered Cut" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Modern styling stations and interior floor at Angel Salon", title: "Styling Atelier" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Arched illuminated styling mirrors at Angel Salon", title: "Vanity Stations" },
       { image: "/images/real/offer_hair_40.jpg", alt: "Flat 40% Off Hair Services offer banner", title: "Flat 40% Off Hair Special" },
     ],
     faqs: [
@@ -206,7 +206,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "From sun-kissed French balayage to rich chocolate espressos, our master colourists use L'Oréal Professionnel, Wella, Matrix, and Schwarzkopf formulas enriched with bond-protecting complexes.",
     heroImage: "/images/real/client2_caramel_balayage_after.webp",
     overviewImage: "/images/real/client2_caramel_balayage_after.webp",
-    seoTitle: "Women's Hair Colour & Balayage | Angels Salon Mumbai",
+    seoTitle: "Women's Hair Colour & Balayage | Angel Salon Mumbai",
     seoDescription: "Matrix & Wella hair color, French balayage, and ammonia-free global tints in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
       {
@@ -355,7 +355,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Acidic Glossing & Seal", description: "pH-balancing glaze locks color pigments inside the cuticle for long-lasting vibrancy." },
     ],
     galleryImages: [
-      { image: "/images/real/client2_caramel_balayage_after.webp", alt: "Real client honey-caramel balayage at Angels Salon", title: "Caramel French Balayage (After)" },
+      { image: "/images/real/client2_caramel_balayage_after.webp", alt: "Real client honey-caramel balayage at Angel Salon", title: "Caramel French Balayage (After)" },
       { image: "/images/real/client2_texture_before.webp", alt: "Natural dark hair before balayage color service", title: "Natural Base (Before)" },
       { image: "/images/real/offer_balayage_2999.jpg", alt: "Balayage, Highlights and Global starting Rs 2999 offer poster", title: "Balayage Special ₹2,999" },
       { image: "/images/real/offer_hair_40.jpg", alt: "Flat 40% Off Hair Services offer banner", title: "Flat 40% Off Hair Special" },
@@ -377,7 +377,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "A refined grooming experience designed for the modern gentleman. Enjoy razor-fade precision haircuts, beard sculpting, keratin texture treatments, and executive scalp massages in comfort.",
     heroImage: "/images/real/interior_studio_floor.webp",
     overviewImage: "/images/real/interior_studio_floor.webp",
-    seoTitle: "Men's Haircut, Beard Grooming & Hair Spa | Angels Mumbai",
+    seoTitle: "Men's Haircut, Beard Grooming & Hair Spa | Angel Mumbai",
     seoDescription: "Men's haircuts, beard contouring, keratin, hair spa, and global hair color in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
       {
@@ -554,8 +554,8 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Matte or Gloss Finish", description: "Styled with professional styling clay or pomade tailored to your day." },
     ],
     galleryImages: [
-      { image: "/images/real/interior_studio_floor.webp", alt: "Spacious studio styling stations at Angels Salon", title: "Styling Stations" },
-      { image: "/images/real/interior_styling_stations.webp", alt: "Dedicated grooming mirrors at Angels Salon", title: "Grooming Chairs" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Spacious studio styling stations at Angel Salon", title: "Styling Stations" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Dedicated grooming mirrors at Angel Salon", title: "Grooming Chairs" },
     ],
     faqs: [
       { question: "How long does a Men Haircut take?", answer: "Our signature Men Haircut takes approximately 20 to 30 minutes, or 45 minutes when paired with a hairwash and styling." },
@@ -574,7 +574,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "Transform your hair with ethically sourced, 100% Remy human hair extensions. Perfectly matched to your hair density and shade for invisible, lightweight wear.",
     heroImage: "/images/real/interior_styling_stations.webp",
     overviewImage: "/images/real/interior_wash_lounge.webp",
-    seoTitle: "Hair Extensions in Ghatkopar Mumbai | Angels Salon",
+    seoTitle: "Hair Extensions in Ghatkopar Mumbai | Angel Salon",
     seoDescription: "Seamless tape-in and keratin bond hair extensions in Ghatkopar East, Mumbai. Ethically sourced 100% Remy hair. Book on WhatsApp.",
     services: [
       {
@@ -613,8 +613,8 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Blending & Layering", description: "Bespoke dry cutting to seamlessly blend natural hair into the extensions." },
     ],
     galleryImages: [
-      { image: "/images/real/client1_glass_hair_after.webp", alt: "Full length sleek hair transformation at Angels Salon", title: "Seamless Length & Volume" },
-      { image: "/images/real/interior_styling_stations.webp", alt: "Private consultation vanity at Angels Salon", title: "Consultation Vanity" },
+      { image: "/images/real/client1_glass_hair_after.webp", alt: "Full length sleek hair transformation at Angel Salon", title: "Seamless Length & Volume" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Private consultation vanity at Angel Salon", title: "Consultation Vanity" },
     ],
     faqs: [
       { question: "How long do tape-in hair extensions last?", answer: "With proper home care, tape-in extensions last 6 to 8 weeks before needing to be moved up due to natural hair growth." },
@@ -633,7 +633,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "Reclaim mirror shine and silky softness with our advanced hair care menu. From anti-frizz Keratin Botox to Brazilian Nanoplastia and restorative hair spa rituals.",
     heroImage: "/images/real/client1_glass_hair_after.webp",
     overviewImage: "/images/real/client1_glass_hair_after.webp",
-    seoTitle: "Hair Smoothening, Botox & Nanoplastia | Angels Salon Mumbai",
+    seoTitle: "Hair Smoothening, Botox & Nanoplastia | Angel Salon Mumbai",
     seoDescription: "Hair Botox, Nanoplastia, Smoothening, Perming, and hair spa treatments in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
       {
@@ -955,9 +955,9 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Thermal Sealing & Neutralizing", description: "Calibrated ceramic ironing locks nutrients into the core of the hair fiber." },
     ],
     galleryImages: [
-      { image: "/images/real/client1_glass_hair_after.webp", alt: "Real client waist-length liquid glass hair nanoplastia at Angels Salon", title: "Liquid Glass Nanoplastia (After)" },
+      { image: "/images/real/client1_glass_hair_after.webp", alt: "Real client waist-length liquid glass hair nanoplastia at Angel Salon", title: "Liquid Glass Nanoplastia (After)" },
       { image: "/images/real/client1_texture_before.webp", alt: "Real client wavy coarse hair before smoothing treatment", title: "Pre-Treatment Texture (Before)" },
-      { image: "/images/real/interior_wash_lounge.webp", alt: "Luxury reclining hair wash and spa lounge at Angels Salon", title: "Restorative Spa Ritual" },
+      { image: "/images/real/interior_wash_lounge.webp", alt: "Luxury reclining hair wash and spa lounge at Angel Salon", title: "Restorative Spa Ritual" },
       { image: "/images/real/offer_hair_40.jpg", alt: "Flat 40% Off Hair Services offer banner", title: "Flat 40% Off Hair Special" },
     ],
     faqs: [
@@ -977,7 +977,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "From traditional Vedic pheras to contemporary cocktail receptions, our bridal master artists specialize in flawless HD and Airbrush bridal artistry that endures 18+ hours under high-definition photography.",
     heroImage: "/images/real/interior_styling_stations.webp",
     overviewImage: "/images/real/interior_spa_room.webp",
-    seoTitle: "Bridal Makeup & Saree Draping | Angels Salon Mumbai",
+    seoTitle: "Bridal Makeup & Saree Draping | Angel Salon Mumbai",
     seoDescription: "Luxury bridal makeup, party glam, sider makeup, and saree draping in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
       {
@@ -1055,9 +1055,9 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Dupatta, Saree & Jewelry Setting", description: "Architectural pin placement ensuring your bridal dupatta and jewellery remain weightless and secure." },
     ],
     galleryImages: [
-      { image: "/images/real/interior_styling_stations.webp", alt: "Bridal preparation vanity mirrors at Angels Salon", title: "Bridal Vanity Suite" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Bridal preparation vanity mirrors at Angel Salon", title: "Bridal Vanity Suite" },
       { image: "/images/real/interior_spa_room.webp", alt: "Private treatment room for bridal skin prep", title: "Private Suite" },
-      { image: "/images/real/storefront_signage_gold.webp", alt: "Angels Salon & Academy gold boutique signage", title: "Angels Boutique" },
+      { image: "/images/real/storefront_signage_gold.webp", alt: "Angel Salon & Academy gold boutique signage", title: "Angel Boutique" },
     ],
     faqs: [
       { question: "Do you offer bridal makeup trials?", answer: "Yes! We offer pre-wedding trials where we test base shades, lip swatches, and hair styling concepts before your big day." },
@@ -1076,8 +1076,8 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "Reveal porcelain clarity and youthful elasticity with our bespoke skin aesthetics menu. Featuring world-renowned Korean glass skin protocols, Skeyndor Oxygen infusions, machine hydra facials, and soothing full body spa rituals.",
     heroImage: "/images/real/interior_spa_room.webp",
     overviewImage: "/images/real/interior_skincare_dispensary.webp",
-    seoTitle: "Facials, Korean Glass Skin & Hydra Facial | Angels Mumbai",
-    seoDescription: "Korean Glass Facial, Skeyndor, Hydra Facial, D-tan, and clinical skincare treatments at Angels Salon, Ghatkopar East. Book on WhatsApp.",
+    seoTitle: "Facials, Korean Glass Skin & Hydra Facial | Angel Mumbai",
+    seoDescription: "Korean Glass Facial, Skeyndor, Hydra Facial, D-tan, and clinical skincare treatments at Angel Salon, Ghatkopar East. Book on WhatsApp.",
     services: [
       {
         id: 'korean-glass-facial',
@@ -1388,10 +1388,10 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Cryo Shield & Recovery", description: "Cryotherapy cooling hammer and alginate rubber mask lock in hydration." },
     ],
     galleryImages: [
-      { image: "/images/real/offer_skin_30.jpg", alt: "Flat 30% Off All Skin Services official poster at Angels Salon", title: "Flat 30% Off Skin Privilege" },
+      { image: "/images/real/offer_skin_30.jpg", alt: "Flat 30% Off All Skin Services official poster at Angel Salon", title: "Flat 30% Off Skin Privilege" },
       { image: "/images/real/offer_rica_wax_1199.jpg", alt: "Rica Waxing Full Hand, Leg, Underarms at Rs 1199 Members Package", title: "Rica Waxing Package ₹1,199" },
-      { image: "/images/real/interior_skincare_dispensary.webp", alt: "Professional Skeyndor and clinical skincare dispensary at Angels Salon", title: "Skeyndor & Clinical Dispensary" },
-      { image: "/images/real/interior_spa_room.webp", alt: "Private aesthetic treatment suite with warm candlelight at Angels Salon", title: "Private Spa Suite" },
+      { image: "/images/real/interior_skincare_dispensary.webp", alt: "Professional Skeyndor and clinical skincare dispensary at Angel Salon", title: "Skeyndor & Clinical Dispensary" },
+      { image: "/images/real/interior_spa_room.webp", alt: "Private aesthetic treatment suite with warm candlelight at Angel Salon", title: "Private Spa Suite" },
     ],
     faqs: [
       { question: "How often should I get a Korean Glass Facial?", answer: "For luminous, sustained glass skin, we recommend once every 3 to 4 weeks. First-timers often see immediate radiance right after their first session!" },
@@ -1410,7 +1410,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     heroIntro: "Give your hands and feet the royal treatment they deserve. Enjoy botanical foot soaks, exfoliating foot filing, cuticle nourishment, and flawless nail polish applications.",
     heroImage: "/images/real/interior_nail_bar.webp",
     overviewImage: "/images/real/interior_nail_bar.webp",
-    seoTitle: "Manicure, Pedicure & Nail Care | Angels Salon Mumbai",
+    seoTitle: "Manicure, Pedicure & Nail Care | Angel Salon Mumbai",
     seoDescription: "Regular & Deluxe Manicures, Pedicures, Hand & Feet facials in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
       {
@@ -1505,9 +1505,9 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Moisture Massage & Lacquer", description: "Hydrating lotion massage followed by base coat and long-wear nail lacquer." },
     ],
     galleryImages: [
-      { image: "/images/real/interior_nail_bar.webp", alt: "Dedicated custom illuminated nail bar and lacquer collection at Angels Salon", title: "Custom Nail Bar" },
-      { image: "/images/real/offer_nails_50.jpg", alt: "Flat 50% Off Manicure and Pedicure offer poster at Angels Salon", title: "Flat 50% Off Nails Special" },
-      { image: "/images/real/interior_studio_floor.webp", alt: "Modern clean salon interior at Angels Salon", title: "Salon Care Studio" },
+      { image: "/images/real/interior_nail_bar.webp", alt: "Dedicated custom illuminated nail bar and lacquer collection at Angel Salon", title: "Custom Nail Bar" },
+      { image: "/images/real/offer_nails_50.jpg", alt: "Flat 50% Off Manicure and Pedicure offer poster at Angel Salon", title: "Flat 50% Off Nails Special" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Modern clean salon interior at Angel Salon", title: "Salon Care Studio" },
       { image: "/images/real/offer_rica_wax_1199.jpg", alt: "Rica Waxing Members Package poster", title: "Members Grooming Package" },
     ],
     faqs: [

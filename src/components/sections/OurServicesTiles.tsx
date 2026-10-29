@@ -1,153 +1,151 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { homeServiceTiles } from '../../data/services';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
+import { buildWhatsAppLink } from '../../lib/whatsapp';
 
-const SERVICE_TAGS: Record<string, { tag: string; price: string; desc: string }> = {
-  haircut: {
-    tag: 'Hair Architecture',
-    price: 'From ₹1,200',
-    desc: 'Vidal Sassoon geometric cutting, curtain bangs, face contouring, and signature blowout finish.',
+export interface LustreServiceTile {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  path: string;
+  objectPosition?: string;
+}
+
+export const LUSTRE_SERVICES: LustreServiceTile[] = [
+  {
+    id: 'lived-in-colour',
+    title: 'Lived-in Colour',
+    description: 'Balayage, glosses and soft dimension, hand-painted to grow out beautifully.',
+    image: '/images/real/client2_caramel_balayage_after.webp',
+    alt: 'Dimensional French balayage and lived-in colour at Angel Salon Mumbai',
+    path: '/services/womens-hair-colour',
+    objectPosition: '50% 25%',
   },
-  colour: {
-    tag: 'Colour Artistry',
-    price: 'From ₹2,999',
-    desc: 'Dimensional French balayage, lived-in highlights, caramel ribbons, and ammonia-free toning.',
+  {
+    id: 'scalp-therapy',
+    title: 'Scalp Therapy',
+    description: 'A detoxifying cleanse and pressure-point massage for a healthier foundation.',
+    image: '/images/real/interior_wash_lounge.webp',
+    alt: 'Ergonomic wash lounge scalp therapy at Angel Salon Ghatkopar East',
+    path: '/services/hair-treatments',
+    objectPosition: '50% 50%',
   },
-  treatments: {
-    tag: 'Texture Restoration',
-    price: 'From ₹2,999',
-    desc: 'Mirror-glass Nanoplastia, Brazilian keratin infusions, botox smoothing, and scalp detox rituals.',
+  {
+    id: 'signature-cut',
+    title: 'Signature Cut',
+    description: 'A consultation-led cut, wash and finish shaped to your texture and routine.',
+    image: '/images/real/interior_styling_stations.webp',
+    alt: 'Precision Vidal Sassoon haircut and styling stations at Angel Salon',
+    path: '/services/womens-haircut-and-style',
+    objectPosition: '50% 40%',
   },
-  skin: {
-    tag: 'Skin Clinic',
-    price: 'From ₹1,500',
-    desc: 'Clinical glow clean-ups, hydra-infusion facials, anti-pigmentation therapies, and bridal skincare.',
+  {
+    id: 'nanoplastia-repair',
+    title: 'Nanoplastia & Repair',
+    description: 'Liquid glass hair smoothening and bond reconstruction that restores strength and mirror shine.',
+    image: '/images/real/client1_glass_hair_after.webp',
+    alt: 'Molecular Nanoplastia hair smoothening and liquid glass finish at Angel Salon',
+    path: '/services/hair-treatments',
+    objectPosition: '50% 30%',
   },
-  nails: {
-    tag: 'Nail Lounge',
-    price: 'From ₹999',
-    desc: 'Hard gel extensions, Russian overlay manicures, French tips, and luxury hand & foot reflexology.',
+  {
+    id: 'aesthetic-skincare',
+    title: 'Aesthetic Skincare',
+    description: 'Clinical Korean glass clean-ups, hydra-infusion facials and nourishing botanical therapies.',
+    image: '/images/real/interior_skincare_dispensary.webp',
+    alt: 'Luxury skincare dispensary and aesthetic facials at Angel Salon',
+    path: '/services/skin-care',
+    objectPosition: '50% 40%',
   },
-  bridal: {
-    tag: 'Bridal Couture',
-    price: 'From ₹5,000',
-    desc: 'HD airbrush bridal makeup, Paithani & Gujarati saree draping, and customized wedding party looks.',
+  {
+    id: 'boutique-nails',
+    title: 'Boutique Nail Bar',
+    description: 'Russian gel nail extensions, chrome finishes, deluxe manicures and hand-foot reflexology.',
+    image: '/images/real/interior_nail_bar.webp',
+    alt: 'Boutique illuminated nail bar and gel extensions lounge at Angel Salon Mumbai',
+    path: '/services/nails',
+    objectPosition: '50% 45%',
   },
-};
+];
 
 export const OurServicesTiles: React.FC = () => {
-  const verifiedTiles = homeServiceTiles.filter((tile) => tile.verified);
-
-  if (verifiedTiles.length === 0) {
-    return null;
-  }
+  const whatsAppBookingUrl = buildWhatsAppLink({
+    message: "Hi Angel Salon & Academy! I would like to book a service appointment. Could you please share available slots?",
+  });
 
   return (
     <Section id="services" tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="Our Salon Services Directory">
       <Container size="lg">
-        {/* Lustre Section Header */}
-        <div data-reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-              Curated Rituals
-            </span>
+        {/* Lustre Split Header */}
+        <div data-reveal className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-16">
+          <div className="max-w-xl">
+            <div className="flex items-center gap-2.5 mb-3">
+              <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
+              <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
+                Our Services
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-text leading-[1.15] tracking-tight">
+              Services, tailored <br className="hidden sm:inline" />
+              <span className="italic font-normal">to the way you live.</span>
+            </h2>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-4 leading-tight tracking-tight">
-            Services, tailored <br className="hidden sm:inline" />
-            <span className="italic">to the way you live.</span>
-          </h2>
-          <p className="text-sm sm:text-base text-text-muted leading-relaxed max-w-lg mx-auto">
-            From precision architecture and sun-kissed colour to clinical skincare and high-fashion bridal couture.
-          </p>
+          <div className="max-w-md flex flex-col items-start lg:items-end text-left lg:text-right gap-4">
+            <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-normal">
+              From a quick refresh to a full transformation, every service begins with a one-to-one consultation and finishes with a plan for home.
+            </p>
+            <a
+              href={whatsAppBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-dark/40 hover:border-dark text-text text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:bg-dark hover:text-text-inverse"
+            >
+              <span>Book Appointment</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
         </div>
 
-        {/* 6 Lustre Studio Editorial Service Cards */}
+        {/* 6 Lustre Editorial Service Cards with Zoom-in on hover */}
         <div
           data-reveal
           data-reveal-stagger
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto"
         >
-          {verifiedTiles.map((tile) => {
-            const meta = SERVICE_TAGS[tile.id] || {
-              tag: 'Studio Service',
-              price: 'Contact Desk',
-              desc: 'Personalized salon rituals crafted to enhance your natural beauty.',
-            };
+          {LUSTRE_SERVICES.map((service) => (
+            <Link
+              key={service.id}
+              to={service.path}
+              className="group relative aspect-[3/4.2] sm:aspect-[3/4] rounded-tl-[70px] sm:rounded-tl-[90px] rounded-tr-[24px] rounded-b-[24px] overflow-hidden bg-surface-subtle shadow-lustre-sm hover:shadow-lustre-md transition-all duration-500 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              aria-label={`Explore ${service.title}`}
+            >
+              {/* Background Image with Zoom-in Feature */}
+              <img
+                src={service.image}
+                alt={service.alt}
+                width={600}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                style={{ objectPosition: service.objectPosition || 'center' }}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none select-none"
+              />
 
-            return (
-              <div
-                key={tile.id}
-                className="group relative flex flex-col bg-surface rounded-[24px] sm:rounded-[28px] border border-border hover:border-gold/50 shadow-lustre-sm hover:shadow-lustre-md transition-all duration-300 overflow-hidden"
-              >
-                {/* Photo Frame with soft arch top */}
-                <div className="relative aspect-[16/11] w-full overflow-hidden bg-dark">
-                  {tile.photo && (
-                    <img
-                      src={tile.photo}
-                      alt={`${tile.label} at Angels Salon Mumbai`}
-                      width={600}
-                      height={420}
-                      loading="lazy"
-                      decoding="async"
-                      style={{ objectPosition: tile.objectPosition || 'center' }}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Category Pill Tag */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-surface/90 backdrop-blur-md text-text shadow-sm border border-border/80">
-                      {meta.tag}
-                    </span>
-                  </div>
-
-                  {/* Starting Price Pill */}
-                  <div className="absolute bottom-4 right-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-dark/90 backdrop-blur-md text-gold shadow-sm border border-gold/30">
-                      {meta.price}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content Body */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-text group-hover:text-gold transition-colors mb-2">
-                      {tile.label}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-6">
-                      {meta.desc}
-                    </p>
-                  </div>
-
-                  {/* Link action */}
-                  <div className="pt-4 border-t border-border/80 flex items-center justify-between">
-                    <Link
-                      to={`/services/${tile.slug}`}
-                      className="text-xs uppercase tracking-wider font-semibold text-text hover:text-gold transition-colors inline-flex items-center gap-1.5 focus:outline-none focus:ring-1 focus:ring-gold rounded-full"
-                    >
-                      <span>Explore Rituals</span>
-                      <span aria-hidden="true">&rarr;</span>
-                    </Link>
-
-                    <a
-                      href={`https://wa.me/917303312054?text=${encodeURIComponent(`Hi Angels Salon & Academy! I would like to inquire about ${tile.label} services.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] uppercase tracking-wider font-bold text-gold-text hover:text-gold transition-colors px-3 py-1 rounded-full bg-gold/10 hover:bg-gold/20"
-                    >
-                      Book
-                    </a>
-                  </div>
-                </div>
+              {/* Bottom Frosted Card Overlay */}
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-4 sm:p-5 rounded-[20px] bg-white/85 dark:bg-surface/90 backdrop-blur-md border border-white/70 shadow-lg text-left transition-transform duration-300 group-hover:-translate-y-1">
+                <h3 className="font-serif text-xl sm:text-2xl font-normal text-text mb-1 group-hover:text-gold-text transition-colors leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-text-muted leading-relaxed line-clamp-2">
+                  {service.description}
+                </p>
               </div>
-            );
-          })}
+            </Link>
+          ))}
         </div>
 
         {/* Directory CTA Pill Button */}

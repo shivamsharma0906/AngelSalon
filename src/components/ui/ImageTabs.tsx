@@ -141,7 +141,6 @@ export const ImageTabs: React.FC<ImageTabsProps> = ({
           aspectRatio={aspectRatio}
           radius={radius}
           border={border}
-          caption={activeItem.caption}
           priority={priority && activeIndex === 0}
           width={activeItem.width || 1600}
           height={activeItem.height || 1200}

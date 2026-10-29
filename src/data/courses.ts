@@ -66,7 +66,7 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
     shortDescription: "Government-recognized diplomas in classic cutting, advanced French balayage, and chemical smoothening with 80% practical training on live models.",
     heroHeadline: "Master the Architecture of Hairdressing",
     heroIntro: "From foundational trichology and Vidal Sassoon haircut geometry to cutting-edge balayage and nano-keratin infusions, our hair diplomas are designed to take you from a passionate beginner to an employable master stylist.",
-    seoTitle: "Hairdressing Courses Mumbai | Angels Academy",
+    seoTitle: "Hairdressing Courses Mumbai | Angel Academy",
     seoDescription: "Certified hairdressing diplomas, balayage masterclasses, and chemical texture courses in Ghatkopar East, Mumbai. Live model practice. Enroll on WhatsApp.",
     courses: [
       {
@@ -87,7 +87,7 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
           "Chemical texture: Keratin, Cysteine, Botox & Smoothening",
           "Client consultation, salon hygiene, and retail upselling",
         ],
-        certificateInfo: "Angels Master Hairdressing Diploma + Government Recognized Skill Certification",
+        certificateInfo: "Angel Master Hairdressing Diploma + Government Recognized Skill Certification",
         practicalTrainingHours: "240+ Hours Practical Studio Work",
         includesKit: true,
       },
@@ -123,8 +123,8 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
       ],
     },
     studentWorkGallery: [
-      { image: "/images/real/storefront_facade.webp", alt: "Angels Salon & Academy official storefront and academy entrance", title: "Academy Entrance & Signage" },
-      { image: "/images/real/interior_studio_floor.webp", alt: "Angels Salon practical training floor and hydraulic styling stations", title: "Practical Training Atelier" },
+      { image: "/images/real/storefront_facade.webp", alt: "Angel Salon & Academy official storefront and academy entrance", title: "Academy Entrance & Signage" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Angel Salon practical training floor and hydraulic styling stations", title: "Practical Training Atelier" },
       { image: "/images/real/interior_styling_stations.webp", alt: "Arched illuminated vanity stations for student hands-on practice", title: "Student Styling Stations" },
       { image: "/images/real/interior_wash_lounge.webp", alt: "Professional shampoo backwash lounge for student hair treatment practice", title: "Hair Wash & Spa Lab" },
     ],
@@ -135,7 +135,7 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
       },
       {
         question: "Are live models provided by the academy?",
-        answer: "Yes, Angels Academy arranges live client models for our students so you gain real salon confidence before graduating.",
+        answer: "Yes, Angel Academy arranges live client models for our students so you gain real salon confidence before graduating.",
       },
       {
         question: "Is this certificate valid outside India?",
@@ -149,7 +149,7 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
     shortDescription: "Advance bridal couture, HD airbrush mechanics, international eye artistry, and traditional saree draping masterclasses.",
     heroHeadline: "Command High-Ticket Bridal & Editorial Bookings",
     heroIntro: "Learn the secrets behind long-lasting, camera-ready bridal transformations. Master colour theory, skin priming, HD airbrush application, Nauvari and modern saree draping, and professional portfolio photography.",
-    seoTitle: "Bridal Makeup Courses Mumbai | Angels Academy",
+    seoTitle: "Bridal Makeup Courses Mumbai | Angel Academy",
     seoDescription: "Advance bridal couture makeup, HD airbrush techniques, and traditional saree draping courses in Ghatkopar East, Mumbai. Enroll on WhatsApp.",
     courses: [
       {
@@ -209,7 +209,7 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
       { image: "/images/real/interior_styling_stations.webp", alt: "Professional vanity stations with shadow-free lighting for makeup practice", title: "Cosmetology Vanity Stations" },
       { image: "/images/real/interior_spa_room.webp", alt: "Private clinical aesthetic suite for skincare and facial training", title: "Clinical Aesthetics Suite" },
       { image: "/images/real/interior_nail_bar.webp", alt: "Dedicated backlit nail bar for manicure and nail art training", title: "Nail Art Training Station" },
-      { image: "/images/real/storefront_signage_gold.webp", alt: "Angels Salon & Academy 3D gold brand signage in Ghatkopar East", title: "Angels Academy Campus" },
+      { image: "/images/real/storefront_signage_gold.webp", alt: "Angel Salon & Academy 3D gold brand signage in Ghatkopar East", title: "Angel Academy Campus" },
     ],
     faqs: [
       {
@@ -235,7 +235,7 @@ export function getCourseCategoryBySlug(slug: string): CourseCategoryDetail | un
 // Backward compatible data exports for Overview & Teaser
 export const academyData = {
   heroTagline: "Launch Your Career as an Elite Hair & Beauty Stylist",
-  heroDescription: "Government-recognized diplomas and international syllabus training at Angels Academy, Ghatkopar East. Learn from industry masters with 80% hands-on live client practice.",
+  heroDescription: "Government-recognized diplomas and international syllabus training at Angel Academy, Ghatkopar East. Learn from industry masters with 80% hands-on live client practice.",
   whyLearnPoints: [
     {
       title: "80% Practical On Live Models",
@@ -285,7 +285,7 @@ export const academyData = {
       batchYear: "2025 Graduate",
       placedRole: "Senior Hair Stylist",
       salonPlacement: "Leading Luxury Salon, Bandra",
-      quote: "The hands-on client practice at Angels Academy gave me the exact confidence I needed to ace my senior stylist practical interview on the first attempt.",
+      quote: "The hands-on client practice at Angel Academy gave me the exact confidence I needed to ace my senior stylist practical interview on the first attempt.",
     },
     {
       studentName: "Sneha Patel",
@@ -293,14 +293,14 @@ export const academyData = {
       batchYear: "2025 Graduate",
       placedRole: "Freelance Bridal Artist",
       salonPlacement: "Self-Employed (Over 40+ Destination Brides Booked)",
-      quote: "Angels didn't just teach me makeup; they taught me how to present myself, drape heavy bridal sarees swiftly, and price my services with authority.",
+      quote: "Angel didn't just teach me makeup; they taught me how to present myself, drape heavy bridal sarees swiftly, and price my services with authority.",
     },
     {
       studentName: "Amit Verma",
       courseCompleted: "Comprehensive Diploma in Professional Hairdressing",
       batchYear: "2024 Graduate",
       placedRole: "Creative Colourist",
-      salonPlacement: "Angels Salon Flagship, Ghatkopar",
+      salonPlacement: "Angel Salon Flagship, Ghatkopar",
       quote: "Learning colour theory here unlocked an entirely new career for me. The directors care deeply about each student's personal growth.",
     },
   ],
@@ -323,7 +323,7 @@ export const academyData = {
     },
     {
       question: "What happens after graduation? Do you guarantee salon interviews?",
-      answer: "We provide 100% placement support. Top salon brands regularly visit Angels Academy for campus recruitment, and top-performing students are offered direct employment at Angels Salon branches.",
+      answer: "We provide 100% placement support. Top salon brands regularly visit Angel Academy for campus recruitment, and top-performing students are offered direct employment at Angel Salon branches.",
     },
   ],
 };

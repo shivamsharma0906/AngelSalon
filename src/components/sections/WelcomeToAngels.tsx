@@ -13,7 +13,7 @@ export const WelcomeToAngels: React.FC = () => {
   }
 
   return (
-    <Section tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="About Angels Salon & Academy">
+    <Section tone="surface" className="py-20 sm:py-28 border-t border-border" aria-label="About Angel Salon & Academy">
       <Container size="lg">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -26,11 +26,6 @@ export const WelcomeToAngels: React.FC = () => {
               aspectRatio="aspect-[4/5]"
               radius="arch-tall"
               border="gold"
-              caption={{
-                title: 'Ghatkopar East Flagship',
-                subtitle: 'Precision Styling Stations',
-                badge: 'Est. 2014',
-              }}
               width={1200}
               height={1600}
             />
@@ -38,12 +33,6 @@ export const WelcomeToAngels: React.FC = () => {
 
           {/* Editorial Copy Column */}
           <div data-reveal className="lg:col-span-7 flex flex-col items-start text-left order-1 lg:order-2">
-            <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" aria-hidden="true" />
-              <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-gold-text font-semibold">
-                Our Philosophy
-              </span>
-            </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-text mb-6 leading-tight tracking-tight">
               Every client is a canvas, <br className="hidden sm:inline" />

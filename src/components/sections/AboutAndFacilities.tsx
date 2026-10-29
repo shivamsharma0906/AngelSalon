@@ -158,24 +158,15 @@ export const AboutAndFacilities: React.FC<AboutAndFacilitiesProps> = ({
             <div className="mb-6 relative rounded-2xl overflow-hidden border border-border bg-ink shadow-xl group">
               <div className="aspect-[16/9] max-h-[520px] w-full overflow-hidden flex items-center justify-center bg-ink">
                 <img
-                  src="/images/real/storefront_signage_gold.webp"
-                  alt="Angels Salon & Academy 3D gold brand signage and boutique entrance in Ghatkopar East, Mumbai"
+                  src="/images/real/storefront_frontal.webp"
+                  alt="Angel Salon & Academy straight-on storefront facade and illuminated signage in Ghatkopar East, Mumbai"
                   width={1600}
                   height={1200}
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
                   loading="lazy"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 right-2.5 sm:right-4 flex flex-wrap items-center justify-between gap-2">
-                {/* <span className="bg-ink/90 backdrop-blur-md border border-gold/40 text-[9.5px] xs:text-[10px] sm:text-xs font-semibold text-gold px-2.5 py-1 sm:px-3 sm:py-1 rounded-full uppercase tracking-luxury shadow-sm">
-                  Flagship Storefront &amp; Academy • Pant Nagar, Ghatkopar East
-                </span> */}
-                <span className="text-[11px] text-text-subtle bg-surface/85 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-border hidden sm:inline-block">
-                  Open 7 Days • 9:30 AM – 9:00 PM
-                </span>
               </div>
-            </div>
 
             {/* Address Pill Bar */}
             <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl bg-ink/70 border border-border hover:border-gold/40 transition-colors">
