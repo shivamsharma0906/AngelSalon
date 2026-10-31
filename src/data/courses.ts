@@ -123,7 +123,7 @@ export const courseCategoriesData: CourseCategoryDetail[] = [
       ],
     },
     studentWorkGallery: [
-      { image: "/images/real/storefront_facade.webp", alt: "Angel Salon & Academy official storefront and academy entrance", title: "Academy Entrance & Signage" },
+      { image: "/images/real/storefront_frontal.webp", alt: "Angel Salon & Academy official storefront and academy entrance", title: "Academy Entrance & Signage" },
       { image: "/images/real/interior_studio_floor.webp", alt: "Angel Salon practical training floor and hydraulic styling stations", title: "Practical Training Atelier" },
       { image: "/images/real/interior_styling_stations.webp", alt: "Arched illuminated vanity stations for student hands-on practice", title: "Student Styling Stations" },
       { image: "/images/real/interior_wash_lounge.webp", alt: "Professional shampoo backwash lounge for student hair treatment practice", title: "Hair Wash & Spa Lab" },

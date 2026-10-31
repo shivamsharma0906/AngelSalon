@@ -23,8 +23,8 @@ export const featuredResults: FeaturedResult[] = [
     reviewId: 'r1',
     clientName: 'Mamta Bhogle',
     service: 'Liquid Glass Smoothening & Nanoplastia',
-    image: '/images/real/client1_glass_hair_after.webp',
-    imageAlt: 'Real client waist-length pin-straight liquid glass hair at Angel Salon',
+    image: '/images/real/client_glass_hair_smooth.webp',
+    imageAlt: 'Real client waist-length liquid glass hair Nanoplastia smoothening at Angel Salon',
     whatsappMessage: 'Hi Angel Salon! I saw the liquid glass smoothening result and would like to schedule a consultation.',
   },
   {

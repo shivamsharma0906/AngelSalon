@@ -4,7 +4,6 @@ import { SEO, generateLocalBusinessSchema, generateEducationalOrganizationSchema
 import { Hero } from '../components/sections/Hero';
 import { WelcomeToAngels } from '../components/sections/WelcomeToAngels';
 import { OurServicesTiles } from '../components/sections/OurServicesTiles';
-import { StudioGallery } from '../components/sections/StudioGallery';
 import { AcademyTeaser } from '../components/sections/AcademyTeaser';
 import { WhyChooseUs } from '../components/sections/WhyChooseUs';
 import { GoogleReviews } from '../components/sections/GoogleReviews';
@@ -45,10 +44,7 @@ export const Home: React.FC = () => {
         {/* 3. Curated Services Directory */}
         <OurServicesTiles />
 
-        {/* 4. Inside the Studio Gallery (Lustre 6-Photo Editorial Grid) */}
-        <StudioGallery />
-
-        {/* 5. Dedicated Angel Academy Showcase */}
+        {/* 4. Dedicated Angel Academy Showcase */}
         <AcademyTeaser />
 
         {/* 6. Why Guests Choose Angel (4 Pillars) */}

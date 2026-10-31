@@ -82,7 +82,7 @@ export function generateLocalBusinessSchema() {
     '@id': `${siteConfig.url}/#${branch.id}`,
     name: `${siteConfig.name} - ${branch.name}`,
     description: siteConfig.description,
-    image: `${siteConfig.url}/images/real/storefront_facade.webp`,
+    image: `${siteConfig.url}/images/real/storefront_frontal.webp`,
     url: siteConfig.url,
     telephone: branch.phone,
     priceRange: 'INR 500-5000',

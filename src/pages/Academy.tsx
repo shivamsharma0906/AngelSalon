@@ -25,7 +25,7 @@ export const Academy: React.FC = () => {
       title: "Professional Makeup Courses",
       slug: "makeup-courses",
       path: "/academy/makeup-courses",
-      image: "/images/real/storefront_facade.webp",
+      image: "/images/real/storefront_frontal.webp",
       alt: "Angel Salon & Academy storefront showing official illuminated academy signage",
       description: "Command high-ticket bridal bookings with advance HD airbrush techniques, traditional Nauvari/Gujarati saree draping, and Russian nail art.",
       badge: "Bridal Artistry Diplomas",

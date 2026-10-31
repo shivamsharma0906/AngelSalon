@@ -105,8 +105,8 @@ export const AcademyTeaser: React.FC = () => {
           {/* Right Column: Architectural Lustre Arched Image using FramedImage */}
           <div data-reveal="image" className="lg:col-span-5">
             <FramedImage
-              src="/images/real/interior_studio_floor.webp"
-              alt="Angel Academy hands-on styling atelier and student live model practice in Ghatkopar East"
+              src="/images/real/storefront_signage_gold.webp"
+              alt="Angel Academy campus and 3D gold brand signage in Ghatkopar East"
               focalPoint="50% 45%"
               aspectRatio="aspect-[4/5]"
               radius="arch-tall"

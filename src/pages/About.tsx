@@ -255,8 +255,8 @@ export const About: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div data-reveal="image" className="w-full">
                   <FramedImage
-                    src="/images/real/client1_glass_hair_after.webp"
-                    alt="Real client waist-length liquid glass hair smoothening result at Angel Salon"
+                    src="/images/real/client_happy_stylist_consultation.webp"
+                    alt="Master stylist and delighted client in front of vanity mirror at Angel Salon"
                     focalPoint="50% 30%"
                     aspectRatio="aspect-[4/5]"
                     radius="rounded"
@@ -267,9 +267,9 @@ export const About: React.FC = () => {
                 </div>
                 <div data-reveal="image" className="w-full mt-6">
                   <FramedImage
-                    src="/images/real/client2_caramel_balayage_after.webp"
-                    alt="Real client dimensional honey-caramel balayage executed at Angel Salon"
-                    focalPoint="50% 25%"
+                    src="/images/real/interior_spa_room.webp"
+                    alt="Private serene spa treatment suite and aesthetic care room at Angel Salon"
+                    focalPoint="50% 40%"
                     aspectRatio="aspect-[4/5]"
                     radius="rounded"
                     border="gold"

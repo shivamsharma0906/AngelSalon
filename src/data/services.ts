@@ -184,7 +184,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Thermal Sculpting & Finishing", description: "Bespoke round-brush blowout or thermal ironing with UV/heat defense shield." },
     ],
     galleryImages: [
-      { image: "/images/real/client2_caramel_balayage_after.webp", alt: "Client styled dimensional balayage haircut at Angel Salon", title: "Dimensional Layered Cut" },
+      { image: "/images/real/interior_wash_lounge.webp", alt: "Angel Salon ergonomic wash lounge and scalp care stations", title: "Wash & Scalp Care" },
       { image: "/images/real/interior_studio_floor.webp", alt: "Modern styling stations and interior floor at Angel Salon", title: "Styling Atelier" },
       { image: "/images/real/interior_styling_stations.webp", alt: "Arched illuminated styling mirrors at Angel Salon", title: "Vanity Stations" },
       { image: "/images/real/offer_hair_40.jpg", alt: "Flat 40% Off Hair Services offer banner", title: "Flat 40% Off Hair Special" },
@@ -204,8 +204,8 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     shortDescription: "French balayage, dimensional highlights, Matrix global tints, and zero-ammonia couture formulas.",
     heroHeadline: "Luminous Depth & Dimensional Artistry",
     heroIntro: "From sun-kissed French balayage to rich chocolate espressos, our master colourists use L'Oréal Professionnel, Wella, Matrix, and Schwarzkopf formulas enriched with bond-protecting complexes.",
-    heroImage: "/images/real/client2_caramel_balayage_after.webp",
-    overviewImage: "/images/real/client2_caramel_balayage_after.webp",
+    heroImage: "/images/real/interior_styling_stations.webp",
+    overviewImage: "/images/real/client_balayage_highlights.webp",
     seoTitle: "Women's Hair Colour & Balayage | Angel Salon Mumbai",
     seoDescription: "Matrix & Wella hair color, French balayage, and ammonia-free global tints in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
@@ -355,8 +355,8 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Acidic Glossing & Seal", description: "pH-balancing glaze locks color pigments inside the cuticle for long-lasting vibrancy." },
     ],
     galleryImages: [
-      { image: "/images/real/client2_caramel_balayage_after.webp", alt: "Real client honey-caramel balayage at Angel Salon", title: "Caramel French Balayage (After)" },
-      { image: "/images/real/client2_texture_before.webp", alt: "Natural dark hair before balayage color service", title: "Natural Base (Before)" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Angel Salon bespoke colour bar and styling stations", title: "Custom Colour Suite" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Spacious salon floor and training atelier at Angel Salon", title: "Salon Atelier" },
       { image: "/images/real/offer_balayage_2999.jpg", alt: "Balayage, Highlights and Global starting Rs 2999 offer poster", title: "Balayage Special ₹2,999" },
       { image: "/images/real/offer_hair_40.jpg", alt: "Flat 40% Off Hair Services offer banner", title: "Flat 40% Off Hair Special" },
     ],
@@ -613,7 +613,7 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Blending & Layering", description: "Bespoke dry cutting to seamlessly blend natural hair into the extensions." },
     ],
     galleryImages: [
-      { image: "/images/real/client1_glass_hair_after.webp", alt: "Full length sleek hair transformation at Angel Salon", title: "Seamless Length & Volume" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Spacious salon floor and extension consultation stations at Angel Salon", title: "Styling Atelier" },
       { image: "/images/real/interior_styling_stations.webp", alt: "Private consultation vanity at Angel Salon", title: "Consultation Vanity" },
     ],
     faqs: [
@@ -631,8 +631,8 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
     shortDescription: "Smoothening, Botox, Nanoplastia, Perming, Kerasmoothening, Protein treatments, and Ritual hair spas.",
     heroHeadline: "Molecular Restoration & Texture Mastery",
     heroIntro: "Reclaim mirror shine and silky softness with our advanced hair care menu. From anti-frizz Keratin Botox to Brazilian Nanoplastia and restorative hair spa rituals.",
-    heroImage: "/images/real/client1_glass_hair_after.webp",
-    overviewImage: "/images/real/client1_glass_hair_after.webp",
+    heroImage: "/images/real/interior_wash_lounge.webp",
+    overviewImage: "/images/real/client3_silk_press_after.webp",
     seoTitle: "Hair Smoothening, Botox & Nanoplastia | Angel Salon Mumbai",
     seoDescription: "Hair Botox, Nanoplastia, Smoothening, Perming, and hair spa treatments in Ghatkopar East, Mumbai. Book on WhatsApp.",
     services: [
@@ -955,9 +955,9 @@ export const serviceCategoriesData: ServiceCategoryDetail[] = [
       { step: "04", title: "Thermal Sealing & Neutralizing", description: "Calibrated ceramic ironing locks nutrients into the core of the hair fiber." },
     ],
     galleryImages: [
-      { image: "/images/real/client1_glass_hair_after.webp", alt: "Real client waist-length liquid glass hair nanoplastia at Angel Salon", title: "Liquid Glass Nanoplastia (After)" },
-      { image: "/images/real/client1_texture_before.webp", alt: "Real client wavy coarse hair before smoothing treatment", title: "Pre-Treatment Texture (Before)" },
       { image: "/images/real/interior_wash_lounge.webp", alt: "Luxury reclining hair wash and spa lounge at Angel Salon", title: "Restorative Spa Ritual" },
+      { image: "/images/real/interior_styling_stations.webp", alt: "Arched illuminated styling mirrors at Angel Salon", title: "Vanity Stations" },
+      { image: "/images/real/interior_studio_floor.webp", alt: "Modern styling stations and interior floor at Angel Salon", title: "Styling Atelier" },
       { image: "/images/real/offer_hair_40.jpg", alt: "Flat 40% Off Hair Services offer banner", title: "Flat 40% Off Hair Special" },
     ],
     faqs: [
@@ -1559,7 +1559,7 @@ export const homeServiceTiles: HomeServiceTile[] = [
     id: 'colour',
     slug: 'womens-hair-colour',
     label: 'Hair Colour',
-    photo: '/images/real/client2_caramel_balayage_after.webp',
+    photo: '/images/real/client_balayage_highlights.webp',
     objectPosition: 'center 30%',
     verified: true,
   },
@@ -1567,7 +1567,7 @@ export const homeServiceTiles: HomeServiceTile[] = [
     id: 'treatments',
     slug: 'hair-treatments',
     label: 'Hair Treatments',
-    photo: '/images/real/client1_glass_hair_after.webp',
+    photo: '/images/real/client3_silk_press_after.webp',
     objectPosition: 'center 35%',
     verified: true,
   },

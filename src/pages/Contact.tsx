@@ -22,6 +22,7 @@ interface ContactFormValues {
 interface FormErrors {
   name?: string;
   phone?: string;
+  branch?: string;
   serviceOrCourse?: string;
 }
 
@@ -80,7 +81,12 @@ const contactFormSchema: Record<keyof FormErrors, SchemaFieldRule[]> = {
       message: 'Please enter a valid 10-digit Indian mobile number (e.g. 98200 12345).',
     },
   ],
-  
+  branch: [
+    {
+      validate: (v) => v.trim().length > 0,
+      message: 'Please choose a salon branch.',
+    },
+  ],
   serviceOrCourse: [
     {
       validate: (v) => v.trim().length > 0,
@@ -195,8 +201,8 @@ export const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact & Location | Angel Salon & Academy Mumbai"
-        description="Visit Angel Salon & Academy in Ghatkopar East, Mumbai. Find driving directions, opening hours, contact numbers, and send instant booking requests via WhatsApp."
+        title="Contact & Location | ANGEL Salon & Academy Mumbai"
+        description="Visit ANGEL Salon & Academy in Ghatkopar East, Mumbai. Find driving directions, opening hours, contact numbers, and send instant booking requests via WhatsApp."
         canonicalPath="/contact"
         schemaData={contactSchema}
       />
@@ -219,7 +225,7 @@ export const Contact: React.FC = () => {
             </h1>
             <LaurelDivider size="md" />
             <p className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto leading-relaxed font-light mt-3">
-              Visit our flagship salon &amp; academy in Ghatkopar East, reach out directly by phone, or submit an instant WhatsApp appointment request.
+              Visit our flagship salon & academy in Ghatkopar East, reach out directly by phone, or submit an instant WhatsApp appointment request.
             </p>
           </Container>
         </section>
@@ -259,8 +265,8 @@ export const Contact: React.FC = () => {
                   {/* Storefront Exterior Photo */}
                   <div data-reveal="image" className="w-full aspect-[16/9] rounded-[20px] overflow-hidden border border-border mb-4 bg-dark shadow-sm">
                     <img
-                      src="/images/real/storefront_facade.webp"
-                      alt="Angel Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai"
+                      src="/images/real/storefront_frontal.webp"
+                      alt="ANGEL Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai"
                       width={1920}
                       height={1440}
                       className="w-full h-full object-cover object-center"
@@ -314,11 +320,9 @@ export const Contact: React.FC = () => {
                       onLoad={() => setIsMapLoaded(true)}
                       referrerPolicy="strict-origin-when-cross-origin"
                       title={`${branch.name} Map`}
-                      className={`w-full h-full grayscale-[20%] contrast-[105%] transition-opacity duration-500 ${
-                        isMapLoaded ? 'opacity-100' : 'opacity-0'
-                      } ${
-                        isMapActive ? 'pointer-events-auto' : 'pointer-events-none md:pointer-events-auto'
-                      }`}
+                      className={`w-full h-full grayscale-[20%] contrast-[105%] transition-opacity duration-500 ${isMapLoaded ? 'opacity-100' : 'opacity-0'
+                        } ${isMapActive ? 'pointer-events-auto' : 'pointer-events-none md:pointer-events-auto'
+                        }`}
                     ></iframe>
 
                     {/* Mobile Tap-To-Interact Protection Overlay */}
@@ -390,9 +394,8 @@ export const Contact: React.FC = () => {
                       aria-required="true"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
-                      className={`w-full min-h-[48px] bg-background border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
-                        errors.name ? 'border-red-600 focus:border-red-600' : 'border-border focus:border-gold'
-                      }`}
+                      className={`w-full min-h-[48px] bg-background border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${errors.name ? 'border-red-600 focus:border-red-600' : 'border-border focus:border-gold'
+                        }`}
                     />
                     {errors.name && (
                       <p id="name-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
@@ -419,9 +422,8 @@ export const Contact: React.FC = () => {
                       aria-required="true"
                       aria-invalid={!!errors.phone}
                       aria-describedby={errors.phone ? 'phone-error' : undefined}
-                      className={`w-full min-h-[48px] bg-background border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${
-                        errors.phone ? 'border-red-600 focus:border-red-600' : 'border-border focus:border-gold'
-                      }`}
+                      className={`w-full min-h-[48px] bg-background border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text placeholder-text-muted focus:outline-none scroll-mt-24 transition-colors ${errors.phone ? 'border-red-600 focus:border-red-600' : 'border-border focus:border-gold'
+                        }`}
                     />
                     {errors.phone && (
                       <p id="phone-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
@@ -431,6 +433,30 @@ export const Contact: React.FC = () => {
                   </div>
 
                   {/* Branch Select */}
+                  <div>
+                    <label htmlFor="branch" className="block text-xs uppercase tracking-wider text-text font-medium mb-1.5">
+                      Preferred Branch <span className="text-gold-text">*</span>
+                    </label>
+                    <select
+                      id="branch"
+                      name="branch"
+                      value={formData.branch}
+                      onChange={handleInputChange}
+                      aria-required="true"
+                      aria-invalid={!!errors.branch}
+                      aria-describedby={errors.branch ? 'branch-error' : undefined}
+                      className="w-full min-h-[48px] bg-background border border-border rounded-[14px] px-4 py-3 text-base sm:text-sm text-text focus:outline-none focus:border-gold transition-colors"
+                    >
+                      <option value="Ghatkopar East (Flagship Salon & Academy)">
+                        Ghatkopar East (Flagship Salon &amp; Academy)
+                      </option>
+                    </select>
+                    {errors.branch && (
+                      <p id="branch-error" className="text-xs text-red-700 font-medium mt-1.5" role="alert">
+                        {errors.branch}
+                      </p>
+                    )}
+                  </div>
 
                   {/* Service or Course Category Select */}
                   <div>

@@ -94,7 +94,7 @@ export const SALON_IMAGE_ASSETS: Record<string, ImageAssetMeta> = {
   },
   storefrontFacade: {
     id: 'storefront-facade',
-    src: '/images/real/storefront_facade.webp',
+    src: '/images/real/storefront_frontal.webp',
     alt: 'Angel Salon & Academy storefront exterior and illuminated signage in Ghatkopar East, Mumbai',
     focalPoint: '50% 40%',
     intrinsicWidth: 1600,

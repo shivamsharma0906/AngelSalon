@@ -75,8 +75,8 @@ export const WelcomeToAngels: React.FC = () => {
               aria-hidden="true"
             >
               <img
-                src="/images/real/client1_glass_hair_after.webp"
-                alt="Client styling ritual"
+                src="/images/real/client_haircut_styling_ritual.webp"
+                alt="Client styling ritual at vanity mirror"
                 width={200}
                 height={200}
                 loading="lazy"
